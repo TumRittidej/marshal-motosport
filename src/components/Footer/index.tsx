@@ -1,10 +1,10 @@
 import { FC } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+
 import Container from '../container'
 import LogoImage from '@/assets/logo.png'
 import QrCodeImage from '@/assets/QR-Code.png'
-import Image from 'next/image'
-import Link from 'next/link'
-import { WifiOutlined } from '@ant-design/icons'
 
 const Footer: FC = () => {
   return (
@@ -64,7 +64,7 @@ const Footer: FC = () => {
           <ul className="text-white w-3/4">
             <li className="pb-2 flex gap-2">
               <div className="pt-1">
-                <WifiOutlined className="text-primary" />
+                <i className="icon-mark text-xl" />
               </div>
               <div>
                 <p className="text-xl font-medium">
@@ -78,15 +78,15 @@ const Footer: FC = () => {
             </li>
             <li className="pb-2 flex items-center gap-2">
               <div>
-                <WifiOutlined className="text-primary" />
+                <i className="icon-telephone text-xl" />
               </div>
               <p className="text-xl">098 568 9828</p>
             </li>
             <li className="flex items-center gap-2">
               <div>
-                <WifiOutlined className="text-primary" />
+                <i className="icon-envelope text-xl" />
               </div>
-              <p className="text-xl">chai@marshal-motosport.page</p>
+              <p className="text-xl text-xl">chai@marshal-motosport.page</p>
             </li>
           </ul>
           <div className="w-1/4 py-12 pl-12">

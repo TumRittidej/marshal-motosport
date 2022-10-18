@@ -1,0 +1,62 @@
+@font-face {
+  font-family: 'marshal-sport-icon';
+  src: url(../assets/icon/icomoon.eot) format('embedded-opentype'),
+    url(../assets/icon/icomoon.ttf) format('truetype'),
+    url(../assets/icon/icomoon.woff) format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+i {
+  font-family: marshal-sport-icon, sans-serif !important;
+  font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-user:before {
+  content: "\e907";
+}
+
+.icon-register:before {
+  content: "\1f322";
+}
+
+.icon-cart:before {
+  content: "\e900";
+}
+
+.icon-instagram:before {
+  content: "\e901";
+}
+
+.icon-facebook:before {
+  content: "\e902";
+}
+
+.icon-youtube:before {
+  content: "\e909";
+}
+
+.icon-location-mark:before {
+  content: "\e904";
+}
+
+.icon-mark:before {
+  content: "\e905";
+  color: #fbd430;
+}
+
+.icon-envelope:before {
+  content: "\e903";
+  color: #fbd430;
+}
+
+.icon-telephone:before {
+  content: "\e908";
+  color: #fbd430;
+}

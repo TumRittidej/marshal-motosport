@@ -16,10 +16,26 @@ a {
   font-family: 'Kanit', sans-serif;
 }
 
-.bg-contact-1 {
-  background-image: url('../assets/bg-1.png') !important;
-  background-position: center !important;
-  background-size: cover !important;
+.bg-1 {
+  background-size: 70%;
+  background-image: url('../assets/bg-1.png');
+  background-repeat: no-repeat;
+  background-position-x: 150%;
+  background-position-y: 50%;
+}
+
+.bg-2--cover {
+  background-size: cover;
+  background-image: url('../assets/bg-2.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.bg-2--position-y-20 {
+  background-size: cover;
+  background-image: url('../assets/bg-2.png');
+  background-repeat: no-repeat;
+  background-position: 50% 20%;
 }
 
 p, ul, h1, h2, h3, h4, h5 {
@@ -27,12 +43,20 @@ p, ul, h1, h2, h3, h4, h5 {
 }
 
 .ant-input-search-button{
-  background-color: black !important;
+  background-color: #000 !important;
   border: none !important;
   box-shadow: none !important;
   padding: 0 8px 0 0 !important;
 }
 
 .ant-input {
-  color: white !important;
+  /* color: #fff !important; */
+}
+
+.hover-product-img {
+  opacity: 20 !important;
+}
+
+.ant-form-item {
+  margin-bottom: 16px !important;
 }
