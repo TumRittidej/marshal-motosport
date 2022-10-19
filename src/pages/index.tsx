@@ -18,7 +18,6 @@ import OurServiceImage4 from '@/assets/img/home/our-service-4.png'
 import OurServiceImage5 from '@/assets/img/home/our-service-5.png'
 import OurServiceImage6 from '@/assets/img/home/our-service-6.png'
 import OurServiceImage7 from '@/assets/img/home/our-service-7.png'
-import OurServiceImage8 from '@/assets/img/home/our-service-8.png'
 import Link from 'next/link'
 
 const Home: NextPage = () => {
@@ -121,22 +120,16 @@ const Home: NextPage = () => {
     },
     {
       image: OurServiceImage5,
-      title: 'Sole Distributor',
-      decsription:
-        'เป็นผู้นำเข้าสินค้าแต่งมอเตอร์ไซน์ที่มีคุณภาพสูงและมีการรับประกันสินค้า',
-    },
-    {
-      image: OurServiceImage6,
       title: 'Dealer',
       decsription: 'รับสมัครตัวแทนจำหน่ายทั่วประเทศ',
     },
     {
-      image: OurServiceImage7,
+      image: OurServiceImage6,
       title: 'Time Saving',
       decsription: 'ประหยัดเวลาคุณได้ด้วยการสั่งซื้อจากตัวแทนจำหน่ายของเรา',
     },
     {
-      image: OurServiceImage8,
+      image: OurServiceImage7,
       title: 'Best Support',
       decsription: 'หลังจากซื้อขายแล้วเรายังช่วยบริการหลังการขาย',
     },
@@ -264,7 +257,7 @@ const Home: NextPage = () => {
             Our
             <span className="text-primary"> Service</span>
           </h1>
-          <div className="pt-15 grid grid-cols-4 gap-x-10 gap-y-12">
+          {/* <div className="pt-15 grid grid-cols-4 gap-x-10 gap-y-12">
             {ourServiceItems.map((service, index) => {
               return (
                 <div key={index} className="text-center">
@@ -276,6 +269,25 @@ const Home: NextPage = () => {
                     />
                   </div>
                   <h3 className="text-white text-2xl pt-8">{service.title}</h3>
+                  <p className="text-white text-lg pt-2">
+                    {service.decsription}
+                  </p>
+                </div>
+              )
+            })}
+          </div> */}
+          <div className="flex flex-wrap justify-center gap-x-12 gap-y-10 pt-15">
+            {ourServiceItems.map((service, index) => {
+              return (
+                <div key={index} className="max-w-[270px] text-center">
+                  <div className="h-[75px] w-1/4 m-auto">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      layout="responsive"
+                    />
+                  </div>
+                  <h3 className="text-white text-2xl pt-6">{service.title}</h3>
                   <p className="text-white text-lg pt-2">
                     {service.decsription}
                   </p>
