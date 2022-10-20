@@ -1,9 +1,9 @@
 import { FC } from 'react'
 import Image from 'next/image'
-import Container from '@/components/container'
-import NewsImage from '@/assets/img/news/news-1.png'
-import { Button } from 'antd'
 import Link from 'next/link'
+import NewsImage from '@/assets/img/news/news-1.png'
+import Container from '@/components/container'
+import { Button } from 'antd'
 
 const News: FC = () => {
   const newsImage = [

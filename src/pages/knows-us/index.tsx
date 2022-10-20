@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { FC } from 'react'
 import Container from '@/components/container'
+
 import ContactImage1 from '@/assets/img/contact/contact-1.png'
 import ContactImage2 from '@/assets/img/contact/contact-2.png'
 import ContactImage3 from '@/assets/img/contact/contact-3.png'

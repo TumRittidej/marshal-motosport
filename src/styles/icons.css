@@ -7,8 +7,17 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'caret-icon';
+  src: url(../assets/icon/caret-both.eot) format('embedded-opentype'),
+    url(../assets/icon/caret-both.ttf) format('truetype'),
+    url(../assets/icon/caret-both.woff) format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 i {
-  font-family: marshal-sport-icon, sans-serif !important;
+  font-family: marshal-sport-icon, caret-icon, sans-serif !important;
   font-style: normal;
   font-weight: normal !important;
   font-variant: normal;
@@ -59,4 +68,12 @@ i {
 .icon-telephone:before {
   content: "\e908";
   color: #fbd430;
+}
+
+.caret-right-icon:before {
+  content: "\e90b";
+}
+
+.caret-left-icon:before {
+  content: "\e90a";
 }

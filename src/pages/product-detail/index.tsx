@@ -1,10 +1,4 @@
-import React, {
-  FC,
-  MouseEventHandler,
-  SetStateAction,
-  useRef,
-  useState,
-} from 'react'
+import { FC, useState } from 'react'
 import ProductImage1 from '@/assets/img/home/product-1.png'
 import ProductImage2 from '@/assets/img/home/product-2.png'
 import ProductImage3 from '@/assets/img/home/product-3.png'
