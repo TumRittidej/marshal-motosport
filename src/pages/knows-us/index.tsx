@@ -151,7 +151,7 @@ const Contact: FC = () => {
           </div>
         </Container>
       </div>
-      <div className="bg-2--position-x-20">
+      <div className="bg-2--position-y-20">
         <Container>
           <div className="pt-15 flex gap-12">
             <div className="w-2/4">

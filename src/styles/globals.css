@@ -6,6 +6,10 @@ body {
   margin: 0;
 }
 
+html {
+  scroll-behavior: smooth !important;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -38,25 +42,33 @@ a {
   background-position: 50% 20%;
 }
 
+.bg-2--position-y-5 {
+  background-size: cover;
+  background-image: url('../assets/bg-2.png');
+  background-repeat: no-repeat;
+  background-position: 50% 5%;
+}
+
+.bg-3 {
+  background-size: contain;
+  background-image: url('../assets/bg-3.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 p, ul, h1, h2, h3, h4, h5 {
   margin-bottom: 0 !important;
 }
 
-.ant-input-search-button{
-  background-color: #000 !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 0 8px 0 0 !important;
+.wrapper-image {
+  margin: 0;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  margin-bottom: 10px;
+  break-inside: avoid;
 }
 
-.ant-input {
-  /* color: #fff !important; */
-}
-
-.hover-product-img {
-  opacity: 20 !important;
-}
-
-.ant-form-item {
-  margin-bottom: 16px !important;
+.wrapper-image img {
+  grid-row: 1 / -1;
+  grid-column: 1;
 }

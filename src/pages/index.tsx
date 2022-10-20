@@ -223,7 +223,8 @@ const Home: NextPage = () => {
                 <div key={index} className="group cursor-pointer">
                   <Link href="/product-detail">
                     <a target="_blank">
-                      <div className="group-hover:">
+                      <div className="relative">
+                        <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 z-1 transition duration-200" />
                         <Image
                           src={product.image}
                           alt={product.alternative}
@@ -257,25 +258,6 @@ const Home: NextPage = () => {
             Our
             <span className="text-primary"> Service</span>
           </h1>
-          {/* <div className="pt-15 grid grid-cols-4 gap-x-10 gap-y-12">
-            {ourServiceItems.map((service, index) => {
-              return (
-                <div key={index} className="text-center">
-                  <div className="h-[80px] w-1/4 m-auto">
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      layout="responsive"
-                    />
-                  </div>
-                  <h3 className="text-white text-2xl pt-8">{service.title}</h3>
-                  <p className="text-white text-lg pt-2">
-                    {service.decsription}
-                  </p>
-                </div>
-              )
-            })}
-          </div> */}
           <div className="flex flex-wrap justify-center gap-x-12 gap-y-10 pt-15">
             {ourServiceItems.map((service, index) => {
               return (

@@ -1,0 +1,29 @@
+/* home page */
+.ant-input-search-button {
+  background-color: #000 !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 8px 0 0 !important;
+}
+
+/* form */
+.ant-form-item {
+  margin-bottom: 12px !important;
+}
+
+/* resgister page */
+.form-label--white label {
+  color: #fff !important;
+}
+
+/* header */
+.search-input--text .ant-input {
+  color: #fff !important;
+}
+.button--focus .ant-btn:focus {
+  background: none;
+}
+
+.ant-form-item-label {
+  padding-bottom: 4px !important;
+}

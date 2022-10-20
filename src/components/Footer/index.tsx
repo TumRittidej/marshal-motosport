@@ -11,7 +11,7 @@ const Footer: FC = () => {
     <div className="bg-black">
       <Container>
         <div className="flex items-center justify-between border-b">
-          <div className="w-1/4">
+          <div className="w-1/6">
             <Image
               src={LogoImage}
               layout="responsive"
@@ -20,12 +20,12 @@ const Footer: FC = () => {
           </div>
           <ul className="flex gap-10 text-lg font-semibold">
             <li>
-              <Link href="#">
+              <Link href="/">
                 <a className="text-white hover:text-primary">หน้าแรก</a>
               </Link>
             </li>
             <li>
-              <Link href="#">
+              <Link href="/product">
                 <a className="text-white hover:text-primary">สินค้า</a>
               </Link>
             </li>
@@ -37,24 +37,24 @@ const Footer: FC = () => {
               </Link>
             </li>
             <li>
-              <Link href="#">
+              <Link href="/service">
                 <a className="text-white hover:text-primary">บริการ</a>
               </Link>
             </li>
             <li>
-              <Link href="#">
+              <Link href="/news">
                 <a className="text-white hover:text-primary">
                   ข่าวสารและกิจกรรม
                 </a>
               </Link>
             </li>
             <li>
-              <Link href="#">
+              <Link href="/knows-us">
                 <a className="text-white hover:text-primary">รู้จักเรา</a>
               </Link>
             </li>
             <li>
-              <Link href="#">
+              <Link href="/#section-contact">
                 <a className="text-white hover:text-primary">ติดต่อ</a>
               </Link>
             </li>

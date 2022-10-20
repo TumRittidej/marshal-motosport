@@ -1,4 +1,10 @@
-import React, { FC, MouseEventHandler, SetStateAction, useState } from 'react'
+import React, {
+  FC,
+  MouseEventHandler,
+  SetStateAction,
+  useRef,
+  useState,
+} from 'react'
 import ProductImage1 from '@/assets/img/home/product-1.png'
 import ProductImage2 from '@/assets/img/home/product-2.png'
 import ProductImage3 from '@/assets/img/home/product-3.png'
@@ -21,7 +27,7 @@ const ProductDetail: FC = () => {
     setAmount(n)
   }
 
-  const imageItemsCarousel = [
+  const imageItems = [
     {
       image: ProductImage1,
       alternative: 'Product',
@@ -41,16 +47,18 @@ const ProductDetail: FC = () => {
   ]
 
   const [image, setImage] = useState<StaticImageData | string>(
-    imageItemsCarousel[0].image
+    imageItems[0].image
   )
+  const [selectImageIdx, setselectImageIdx] = useState(0)
 
-  const handleClickImage = (image: StaticImageData) => {
+  const handleClickImage = (image: StaticImageData, index: number) => {
+    setselectImageIdx(index)
     setImage(image.src)
   }
 
   return (
     <section className="bg-black pt-44">
-      <div className="bg-2--position-y-20 pb-40">
+      <div className="bg-2--position-y-5 pb-40">
         <h1 className="pt-20 pb-10 text-4xl font-semibold text-primary text-center">
           สินค้า
         </h1>
@@ -68,12 +76,16 @@ const ProductDetail: FC = () => {
                 />
               </div>
               <div className="flex gap-2 pt-2">
-                {imageItemsCarousel.map((image, index) => {
+                {imageItems.map((image, index) => {
                   return (
                     <div
                       key={index}
-                      className="w-1/4 cursor-pointer border-2 border-transparent hover:border-2 hover:border-primary focus:border-primary"
-                      onClick={() => handleClickImage(image.image)}
+                      className={`w-1/4 cursor-pointer border-2 hover:border-2 hover:border-primary ${
+                        selectImageIdx === index
+                          ? 'border-primary'
+                          : 'border-transparent'
+                      }`}
+                      onClick={() => handleClickImage(image.image, index)}
                     >
                       <Image
                         src={image.image}

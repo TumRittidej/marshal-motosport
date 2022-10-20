@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Container from '@/components/container'
 import NewsImage from '@/assets/img/news/news-1.png'
 import { Button } from 'antd'
+import Link from 'next/link'
 
 const News: FC = () => {
   const newsImage = [
@@ -89,16 +90,23 @@ const News: FC = () => {
           <div className="grid grid-cols-4 gap-10">
             {newsImage.map((item, index) => {
               return (
-                <div key={index}>
-                  <Image
-                    src={item.image}
-                    alt={item.alternative}
-                    layout="responsive"
-                  />
-                  <p className="pt-2 text-lg text-primary text-center">
-                    {item.paragraph}
-                  </p>
-                </div>
+                <Link href="/news-detail" key={index}>
+                  <a>
+                    <div className="overflow-hidden relative group">
+                      <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 z-1 transition duration-200" />
+                      <Image
+                        className="transform group-hover:scale-125 transition duration-200"
+                        src={item.image}
+                        alt={item.alternative}
+                        layout="responsive"
+                        loading="lazy"
+                      />
+                    </div>
+                    <p className="pt-2 text-lg text-primary text-center">
+                      {item.paragraph}
+                    </p>
+                  </a>
+                </Link>
               )
             })}
           </div>
