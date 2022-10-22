@@ -8,6 +8,15 @@
 }
 
 @font-face {
+  font-family: 'marshal-sport-icon-2';
+  src: url(../assets/icon/icomoon-2.eot) format('embedded-opentype'),
+    url(../assets/icon/icomoon-2.ttf) format('truetype'),
+    url(../assets/icon/icomoon-2.woff) format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'caret-icon';
   src: url(../assets/icon/caret-both.eot) format('embedded-opentype'),
     url(../assets/icon/caret-both.ttf) format('truetype'),
@@ -17,7 +26,7 @@
 }
 
 i {
-  font-family: marshal-sport-icon, caret-icon, sans-serif !important;
+  font-family: marshal-sport-icon, caret-icon, marshal-sport-icon-2, sans-serif !important;
   font-style: normal;
   font-weight: normal !important;
   font-variant: normal;
@@ -70,10 +79,34 @@ i {
   color: #fbd430;
 }
 
-.caret-right-icon:before {
+.icon-caret-right:before {
   content: "\e90b";
 }
 
-.caret-left-icon:before {
+.icon-caret-left:before {
   content: "\e90a";
+}
+
+.icon-clock:before {
+  content: "\e910";
+}
+
+.icon-cross:before {
+  content: "\e911";
+}
+
+.icon-calendar:before {
+  content: "\e912";
+}
+
+.icon-plus:before {
+  content: "\e913";
+}
+
+.icon-minus:before {
+  content: "\e914";
+}
+
+.icon-logout:before {
+  content: "\e915";
 }

@@ -23,7 +23,15 @@
 .button--focus .ant-btn:focus, .ant-btn-text:active, .ant-btn-text:hover, .ant-btn-text:focus {
   background: none !important;
 }
+.dropdown--header .ant-dropdown-menu-item:hover {
+  background: none !important;
+}
+.dropdown--list .ant-dropdown-menu-item {
+  margin-bottom: 8px !important;
+}
 
+/* form */
 .ant-form-item-label {
   padding-bottom: 4px !important;
 }
+

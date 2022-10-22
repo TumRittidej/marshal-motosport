@@ -1,8 +1,9 @@
-import React, { FC, useState } from 'react'
-import { Badge, Button, Form, Input } from 'antd'
+import React, { FC, MouseEvent, useState } from 'react'
+import { Badge, Button, Dropdown, Form, Input, Menu, Space } from 'antd'
 import Search from 'antd/lib/input/Search'
-import { useRouter } from 'next/router'
+import { CaretDownOutlined } from '@ant-design/icons'
 
+import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -47,22 +48,110 @@ const Header: FC = () => {
     },
   ]
 
+  const [loginPass, setLoginPass] = useState(false)
+
+  const handleClickLogin = () => {
+    setRotate(false)
+    setLoginPass(true)
+    setIsOpenModel(false)
+    console.log(loginPass, '1')
+  }
+
+  const menu = (
+    <Menu
+      className="pt-2 px-2 w-50 rounded dropdown--header dropdown--list"
+      items={[
+        {
+          label: (
+            <a
+              href="https://www.antgroup.com"
+              className="text-base text-black hover:text-primary"
+            >
+              ข้อมูลส่วนตัว
+            </a>
+          ),
+          key: '0',
+        },
+        {
+          label: (
+            <a
+              href="https://www.aliyun.com"
+              className="text-base text-black hover:text-primary"
+            >
+              รายการสั่งซื้อ
+            </a>
+          ),
+          key: '1',
+        },
+        {
+          type: 'divider',
+        },
+        {
+          label: (
+            <div
+              className="flex items-center gap-2 text-black hover:text-primary"
+              onClick={() => setLoginPass(false)}
+            >
+              <i className="icon-logout text-xl" />
+              <p className="text-base">ออกจากระบบ</p>
+            </div>
+          ),
+          key: '3',
+        },
+      ]}
+    />
+  )
+
+  const [rotate, setRotate] = useState(false)
+
+  const rotateCaret = (e: MouseEvent<HTMLAnchorElement>) => {
+    setRotate(!rotate)
+    e.preventDefault()
+  }
+
+  const checkActiveMenu = (href: string) => {
+    return router.asPath === href
+  }
   return (
     <div className="fixed inset-x-0 z-100">
+      <div
+        className={`fixed inset-0 z-101 ${isOpenModal ? 'block' : 'hidden'}`}
+        onClick={() => setIsOpenModel(false)}
+      />
       <div className="bg-primary">
         <Container>
           <div className="flex items-center justify-between h-14">
             <div className="flex gap-5">
               <div className="relative">
                 <div
-                  className="flex items-center gap-2 group cursor-pointer"
+                  className={`flex items-center gap-2 group cursor-pointer ${
+                    loginPass ? 'hidden' : 'block'
+                  }`}
                   onClick={onOpenModal}
                 >
                   <i className="icon-user text-xl" />
-                  <h3 className="group-hover:underline">เข้าสู่ระบบ</h3>
+                  <h3>เข้าสู่ระบบ</h3>
                 </div>
+                <Dropdown
+                  className={`${!loginPass ? 'hidden' : 'block'}`}
+                  overlay={menu}
+                  trigger={['click']}
+                  onOpenChange={(open) => setRotate(open)}
+                >
+                  <a onClick={(e) => rotateCaret(e)}>
+                    <Space className="text-black">
+                      <i className="icon-user text-xl" />
+                      Developer
+                      <CaretDownOutlined
+                        className={`transform transition duration-300 ${
+                          rotate ? 'rotate-180' : 'rotate-0'
+                        }`}
+                      />
+                    </Space>
+                  </a>
+                </Dropdown>
                 <div
-                  className={`absolute top-[42px] rounded bg-white w-70 z-101 p-4 transition duration-200 ${
+                  className={`absolute top-[42px] rounded bg-white w-70 z-102 p-4 transition duration-200 ${
                     isOpenModal
                       ? 'transform scale-100'
                       : 'transform scale-0 -translate-y-45 -translate-x-20'
@@ -85,8 +174,9 @@ const Header: FC = () => {
                     </Form.Item>
                     <Form.Item className="text-center pt-4">
                       <Button
+                        onClick={handleClickLogin}
                         htmlType="submit"
-                        className="hover:text-primary bg-primary hover:bg-transparent duration-200 border border-primary w-full"
+                        className="text-black hover:text-primary bg-primary hover:bg-transparent duration-200 border border-primary w-full"
                       >
                         เข้าสู่ระบบ
                       </Button>
@@ -124,12 +214,14 @@ const Header: FC = () => {
                   </p>
                 </div>
               </div>
-              <Link href="/register">
-                <a className="flex items-center gap-2 group">
-                  <i className="icon-register text-black text-xl" />
-                  <h3 className="group-hover:underline">สมัครสมาชิก</h3>
-                </a>
-              </Link>
+              <div className={`${loginPass ? 'hidden' : 'block'} `}>
+                <Link href="/register">
+                  <a className="flex items-center gap-2 group">
+                    <i className="icon-register text-black text-xl" />
+                    <h3 className="group-hover:underline">สมัครสมาชิก</h3>
+                  </a>
+                </Link>
+              </div>
             </div>
             <div className="flex gap-2">
               <Button
@@ -180,7 +272,7 @@ const Header: FC = () => {
                       <Link href={menu.href}>
                         <a
                           className={`hover:text-primary ${
-                            router.pathname === menu.href
+                            checkActiveMenu(menu.href)
                               ? 'text-primary'
                               : 'text-white'
                           }`}

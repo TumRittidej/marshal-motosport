@@ -50,7 +50,7 @@ const index = () => {
               type="link"
               className="text-white hover:text-primary text-xl gap-2 flex items-center"
             >
-              <i className="caret-left-icon text-2xl" />
+              <i className="icon-caret-left text-2xl" />
               <div>Back</div>
             </Button>
             <Button
@@ -58,7 +58,7 @@ const index = () => {
               className="text-white hover:text-primary text-xl gap-2 flex items-center"
             >
               <div>Next</div>
-              <i className="caret-right-icon text-2xl" />
+              <i className="icon-caret-right text-2xl" />
             </Button>
           </div>
         </Container>

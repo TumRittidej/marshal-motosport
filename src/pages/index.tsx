@@ -19,6 +19,7 @@ import OurServiceImage5 from '@/assets/img/home/our-service-5.png'
 import OurServiceImage6 from '@/assets/img/home/our-service-6.png'
 import OurServiceImage7 from '@/assets/img/home/our-service-7.png'
 import Link from 'next/link'
+import { useRef } from 'react'
 
 const Home: NextPage = () => {
   const productItems = [
@@ -134,6 +135,8 @@ const Home: NextPage = () => {
       decsription: 'หลังจากซื้อขายแล้วเรายังช่วยบริการหลังการขาย',
     },
   ]
+
+  const sectionContactRef = useRef<HTMLDivElement>(null)
 
   return (
     <section className="pt-44 bg-black">
@@ -280,8 +283,9 @@ const Home: NextPage = () => {
         </Container>
       </div>
       <h1
-        className="pt-30 pb-10 text-4xl font-semibold text-white text-center"
+        className="pt-45 pb-10 text-4xl font-semibold text-white text-center"
         id="section-contact"
+        ref={sectionContactRef}
       >
         ติดต่อ
         <span className="text-primary">เรา</span>
