@@ -24,10 +24,11 @@ import Image from 'next/image'
 
 const User = () => {
   const router = useRouter()
+  console.log(router.query)
 
   const menusUser = [
     {
-      href: '/user',
+      href: '/account',
       text: 'ข้อมูลส่วนตัว',
     },
     {

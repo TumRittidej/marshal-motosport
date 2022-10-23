@@ -9,6 +9,8 @@ import Image from 'next/image'
 
 import LogoImage from '@/assets/logo.png'
 import Container from '../container'
+import LoginModal from './component/LoginModal'
+import DropdownHeader from './component/DropdownHeader'
 
 const Header: FC = () => {
   const menusHeader = [
@@ -56,52 +58,52 @@ const Header: FC = () => {
     setIsOpenModel(false)
   }
 
-  const menu = (
-    <Menu
-      className="pt-2 px-2 w-50 rounded dropdown--header dropdown--list"
-      items={[
-        {
-          label: (
-            <div onClick={() => setRotate(false)}>
-              <Link href="/user">
-                <a className="block text-base text-black hover:text-primary">
-                  ข้อมูลส่วนตัว
-                </a>
-              </Link>
-            </div>
-          ),
-          key: '0',
-        },
-        {
-          label: (
-            <div onClick={() => setRotate(false)}>
-              <Link href="/">
-                <a className="block text-base text-black hover:text-primary">
-                  รายการสั่งซื้อ
-                </a>
-              </Link>
-            </div>
-          ),
-          key: '1',
-        },
-        {
-          type: 'divider',
-        },
-        {
-          label: (
-            <div
-              className="flex items-center gap-2 text-black hover:text-primary transition duration-300"
-              onClick={() => setLoginPass(false)}
-            >
-              <i className="icon-logout text-xl" />
-              <p className="text-base">ออกจากระบบ</p>
-            </div>
-          ),
-          key: '3',
-        },
-      ]}
-    />
-  )
+  // const menu = (
+  //   <Menu
+  //     className="pt-2 px-2 w-50 rounded dropdown--header dropdown--list"
+  //     items={[
+  //       {
+  //         label: (
+  //           <div onClick={() => setRotate(false)}>
+  //             <Link href="/user">
+  //               <a className="block text-base text-black hover:text-primary">
+  //                 ข้อมูลส่วนตัว
+  //               </a>
+  //             </Link>
+  //           </div>
+  //         ),
+  //         key: '0',
+  //       },
+  //       {
+  //         label: (
+  //           <div onClick={() => setRotate(false)}>
+  //             <Link href="/">
+  //               <a className="block text-base text-black hover:text-primary">
+  //                 รายการสั่งซื้อ
+  //               </a>
+  //             </Link>
+  //           </div>
+  //         ),
+  //         key: '1',
+  //       },
+  //       {
+  //         type: 'divider',
+  //       },
+  //       {
+  //         label: (
+  //           <div
+  //             className="flex items-center gap-2 text-black hover:text-primary transition duration-300"
+  //             onClick={() => setLoginPass(false)}
+  //           >
+  //             <i className="icon-logout text-xl" />
+  //             <p className="text-base">ออกจากระบบ</p>
+  //           </div>
+  //         ),
+  //         key: '3',
+  //       },
+  //     ]}
+  //   />
+  // )
 
   const checkActiveMenu = (href: string) => {
     return router.asPath === href
@@ -126,7 +128,13 @@ const Header: FC = () => {
                   <i className="icon-user text-xl" />
                   <h3>เข้าสู่ระบบ</h3>
                 </div>
-                <Dropdown
+                <DropdownHeader
+                  className={`${!loginPass ? 'hidden' : 'block'}`}
+                  handleClickLogout={() => setLoginPass(false)}
+                  rotate={rotate}
+                  setRotate={setRotate}
+                />
+                {/* <Dropdown
                   className={`${!loginPass ? 'hidden' : 'block'}`}
                   overlay={menu}
                   trigger={['click']}
@@ -143,70 +151,15 @@ const Header: FC = () => {
                       />
                     </Space>
                   </a>
-                </Dropdown>
-                <div
+                </Dropdown> */}
+                <LoginModal
                   className={`absolute top-[42px] rounded bg-white w-70 z-102 p-4 transition duration-200 ${
                     isOpenModal
                       ? 'transform scale-100'
                       : 'transform scale-0 -translate-y-45 -translate-x-20'
                   }`}
-                >
-                  <h2 className="text-lg text-center">เข้าสู่ระบบ</h2>
-                  <Form layout="vertical">
-                    <Form.Item label="อีเมล">
-                      <Input type="text" />
-                    </Form.Item>
-                    <Form.Item label="รหัสผ่าน">
-                      <Input.Password type="text" />
-                      <Link href="#">
-                        <a target="_blank" className="underline text-gray-500">
-                          <div className="text-right text-xs pt-2">
-                            ลืมรหัสผ่าน?
-                          </div>
-                        </a>
-                      </Link>
-                    </Form.Item>
-                    <Form.Item className="text-center pt-4">
-                      <Button
-                        onClick={handleClickLogin}
-                        htmlType="submit"
-                        className="text-black hover:text-primary bg-primary hover:bg-transparent duration-200 border border-primary w-full"
-                      >
-                        เข้าสู่ระบบ
-                      </Button>
-                    </Form.Item>
-                  </Form>
-                  <div className="relative py-4">
-                    <div className="border" />
-                    <div className="text-gray-500 absolute top-0 left-2/4 bg-white transform -translate-x-2/4 border p-1 w-8 rounded-full">
-                      หรือ
-                    </div>
-                  </div>
-                  <div className="py-2">
-                    <Button
-                      htmlType="submit"
-                      className="text-white bg-blue-600 opacity-100 hover:opacity-90 duration-200 border border-blue-600 w-full"
-                    >
-                      เข้าสู่ระบบด้วย Facebook
-                    </Button>
-                  </div>
-                  <div>
-                    <Button
-                      htmlType="submit"
-                      className="text-white bg-red-500 opacity-100 hover:opacity-90 hover:bg- duration-200 border border-red-500 w-full"
-                    >
-                      เข้าสู่ระบบด้วย Google
-                    </Button>
-                  </div>
-                  <p className="text-xs text-gray-500 text-center pt-3">
-                    คุณไม่ได้เป็นสมาชิก?{' '}
-                    <Link href="/register">
-                      <a target="_blank" className="underline text-gray-700">
-                        สมัครสมาชิก
-                      </a>
-                    </Link>
-                  </p>
-                </div>
+                  onClick={handleClickLogin}
+                />
               </div>
               <div className={`${loginPass ? 'hidden' : 'block'} `}>
                 <Link href="/register">
