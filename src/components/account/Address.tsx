@@ -1,0 +1,201 @@
+import { Button, Checkbox, Col, Form, Input, Row, Select } from 'antd'
+import { FC, useState } from 'react'
+import { PlusOutlined } from '@ant-design/icons'
+import { Option } from 'antd/lib/mentions'
+import type { RadioChangeEvent } from 'antd'
+import type { CheckboxChangeEvent } from 'antd/es/checkbox'
+
+const Address: FC = () => {
+  const onChange = (value: string) => {
+    console.log(`selected ${value}`)
+  }
+
+  const onSearch = (value: string) => {
+    console.log('search:', value)
+  }
+
+  const handleChangeDefaultAddress = (e: CheckboxChangeEvent) => {
+    console.log(`checked = ${e.target.checked}`)
+  }
+
+  const [value, setValue] = useState(1)
+  const handleChangeAddress = (e: RadioChangeEvent) => {
+    console.log('radio checked', e.target.value)
+    setValue(e.target.value)
+  }
+  return (
+    <>
+      {/* ที่อยู่การจัดส่ง 1 */}
+      <div className="flex justify-between">
+        <h2 className="text-primary text-xl">ที่อยู่การจัดส่ง</h2>
+        <Button
+          type="link"
+          className="text-primary text-lg flex items-center"
+          icon={<PlusOutlined />}
+        >
+          เพิ่มที่อยู่การจัดส่ง
+        </Button>
+      </div>
+
+      <Form layout="vertical" className="pt-6">
+        <Row gutter={32}>
+          <Col span={12}>
+            <Form.Item
+              label="ชื่อ-นามสกุล ผู้รับสินค้า"
+              className="form-label--white"
+            >
+              <Input type="text" />
+            </Form.Item>
+          </Col>
+          <Col span={12}>
+            <Form.Item label="เบอร์ติดต่อ" className="form-label--white">
+              <Input type="tel" />
+            </Form.Item>
+          </Col>
+        </Row>
+        <Form.Item label="ที่อยู่การจัดส่ง" className="form-label--white">
+          <Input
+            type="text"
+            placeholder="ชื่อที่อยู่ หมู่บ้าน, บ้านเลขที่, ตึก, อาคาร"
+          />
+        </Form.Item>
+        <Row gutter={32}>
+          <Col span={12}>
+            <Form.Item label="ตำบล / แขวง" className="form-label--white">
+              <Select
+                showSearch
+                placeholder="Select a person"
+                optionFilterProp="children"
+                onChange={onChange}
+                onSearch={onSearch}
+                filterOption={(input, option) =>
+                  (option!.children as unknown as string)
+                    .toLowerCase()
+                    .includes(input.toLowerCase())
+                }
+              >
+                <Option value="jack">Jack</Option>
+                <Option value="lucy">Lucy</Option>
+                <Option value="tom">Tom</Option>
+              </Select>
+            </Form.Item>
+          </Col>
+          <Col span={12}>
+            <Form.Item label="อำเภอ / เขต" className="form-label--white">
+              <Select
+                showSearch
+                placeholder="Select a person"
+                optionFilterProp="children"
+                onChange={onChange}
+                onSearch={onSearch}
+                filterOption={(input, option) =>
+                  (option!.children as unknown as string)
+                    .toLowerCase()
+                    .includes(input.toLowerCase())
+                }
+              >
+                <Option value="jack">Jack</Option>
+                <Option value="lucy">Lucy</Option>
+                <Option value="tom">Tom</Option>
+              </Select>
+            </Form.Item>
+          </Col>
+        </Row>
+        <Row gutter={32}>
+          <Col span={12}>
+            <Form.Item label="จังหวัด" className="form-label--white">
+              <Select
+                showSearch
+                placeholder="Select a person"
+                optionFilterProp="children"
+                onChange={onChange}
+                onSearch={onSearch}
+                filterOption={(input, option) =>
+                  (option!.children as unknown as string)
+                    .toLowerCase()
+                    .includes(input.toLowerCase())
+                }
+              >
+                <Option value="jack">Jack</Option>
+                <Option value="lucy">Lucy</Option>
+                <Option value="tom">Tom</Option>
+              </Select>
+            </Form.Item>
+          </Col>
+          <Col span={12}>
+            <Form.Item label="รหัสไปรษณีย์" className="form-label--white">
+              <Input type="number" />
+            </Form.Item>
+          </Col>
+        </Row>
+        <Checkbox
+          onChange={handleChangeDefaultAddress}
+          className="text-white text-base mt-2 !hover:clear-none"
+        >
+          ตั้งเป็นค่าเริ่มต้นสำหรับที่อยู่การจัดส่ง
+        </Checkbox>
+        <div className="border border-white opacity-20 mt-8 mb-4" />
+        <Form.Item className="text-right pt-4">
+          <Button
+            htmlType="submit"
+            className="text-black hover:text-primary bg-primary hover:bg-transparent duration-200 border border-primary min-w-45"
+          >
+            บันทึก
+          </Button>
+        </Form.Item>
+      </Form>
+
+      {/* ที่อยู่การจัดส่ง 2 */}
+      {/* <Radio.Group
+                onChange={handleChangeAddress}
+                value={value}
+                className="w-full pt-6"
+              >
+                <div className="border border-primary rounded-md p-5 mb-4">
+                  <div className="flex justify-between ">
+                    <p className="text-white text-base font-light">
+                      รุ่งเรือง เกียงไกรไพศาล <br />
+                      35 ซอยรัชดาภิเษก 46 ถนนรัชดาภิเษก ลาดยาว จตุจักร กรุงเทพฯ
+                      10900 <br />
+                      0629162498
+                    </p>
+                    <div>
+                      <Button type="link" className="text-white text-base p-0">
+                        <div className="underline">แก้ไข</div>
+                      </Button>
+                    </div>
+                  </div>
+                  <Radio value={1} className="text-base text-white mt-4 p-0">
+                    ตั้งเป็นค่าเริ่มต้นสำหรับที่อยู่การจัดส่ง
+                  </Radio>
+                </div>
+                <div className="border border-primary rounded-md p-5">
+                  <div className="flex justify-between ">
+                    <p className="text-white text-base font-light">
+                      รุ่งเรือง เกียงไกรไพศาล <br />
+                      35 ซอยรัชดาภิเษก 46 ถนนรัชดาภิเษก ลาดยาว จตุจักร กรุงเทพฯ
+                      10900 <br />
+                      0629162498
+                    </p>
+                    <div>
+                      <Button type="link" className="text-white text-base p-0">
+                        <div className="underline">แก้ไข</div>
+                      </Button>
+                      <Button
+                        type="link"
+                        className="text-white text-base py-0 pr-0"
+                      >
+                        <div className="underline">ลบ</div>
+                      </Button>
+                    </div>
+                  </div>
+                  <Radio value={2} className="text-base text-white mt-4">
+                    ตั้งเป็นค่าเริ่มต้นสำหรับที่อยู่การจัดส่ง
+                  </Radio>
+                </div>
+                      </Radio.Group>  */}
+    </>
+  )
+}
+
+export default Address

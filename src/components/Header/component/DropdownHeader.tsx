@@ -23,7 +23,7 @@ const DropdownHeader: FC<DropdownHeaderProps> = ({
         {
           label: (
             <div onClick={() => setRotate(false)}>
-              <Link href="/account">
+              <Link href="/account/user">
                 <a className="block text-base text-black hover:text-primary">
                   ข้อมูลส่วนตัว
                 </a>
@@ -35,7 +35,7 @@ const DropdownHeader: FC<DropdownHeaderProps> = ({
         {
           label: (
             <div onClick={() => setRotate(false)}>
-              <Link href="/">
+              <Link href="/account/order">
                 <a className="block text-base text-black hover:text-primary">
                   รายการสั่งซื้อ
                 </a>

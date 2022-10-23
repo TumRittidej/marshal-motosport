@@ -1,7 +1,6 @@
-import React, { FC, MouseEvent, useState } from 'react'
-import { Badge, Button, Dropdown, Form, Input, Menu, Space } from 'antd'
+import { FC, useState } from 'react'
+import { Badge, Button } from 'antd'
 import Search from 'antd/lib/input/Search'
-import { CaretDownOutlined } from '@ant-design/icons'
 
 import { useRouter } from 'next/router'
 import Link from 'next/link'
@@ -58,56 +57,10 @@ const Header: FC = () => {
     setIsOpenModel(false)
   }
 
-  // const menu = (
-  //   <Menu
-  //     className="pt-2 px-2 w-50 rounded dropdown--header dropdown--list"
-  //     items={[
-  //       {
-  //         label: (
-  //           <div onClick={() => setRotate(false)}>
-  //             <Link href="/user">
-  //               <a className="block text-base text-black hover:text-primary">
-  //                 ข้อมูลส่วนตัว
-  //               </a>
-  //             </Link>
-  //           </div>
-  //         ),
-  //         key: '0',
-  //       },
-  //       {
-  //         label: (
-  //           <div onClick={() => setRotate(false)}>
-  //             <Link href="/">
-  //               <a className="block text-base text-black hover:text-primary">
-  //                 รายการสั่งซื้อ
-  //               </a>
-  //             </Link>
-  //           </div>
-  //         ),
-  //         key: '1',
-  //       },
-  //       {
-  //         type: 'divider',
-  //       },
-  //       {
-  //         label: (
-  //           <div
-  //             className="flex items-center gap-2 text-black hover:text-primary transition duration-300"
-  //             onClick={() => setLoginPass(false)}
-  //           >
-  //             <i className="icon-logout text-xl" />
-  //             <p className="text-base">ออกจากระบบ</p>
-  //           </div>
-  //         ),
-  //         key: '3',
-  //       },
-  //     ]}
-  //   />
-  // )
-
   const checkActiveMenu = (href: string) => {
     return router.asPath === href
   }
+
   return (
     <div className="fixed inset-x-0 z-100">
       <div
@@ -134,24 +87,6 @@ const Header: FC = () => {
                   rotate={rotate}
                   setRotate={setRotate}
                 />
-                {/* <Dropdown
-                  className={`${!loginPass ? 'hidden' : 'block'}`}
-                  overlay={menu}
-                  trigger={['click']}
-                  onOpenChange={(open) => setRotate(open)}
-                >
-                  <a onClick={() => setRotate(!rotate)}>
-                    <Space className="text-black">
-                      <i className="icon-user text-xl" />
-                      Developer
-                      <CaretDownOutlined
-                        className={`transform transition duration-300 ${
-                          rotate ? 'rotate-180' : 'rotate-0'
-                        }`}
-                      />
-                    </Space>
-                  </a>
-                </Dropdown> */}
                 <LoginModal
                   className={`absolute top-[42px] rounded bg-white w-70 z-102 p-4 transition duration-200 ${
                     isOpenModal
