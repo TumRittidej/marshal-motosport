@@ -6,10 +6,10 @@ const Register = () => {
     <section className="pt-44 bg-black">
       <div className="bg-2--position-y-5 py-20">
         <h1 className="text-4xl text-white text-center font-semibold text-white">
-          สมัครสมาชิก
+          สมัคร
           <span className="text-primary">สมาชิก</span>
         </h1>
-        <Form layout="vertical" className="text-center m-auto pt-6 max-w-100">
+        <Form layout="vertical" className="m-auto pt-6 max-w-100">
           <Form.Item label="ชื่อ" className="form-label--white">
             <Input type="text" />
           </Form.Item>

@@ -116,7 +116,7 @@ const Service: FC = () => {
   return (
     <section className="pt-44 bg-black">
       <div className="bg-2--position-y-20 py-20">
-        <h1 className="text-4xl text-primary text-center font-semibold text-white">
+        <h1 className="text-4xl text-primary text-center font-semibold">
           บริการ
         </h1>
         <div className="flex flex-wrap justify-center gap-x-12 gap-y-10 pt-15">

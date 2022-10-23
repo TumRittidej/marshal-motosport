@@ -11,13 +11,7 @@ import LogoImage from '@/assets/logo.png'
 import Container from '../container'
 
 const Header: FC = () => {
-  const [isOpenModal, setIsOpenModel] = useState(false)
-  const onOpenModal = () => {
-    setIsOpenModel(!isOpenModal)
-  }
-  const router = useRouter()
-
-  const menus = [
+  const menusHeader = [
     {
       href: '/',
       text: 'หน้าแรก',
@@ -47,14 +41,19 @@ const Header: FC = () => {
       text: 'ติดต่อ',
     },
   ]
-
+  const router = useRouter()
+  const [isOpenModal, setIsOpenModel] = useState(false)
+  const [rotate, setRotate] = useState(false)
   const [loginPass, setLoginPass] = useState(false)
+
+  const onOpenModal = () => {
+    setIsOpenModel(!isOpenModal)
+  }
 
   const handleClickLogin = () => {
     setRotate(false)
     setLoginPass(true)
     setIsOpenModel(false)
-    console.log(loginPass, '1')
   }
 
   const menu = (
@@ -63,23 +62,25 @@ const Header: FC = () => {
       items={[
         {
           label: (
-            <a
-              href="https://www.antgroup.com"
-              className="text-base text-black hover:text-primary"
-            >
-              ข้อมูลส่วนตัว
-            </a>
+            <div onClick={() => setRotate(false)}>
+              <Link href="/user">
+                <a className="block text-base text-black hover:text-primary">
+                  ข้อมูลส่วนตัว
+                </a>
+              </Link>
+            </div>
           ),
           key: '0',
         },
         {
           label: (
-            <a
-              href="https://www.aliyun.com"
-              className="text-base text-black hover:text-primary"
-            >
-              รายการสั่งซื้อ
-            </a>
+            <div onClick={() => setRotate(false)}>
+              <Link href="/">
+                <a className="block text-base text-black hover:text-primary">
+                  รายการสั่งซื้อ
+                </a>
+              </Link>
+            </div>
           ),
           key: '1',
         },
@@ -89,7 +90,7 @@ const Header: FC = () => {
         {
           label: (
             <div
-              className="flex items-center gap-2 text-black hover:text-primary"
+              className="flex items-center gap-2 text-black hover:text-primary transition duration-300"
               onClick={() => setLoginPass(false)}
             >
               <i className="icon-logout text-xl" />
@@ -101,13 +102,6 @@ const Header: FC = () => {
       ]}
     />
   )
-
-  const [rotate, setRotate] = useState(false)
-
-  const rotateCaret = (e: MouseEvent<HTMLAnchorElement>) => {
-    setRotate(!rotate)
-    e.preventDefault()
-  }
 
   const checkActiveMenu = (href: string) => {
     return router.asPath === href
@@ -138,7 +132,7 @@ const Header: FC = () => {
                   trigger={['click']}
                   onOpenChange={(open) => setRotate(open)}
                 >
-                  <a onClick={(e) => rotateCaret(e)}>
+                  <a onClick={() => setRotate(!rotate)}>
                     <Space className="text-black">
                       <i className="icon-user text-xl" />
                       Developer
@@ -265,13 +259,13 @@ const Header: FC = () => {
               </a>
             </Link>
             <div className="flex gap-4">
-              <ul className="flex items-center gap-4">
-                {menus.map((menu, index) => {
+              <ul className="flex items-center gap-8">
+                {menusHeader.map((menu, index) => {
                   return (
                     <li key={index}>
                       <Link href={menu.href}>
                         <a
-                          className={`hover:text-primary ${
+                          className={`text-semibold text-lg hover:text-primary ${
                             checkActiveMenu(menu.href)
                               ? 'text-primary'
                               : 'text-white'

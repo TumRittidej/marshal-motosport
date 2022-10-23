@@ -18,7 +18,7 @@ const Footer: FC = () => {
               alt="Marshal Motosport"
             />
           </div>
-          <ul className="flex gap-10 text-lg font-semibold">
+          <ul className="flex gap-16 text-lg font-semibold">
             <li>
               <Link href="/">
                 <a className="text-white hover:text-primary">หน้าแรก</a>

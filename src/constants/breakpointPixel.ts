@@ -3,5 +3,5 @@ export const breakpointPixel = {
   sm: 600,
   md: 960,
   lg: 1200,
-  xl: 1550,
+  xl: 1500,
 }
