@@ -1,7 +1,9 @@
-import { Button, Dropdown, Menu, Space } from 'antd'
 import { FC, useState } from 'react'
-import { DownOutlined } from '@ant-design/icons'
 import Image from 'next/image'
+
+import { Button, Dropdown, Menu, Space } from 'antd'
+import { DownOutlined } from '@ant-design/icons'
+
 import ProductImage from '@/assets/img/home/product-1.png'
 
 const Order: FC = () => {

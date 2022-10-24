@@ -115,33 +115,37 @@ const Service: FC = () => {
   ]
   return (
     <section className="pt-44 bg-black">
-      <div className="bg-2--position-y-20 py-20">
-        <h1 className="text-4xl text-primary text-center font-semibold">
+      <div className="bg-2--position-y-20 pt-20 pb-30">
+        <h1 className="pb-15 text-4xl text-primary text-center font-semibold">
           บริการ
         </h1>
-        <div className="flex flex-wrap justify-center gap-x-12 gap-y-10 pt-15">
-          {ourServiceItems.map((service, index) => {
-            return (
-              <div key={index} className="max-w-[270px] text-center">
-                <div className="h-[75px] w-1/4 m-auto">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    layout="responsive"
-                    loading="lazy"
-                  />
+        <Container>
+          <div className="flex flex-wrap justify-center gap-x-12 gap-y-10">
+            {ourServiceItems.map((service, index) => {
+              return (
+                <div key={index} className="max-w-[270px] text-center">
+                  <div className="h-[75px] w-1/4 m-auto">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      layout="responsive"
+                      loading="lazy"
+                    />
+                  </div>
+                  <h3 className="text-white text-2xl pt-6">{service.title}</h3>
+                  <p className="text-white text-lg pt-2">
+                    {service.decsription}
+                  </p>
                 </div>
-                <h3 className="text-white text-2xl pt-6">{service.title}</h3>
-                <p className="text-white text-lg pt-2">{service.decsription}</p>
-              </div>
-            )
-          })}
-        </div>
+              )
+            })}
+          </div>
+        </Container>
         <h1 className="pt-20 text-4xl font-semibold text-white text-center">
           Our
           <span className="text-primary"> Work</span>
         </h1>
-        <div className="pt-10 pb-15 bg-3">
+        <div className="py-15 bg-3">
           <iframe
             className="mx-auto"
             width="600"
@@ -152,7 +156,7 @@ const Service: FC = () => {
           />
         </div>
         <Container>
-          <div className="m-auto columns-4">
+          <div className="m-auto columns-4 pt-5">
             {ourWorkItems.map((item, index) => {
               return (
                 <div

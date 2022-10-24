@@ -8,6 +8,11 @@ import Container from '@/components/container'
 import User from '@/components/account/User'
 import Address from '@/components/account/Address'
 import Order from '@/components/account/Order'
+import {
+  MS_ACCOUNT_ADDRESS,
+  MS_ACCOUNT_ORDER,
+  MS_ACCOUNT_USER,
+} from '@/constants/url'
 
 const Account: FC = () => {
   const router = useRouter()
@@ -15,15 +20,15 @@ const Account: FC = () => {
 
   const menusAccount = [
     {
-      href: '/account/user',
+      href: MS_ACCOUNT_USER,
       text: 'ข้อมูลส่วนตัว',
     },
     {
-      href: '/account/address',
+      href: MS_ACCOUNT_ADDRESS,
       text: 'ที่อยู่การจัดส่ง',
     },
     {
-      href: '/account/order',
+      href: MS_ACCOUNT_ORDER,
       text: 'รายการสั่งซื้อ',
     },
   ]

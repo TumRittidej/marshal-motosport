@@ -2,6 +2,7 @@ import { Dropdown, Menu, Space } from 'antd'
 import { Dispatch, FC, SetStateAction } from 'react'
 import { CaretDownOutlined } from '@ant-design/icons'
 import Link from 'next/link'
+import { MS_ACCOUNT_ORDER, MS_ACCOUNT_USER } from '@/constants/url'
 
 interface DropdownHeaderProps {
   className: string
@@ -23,7 +24,7 @@ const DropdownHeader: FC<DropdownHeaderProps> = ({
         {
           label: (
             <div onClick={() => setRotate(false)}>
-              <Link href="/account/user">
+              <Link href={MS_ACCOUNT_USER}>
                 <a className="block text-base text-black hover:text-primary">
                   ข้อมูลส่วนตัว
                 </a>
@@ -35,7 +36,7 @@ const DropdownHeader: FC<DropdownHeaderProps> = ({
         {
           label: (
             <div onClick={() => setRotate(false)}>
-              <Link href="/account/order">
+              <Link href={MS_ACCOUNT_ORDER}>
                 <a className="block text-base text-black hover:text-primary">
                   รายการสั่งซื้อ
                 </a>

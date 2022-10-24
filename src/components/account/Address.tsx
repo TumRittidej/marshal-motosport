@@ -1,11 +1,15 @@
-import { Button, Checkbox, Col, Form, Input, Row, Select } from 'antd'
 import { FC, useState } from 'react'
-import { PlusOutlined } from '@ant-design/icons'
+
+import { Button, Checkbox, Col, Form, Input, Radio, Row, Select } from 'antd'
+import { PlusOutlined, RightOutlined } from '@ant-design/icons'
 import { Option } from 'antd/lib/mentions'
 import type { RadioChangeEvent } from 'antd'
 import type { CheckboxChangeEvent } from 'antd/es/checkbox'
 
 const Address: FC = () => {
+  const [value, setValue] = useState(1)
+  const [isAddMoreAddress, setIsAddMoreAddress] = useState(false)
+
   const onChange = (value: string) => {
     console.log(`selected ${value}`)
   }
@@ -14,30 +18,82 @@ const Address: FC = () => {
     console.log('search:', value)
   }
 
-  const handleChangeDefaultAddress = (e: CheckboxChangeEvent) => {
+  const handleChangeSetAddress = (e: CheckboxChangeEvent) => {
     console.log(`checked = ${e.target.checked}`)
   }
 
-  const [value, setValue] = useState(1)
-  const handleChangeAddress = (e: RadioChangeEvent) => {
-    console.log('radio checked', e.target.value)
+  const handleChangeDefaultAddress = (e: RadioChangeEvent) => {
     setValue(e.target.value)
   }
   return (
     <>
-      {/* ที่อยู่การจัดส่ง 1 */}
       <div className="flex justify-between">
         <h2 className="text-primary text-xl">ที่อยู่การจัดส่ง</h2>
         <Button
+          onClick={() => setIsAddMoreAddress(!isAddMoreAddress)}
           type="link"
           className="text-primary text-lg flex items-center"
-          icon={<PlusOutlined />}
+          icon={!isAddMoreAddress && <PlusOutlined />}
         >
-          เพิ่มที่อยู่การจัดส่ง
+          {isAddMoreAddress ? (
+            <>
+              ย้อนกลับ <RightOutlined />
+            </>
+          ) : (
+            'เพิ่มที่อยู่การจัดส่ง'
+          )}
         </Button>
       </div>
+      <Radio.Group
+        onChange={handleChangeDefaultAddress}
+        value={value}
+        className={`w-full pt-6 ${!isAddMoreAddress ? 'block' : 'hidden'}`}
+      >
+        <div className="border border-primary rounded-md p-5 mb-4">
+          <div className="flex justify-between ">
+            <p className="text-white text-base font-light">
+              รุ่งเรือง เกียงไกรไพศาล <br />
+              35 ซอยรัชดาภิเษก 46 ถนนรัชดาภิเษก ลาดยาว จตุจักร กรุงเทพฯ 10900{' '}
+              <br />
+              0629162498
+            </p>
+            <div>
+              <Button type="link" className="text-white text-base p-0">
+                <div className="underline">แก้ไข</div>
+              </Button>
+            </div>
+          </div>
+          <Radio value={1} className="text-base text-white mt-4 p-0">
+            ตั้งเป็นค่าเริ่มต้นสำหรับที่อยู่การจัดส่ง
+          </Radio>
+        </div>
+        <div className="border border-primary rounded-md p-5">
+          <div className="flex justify-between ">
+            <p className="text-white text-base font-light">
+              รุ่งเรือง เกียงไกรไพศาล <br />
+              35 ซอยรัชดาภิเษก 46 ถนนรัชดาภิเษก ลาดยาว จตุจักร กรุงเทพฯ 10900{' '}
+              <br />
+              0629162498
+            </p>
+            <div>
+              <Button type="link" className="text-white text-base p-0">
+                <div className="underline">แก้ไข</div>
+              </Button>
+              <Button type="link" className="text-white text-base py-0 pr-0">
+                <div className="underline">ลบ</div>
+              </Button>
+            </div>
+          </div>
+          <Radio value={2} className="text-base text-white mt-4">
+            ตั้งเป็นค่าเริ่มต้นสำหรับที่อยู่การจัดส่ง
+          </Radio>
+        </div>
+      </Radio.Group>
 
-      <Form layout="vertical" className="pt-6">
+      <Form
+        layout="vertical"
+        className={`pt-6 ${isAddMoreAddress ? 'block' : 'hidden'}`}
+      >
         <Row gutter={32}>
           <Col span={12}>
             <Form.Item
@@ -129,7 +185,7 @@ const Address: FC = () => {
           </Col>
         </Row>
         <Checkbox
-          onChange={handleChangeDefaultAddress}
+          onChange={handleChangeSetAddress}
           className="text-white text-base mt-2 !hover:clear-none"
         >
           ตั้งเป็นค่าเริ่มต้นสำหรับที่อยู่การจัดส่ง
@@ -144,56 +200,6 @@ const Address: FC = () => {
           </Button>
         </Form.Item>
       </Form>
-
-      {/* ที่อยู่การจัดส่ง 2 */}
-      {/* <Radio.Group
-                onChange={handleChangeAddress}
-                value={value}
-                className="w-full pt-6"
-              >
-                <div className="border border-primary rounded-md p-5 mb-4">
-                  <div className="flex justify-between ">
-                    <p className="text-white text-base font-light">
-                      รุ่งเรือง เกียงไกรไพศาล <br />
-                      35 ซอยรัชดาภิเษก 46 ถนนรัชดาภิเษก ลาดยาว จตุจักร กรุงเทพฯ
-                      10900 <br />
-                      0629162498
-                    </p>
-                    <div>
-                      <Button type="link" className="text-white text-base p-0">
-                        <div className="underline">แก้ไข</div>
-                      </Button>
-                    </div>
-                  </div>
-                  <Radio value={1} className="text-base text-white mt-4 p-0">
-                    ตั้งเป็นค่าเริ่มต้นสำหรับที่อยู่การจัดส่ง
-                  </Radio>
-                </div>
-                <div className="border border-primary rounded-md p-5">
-                  <div className="flex justify-between ">
-                    <p className="text-white text-base font-light">
-                      รุ่งเรือง เกียงไกรไพศาล <br />
-                      35 ซอยรัชดาภิเษก 46 ถนนรัชดาภิเษก ลาดยาว จตุจักร กรุงเทพฯ
-                      10900 <br />
-                      0629162498
-                    </p>
-                    <div>
-                      <Button type="link" className="text-white text-base p-0">
-                        <div className="underline">แก้ไข</div>
-                      </Button>
-                      <Button
-                        type="link"
-                        className="text-white text-base py-0 pr-0"
-                      >
-                        <div className="underline">ลบ</div>
-                      </Button>
-                    </div>
-                  </div>
-                  <Radio value={2} className="text-base text-white mt-4">
-                    ตั้งเป็นค่าเริ่มต้นสำหรับที่อยู่การจัดส่ง
-                  </Radio>
-                </div>
-                      </Radio.Group>  */}
     </>
   )
 }

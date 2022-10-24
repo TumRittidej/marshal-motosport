@@ -5,11 +5,49 @@ import Link from 'next/link'
 import Container from '../container'
 import LogoImage from '@/assets/logo.png'
 import QrCodeImage from '@/assets/QR-Code.png'
+import {
+  MS_CONTACT,
+  MS_KNOWS_US,
+  MS_NEWS,
+  MS_PRODUCT,
+  MS_PURCHASE,
+  MS_SERVICE,
+} from '@/constants/url'
 
 const Footer: FC = () => {
+  const menusFooter = [
+    {
+      href: '/',
+      text: 'หน้าแรก',
+    },
+    {
+      href: MS_PRODUCT,
+      text: 'สินค้า',
+    },
+    {
+      href: MS_PURCHASE,
+      text: 'สั่งซื้อและชำระเงิน',
+    },
+    {
+      href: MS_SERVICE,
+      text: 'บริการ',
+    },
+    {
+      href: MS_NEWS,
+      text: 'ข่าวสารและกิจกรรม',
+    },
+    {
+      href: MS_KNOWS_US,
+      text: 'รู้จักเรา',
+    },
+    {
+      href: MS_CONTACT,
+      text: 'ติดต่อ',
+    },
+  ]
   return (
     <div className="bg-black">
-      <Container>
+      <Container className="xl:px-0">
         <div className="flex items-center justify-between border-b">
           <div className="w-1/6">
             <Image
@@ -19,53 +57,21 @@ const Footer: FC = () => {
             />
           </div>
           <ul className="flex gap-16 text-lg font-semibold">
-            <li>
-              <Link href="/">
-                <a className="text-white hover:text-primary">หน้าแรก</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/product">
-                <a className="text-white hover:text-primary">สินค้า</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="#">
-                <a className="text-white hover:text-primary">
-                  สั่งซื้อและชำระเงิน
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/service">
-                <a className="text-white hover:text-primary">บริการ</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/news">
-                <a className="text-white hover:text-primary">
-                  ข่าวสารและกิจกรรม
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/knows-us">
-                <a className="text-white hover:text-primary">รู้จักเรา</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/#section-contact">
-                <a className="text-white hover:text-primary">ติดต่อ</a>
-              </Link>
-            </li>
+            {menusFooter.map((menu, index) => {
+              return (
+                <li key={index}>
+                  <Link href={menu.href}>
+                    <a className="text-white hover:text-primary">{menu.text}</a>
+                  </Link>
+                </li>
+              )
+            })}
           </ul>
         </div>
         <div className="flex items-center">
           <ul className="text-white w-3/4">
-            <li className="pb-2 flex gap-2">
-              <div className="pt-1">
-                <i className="icon-mark text-xl" />
-              </div>
+            <li className="pb-6 flex gap-5">
+              <i className="icon-mark text-3xl" />
               <div>
                 <p className="text-xl font-medium">
                   MARSHAL MOTOSPORT CO., LTD.
@@ -76,16 +82,12 @@ const Footer: FC = () => {
                 </p>
               </div>
             </li>
-            <li className="pb-2 flex items-center gap-2">
-              <div>
-                <i className="icon-telephone text-xl" />
-              </div>
+            <li className="pb-6 flex items-center gap-4">
+              <i className="icon-telephone text-2xl" />
               <p className="text-xl">098 568 9828</p>
             </li>
-            <li className="flex items-center gap-2">
-              <div>
-                <i className="icon-envelope text-xl" />
-              </div>
+            <li className="flex items-center gap-4">
+              <i className="icon-envelope text-2xl" />
               <p className="text-xl text-xl">chai@marshal-motosport.page</p>
             </li>
           </ul>

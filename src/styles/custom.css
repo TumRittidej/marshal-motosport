@@ -20,9 +20,6 @@
 .search-input--text .ant-input {
   color: #fff !important;
 }
-.button--focus .ant-btn:focus, .ant-btn-text:active, .ant-btn-text:hover, .ant-btn-text:focus {
-  background: none !important;
-}
 .dropdown--header .ant-dropdown-menu-item:hover {
   background: none !important;
 }

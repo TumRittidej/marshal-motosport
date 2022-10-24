@@ -1,5 +1,6 @@
-import { Button, Col, DatePicker, Form, Input, Row } from 'antd'
 import { FC } from 'react'
+
+import { Button, Col, DatePicker, Form, Input, Row } from 'antd'
 
 const User: FC = () => {
   return (
@@ -20,12 +21,12 @@ const User: FC = () => {
         </Row>
         <Row gutter={32}>
           <Col span={12}>
-            <Form.Item label="ชื่อ" className="form-label--white">
+            <Form.Item label="อีเมล" className="form-label--white">
               <Input type="email" />
             </Form.Item>
           </Col>
           <Col span={12}>
-            <Form.Item label="นามสกุล" className="form-label--white">
+            <Form.Item label="เบอร์ติอต่อ" className="form-label--white">
               <Input type="tel" />
             </Form.Item>
           </Col>

@@ -1,3 +1,4 @@
+import { MS_REGISTER } from '@/constants/url'
 import { Button, Form, Input } from 'antd'
 import Link from 'next/link'
 import React, { FC } from 'react'
@@ -57,7 +58,7 @@ const LoginModal: FC<LoginModalProps> = ({ className = '', onClick }) => {
       </div>
       <p className="text-xs text-gray-500 text-center pt-3">
         คุณไม่ได้เป็นสมาชิก?{' '}
-        <Link href="/register">
+        <Link href={MS_REGISTER}>
           <a target="_blank" className="underline text-gray-700">
             สมัครสมาชิก
           </a>

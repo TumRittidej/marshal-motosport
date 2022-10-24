@@ -10,6 +10,16 @@ import LogoImage from '@/assets/logo.png'
 import Container from '../container'
 import LoginModal from './component/LoginModal'
 import DropdownHeader from './component/DropdownHeader'
+import {
+  MS_CART,
+  MS_CONTACT,
+  MS_KNOWS_US,
+  MS_NEWS,
+  MS_PRODUCT,
+  MS_PURCHASE,
+  MS_REGISTER,
+  MS_SERVICE,
+} from '@/constants/url'
 
 const Header: FC = () => {
   const menusHeader = [
@@ -18,27 +28,27 @@ const Header: FC = () => {
       text: 'หน้าแรก',
     },
     {
-      href: '/product',
+      href: MS_PRODUCT,
       text: 'สินค้า',
     },
     {
-      href: '#',
+      href: MS_PURCHASE,
       text: 'สั่งซื้อและชำระเงิน',
     },
     {
-      href: '/service',
+      href: MS_SERVICE,
       text: 'บริการ',
     },
     {
-      href: '/news',
+      href: MS_NEWS,
       text: 'ข่าวสารและกิจกรรม',
     },
     {
-      href: '/knows-us',
+      href: MS_KNOWS_US,
       text: 'รู้จักเรา',
     },
     {
-      href: '/#section-contact',
+      href: MS_CONTACT,
       text: 'ติดต่อ',
     },
   ]
@@ -46,6 +56,15 @@ const Header: FC = () => {
   const [isOpenModal, setIsOpenModel] = useState(false)
   const [rotate, setRotate] = useState(false)
   const [loginPass, setLoginPass] = useState(false)
+
+  const selectActiveMenu = (href: string) => {
+    const path = router.asPath
+    return (
+      path === href ||
+      path === `${href}/product-detail` ||
+      router.pathname === `${href}/[newsId]`
+    )
+  }
 
   const onOpenModal = () => {
     setIsOpenModel(!isOpenModal)
@@ -57,10 +76,6 @@ const Header: FC = () => {
     setIsOpenModel(false)
   }
 
-  const checkActiveMenu = (href: string) => {
-    return router.asPath === href
-  }
-
   return (
     <div className="fixed inset-x-0 z-100">
       <div
@@ -68,7 +83,7 @@ const Header: FC = () => {
         onClick={() => setIsOpenModel(false)}
       />
       <div className="bg-primary">
-        <Container>
+        <Container className="xl:px-0">
           <div className="flex items-center justify-between h-14">
             <div className="flex gap-5">
               <div className="relative">
@@ -97,7 +112,7 @@ const Header: FC = () => {
                 />
               </div>
               <div className={`${loginPass ? 'hidden' : 'block'} `}>
-                <Link href="/register">
+                <Link href={MS_REGISTER}>
                   <a className="flex items-center gap-2 group">
                     <i className="icon-register text-black text-xl" />
                     <h3 className="group-hover:underline">สมัครสมาชิก</h3>
@@ -105,16 +120,15 @@ const Header: FC = () => {
                 </Link>
               </div>
             </div>
-            <div className="flex gap-2">
-              <Button
-                type="text"
-                className="flex items-center gap-2 button--focus"
-              >
-                <Badge count={0} showZero>
-                  <i className="icon-cart text-xl text-black" />
-                </Badge>
-                <h3>ตระกร้าสินค้า</h3>
-              </Button>
+            <div className="flex gap-4">
+              <Link href={MS_CART}>
+                <a className="flex items-center gap-2 pr-4">
+                  <Badge count={0} showZero>
+                    <i className="icon-cart text-xl text-black" />
+                  </Badge>
+                  <h3>ตระกร้าสินค้า</h3>
+                </a>
+              </Link>
               <Link href="#">
                 <a target="_blank" rel="noreferrer">
                   <i className="icon-facebook text-2xl text-black" />
@@ -135,7 +149,7 @@ const Header: FC = () => {
         </Container>
       </div>
       <div className="bg-black py-4">
-        <Container>
+        <Container className="xl:px-0">
           <div className="flex justify-between items-center h-22">
             <Link href="/">
               <a className="w-1/5">
@@ -154,7 +168,7 @@ const Header: FC = () => {
                       <Link href={menu.href}>
                         <a
                           className={`text-semibold text-lg hover:text-primary ${
-                            checkActiveMenu(menu.href)
+                            selectActiveMenu(menu.href)
                               ? 'text-primary'
                               : 'text-white'
                           }`}

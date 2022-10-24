@@ -4,93 +4,106 @@ import Link from 'next/link'
 import NewsImage from '@/assets/img/news/news-1.png'
 import Container from '@/components/container'
 import { Button } from 'antd'
+import { MS_NEWS } from '@/constants/url'
 
 const News: FC = () => {
   const newsImage = [
     {
+      id: 1,
       image: NewsImage,
       alternative: '',
       paragraph:
-        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam cumque quidem praesentium iusto maxime? Doloribus quaerat eos perferendis voluptatem totam iste',
+        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam cumque quidem',
     },
     {
+      id: 2,
       image: NewsImage,
       alternative: '',
       paragraph:
-        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam cumque quidem praesentium iusto maxime? Doloribus quaerat eos perferendis voluptatem totam iste',
+        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam cumque quidem',
     },
     {
+      id: 3,
       image: NewsImage,
       alternative: '',
       paragraph:
-        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam cumque quidem praesentium iusto maxime? Doloribus quaerat eos perferendis voluptatem totam iste',
+        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam cumque quidem',
     },
     {
+      id: 4,
       image: NewsImage,
       alternative: '',
       paragraph:
-        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam cumque quidem praesentium iusto maxime? Doloribus quaerat eos perferendis voluptatem totam iste',
+        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam cumque quidem',
     },
     {
+      id: 5,
       image: NewsImage,
       alternative: '',
       paragraph:
-        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam cumque quidem praesentium iusto maxime? Doloribus quaerat eos perferendis voluptatem totam iste',
+        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam cumque quidem',
     },
     {
+      id: 6,
       image: NewsImage,
       alternative: '',
       paragraph:
-        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam cumque quidem praesentium iusto maxime? Doloribus quaerat eos perferendis voluptatem totam iste',
+        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam cumque quidem',
     },
     {
+      id: 7,
       image: NewsImage,
       alternative: '',
       paragraph:
-        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam cumque quidem praesentium iusto maxime? Doloribus quaerat eos perferendis voluptatem totam iste',
+        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam cumque quidem',
     },
     {
+      id: 8,
       image: NewsImage,
       alternative: '',
       paragraph:
-        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam cumque quidem praesentium iusto maxime? Doloribus quaerat eos perferendis voluptatem totam iste',
+        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam cumque quidem',
     },
     {
+      id: 9,
       image: NewsImage,
       alternative: '',
       paragraph:
-        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam cumque quidem praesentium iusto maxime? Doloribus quaerat eos perferendis voluptatem totam iste',
+        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam cumque quidem',
     },
     {
+      id: 10,
       image: NewsImage,
       alternative: '',
       paragraph:
-        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam cumque quidem praesentium iusto maxime? Doloribus quaerat eos perferendis voluptatem totam iste',
+        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam cumque quidem',
     },
     {
+      id: 11,
       image: NewsImage,
       alternative: '',
       paragraph:
-        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam cumque quidem praesentium iusto maxime? Doloribus quaerat eos perferendis voluptatem totam iste',
+        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam cumque quidem',
     },
     {
+      id: 12,
       image: NewsImage,
       alternative: '',
       paragraph:
-        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam cumque quidem praesentium iusto maxime? Doloribus quaerat eos perferendis voluptatem totam iste',
+        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam cumque quidem',
     },
   ]
   return (
     <section className="bg-black pt-44">
       <div className="bg-2--cover py-20">
         <Container>
-          <h1 className="pb-10 text-4xl font-semibold text-white text-center">
+          <h1 className="pb-15 text-4xl font-semibold text-white text-center">
             ข่าวสาร<span className="text-primary">และกิจกรรม</span>
           </h1>
           <div className="grid grid-cols-4 gap-10">
             {newsImage.map((item, index) => {
               return (
-                <Link href="/news-detail" key={index}>
+                <Link href={`${MS_NEWS}/${item.id}`} key={index}>
                   <a>
                     <div className="overflow-hidden relative group">
                       <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 z-1 transition duration-200" />

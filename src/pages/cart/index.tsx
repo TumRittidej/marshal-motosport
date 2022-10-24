@@ -9,6 +9,7 @@ import {
 import { Button } from 'antd'
 import Container from '@/components/container'
 import ProductImage from '@/assets/img/home/product-1.png'
+import { MS_PRODUCT, MS_PURCHASE } from '@/constants/url'
 
 const Cart: FC = () => {
   const productInCart = [
@@ -119,13 +120,14 @@ const Cart: FC = () => {
                   <span>฿ 79,500</span>
                 </div>
                 <Button
+                  href={MS_PURCHASE}
                   icon={<i className="icon-cart text-xl" />}
-                  className="text-primary py-5 hover:text-black bg-black hover:bg-primary duration-200 border border-black w-full inline-flex items-center justify-center gap-2"
+                  className="text-primary hover:text-black bg-black hover:bg-primary duration-200 border border-black w-full h-10 p-0 flex justify-center items-center gap-2"
                 >
-                  <div>ชำระเงิน</div>
+                  ชำระเงิน
                 </Button>
                 <div className="text-center pt-6">
-                  <Link href="/product">
+                  <Link href={MS_PRODUCT}>
                     <div>
                       <a
                         target="_blank"

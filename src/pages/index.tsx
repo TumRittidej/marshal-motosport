@@ -7,10 +7,13 @@ import HomeBanner1 from '@/assets/img/home/home-banner-1.jpg'
 import HomeBanner2 from '@/assets/img/home/home-banner-2.jpg'
 import HomeBanner3 from '@/assets/img/home/home-banner-3.jpg'
 import HomeBanner4 from '@/assets/img/home/home-banner-4.jpg'
+
 import HomeImage from '@/assets/img/home/home-1.png'
+
 import ProductImage1 from '@/assets/img/home/product-1.png'
 import ProductImage2 from '@/assets/img/home/product-2.png'
 import ProductImage3 from '@/assets/img/home/product-3.png'
+
 import OurServiceImage1 from '@/assets/img/home/our-service-1.png'
 import OurServiceImage2 from '@/assets/img/home/our-service-2.png'
 import OurServiceImage3 from '@/assets/img/home/our-service-3.png'
@@ -18,10 +21,21 @@ import OurServiceImage4 from '@/assets/img/home/our-service-4.png'
 import OurServiceImage5 from '@/assets/img/home/our-service-5.png'
 import OurServiceImage6 from '@/assets/img/home/our-service-6.png'
 import OurServiceImage7 from '@/assets/img/home/our-service-7.png'
+import OurServiceHoverImage1 from '@/assets/img/home/our-service-hover-1.png'
+import OurServiceHoverImage2 from '@/assets/img/home/our-service-hover-2.png'
+import OurServiceHoverImage3 from '@/assets/img/home/our-service-hover-3.png'
+import OurServiceHoverImage4 from '@/assets/img/home/our-service-hover-4.png'
+import OurServiceHoverImage5 from '@/assets/img/home/our-service-hover-5.png'
+import OurServiceHoverImage6 from '@/assets/img/home/our-service-hover-6.png'
+import OurServiceHoverImage7 from '@/assets/img/home/our-service-hover-7.png'
+
 import Link from 'next/link'
-import { useRef } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import { MS_KNOWS_US, MS_PRODUCT } from '@/constants/url'
+import { useRouter } from 'next/router'
 
 const Home: NextPage = () => {
+  const router = useRouter()
   const productItems = [
     {
       image: ProductImage1,
@@ -100,43 +114,80 @@ const Home: NextPage = () => {
   const ourServiceItems = [
     {
       image: OurServiceImage1,
+      imageHover: OurServiceHoverImage1,
       title: 'Standards',
       decsription: 'สินค้ามีคุณภาพและปลอดภัยสูงนำเข้าภายในประเทศและต่างประเทศ',
     },
     {
       image: OurServiceImage2,
+      imageHover: OurServiceHoverImage2,
       title: 'Great Design',
       decsription: 'แต่ละแบรนด์ที่นำเข้ามีดีไซน์ทันสมัย',
     },
     {
       image: OurServiceImage3,
+      imageHover: OurServiceHoverImage3,
       title: 'Optimal Choice',
       decsription: 'สินค้าของเรามีมากมายหลายยี่ห้อ',
     },
     {
       image: OurServiceImage4,
+      imageHover: OurServiceHoverImage4,
       title: 'Finest Quality',
       decsription:
         'ไม่ต้องห่วงเรื่องสินค้าว่าจะดีไหมเพราะเรานำเข้าแบรนด์ที่ได้รับการยอมรับแล้วว่าได้คุณภาพที่ดี',
     },
     {
       image: OurServiceImage5,
+      imageHover: OurServiceHoverImage5,
       title: 'Dealer',
       decsription: 'รับสมัครตัวแทนจำหน่ายทั่วประเทศ',
     },
     {
       image: OurServiceImage6,
+      imageHover: OurServiceHoverImage6,
       title: 'Time Saving',
       decsription: 'ประหยัดเวลาคุณได้ด้วยการสั่งซื้อจากตัวแทนจำหน่ายของเรา',
     },
     {
       image: OurServiceImage7,
+      imageHover: OurServiceHoverImage7,
       title: 'Best Support',
       decsription: 'หลังจากซื้อขายแล้วเรายังช่วยบริการหลังการขาย',
     },
   ]
 
   const sectionContactRef = useRef<HTMLDivElement>(null)
+  // const [isActiveContact, setIsActiveContact] = useState(false)
+
+  // const handleScrollContact = useCallback(() => {
+  //   if (sectionContactRef.current) {
+  //     if (window.scrollY + 185 > sectionContactRef.current.offsetTop) {
+  //       if (!isActiveContact) {
+  //         // router.push('/#section-contact')
+  //         setIsActiveContact(true)
+  //       }
+  //     } else {
+  //       if (isActiveContact) {
+  //         // router.push('/')
+  //         setIsActiveContact(false)
+  //       }
+  //     }
+  //   }
+  // }, [isActiveContact])
+
+  // useEffect(() => {
+  //   if (!isActiveContact) {
+  //     router.push('/#section-contact')
+  //   } else {
+  //     router.push('/')
+  //   }
+  // }, [isActiveContact, router])
+
+  // useEffect(() => {
+  //   window.addEventListener('scroll', handleScrollContact)
+  //   return () => removeEventListener('scroll', handleScrollContact)
+  // }, [handleScrollContact])
 
   return (
     <section className="pt-44 bg-black">
@@ -204,8 +255,9 @@ const Home: NextPage = () => {
               </p>
               <div className="pt-8">
                 <Button
-                  href="/know-us"
-                  className="text-primary hover:text-black bg-black hover:bg-primary duration-200 border border-primary min-w-35"
+                  href={MS_KNOWS_US}
+                  type="link"
+                  className="text-primary hover:text-black !bg-black !hover:bg-primary duration-200 border border-primary min-w-35"
                 >
                   ดูเพิ่มเติม
                 </Button>
@@ -224,7 +276,7 @@ const Home: NextPage = () => {
             {productItems.map((product, index) => {
               return (
                 <div key={index} className="group cursor-pointer">
-                  <Link href="/product-detail">
+                  <Link href={`${MS_PRODUCT}/product-detail`}>
                     <a target="_blank">
                       <div className="relative">
                         <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 z-1 transition duration-200" />
@@ -232,6 +284,7 @@ const Home: NextPage = () => {
                           src={product.image}
                           alt={product.alternative}
                           layout="responsive"
+                          loading="lazy"
                         />
                       </div>
                       <div className="text-primary text-center">
@@ -241,7 +294,7 @@ const Home: NextPage = () => {
                         </span>
                         <Button
                           icon={<i className="icon-cart text-xl" />}
-                          className="text-black group-hover:text-primary bg-primary group-hover:bg-black duration-200 border border-primary min-w-45 inline-flex items-center justify-center gap-2"
+                          className="text-black group-hover:text-primary bg-primary group-hover:bg-transparent duration-200 border border-primary min-w-45 inline-flex items-center justify-center gap-2"
                         >
                           <div>สั่งซื้อสินค้า</div>
                         </Button>
@@ -253,7 +306,11 @@ const Home: NextPage = () => {
             })}
           </div>
           <div className="pt-10 text-center">
-            <Button className="text-primary hover:text-black bg-transparent hover:bg-primary duration-200 border border-primary min-w-35">
+            <Button
+              type="link"
+              href={MS_PRODUCT}
+              className="text-primary hover:text-black bg-transparent hover:bg-primary duration-200 border border-primary min-w-35"
+            >
               ดูเพิ่มเติม
             </Button>
           </div>
@@ -261,18 +318,31 @@ const Home: NextPage = () => {
             Our
             <span className="text-primary"> Service</span>
           </h1>
-          <div className="flex flex-wrap justify-center gap-x-12 gap-y-10 pt-15">
+          <div className="flex flex-wrap justify-center gap-14 pt-15">
             {ourServiceItems.map((service, index) => {
               return (
-                <div key={index} className="max-w-[270px] text-center">
-                  <div className="h-[75px] w-1/4 m-auto">
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      layout="responsive"
-                    />
+                <div key={index} className="max-w-[270px] text-center group">
+                  <div className="h-[75px] w-1/4 m-auto relative">
+                    <div className="group-hover:opacity-0 transition duration-300">
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        layout="responsive"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transform scale-105 transition duration-300">
+                      <Image
+                        src={service.imageHover}
+                        alt={service.title}
+                        layout="responsive"
+                        loading="lazy"
+                      />
+                    </div>
                   </div>
-                  <h3 className="text-white text-2xl pt-6">{service.title}</h3>
+                  <h3 className="text-white group-hover:text-primary text-2xl pt-6 transition duration-300">
+                    {service.title}
+                  </h3>
                   <p className="text-white text-lg pt-2">
                     {service.decsription}
                   </p>
@@ -292,7 +362,7 @@ const Home: NextPage = () => {
       </h1>
       <div className="bg-primary py-18">
         <Container>
-          <div className="flex gap-8">
+          <div className="flex gap-12">
             <div className="w-2/4">
               <h3 className="text-2xl font-medium">ร่วมงานกับเรา</h3>
               <Form layout="vertical" className="pt-6 max-w-150">
