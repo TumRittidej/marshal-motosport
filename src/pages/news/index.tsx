@@ -95,7 +95,7 @@ const News: FC = () => {
   ]
   return (
     <section className="bg-black pt-44">
-      <div className="bg-2--cover py-20">
+      <div className="bg-2--cover pt-20 pb-30">
         <Container>
           <h1 className="pb-15 text-4xl font-semibold text-white text-center">
             ข่าวสาร<span className="text-primary">และกิจกรรม</span>

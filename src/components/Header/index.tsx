@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { Badge, Button } from 'antd'
 import Search from 'antd/lib/input/Search'
 
@@ -20,6 +20,7 @@ import {
   MS_REGISTER,
   MS_SERVICE,
 } from '@/constants/url'
+import { menuContactStore } from '@/store/menu'
 
 const Header: FC = () => {
   const menusHeader = [
@@ -57,13 +58,21 @@ const Header: FC = () => {
   const [rotate, setRotate] = useState(false)
   const [loginPass, setLoginPass] = useState(false)
 
+  const { isActiveSectionContact, setIsActiveSectionContact } =
+    menuContactStore()
+
   const selectActiveMenu = (href: string) => {
-    const path = router.asPath
-    return (
-      path === href ||
-      path === `${href}/product-detail` ||
-      router.pathname === `${href}/[newsId]`
-    )
+    const { asPath, pathname } = router
+
+    if (pathname === `${href}/[productId]`) {
+      return true
+    } else if (pathname === `${href}/[newsId]`) {
+      return true
+    } else if (asPath === href) {
+      return true
+    } else if (!isActiveSectionContact) {
+      return href === '/#section-contact'
+    }
   }
 
   const onOpenModal = () => {
@@ -83,7 +92,7 @@ const Header: FC = () => {
         onClick={() => setIsOpenModel(false)}
       />
       <div className="bg-primary">
-        <Container className="xl:px-0">
+        <Container className="!xl:px-0">
           <div className="flex items-center justify-between h-14">
             <div className="flex gap-5">
               <div className="relative">
@@ -149,7 +158,7 @@ const Header: FC = () => {
         </Container>
       </div>
       <div className="bg-black py-4">
-        <Container className="xl:px-0">
+        <Container className="!xl:px-0">
           <div className="flex justify-between items-center h-22">
             <Link href="/">
               <a className="w-1/5">

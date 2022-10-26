@@ -33,77 +33,91 @@ import Link from 'next/link'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { MS_KNOWS_US, MS_PRODUCT } from '@/constants/url'
 import { useRouter } from 'next/router'
+import { menuContactStore } from '@/store/menu'
+// import { menuContactStore } from '@/store/menu'
 
 const Home: NextPage = () => {
   const router = useRouter()
   const productItems = [
     {
+      id: 1,
       image: ProductImage1,
       alternative: 'Helmet',
       paragraph: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
       price: '฿ 40,000',
     },
     {
+      id: 2,
       image: ProductImage2,
       alternative: 'Helmet',
       paragraph: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
       price: '฿ 40,000',
     },
     {
+      id: 3,
       image: ProductImage3,
       alternative: 'Helmet',
       paragraph: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
       price: '฿ 40,000',
     },
     {
+      id: 4,
       image: ProductImage1,
       alternative: 'Helmet',
       paragraph: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
       price: '฿ 40,000',
     },
     {
+      id: 5,
       image: ProductImage1,
       alternative: 'Helmet',
       paragraph: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
       price: '฿ 40,000',
     },
     {
+      id: 6,
       image: ProductImage2,
       alternative: 'Helmet',
       paragraph: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
       price: '฿ 40,000',
     },
     {
+      id: 7,
       image: ProductImage3,
       alternative: 'Helmet',
       paragraph: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
       price: '฿ 40,000',
     },
     {
+      id: 8,
       image: ProductImage1,
       alternative: 'Helmet',
       paragraph: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
       price: '฿ 40,000',
     },
     {
+      id: 9,
       image: ProductImage1,
       alternative: 'Helmet',
       paragraph: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
       price: '฿ 40,000',
     },
     {
+      id: 10,
       image: ProductImage2,
       alternative: 'Helmet',
       paragraph: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
       price: '฿ 40,000',
     },
     {
+      id: 11,
       image: ProductImage3,
       alternative: 'Helmet',
       paragraph: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
       price: '฿ 40,000',
     },
     {
+      id: 12,
       image: ProductImage1,
       alternative: 'Helmet',
       paragraph: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
@@ -158,23 +172,24 @@ const Home: NextPage = () => {
   ]
 
   const sectionContactRef = useRef<HTMLDivElement>(null)
-  // const [isActiveContact, setIsActiveContact] = useState(false)
+  const { isActiveSectionContact, setIsActiveSectionContact } =
+    menuContactStore()
 
-  // const handleScrollContact = useCallback(() => {
-  //   if (sectionContactRef.current) {
-  //     if (window.scrollY + 185 > sectionContactRef.current.offsetTop) {
-  //       if (!isActiveContact) {
-  //         // router.push('/#section-contact')
-  //         setIsActiveContact(true)
-  //       }
-  //     } else {
-  //       if (isActiveContact) {
-  //         // router.push('/')
-  //         setIsActiveContact(false)
-  //       }
-  //     }
-  //   }
-  // }, [isActiveContact])
+  const handleScrollContact = useCallback(() => {
+    if (sectionContactRef.current) {
+      if (window.scrollY + 185 > sectionContactRef.current.offsetTop) {
+        if (isActiveSectionContact) {
+          router.push('/#section-contact', undefined, { scroll: false })
+          setIsActiveSectionContact(false)
+        }
+      } else {
+        if (!isActiveSectionContact) {
+          router.push('/', undefined, { scroll: false })
+          setIsActiveSectionContact(true)
+        }
+      }
+    }
+  }, [isActiveSectionContact, router, setIsActiveSectionContact])
 
   // useEffect(() => {
   //   if (!isActiveContact) {
@@ -184,10 +199,10 @@ const Home: NextPage = () => {
   //   }
   // }, [isActiveContact, router])
 
-  // useEffect(() => {
-  //   window.addEventListener('scroll', handleScrollContact)
-  //   return () => removeEventListener('scroll', handleScrollContact)
-  // }, [handleScrollContact])
+  useEffect(() => {
+    window.addEventListener('scroll', handleScrollContact)
+    return () => removeEventListener('scroll', handleScrollContact)
+  }, [handleScrollContact])
 
   return (
     <section className="pt-44 bg-black">
@@ -276,8 +291,8 @@ const Home: NextPage = () => {
             {productItems.map((product, index) => {
               return (
                 <div key={index} className="group cursor-pointer">
-                  <Link href={`${MS_PRODUCT}/product-detail`}>
-                    <a target="_blank">
+                  <Link href={`${MS_PRODUCT}/${product.id}`}>
+                    <a>
                       <div className="relative">
                         <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 z-1 transition duration-200" />
                         <Image

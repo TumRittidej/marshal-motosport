@@ -52,8 +52,8 @@ const Order: FC = () => {
             onClick={() => setRotateArrow(!rotateArrow)}
             className="text-white text-base"
           >
-            <Space>
-              เรียงลำดับจาก
+            <Space className="gap-8">
+              <p className="text-base">เรียงลำดับจาก</p>
               <DownOutlined
                 className={`text-xs transform transition duration-300 ${
                   rotateArrow ? 'rotate-180 -translate-y-1' : 'rotate-0'
@@ -84,7 +84,7 @@ const Order: FC = () => {
             </div>
           </div>
           <div className="flex overflow-hidden justify-between pt-4">
-            <div className="flex gap-4 w-3/4 overflow-x-auto overflow-y-hidden h-[100px]">
+            <div className="flex gap-4 w-3/4 overflow-x-auto max-w-[560px] overflow-y-hidden h-[100px]">
               <div>
                 <Image
                   height={100}
@@ -210,7 +210,7 @@ const Order: FC = () => {
             </div>
           </div>
           <div className="flex overflow-hidden justify-between pt-4">
-            <div className="flex gap-4 w-3/4 overflow-x-auto overflow-y-hidden h-[100px]">
+            <div className="flex gap-4 w-3/4 overflow-x-auto max-w-[560px] overflow-y-hidden h-[100px]">
               <div>
                 <Image
                   height={100}
