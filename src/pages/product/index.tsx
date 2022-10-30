@@ -1,5 +1,5 @@
 import Container from '@/components/container'
-import { Button, Dropdown, Menu, Space } from 'antd'
+import { Button, Collapse, Dropdown, Menu, Pagination, Space } from 'antd'
 import React, { FC, useState } from 'react'
 import { DownOutlined } from '@ant-design/icons'
 
@@ -9,6 +9,9 @@ import ProductImage3 from '@/assets/img/home/product-3.png'
 import Link from 'next/link'
 import Image from 'next/image'
 import { MS_PRODUCT } from '@/constants/url'
+const { Panel } = Collapse
+
+import { RightOutlined } from '@ant-design/icons'
 
 const Product: FC = () => {
   const [rotateArrow, setRotateArrow] = useState(false)
@@ -17,23 +20,25 @@ const Product: FC = () => {
       items={[
         {
           label: (
-            <ul
+            <Button
+              type="link"
               onClick={() => setRotateArrow(false)}
               className="text-black hover:text-primary w-full text-left p-0"
             >
-              <li>ล่าสุด</li>
-            </ul>
+              ล่าสุด
+            </Button>
           ),
           key: '0',
         },
         {
           label: (
-            <ul
+            <Button
+              type="link"
               onClick={() => setRotateArrow(false)}
               className="text-black hover:text-primary w-full text-left p-0"
             >
-              <li>เก่าสุด</li>
-            </ul>
+              เก่าสุด
+            </Button>
           ),
           key: '1',
         },
@@ -148,6 +153,17 @@ const Product: FC = () => {
     },
   ]
 
+  const collapseProducts = [
+    {
+      header: 'ชุดแต่งมอเตอร์ไซต์ (16)',
+      products: ['ยาง', 'น้ำมันเครื่อง', 'โช้ค อัพ', 'หมวกกันน๊อค'],
+    },
+    {
+      header: 'สินค้าใหม่ (19)',
+      products: ['ใหม่', 'ใหม่'],
+    },
+  ]
+
   return (
     <section className="pt-44 bg-black">
       <div className="bg-2--cover pt-20 pb-30">
@@ -157,7 +173,26 @@ const Product: FC = () => {
               <h3 className="text-lg text-primary font-medium">
                 สินค้าทั้งหมด
               </h3>
-              <div className="border border-white opacity-20 mt-2 mb-8 w-3/4" />
+              <div className="border border-white opacity-20 mt-2 mb-4" />
+              <Collapse ghost className="text--header-collapse">
+                {collapseProducts.map(({ header, products }, index) => {
+                  return (
+                    <Panel key={index} header={header}>
+                      {products.map((product, index) => {
+                        return (
+                          <div
+                            key={index}
+                            className="text-white pb-1 flex items-center gap-2 hover:text-primary transition duration-300 cursor-pointer"
+                          >
+                            <RightOutlined style={{ fontSize: '8px' }} />
+                            <p>{product}</p>
+                          </div>
+                        )
+                      })}
+                    </Panel>
+                  )
+                })}
+              </Collapse>
             </div>
             <div className="w-3/4">
               <h1 className="pb-15 text-4xl font-semibold text-primary text-center">
@@ -219,6 +254,15 @@ const Product: FC = () => {
                   )
                 })}
               </div>
+              <Pagination
+                size="small"
+                total={70}
+                showSizeChanger={false}
+                pageSize={15}
+                current={1}
+                className="text-center mt-8"
+                onChange={(e) => console.log(e)}
+              />
             </div>
           </div>
         </Container>

@@ -1,7 +1,8 @@
 import { FC, useState } from 'react'
-import ProductImage1 from '@/assets/img/home/product-1.png'
-import ProductImage2 from '@/assets/img/home/product-2.png'
-import ProductImage3 from '@/assets/img/home/product-3.png'
+import ProductDetailImage1 from '@/assets/img/product/product-detail-1.png'
+import ProductDetailImage2 from '@/assets/img/product/product-detail-2.png'
+import ProductDetailImage3 from '@/assets/img/product/product-detail-3.png'
+import ProductDetailImage4 from '@/assets/img/product/product-detail-4.png'
 import Image, { StaticImageData } from 'next/image'
 import Container from '@/components/container'
 import { Button } from 'antd'
@@ -23,19 +24,19 @@ const ProductDetail: FC = () => {
 
   const imageItems = [
     {
-      image: ProductImage1,
+      image: ProductDetailImage1,
       alternative: 'Product',
     },
     {
-      image: ProductImage2,
+      image: ProductDetailImage2,
       alternative: 'Product',
     },
     {
-      image: ProductImage3,
+      image: ProductDetailImage3,
       alternative: 'Product',
     },
     {
-      image: ProductImage2,
+      image: ProductDetailImage4,
       alternative: 'Product',
     },
   ]

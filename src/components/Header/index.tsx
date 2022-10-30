@@ -63,15 +63,21 @@ const Header: FC = () => {
 
   const selectActiveMenu = (href: string) => {
     const { asPath, pathname } = router
-
+    // if (pathname === `${href}/[productId]`) {
+    //   return true
+    // } else if (pathname === `${href}/[newsId]`) {
+    //   return true
+    // } else if (asPath === href) {
+    //   return true
+    // } else if (!isActiveSectionContact) {
+    //   return href === '/#section-contact'
+    // }
     if (pathname === `${href}/[productId]`) {
       return true
     } else if (pathname === `${href}/[newsId]`) {
       return true
-    } else if (asPath === href) {
+    } else if (pathname === href) {
       return true
-    } else if (!isActiveSectionContact) {
-      return href === '/#section-contact'
     }
   }
 
@@ -92,7 +98,7 @@ const Header: FC = () => {
         onClick={() => setIsOpenModel(false)}
       />
       <div className="bg-primary">
-        <Container className="!xl:px-0">
+        <Container paddingClassName="xl:px-0">
           <div className="flex items-center justify-between h-14">
             <div className="flex gap-5">
               <div className="relative">
@@ -138,7 +144,7 @@ const Header: FC = () => {
                   <h3>ตระกร้าสินค้า</h3>
                 </a>
               </Link>
-              <Link href="#">
+              <Link href="https://www.facebook.com/Marshal.chai">
                 <a target="_blank" rel="noreferrer">
                   <i className="icon-facebook text-2xl text-black" />
                 </a>
@@ -158,7 +164,7 @@ const Header: FC = () => {
         </Container>
       </div>
       <div className="bg-black py-4">
-        <Container className="!xl:px-0">
+        <Container paddingClassName="xl:px-0">
           <div className="flex justify-between items-center h-22">
             <Link href="/">
               <a className="w-1/5">
@@ -193,7 +199,7 @@ const Header: FC = () => {
                 placeholder="Search..."
                 enterButton
                 bordered={false}
-                className="max-w-50 search-input--text !border !border-solid !border-primary !bg-black !caret-white !rounded"
+                className="max-w-46 h-[34px] search-input--text !border !border-solid !border-primary !bg-black !caret-white !rounded"
               />
               <Button
                 type="text"

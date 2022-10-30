@@ -175,34 +175,26 @@ const Home: NextPage = () => {
   const { isActiveSectionContact, setIsActiveSectionContact } =
     menuContactStore()
 
-  const handleScrollContact = useCallback(() => {
-    if (sectionContactRef.current) {
-      if (window.scrollY + 185 > sectionContactRef.current.offsetTop) {
-        if (isActiveSectionContact) {
-          router.push('/#section-contact', undefined, { scroll: false })
-          setIsActiveSectionContact(false)
-        }
-      } else {
-        if (!isActiveSectionContact) {
-          router.push('/', undefined, { scroll: false })
-          setIsActiveSectionContact(true)
-        }
-      }
-    }
-  }, [isActiveSectionContact, router, setIsActiveSectionContact])
+  // const handleScrollContact = useCallback(() => {
+  //   if (sectionContactRef.current) {
+  //     if (window.scrollY + 185 > sectionContactRef.current.offsetTop) {
+  //       if (isActiveSectionContact) {
+  //         router.push('/#section-contact', undefined, { scroll: false })
+  //         setIsActiveSectionContact(false)
+  //       }
+  //     } else {
+  //       if (!isActiveSectionContact) {
+  //         router.push('/', undefined, { scroll: false })
+  //         setIsActiveSectionContact(true)
+  //       }
+  //     }
+  //   }
+  // }, [isActiveSectionContact, router, setIsActiveSectionContact])
 
   // useEffect(() => {
-  //   if (!isActiveContact) {
-  //     router.push('/#section-contact')
-  //   } else {
-  //     router.push('/')
-  //   }
-  // }, [isActiveContact, router])
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScrollContact)
-    return () => removeEventListener('scroll', handleScrollContact)
-  }, [handleScrollContact])
+  //   window.addEventListener('scroll', handleScrollContact)
+  //   return () => removeEventListener('scroll', handleScrollContact)
+  // }, [handleScrollContact])
 
   return (
     <section className="pt-44 bg-black">
@@ -433,7 +425,13 @@ const Home: NextPage = () => {
               <p className="text-lg font-semibold pb-4">
                 การเดินทางมาร้าน สาขาเอกชัยบางบอน
               </p>
-              <ul>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7753.7622296868285!2d100.4058066!3d13.6649922!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2bd13dffb4b29%3A0x40f4be41b1908c13!2s3242%20Bang%20Bon%20Nuea%2C%20Khet%20Bang%20Bon%2C%20Krung%20Thep%20Maha%20Nakhon%2010150!5e0!3m2!1sen!2sth!4v1667141732320!5m2!1sen!2sth"
+                width="600"
+                height="450"
+                loading="lazy"
+              ></iframe>
+              <ul className="pt-6">
                 <li className="flex items-center gap-4 pb-3">
                   <i className="icon-location-mark text-3xl" />
                   <p className="text-base">

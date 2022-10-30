@@ -156,8 +156,6 @@ const Address: FC = () => {
               </Select>
             </Form.Item>
           </Col>
-        </Row>
-        <Row gutter={32}>
           <Col span={12}>
             <Form.Item label="จังหวัด" className="form-label--white">
               <Select

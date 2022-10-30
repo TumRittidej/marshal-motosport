@@ -9,6 +9,13 @@ import OurServiceImage4 from '@/assets/img/home/our-service-4.png'
 import OurServiceImage5 from '@/assets/img/home/our-service-5.png'
 import OurServiceImage6 from '@/assets/img/home/our-service-6.png'
 import OurServiceImage7 from '@/assets/img/home/our-service-7.png'
+import OurServiceHoverImage1 from '@/assets/img/home/our-service-hover-1.png'
+import OurServiceHoverImage2 from '@/assets/img/home/our-service-hover-2.png'
+import OurServiceHoverImage3 from '@/assets/img/home/our-service-hover-3.png'
+import OurServiceHoverImage4 from '@/assets/img/home/our-service-hover-4.png'
+import OurServiceHoverImage5 from '@/assets/img/home/our-service-hover-5.png'
+import OurServiceHoverImage6 from '@/assets/img/home/our-service-hover-6.png'
+import OurServiceHoverImage7 from '@/assets/img/home/our-service-hover-7.png'
 
 import OurWork1 from '@/assets/img/service/our-work-1.png'
 import OurWork2 from '@/assets/img/service/our-work-2.png'
@@ -27,37 +34,44 @@ const Service: FC = () => {
   const ourServiceItems = [
     {
       image: OurServiceImage1,
+      imageHover: OurServiceHoverImage1,
       title: 'Standards',
       decsription: 'สินค้ามีคุณภาพและปลอดภัยสูงนำเข้าภายในประเทศและต่างประเทศ',
     },
     {
       image: OurServiceImage2,
+      imageHover: OurServiceHoverImage2,
       title: 'Great Design',
       decsription: 'แต่ละแบรนด์ที่นำเข้ามีดีไซน์ทันสมัย',
     },
     {
       image: OurServiceImage3,
+      imageHover: OurServiceHoverImage3,
       title: 'Optimal Choice',
       decsription: 'สินค้าของเรามีมากมายหลายยี่ห้อ',
     },
     {
       image: OurServiceImage4,
+      imageHover: OurServiceHoverImage4,
       title: 'Finest Quality',
       decsription:
         'ไม่ต้องห่วงเรื่องสินค้าว่าจะดีไหมเพราะเรานำเข้าแบรนด์ที่ได้รับการยอมรับแล้วว่าได้คุณภาพที่ดี',
     },
     {
       image: OurServiceImage5,
+      imageHover: OurServiceHoverImage5,
       title: 'Dealer',
       decsription: 'รับสมัครตัวแทนจำหน่ายทั่วประเทศ',
     },
     {
       image: OurServiceImage6,
+      imageHover: OurServiceHoverImage6,
       title: 'Time Saving',
       decsription: 'ประหยัดเวลาคุณได้ด้วยการสั่งซื้อจากตัวแทนจำหน่ายของเรา',
     },
     {
       image: OurServiceImage7,
+      imageHover: OurServiceHoverImage7,
       title: 'Best Support',
       decsription: 'หลังจากซื้อขายแล้วเรายังช่วยบริการหลังการขาย',
     },
@@ -120,19 +134,31 @@ const Service: FC = () => {
           บริการ
         </h1>
         <Container>
-          <div className="flex flex-wrap justify-center gap-x-12 gap-y-10">
+          <div className="flex flex-wrap justify-center gap-14 pt-15">
             {ourServiceItems.map((service, index) => {
               return (
-                <div key={index} className="max-w-[270px] text-center">
-                  <div className="h-[75px] w-1/4 m-auto">
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      layout="responsive"
-                      loading="lazy"
-                    />
+                <div key={index} className="max-w-[270px] text-center group">
+                  <div className="h-[75px] w-1/4 m-auto relative">
+                    <div className="group-hover:opacity-0 transition duration-300">
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        layout="responsive"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transform scale-105 transition duration-300">
+                      <Image
+                        src={service.imageHover}
+                        alt={service.title}
+                        layout="responsive"
+                        loading="lazy"
+                      />
+                    </div>
                   </div>
-                  <h3 className="text-white text-2xl pt-6">{service.title}</h3>
+                  <h3 className="text-white group-hover:text-primary text-2xl pt-6 transition duration-300">
+                    {service.title}
+                  </h3>
                   <p className="text-white text-lg pt-2">
                     {service.decsription}
                   </p>

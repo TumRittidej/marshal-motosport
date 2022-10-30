@@ -56,7 +56,13 @@ a {
   background-position: center;
 }
 
-p, ul, h1, h2, h3, h4, h5 {
+p,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5 {
   margin-bottom: 0 !important;
 }
 
@@ -81,19 +87,21 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 /* Firefox */
-input[type=number] {
+input[type='number'] {
   -moz-appearance: textfield;
 }
 
 /* checkbok */
 .ant-checkbox-checked .ant-checkbox-inner {
-  background-color: #FBD424 !important;
-  border-color: #FBD424 !important;
+  background-color: #fbd424 !important;
+  border-color: #fbd424 !important;
 }
-.ant-checkbox:hover::after, .ant-checkbox-wrapper:hover .ant-checkbox::after {
+.ant-checkbox:hover::after,
+.ant-checkbox-wrapper:hover .ant-checkbox::after {
   visibility: hidden !important;
 }
-.ant-checkbox-wrapper:hover .ant-checkbox-inner, .ant-checkbox:hover .ant-checkbox-inner {
+.ant-checkbox-wrapper:hover .ant-checkbox-inner,
+.ant-checkbox:hover .ant-checkbox-inner {
   border-color: transparent !important;
 }
 .ant-checkbox-input:focus + .ant-checkbox-inner {
@@ -101,14 +109,34 @@ input[type=number] {
 }
 
 /* input and select */
-.ant-input:hover, .ant-input:focus, .ant-input-focused, .ant-select:not(.ant-select-disabled):hover .ant-select-selector {
+.ant-input:hover,
+.ant-input:focus,
+.ant-input-focused,
+.ant-select:not(.ant-select-disabled):hover .ant-select-selector {
   border-color: transparent !important;
 }
 
 /* radio */
 .ant-radio-inner::after {
-  background-color: #FBD424 !important;
+  background-color: #fbd424 !important;
 }
-.ant-radio-checked .ant-radio-inner, .ant-radio-checked::after {
-  border-color: #FBD424 !important;
+.ant-radio-checked .ant-radio-inner,
+.ant-radio-checked::after {
+  border-color: #fbd424 !important;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #fff;
 }

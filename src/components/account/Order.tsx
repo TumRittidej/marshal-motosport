@@ -84,102 +84,104 @@ const Order: FC = () => {
             </div>
           </div>
           <div className="flex overflow-hidden justify-between pt-4">
-            <div className="flex gap-4 w-3/4 overflow-x-auto max-w-[560px] overflow-y-hidden h-[100px]">
-              <div>
-                <Image
-                  height={100}
-                  width={100}
-                  src={ProductImage}
-                  alt="Helmet"
-                  layout="fixed"
-                  // layout="responsive"
-                  objectFit="cover"
-                  loading="lazy"
-                />
-              </div>
-              <div>
-                <Image
-                  height={100}
-                  width={100}
-                  src={ProductImage}
-                  alt="Helmet"
-                  layout="fixed"
-                  // layout="responsive"
-                  objectFit="cover"
-                  loading="lazy"
-                />
-              </div>
-              <div>
-                <Image
-                  height={100}
-                  width={100}
-                  src={ProductImage}
-                  alt="Helmet"
-                  layout="fixed"
-                  // layout="responsive"
-                  objectFit="cover"
-                  loading="lazy"
-                />
-              </div>
-              <div>
-                <Image
-                  height={100}
-                  width={100}
-                  src={ProductImage}
-                  alt="Helmet"
-                  layout="fixed"
-                  // layout="responsive"
-                  objectFit="cover"
-                  loading="lazy"
-                />
-              </div>
-              <div>
-                <Image
-                  height={100}
-                  width={100}
-                  src={ProductImage}
-                  alt="Helmet"
-                  layout="fixed"
-                  // layout="responsive"
-                  objectFit="cover"
-                  loading="lazy"
-                />
-              </div>
-              <div>
-                <Image
-                  height={100}
-                  width={100}
-                  src={ProductImage}
-                  alt="Helmet"
-                  layout="fixed"
-                  // layout="responsive"
-                  objectFit="cover"
-                  loading="lazy"
-                />
-              </div>
-              <div>
-                <Image
-                  height={100}
-                  width={100}
-                  src={ProductImage}
-                  alt="Helmet"
-                  layout="fixed"
-                  // layout="responsive"
-                  objectFit="cover"
-                  loading="lazy"
-                />
-              </div>
-              <div>
-                <Image
-                  height={100}
-                  width={100}
-                  src={ProductImage}
-                  alt="Helmet"
-                  layout="fixed"
-                  // layout="responsive"
-                  objectFit="cover"
-                  loading="lazy"
-                />
+            <div className="w-3/4 overflow-x-auto max-w-[560px] overflow-y-hidden">
+              <div className="flex gap-4">
+                <div>
+                  <Image
+                    height={100}
+                    width={100}
+                    src={ProductImage}
+                    alt="Helmet"
+                    layout="fixed"
+                    // layout="responsive"
+                    objectFit="cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div>
+                  <Image
+                    height={100}
+                    width={100}
+                    src={ProductImage}
+                    alt="Helmet"
+                    layout="fixed"
+                    // layout="responsive"
+                    objectFit="cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div>
+                  <Image
+                    height={100}
+                    width={100}
+                    src={ProductImage}
+                    alt="Helmet"
+                    layout="fixed"
+                    // layout="responsive"
+                    objectFit="cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div>
+                  <Image
+                    height={100}
+                    width={100}
+                    src={ProductImage}
+                    alt="Helmet"
+                    layout="fixed"
+                    // layout="responsive"
+                    objectFit="cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div>
+                  <Image
+                    height={100}
+                    width={100}
+                    src={ProductImage}
+                    alt="Helmet"
+                    layout="fixed"
+                    // layout="responsive"
+                    objectFit="cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div>
+                  <Image
+                    height={100}
+                    width={100}
+                    src={ProductImage}
+                    alt="Helmet"
+                    layout="fixed"
+                    // layout="responsive"
+                    objectFit="cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div>
+                  <Image
+                    height={100}
+                    width={100}
+                    src={ProductImage}
+                    alt="Helmet"
+                    layout="fixed"
+                    // layout="responsive"
+                    objectFit="cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div>
+                  <Image
+                    height={100}
+                    width={100}
+                    src={ProductImage}
+                    alt="Helmet"
+                    layout="fixed"
+                    // layout="responsive"
+                    objectFit="cover"
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </div>
             <div className="w-1/5">
@@ -193,7 +195,7 @@ const Order: FC = () => {
           <div className="flex justify-between">
             <div className="text-white">
               <p className="font-semibold">
-                หมายเลขสั่งซื้อ :<span className="text-primary"> MSD00001</span>{' '}
+                หมายเลขสั่งซื้อ :<span className="text-primary"> MSD00002</span>{' '}
                 <br />
               </p>
               <p>29/09/2022, 09:39</p>
@@ -205,72 +207,12 @@ const Order: FC = () => {
               <p className="text-base">
                 สถานะการชำระเงิน <span className="font-semibold">ชำระแล้ว</span>
                 <span className="px-2">|</span>
-                <span className="text-primary">ยังไม่ชำระ</span>
+                <span className="text-primary">รอจัดส่ง</span>
               </p>
             </div>
           </div>
           <div className="flex overflow-hidden justify-between pt-4">
             <div className="flex gap-4 w-3/4 overflow-x-auto max-w-[560px] overflow-y-hidden h-[100px]">
-              <div>
-                <Image
-                  height={100}
-                  width={100}
-                  src={ProductImage}
-                  alt="Helmet"
-                  layout="fixed"
-                  // layout="responsive"
-                  objectFit="cover"
-                  loading="lazy"
-                />
-              </div>
-              <div>
-                <Image
-                  height={100}
-                  width={100}
-                  src={ProductImage}
-                  alt="Helmet"
-                  layout="fixed"
-                  // layout="responsive"
-                  objectFit="cover"
-                  loading="lazy"
-                />
-              </div>
-              <div>
-                <Image
-                  height={100}
-                  width={100}
-                  src={ProductImage}
-                  alt="Helmet"
-                  layout="fixed"
-                  // layout="responsive"
-                  objectFit="cover"
-                  loading="lazy"
-                />
-              </div>
-              <div>
-                <Image
-                  height={100}
-                  width={100}
-                  src={ProductImage}
-                  alt="Helmet"
-                  layout="fixed"
-                  // layout="responsive"
-                  objectFit="cover"
-                  loading="lazy"
-                />
-              </div>
-              <div>
-                <Image
-                  height={100}
-                  width={100}
-                  src={ProductImage}
-                  alt="Helmet"
-                  layout="fixed"
-                  // layout="responsive"
-                  objectFit="cover"
-                  loading="lazy"
-                />
-              </div>
               <div>
                 <Image
                   height={100}
