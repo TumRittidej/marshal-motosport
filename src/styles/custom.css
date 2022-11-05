@@ -147,3 +147,34 @@
   background-color: transparent !important;
   color: #fbd424 !important;
 }
+
+/* purchase modal */
+.submit--btn .ant-btn-primary {
+  color: #000;
+  border-color: #fbd424;
+  background-color: #fbd424;
+  text-shadow: none;
+  box-shadow: none;
+}
+.submit--btn .ant-btn-primary:hover {
+  color: #fbd424;
+  border-color: #fbd424;
+  background-color: transparent;
+}
+
+.cancel--btn .ant-btn-default {
+  text-shadow: none;
+  box-shadow: none;
+  border: 1px solid #000;
+}
+.cancel--btn .ant-btn-default:hover {
+  border: 1px solid #000;
+  background-color: #000;
+  color: #fff;
+}
+
+.modal--header .ant-modal-header {
+  background-color: #fbd424;
+  color: #000;
+  border-bottom: none;
+}

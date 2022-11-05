@@ -6,17 +6,18 @@ import {
   MinusOutlined,
   PlusOutlined,
 } from '@ant-design/icons'
-import { Button, Steps } from 'antd'
+import { Button, Form, Steps } from 'antd'
 import Container from '@/components/container'
 import ProductImage from '@/assets/img/home/product-1.png'
 import { MS_PRODUCT, MS_PURCHASE } from '@/constants/url'
-import Derivery from '@/components/purchase/Derivery'
+import Deliver from '@/components/purchase/Deliver'
 import Payment from '@/components/purchase/Payment'
 import Finish from '@/components/purchase/Finish'
 const { Step } = Steps
 
 const Purchase: FC = () => {
   const [step, setStep] = useState(0)
+  const [form] = Form.useForm<{ firstName: string; deliverType: string }>()
   const productInCart = [
     {
       image: ProductImage,
@@ -62,7 +63,12 @@ const Purchase: FC = () => {
   // const plusProduct = (index: number) => {
 
   // }
+  const onSubmit = (value: any) => {
+    const body = form.getFieldsValue()
+    console.log('body', body)
 
+    console.log(value)
+  }
   return (
     <section className="bg-black pt-44">
       <div className="bg-2--position-y-5 py-20">
@@ -75,8 +81,22 @@ const Purchase: FC = () => {
                 <Step title="สำเร็จ" />
               </Steps>
               <div className="border border-white opacity-20 mt-6" />
-              {step === 0 && <Derivery setStep={setStep} />}
-              {step === 1 && <Payment setStep={setStep} />}
+              <Form
+                layout="vertical"
+                className="pt-2"
+                form={form}
+                initialValues={{ firstName: 'tum', deliverType: 1 }}
+                onFinish={onSubmit}
+              >
+                {/* {step === 0 && <Deliver setStep={setStep} form={form} />}
+                {step === 1 && <Payment setStep={setStep} form={form} />} */}
+                <div className={`${step === 0 ? 'block' : 'hidden'}`}>
+                  <Deliver setStep={setStep} form={form} />
+                </div>
+                <div className={`${step === 1 ? 'block' : 'hidden'}`}>
+                  <Payment setStep={setStep} form={form} />
+                </div>
+              </Form>
               {step === 2 && <Finish setStep={setStep} />}
             </div>
             <div className="w-1/2">

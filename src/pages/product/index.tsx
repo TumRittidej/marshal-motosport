@@ -1,6 +1,6 @@
 import Container from '@/components/container'
 import { Button, Collapse, Dropdown, Menu, Pagination, Space } from 'antd'
-import React, { FC, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { DownOutlined } from '@ant-design/icons'
 
 import ProductImage1 from '@/assets/img/home/product-1.png'
@@ -11,7 +11,10 @@ import Image from 'next/image'
 import { MS_PRODUCT } from '@/constants/url'
 const { Panel } = Collapse
 
-import { RightOutlined } from '@ant-design/icons'
+import { RightOutlined, CaretRightOutlined } from '@ant-design/icons'
+import { Tree } from 'antd'
+import type { DataNode, DirectoryTreeProps } from 'antd/es/tree'
+const { DirectoryTree } = Tree
 
 const Product: FC = () => {
   const [rotateArrow, setRotateArrow] = useState(false)
@@ -164,6 +167,117 @@ const Product: FC = () => {
     },
   ]
 
+  const treeData: DataNode[] = [
+    {
+      title: 'parent 0',
+      key: '0-0',
+      children: [
+        { title: 'leaf 0-0', key: '0-0-0', isLeaf: true },
+        { title: 'leaf 0-1', key: '0-0-1', isLeaf: true },
+      ],
+    },
+    {
+      title: 'parent 1',
+      key: '0-1',
+      children: [
+        { title: 'leaf 1-0', key: '0-1-0', isLeaf: true },
+        { title: 'leaf 1-1', key: '0-1-1', isLeaf: true },
+      ],
+    },
+  ]
+
+  const onExpand: DirectoryTreeProps['onExpand'] = (keys, info) => {
+    console.log('Trigger Expand', keys, info)
+  }
+  const onSelect: DirectoryTreeProps['onSelect'] = (keys, info) => {
+    console.log('Trigger Select', keys, info)
+  }
+  interface IProduct {
+    categorys: number[]
+    lists: {
+      name: string
+    }[]
+  }
+  const initialValue: IProduct[] = [
+    {
+      categorys: [],
+      lists: [
+        {
+          name: '',
+        },
+      ],
+    },
+  ]
+  const [activeIndexCategory, setActiveIndexCategory] = useState<number[]>([])
+  // const [activeIndexProduct, setActiveIndexProduct] = useState<number[]>([])
+
+  // const handleFilterProduct = (index: number) => {
+  //   if (activeIndexProduct.includes(index)) {
+  //     const filter = activeIndexProduct.filter((active) => active !== index)
+  //     setActiveIndexProduct(filter)
+  //   } else {
+  //     setActiveIndexProduct(activeIndexProduct.concat(index))
+  //   }
+  // }
+
+  const handleExpandCategory = (index: number) => {
+    if (activeIndexCategory.includes(index)) {
+      const filter = activeIndexCategory.filter((active) => active !== index)
+      setActiveIndexCategory(filter)
+      // setActiveIndexProduct([])
+    } else {
+      setActiveIndexCategory(activeIndexCategory.concat(index))
+    }
+  }
+
+  const products = [
+    {
+      category: 'ชุดแต่งมอเตอร์ไซต์ (199)',
+      lists: [
+        {
+          name: 'ยาง',
+        },
+        {
+          name: 'น้ำมันเครื่อง',
+        },
+        {
+          name: 'โช้ค อัพ',
+        },
+      ],
+    },
+    {
+      category: 'สินค้าขายดี (99)',
+      lists: [
+        {
+          name: 'กระจก',
+        },
+        {
+          name: 'ท่อ',
+        },
+        {
+          name: 'ล้อ',
+        },
+      ],
+    },
+    {
+      category: 'สินค้าโปรโมชั่น (12)',
+      lists: [
+        {
+          name: 'ถุงมือ',
+        },
+        {
+          name: 'หมวกกันน็อค',
+        },
+        {
+          name: 'กรอบทะเบียน',
+        },
+      ],
+    },
+    {
+      category: 'สินค้าขายดี',
+    },
+  ]
+
   return (
     <section className="pt-44 bg-black">
       <div className="bg-2--cover pt-20 pb-30">
@@ -174,7 +288,7 @@ const Product: FC = () => {
                 สินค้าทั้งหมด
               </h3>
               <div className="border border-white opacity-20 mt-2 mb-4" />
-              <Collapse ghost className="text--header-collapse">
+              {/* <Collapse ghost className="text--header-collapse">
                 {collapseProducts.map(({ header, products }, index) => {
                   return (
                     <Panel key={index} header={header}>
@@ -192,7 +306,54 @@ const Product: FC = () => {
                     </Panel>
                   )
                 })}
-              </Collapse>
+              </Collapse> */}
+              {/* <div className="text-white"> */}
+              {products.map((product, index) => {
+                return (
+                  <div
+                    key={index}
+                    className={`text-base overflow-hidden transition-all duration-300 mb-4 last:mb-0 ${
+                      activeIndexCategory.includes(index)
+                        ? 'max-h-[999px] '
+                        : 'max-h-[22px]'
+                    }`}
+                  >
+                    <button
+                      onClick={() => handleExpandCategory(index)}
+                      className={`group ${
+                        activeIndexCategory.includes(index)
+                          ? 'text-primary'
+                          : 'text-white'
+                      }`}
+                    >
+                      <CaretRightOutlined
+                        className={`transform group-hover:text-primary transition-all duration-300 ${
+                          activeIndexCategory.includes(index) && product.lists
+                            ? 'rotate-90'
+                            : 'rotate-0'
+                        }`}
+                      />
+                      <span className="pl-2 group-hover:text-primary transition-all duration-300">
+                        {product.category}
+                      </span>
+                    </button>
+                    <ul className="pl-4 pt-2">
+                      {product.lists?.map((list, index) => {
+                        return (
+                          <li
+                            key={index}
+                            className={`pb-2  hover:text-primary transition-all duration-300 cursor-pointer text-white`}
+                            // onClick={() => handleFilterProduct(index)}
+                          >
+                            <CaretRightOutlined /> {list.name}
+                          </li>
+                        )
+                      })}
+                    </ul>
+                  </div>
+                )
+              })}
+              {/* </div> */}
             </div>
             <div className="w-3/4">
               <h1 className="pb-15 text-4xl font-semibold text-primary text-center">

@@ -119,6 +119,8 @@ const Address: FC = () => {
           <Col span={12}>
             <Form.Item label="ตำบล / แขวง" className="form-label--white">
               <Select
+                bordered={false}
+                autoFocus={false}
                 showSearch
                 placeholder="Select a person"
                 optionFilterProp="children"
@@ -139,6 +141,8 @@ const Address: FC = () => {
           <Col span={12}>
             <Form.Item label="อำเภอ / เขต" className="form-label--white">
               <Select
+                bordered={false}
+                autoFocus={false}
                 showSearch
                 placeholder="Select a person"
                 optionFilterProp="children"
@@ -159,6 +163,8 @@ const Address: FC = () => {
           <Col span={12}>
             <Form.Item label="จังหวัด" className="form-label--white">
               <Select
+                bordered={false}
+                autoFocus={false}
                 showSearch
                 placeholder="Select a person"
                 optionFilterProp="children"

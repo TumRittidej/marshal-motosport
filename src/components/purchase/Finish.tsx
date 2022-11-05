@@ -1,20 +1,40 @@
 import React, { Dispatch, FC, SetStateAction, useState } from 'react'
-import {
-  LeftOutlined,
-  CheckOutlined,
-  CheckCircleOutlined,
-} from '@ant-design/icons'
+import { CheckOutlined, CheckCircleOutlined } from '@ant-design/icons'
 import { Button, Col, Row, Space, Steps } from 'antd'
+import PurchaseModal from '../PurchaseModal'
 const { Step } = Steps
 
 interface IFinishProps {
   setStep: Dispatch<SetStateAction<number>>
 }
 
-const handlePurchase = () => {}
-
 const Finish: FC<IFinishProps> = ({ setStep }) => {
   const [stepStatus, setStepStatus] = useState(0)
+  const [isOpenModal, setIsOpenModal] = useState(false)
+  const steps = [
+    {
+      title: 'ทำรายการ',
+    },
+    {
+      title: 'รอชำระเงิน',
+    },
+    {
+      title: 'รอจัดส่ง',
+    },
+    {
+      title: 'กำลังจัดส่ง',
+    },
+    {
+      title: 'สำเร็จ',
+    },
+  ]
+  const handlePurchaseModal = () => {
+    setIsOpenModal(true)
+  }
+  const handleCancel = () => {
+    setIsOpenModal(false)
+  }
+  const handleSubmit = () => {}
   return (
     <>
       <div className="pt-6 text-center">
@@ -39,7 +59,7 @@ const Finish: FC<IFinishProps> = ({ setStep }) => {
         </div>
         <Button
           htmlType="submit"
-          onClick={handlePurchase}
+          onClick={handlePurchaseModal}
           className="text-black hover:text-primary bg-primary hover:bg-transparent duration-200 border border-primary min-w-40 mt-4"
         >
           <Space>
@@ -70,7 +90,7 @@ const Finish: FC<IFinishProps> = ({ setStep }) => {
           <h2 className="font-semibold text-white">ที่อยู่การจัดส่ง</h2>
           <p className="font-light pb-8">
             รุ่งเรือง เกียงไกรไพศาล <br />
-            35 ซอยรัชดาภิเษก 46 ถนนรัชดาภิเษก ลาดยาว จตุจักร กรุงเทพฯ 10900{' '}
+            35 ซอยรัชดาภิเษก 46 ถนนรัชดาภิเษก ลาดยาว จตุจักร กรุงเทพฯ 10900
             <br />
             0629162498
           </p>
@@ -81,66 +101,32 @@ const Finish: FC<IFinishProps> = ({ setStep }) => {
             current={stepStatus}
             labelPlacement="vertical"
             size="small"
-            className="step--order-complete"
+            className="step--order-complete pt-4"
           >
-            <Step
-              title="การจัดส่ง"
-              className="w-1/5"
-              icon={
-                <CheckCircleOutlined
-                  className={`${
-                    stepStatus >= 0 ? 'text-primary' : 'text-white'
-                  }`}
+            {steps.map((step, index) => {
+              return (
+                <Step
+                  key={index}
+                  title={step.title}
+                  className="w-1/5"
+                  icon={
+                    <CheckCircleOutlined
+                      className={`${
+                        stepStatus >= index ? 'text-primary' : 'text-white'
+                      }`}
+                    />
+                  }
                 />
-              }
-            />
-            <Step
-              title="การชำระเงิน"
-              className="w-1/5"
-              icon={
-                <CheckCircleOutlined
-                  className={`${
-                    stepStatus >= 1 ? 'text-primary' : 'text-white'
-                  }`}
-                />
-              }
-            />
-            <Step
-              title="สำเร็จ"
-              className="w-1/5"
-              icon={
-                <CheckCircleOutlined
-                  className={`${
-                    stepStatus >= 2 ? 'text-primary' : 'text-white'
-                  }`}
-                />
-              }
-            />
-            <Step
-              title="สำเร็จ"
-              className="w-1/5"
-              icon={
-                <CheckCircleOutlined
-                  className={`${
-                    stepStatus >= 3 ? 'text-primary' : 'text-white'
-                  }`}
-                />
-              }
-            />
-            <Step
-              title="สำเร็จ"
-              className="w-1/5"
-              icon={
-                <CheckCircleOutlined
-                  className={`${
-                    stepStatus >= 4 ? 'text-primary' : 'text-white'
-                  }`}
-                />
-              }
-            />
+              )
+            })}
           </Steps>
         </div>
       </div>
+      <PurchaseModal
+        isOpenModal={isOpenModal}
+        handleCancel={handleCancel}
+        handleSubmit={handleSubmit}
+      />
     </>
   )
 }
