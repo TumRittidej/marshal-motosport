@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from 'react'
-import { Badge, Button } from 'antd'
+import { Badge, Button, Form } from 'antd'
 import Search from 'antd/lib/input/Search'
 
 import { useRouter } from 'next/router'
@@ -21,6 +21,7 @@ import {
   MS_SERVICE,
 } from '@/constants/url'
 import { menuContactStore } from '@/store/menu'
+import { ILoginRequest } from ':@/login'
 
 const Header: FC = () => {
   const menusHeader = [
@@ -58,6 +59,8 @@ const Header: FC = () => {
   const [rotate, setRotate] = useState(false)
   const [loginPass, setLoginPass] = useState(false)
 
+  const [form] = Form.useForm<ILoginRequest>()
+
   const { isActiveSectionContact, setIsActiveSectionContact } =
     menuContactStore()
 
@@ -76,10 +79,11 @@ const Header: FC = () => {
     setIsOpenModel(!isOpenModal)
   }
 
-  const handleClickLogin = () => {
+  const handleSubmit = (value: ILoginRequest) => {
     setRotate(false)
     setLoginPass(true)
     setIsOpenModel(false)
+    // console.log(value)
   }
 
   return (
@@ -94,13 +98,15 @@ const Header: FC = () => {
             <div className="flex gap-5">
               <div className="relative">
                 <div
-                  className={`flex items-center gap-2 group cursor-pointer ${
+                  className={`flex items-center gap-2 group cursor-pointer group ${
                     loginPass ? 'hidden' : 'block'
                   }`}
                   onClick={onOpenModal}
                 >
                   <i className="icon-user text-xl" />
-                  <h3>เข้าสู่ระบบ</h3>
+                  <h3 className="text-sm font-semibold group-hover:underline">
+                    เข้าสู่ระบบ
+                  </h3>
                 </div>
                 <DropdownHeader
                   className={`${!loginPass ? 'hidden' : 'block'}`}
@@ -114,14 +120,17 @@ const Header: FC = () => {
                       ? 'scale-100'
                       : 'scale-0 -translate-y-45 -translate-x-20'
                   }`}
-                  onClick={handleClickLogin}
+                  form={form}
+                  handleSubmit={(value) => handleSubmit(value)}
                 />
               </div>
               <div className={`${loginPass ? 'hidden' : 'block'} `}>
                 <Link href={MS_REGISTER}>
                   <a className="flex items-center gap-2 group">
                     <i className="icon-register text-black text-xl" />
-                    <h3 className="group-hover:underline">สมัครสมาชิก</h3>
+                    <h3 className="text-sm font-semibold group-hover:underline">
+                      สมัครสมาชิก
+                    </h3>
                   </a>
                 </Link>
               </div>
@@ -132,7 +141,7 @@ const Header: FC = () => {
                   <Badge count={0} showZero>
                     <i className="icon-cart text-xl text-black" />
                   </Badge>
-                  <h3>ตระกร้าสินค้า</h3>
+                  <h3 className="text-sm font-semibold">ตระกร้าสินค้า</h3>
                 </a>
               </Link>
               <Link href="https://www.facebook.com/Marshal.chai">
@@ -154,11 +163,11 @@ const Header: FC = () => {
           </div>
         </Container>
       </div>
-      <div className="bg-black py-4">
+      <div className="bg-black xl:py-4">
         <Container paddingClassName="xl:px-0">
           <div className="flex justify-between items-center h-22">
             <Link href="/">
-              <a className="w-1/5">
+              <a className="xl:w-1/5 w-1/6">
                 <Image
                   src={LogoImage}
                   alt="Marshal motosport"
@@ -167,13 +176,13 @@ const Header: FC = () => {
               </a>
             </Link>
             <div className="flex gap-4">
-              <ul className="flex items-center gap-8">
+              <ul className="flex items-center xl:gap-8 gap-6">
                 {menusHeader.map((menu, index) => {
                   return (
                     <li key={index}>
                       <Link href={menu.href}>
                         <a
-                          className={`text-semibold text-lg hover:text-primary ${
+                          className={`text-semibold xl:text-lg text-base hover:text-primary ${
                             selectActiveMenu(menu.href)
                               ? 'text-primary'
                               : 'text-white'
@@ -190,7 +199,7 @@ const Header: FC = () => {
                 placeholder="Search..."
                 enterButton
                 bordered={false}
-                className="max-w-46 h-[34px] search-input--text !border !border-solid !border-primary !bg-black !caret-white !rounded"
+                className="xl:max-w-46 max-w-40 h-[34px] search-input--text !border !border-solid !border-primary !bg-black !rounded"
               />
               <Button
                 type="text"

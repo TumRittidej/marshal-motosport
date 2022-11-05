@@ -279,7 +279,7 @@ const Product: FC = () => {
   ]
 
   return (
-    <section className="pt-44 bg-black">
+    <section className="xl:pt-44 pt-36 bg-black">
       <div className="bg-2--cover pt-20 pb-30">
         <Container>
           <div className="flex gap-12">

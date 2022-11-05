@@ -40,8 +40,6 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
   }
 
   const handleSelectDeliverType = (selectDeliveryType: DeliveryType) => {
-    console.log('1')
-
     // form.setFieldValue('deliverType', index)
     setDeliveryType(selectDeliveryType)
   }

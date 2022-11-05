@@ -34,7 +34,7 @@ const Account: FC = () => {
   ]
 
   return (
-    <section className="pt-44 bg-black">
+    <section className="xl:pt-44 pt-36 bg-black">
       <div className="bg-2--position-y-5 py-20">
         <Container>
           <h1 className="text-4xl text-primary font-semibold mb-8">

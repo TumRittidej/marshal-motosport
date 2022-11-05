@@ -53,7 +53,7 @@ const Cart: FC = () => {
   // }
 
   return (
-    <section className="bg-black pt-44">
+    <section className="bg-black xl:pt-44 pt-36">
       <div className="bg-2--position-y-5 py-20">
         <Container>
           <div className="flex gap-6">

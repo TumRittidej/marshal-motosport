@@ -7,6 +7,7 @@ import Image, { StaticImageData } from 'next/image'
 import Container from '@/components/container'
 import { Button } from 'antd'
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons'
+import { MS_PURCHASE } from '@/constants/url'
 
 const ProductDetail: FC = () => {
   const [amount, setAmount] = useState(1)
@@ -52,7 +53,7 @@ const ProductDetail: FC = () => {
   }
 
   return (
-    <section className="bg-black pt-44">
+    <section className="bg-black xl:pt-44 pt-36">
       <div className="bg-2--position-y-5 pb-40">
         <h1 className="pt-20 pb-10 text-4xl font-semibold text-primary text-center">
           สินค้า
@@ -138,10 +139,11 @@ const ProductDetail: FC = () => {
                   </div>
                   <div>
                     <Button
+                      href={MS_PURCHASE}
                       icon={<i className="icon-cart text-xl" />}
-                      className="text-black hover:text-primary bg-primary hover:bg-transparent duration-200 border border-primary min-w-45 inline-flex items-center justify-center gap-2"
+                      className="text-black hover:text-primary bg-primary hover:bg-transparent duration-200 border border-primary min-w-45 flex justify-center gap-2"
                     >
-                      <div>สั่งซื้อสินค้า</div>
+                      สั่งซื้อสินค้า
                     </Button>
                   </div>
                 </div>

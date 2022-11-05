@@ -207,14 +207,16 @@ const Home: NextPage = () => {
     setFileName(files[0].name)
   }
   return (
-    <section className="pt-44 bg-black">
+    <section className="xl:pt-44 pt-36 bg-black">
       <div className="relative">
         <div className="absolute z-1 left-[55%] top-2/4 transform -translate-y-2/4 max-w-140">
-          <p className="text-white text-2xl font-medium">WELCOME TO</p>
-          <h1 className="text-primary text-5xl py-2 font-semibold">
+          <p className="text-white xl:text-2xl text-xl font-medium">
+            WELCOME TO
+          </p>
+          <h1 className="text-primary xl:text-5xl text-4xl py-2 font-semibold">
             MARSHAL MOTORSPORT
           </h1>
-          <p className="text-white text-2xl">
+          <p className="text-white xl:text-2xl text-xl">
             จำหน่ายและติดตั้งอะไหล่แต่งรถจักรยานยนต์ออโตเมติก สกู๊ตเตอร์
             มินิไบค์ บิ๊กไบค์ และให้บริการหลังการขายแบบครบวงจร
           </p>
@@ -256,16 +258,21 @@ const Home: NextPage = () => {
       </div>
       <div className="bg-1">
         <Container>
-          <div className="pt-15 pb-30 gap-12 flex items-center">
+          <div className="pt-15 xl:pb-30 pb-25 gap-12 flex items-center">
             <div className="w-2/4">
-              <Image src={HomeImage} alt="Marshal Shop" layout="responsive" />
+              <Image
+                src={HomeImage}
+                alt="Marshal Shop"
+                layout="responsive"
+                loading="lazy"
+              />
             </div>
             <div className="w-2/4">
-              <h1 className="text-4xl font-semibold text-white">
+              <h1 className="xl:text-4xl text-3xl font-semibold text-white">
                 รู้จัก
                 <span className="text-primary"> Marshal Motosport shop</span>
               </h1>
-              <p className="pt-2 text-lg text-white">
+              <p className="pt-2 xl:text-lg text-base text-white">
                 เราเป็นร้านค้าจำหน่ายสินค้าอะไหล่แต่งจักรยานยนต์
                 ที่ครอบคลุมอุปกรณ์ต่างๆ บนรถ อุปกรณ์เอนกประสงค์ กล่องบรรทุก
                 รวมทั้งเครื่องแต่งกาย สำหรับขับขี่เพื่อความปลอดภัย
@@ -285,7 +292,7 @@ const Home: NextPage = () => {
       </div>
       <div className="bg-2--cover">
         <Container>
-          <h1 className="text-4xl font-semibold text-white text-center">
+          <h1 className="xl:text-4xl text-3xl font-semibold text-white text-center">
             Marshal
             <span className="text-primary"> shop</span>
           </h1>
@@ -305,8 +312,10 @@ const Home: NextPage = () => {
                         />
                       </div>
                       <div className="text-primary text-center">
-                        <p className="pt-4 text-lg">{product.paragraph}</p>
-                        <span className="block py-2 text-xl font-bold">
+                        <p className="pt-4 xl:text-lg text-base">
+                          {product.paragraph}
+                        </p>
+                        <span className="block py-2 xl:text-xl text-lg font-bold">
                           {product.price}
                         </span>
                         <Button
@@ -322,7 +331,7 @@ const Home: NextPage = () => {
               )
             })}
           </div>
-          <div className="pt-10 text-center">
+          <div className="pt-15 text-center">
             <Button
               type="link"
               href={MS_PRODUCT}
@@ -331,14 +340,17 @@ const Home: NextPage = () => {
               ดูเพิ่มเติม
             </Button>
           </div>
-          <h1 className="pt-30 text-4xl font-semibold text-white text-center">
+          <h1 className="xl:pt-30 pt-20 xl:text-4xl text-3xl font-semibold text-white text-center">
             Our
             <span className="text-primary"> Service</span>
           </h1>
-          <div className="flex flex-wrap justify-center gap-14 pt-15">
+          <div className="flex flex-wrap justify-center pt-15 xl:gap-14 gap-12">
             {ourServiceItems.map((service, index) => {
               return (
-                <div key={index} className="max-w-[270px] text-center group">
+                <div
+                  key={index}
+                  className="xl:max-w-[270px] max-w-[250px] text-center group"
+                >
                   <div className="h-[75px] w-1/4 m-auto relative">
                     <div className="group-hover:opacity-0 transition duration-300">
                       <Image
@@ -357,10 +369,10 @@ const Home: NextPage = () => {
                       />
                     </div>
                   </div>
-                  <h3 className="text-white group-hover:text-primary text-2xl pt-6 transition duration-300">
+                  <h3 className="text-white group-hover:text-primary xl:text-2xl text-xl xl:pt-6 pt-4 transition duration-300">
                     {service.title}
                   </h3>
-                  <p className="text-white text-lg pt-2">
+                  <p className="text-white xl:text-lg text-base pt-2">
                     {service.decsription}
                   </p>
                 </div>
@@ -370,18 +382,18 @@ const Home: NextPage = () => {
         </Container>
       </div>
       <h1
-        className="pt-45 pb-10 text-4xl font-semibold text-white text-center"
+        className="xl:pt-45 pt-35 pb-10 xl:text-4xl lg:text-3xl font-semibold text-white text-center"
         id="section-contact"
         ref={sectionContactRef}
       >
         ติดต่อ
         <span className="text-primary">เรา</span>
       </h1>
-      <div className="bg-primary py-18">
+      <div className="bg-primary pt-10 pb-20">
         <Container>
           <div className="flex gap-12">
             <div className="w-2/4">
-              <h3 className="text-2xl font-medium">ร่วมงานกับเรา</h3>
+              <h3 className="xl:text-2xl text-xl font-medium">ร่วมงานกับเรา</h3>
               <Form
                 layout="vertical"
                 className="pt-6 max-w-150"
@@ -439,10 +451,10 @@ const Home: NextPage = () => {
               </Form>
             </div>
             <div className="w-2/4">
-              <h3 className="text-2xl font-medium pb-4">
+              <h3 className="xl:text-2xl text-xl font-medium pb-4">
                 ที่ตั้ง Marshal Motosport shop
               </h3>
-              <p className="text-lg font-semibold pb-4">
+              <p className="xl:text-lg text-base font-semibold pb-4">
                 การเดินทางมาร้าน สาขาเอกชัยบางบอน
               </p>
               <iframe
@@ -453,16 +465,16 @@ const Home: NextPage = () => {
               ></iframe>
               <ul className="pt-6">
                 <li className="flex items-center gap-4 pb-3">
-                  <i className="icon-location-mark text-3xl" />
-                  <p className="text-base">
+                  <i className="icon-location-mark xl:text-3xl text-2xl" />
+                  <p className="xl:text-base text-sm">
                     เส้นทางที่ 1 ถนนกาญจนาภิเษก-พระรามสอง วิ่งจากถนนกาญจนาฯ
                     มุ่งหน้า พระราม2 เข้าสู่ถนนเอกชัย-บางบอน ริมถนน
                     ร้านติดกับทางเข้าซอยเอกชัย 82
                   </p>
                 </li>
                 <li className="flex items-center gap-4 pb-3">
-                  <i className="icon-location-mark text-3xl" />
-                  <p className="text-base">
+                  <i className="icon-location-mark xl:text-3xl text-2xl" />
+                  <p className="xl:text-base text-sm">
                     เส้นทางที่ 2 จากถนนจอมทอง-บางบอน/จากถนนกัลปพฤกษ์ เลี้ยวขวา
                     มุ่งหน้าเข้าแยก บางบอ (จัสโก้บางบอน)
                     เลี้ยวซ้ายเข้าถนนเอกชัยมุ่งหน้า รพ.บางประกอก 8
@@ -471,8 +483,8 @@ const Home: NextPage = () => {
                   </p>
                 </li>
                 <li className="flex items-center gap-4">
-                  <i className="icon-location-mark text-3xl" />
-                  <p className="text-base">
+                  <i className="icon-location-mark xl:text-3xl text-2xl" />
+                  <p className="xl:text-base text-sm">
                     เส้นทางที่ 3 จากพระราม 2 ข้ามสะพานจากถนนเทียนทะเล
                     ผ่านทางรถไฟ มุ่งหน้าเข้าแยก บางบอน (จัสโก้บางบอน)
                     เลี้ยวซ้ายเข้าถนนเอกชัยมุ่งหน้า รพ.บางประกอก8

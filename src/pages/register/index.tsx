@@ -12,7 +12,7 @@ const Register: FC = () => {
   }
 
   return (
-    <section className="pt-44 bg-black">
+    <section className="xl:pt-44 pt-36 bg-black">
       <div className="bg-2--position-y-5 py-20">
         <h1 className="pb-10 text-4xl text-white text-center font-semibold text-white">
           สมัคร

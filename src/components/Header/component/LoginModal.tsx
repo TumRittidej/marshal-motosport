@@ -1,38 +1,44 @@
+import { ILoginRequest } from ':@/login'
 import { MS_REGISTER } from '@/constants/url'
 import { Button, Form, Input } from 'antd'
 import Link from 'next/link'
 import React, { FC } from 'react'
 
-interface LoginModalProps {
+interface ILoginModalProps {
   className: string
-  onClick: () => void
+  form: any
+  handleSubmit: (value: ILoginRequest) => void
 }
 
-const LoginModal: FC<LoginModalProps> = ({ className = '', onClick }) => {
+const LoginModal: FC<ILoginModalProps> = ({
+  className = '',
+  form,
+  handleSubmit,
+}) => {
   return (
     <div className={className}>
       <h2 className="text-lg text-center">เข้าสู่ระบบ</h2>
-      <Form layout="vertical">
-        <Form.Item label="อีเมล">
-          <Input type="text" />
+      <Form layout="vertical" form={form} onFinish={handleSubmit}>
+        <Form.Item label="อีเมล" name="email">
+          <Input type="email" />
         </Form.Item>
-        <Form.Item label="รหัสผ่าน">
-          <Input.Password type="text" />
-          <Link href="#">
-            <a target="_blank" className="underline text-gray-500">
-              <div className="text-right text-xs pt-2">ลืมรหัสผ่าน?</div>
-            </a>
-          </Link>
+        <Form.Item label="รหัสผ่าน" name="password">
+          <Input.Password type="password" />
         </Form.Item>
-        <Form.Item className="text-center pt-4">
+        <Link href="#">
+          <a target="_blank" className="underline text-gray-500">
+            <div className="text-right text-xs">ลืมรหัสผ่าน?</div>
+          </a>
+        </Link>
+        <div className="text-center pt-4 pb-2">
           <Button
-            onClick={onClick}
+            onClick={() => handleSubmit}
             htmlType="submit"
             className="text-black hover:text-primary bg-primary hover:bg-transparent duration-200 border border-primary w-full"
           >
             เข้าสู่ระบบ
           </Button>
-        </Form.Item>
+        </div>
       </Form>
       <div className="relative py-4">
         <div className="border" />

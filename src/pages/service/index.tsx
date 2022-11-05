@@ -128,16 +128,19 @@ const Service: FC = () => {
     },
   ]
   return (
-    <section className="pt-44 bg-black">
-      <div className="bg-2--position-y-20 pt-20 pb-30">
-        <h1 className="pb-15 text-4xl text-primary text-center font-semibold">
+    <section className="xl:pt-44 pt-36 bg-black">
+      <div className="bg-2--position-y-20 xl:pt-20 pt-15 xl:pb-30 pb-25">
+        <h1 className="pb-15 xl:text-4xl text-3xl text-primary text-center font-semibold">
           บริการ
         </h1>
         <Container>
-          <div className="flex flex-wrap justify-center gap-14 pt-15">
+          <div className="flex flex-wrap justify-center xl:gap-14 gap-12">
             {ourServiceItems.map((service, index) => {
               return (
-                <div key={index} className="max-w-[270px] text-center group">
+                <div
+                  key={index}
+                  className="xl:max-w-[270px] max-w-[250px] text-center group"
+                >
                   <div className="h-[75px] w-1/4 m-auto relative">
                     <div className="group-hover:opacity-0 transition duration-300">
                       <Image
@@ -156,10 +159,10 @@ const Service: FC = () => {
                       />
                     </div>
                   </div>
-                  <h3 className="text-white group-hover:text-primary text-2xl pt-6 transition duration-300">
+                  <h3 className="text-white group-hover:text-primary xl:text-2xl text-xl xl:pt-6 pt-4 transition duration-300">
                     {service.title}
                   </h3>
-                  <p className="text-white text-lg pt-2">
+                  <p className="text-white xl:text-lg text-base pt-2">
                     {service.decsription}
                   </p>
                 </div>
@@ -167,7 +170,7 @@ const Service: FC = () => {
             })}
           </div>
         </Container>
-        <h1 className="pt-20 text-4xl font-semibold text-white text-center">
+        <h1 className="pt-20 xl:text-4xl text-3xl font-semibold text-white text-center">
           Our
           <span className="text-primary"> Work</span>
         </h1>

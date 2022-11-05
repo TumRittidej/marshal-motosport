@@ -11,7 +11,7 @@ const NewsDetail: FC = () => {
   console.log(newsId)
 
   return (
-    <section className="bg-black pt-44">
+    <section className="bg-black xl:pt-44 pt-36">
       <div className="bg-2--position-y-5 pt-20 pb-30">
         <Container>
           <h1 className="pb-15 text-4xl font-semibold text-white text-center">

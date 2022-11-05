@@ -48,15 +48,15 @@ const Footer: FC = () => {
   return (
     <div className="bg-black pt-4">
       <Container paddingClassName="xl:px-0">
-        <div className="flex items-center justify-between border-b">
-          <div className="w-1/6">
+        <div className="flex items-center justify-between border-b pb-4">
+          <div className="xl:w-1/5 w-1/6">
             <Image
               src={LogoImage}
               layout="responsive"
               alt="Marshal Motosport"
             />
           </div>
-          <ul className="flex gap-16 text-lg font-semibold">
+          <ul className="flex xl:gap-16 gap-12 xl:text-lg text-base font-semibold">
             {menusFooter.map((menu, index) => {
               return (
                 <li key={index}>
@@ -71,24 +71,24 @@ const Footer: FC = () => {
         <div className="flex items-center">
           <ul className="text-white w-3/4">
             <li className="pb-6 flex gap-5">
-              <i className="icon-mark text-3xl" />
+              <i className="icon-mark xl:text-3xl text-2xl" />
               <div>
-                <p className="text-xl font-medium">
+                <p className="xl:text-xl text-lg font-medium">
                   MARSHAL MOTOSPORT CO., LTD.
                 </p>
-                <p className="text-lg pt-1">
+                <p className="xl:text-lg text-base pt-1">
                   ที่อยู่: เลขที่ 65/3-4 ริมถนน ระหว่าง ซอยเอกชัย 82 และ 80/2
                   ถนนเอกชัย-บางบอน กรุงเทพฯ 10150
                 </p>
               </div>
             </li>
             <li className="pb-6 flex items-center gap-4">
-              <i className="icon-telephone text-2xl" />
-              <p className="text-xl">098 568 9828</p>
+              <i className="icon-telephone xl:text-2xl text-xl" />
+              <p className="xl:text-xl text-lg">098 568 9828</p>
             </li>
             <li className="flex items-center gap-4">
-              <i className="icon-envelope text-2xl" />
-              <p className="text-xl text-xl">chai@marshal-motosport.page</p>
+              <i className="icon-envelope xl:text-2xl text-xl" />
+              <p className="xl:text-xl text-lg">chai@marshal-motosport.page</p>
             </li>
           </ul>
           <div className="w-1/4 py-12 pl-12">
