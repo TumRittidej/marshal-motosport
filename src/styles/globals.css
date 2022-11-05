@@ -109,10 +109,24 @@ input[type='number'] {
 }
 
 /* input */
-.ant-input:hover,
+.ant-input {
+  caret-color: #fbd424;
+}
+.ant-input:hover {
+  border-color: #d9d9d9 !important;
+}
 .ant-input:focus,
-.ant-input-focused {
-  border: 1px solid #d9d9d9 !important;
+.ant-input-focused,
+.ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
+  border-color: #d9d9d9 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+.ant-input-affix-wrapper:focus,
+.ant-input-affix-wrapper-focused {
+  border-color: #d9d9d9 !important;
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 /* radio */

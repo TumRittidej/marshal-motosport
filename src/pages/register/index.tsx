@@ -1,13 +1,16 @@
 import { Button, Form, Input, Radio } from 'antd'
 import { FC, useState } from 'react'
-import type { RadioChangeEvent } from 'antd'
+import { IRegisterRequest } from ':@/register'
+import { RegisterType } from '@/constants/register'
 
 const Register: FC = () => {
-  const [value, setValue] = useState(1)
   const [showStoreInput, setShowStoreInput] = useState(false)
-  const handleChangeType = (e: RadioChangeEvent) => {
-    setValue(e.target.value)
+
+  const [form] = Form.useForm<IRegisterRequest>()
+  const onSubmit = (value: IRegisterRequest) => {
+    console.log(value)
   }
+
   return (
     <section className="pt-44 bg-black">
       <div className="bg-2--position-y-5 py-20">
@@ -15,29 +18,35 @@ const Register: FC = () => {
           สมัคร
           <span className="text-primary">สมาชิก</span>
         </h1>
-        <Radio.Group
-          value={value}
-          onChange={handleChangeType}
-          className="text-white text-base mt-2 !hover:clear-none text-center block"
+        <Form
+          layout="vertical"
+          className="m-auto pt-2 max-w-100"
+          onFinish={onSubmit}
+          form={form}
+          initialValues={{ type: RegisterType.CUSTOMER }}
+          autoComplete="off"
         >
-          <Radio
-            value={1}
-            className="text-white text-base mt-2 !hover:clear-none"
-            onClick={() => setShowStoreInput(false)}
-          >
-            ลูกค้า
-          </Radio>
-          <Radio
-            value={2}
-            className="text-white text-base mt-2 !hover:clear-none"
-            onClick={() => setShowStoreInput(true)}
-          >
-            ร้านค้า
-          </Radio>
-        </Radio.Group>
+          <Form.Item name="type">
+            <Radio.Group className="text-white text-base mt-2 !hover:clear-none text-center block">
+              <Radio
+                value={RegisterType.CUSTOMER}
+                className="text-white text-base mt-2 !hover:clear-none"
+                onClick={() => setShowStoreInput(false)}
+              >
+                ลูกค้า
+              </Radio>
+              <Radio
+                value={RegisterType.STORE}
+                className="text-white text-base mt-2 !hover:clear-none"
+                onClick={() => setShowStoreInput(true)}
+              >
+                ร้านค้า
+              </Radio>
+            </Radio.Group>
+          </Form.Item>
 
-        <Form layout="vertical" className="m-auto pt-2 max-w-100">
           <Form.Item
+            name="storeName"
             label="ชื่อร้านค้า"
             className={`form-label--white ${
               showStoreInput ? 'block' : 'hidden'
@@ -45,23 +54,40 @@ const Register: FC = () => {
           >
             <Input type="text" />
           </Form.Item>
-          <Form.Item label="ชื่อ" className="form-label--white">
+          <Form.Item
+            name="firstName"
+            label="ชื่อ"
+            className="form-label--white"
+          >
             <Input type="text" />
           </Form.Item>
-          <Form.Item label="นามสกุล" className="form-label--white">
+          <Form.Item
+            name="lastName"
+            label="นามสกุล"
+            className="form-label--white"
+          >
             <Input type="text" />
           </Form.Item>
-          <Form.Item label="อีเมล" className="form-label--white">
+          <Form.Item name="email" label="อีเมล" className="form-label--white">
             <Input type="email" />
           </Form.Item>
-          <Form.Item label="รหัสผ่าน" className="form-label--white">
+          <Form.Item
+            name="password"
+            label="รหัสผ่าน"
+            className="form-label--white"
+          >
             <Input.Password type="password" />
           </Form.Item>
-          <Form.Item label="ยืนยันรหัสผ่าน" className="form-label--white">
+          <Form.Item
+            name="confirmPassword"
+            label="ยืนยันรหัสผ่าน"
+            className="form-label--white"
+          >
             <Input.Password type="password" />
           </Form.Item>
           <Form.Item className="text-center pt-4">
             <Button
+              onClick={() => onSubmit}
               htmlType="submit"
               className="text-black hover:text-primary bg-primary hover:bg-transparent duration-200 border border-primary min-w-45"
             >

@@ -1,15 +1,9 @@
 import { FC, useState } from 'react'
-import Link from 'next/link'
 import Image from 'next/image'
-import {
-  ArrowRightOutlined,
-  MinusOutlined,
-  PlusOutlined,
-} from '@ant-design/icons'
+import { MinusOutlined, PlusOutlined } from '@ant-design/icons'
 import { Button, Form, Steps } from 'antd'
 import Container from '@/components/container'
 import ProductImage from '@/assets/img/home/product-1.png'
-import { MS_PRODUCT, MS_PURCHASE } from '@/constants/url'
 import Deliver from '@/components/purchase/Deliver'
 import Payment from '@/components/purchase/Payment'
 import Finish from '@/components/purchase/Finish'
@@ -88,8 +82,6 @@ const Purchase: FC = () => {
                 initialValues={{ firstName: 'tum', deliverType: 1 }}
                 onFinish={onSubmit}
               >
-                {/* {step === 0 && <Deliver setStep={setStep} form={form} />}
-                {step === 1 && <Payment setStep={setStep} form={form} />} */}
                 <div className={`${step === 0 ? 'block' : 'hidden'}`}>
                   <Deliver setStep={setStep} form={form} />
                 </div>
