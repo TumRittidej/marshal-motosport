@@ -7,8 +7,8 @@ const Register: FC = () => {
   const [showStoreInput, setShowStoreInput] = useState(false)
 
   const [form] = Form.useForm<IRegisterRequest>()
-  const onSubmit = (value: IRegisterRequest) => {
-    console.log(value)
+  const handleSubmit = (value: IRegisterRequest) => {
+    // console.log(value)
   }
 
   return (
@@ -21,7 +21,7 @@ const Register: FC = () => {
         <Form
           layout="vertical"
           className="m-auto pt-2 max-w-100"
-          onFinish={onSubmit}
+          onFinish={handleSubmit}
           form={form}
           initialValues={{ type: RegisterType.CUSTOMER }}
           autoComplete="off"
@@ -87,7 +87,7 @@ const Register: FC = () => {
           </Form.Item>
           <Form.Item className="text-center pt-4">
             <Button
-              onClick={() => onSubmit}
+              onClick={() => handleSubmit}
               htmlType="submit"
               className="text-black hover:text-primary bg-primary hover:bg-transparent duration-200 border border-primary min-w-45"
             >

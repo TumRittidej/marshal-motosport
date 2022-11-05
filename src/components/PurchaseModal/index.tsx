@@ -53,7 +53,7 @@ const PurchaseModal: FC<IPurchaseModal> = ({
       centered
       maskClosable={false}
       title="ชำระเงิน"
-      closeIcon={<i className="icon-cross" />}
+      closeIcon={<i className="icon-cross text-black" />}
       width={450}
     >
       <Form layout="vertical">

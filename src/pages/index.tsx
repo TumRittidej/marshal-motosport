@@ -30,11 +30,11 @@ import OurServiceHoverImage6 from '@/assets/img/home/our-service-hover-6.png'
 import OurServiceHoverImage7 from '@/assets/img/home/our-service-hover-7.png'
 
 import Link from 'next/link'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react'
 import { MS_KNOWS_US, MS_PRODUCT } from '@/constants/url'
 import { useRouter } from 'next/router'
 import { menuContactStore } from '@/store/menu'
-// import { menuContactStore } from '@/store/menu'
+import { IWorkTogetherRequest } from ':@/home'
 
 const Home: NextPage = () => {
   const router = useRouter()
@@ -195,7 +195,17 @@ const Home: NextPage = () => {
   //   window.addEventListener('scroll', handleScrollContact)
   //   return () => removeEventListener('scroll', handleScrollContact)
   // }, [handleScrollContact])
+  const [form] = Form.useForm<IWorkTogetherRequest>()
+  const [fileName, setFileName] = useState('')
 
+  const handleSubmit = (value: IWorkTogetherRequest) => {
+    // console.log(value)
+  }
+  const handleChangeUpload = (e: ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files
+    if (!files?.length) return
+    setFileName(files[0].name)
+  }
   return (
     <section className="pt-44 bg-black">
       <div className="relative">
@@ -372,50 +382,60 @@ const Home: NextPage = () => {
           <div className="flex gap-12">
             <div className="w-2/4">
               <h3 className="text-2xl font-medium">ร่วมงานกับเรา</h3>
-              <Form layout="vertical" className="pt-6 max-w-150">
-                <Form.Item label="ตำแหน่งที่ต้องการ">
+              <Form
+                layout="vertical"
+                className="pt-6 max-w-150"
+                onFinish={handleSubmit}
+                form={form}
+              >
+                <Form.Item name="position" label="ตำแหน่งที่ต้องการ">
                   <Input type="text" />
                 </Form.Item>
-                <Form.Item label="ชื่อ">
+                <Form.Item name="firstName" label="ชื่อ">
                   <Input type="text" />
                 </Form.Item>
-                <Form.Item label="นามสกุล">
+                <Form.Item name="lastName" label="นามสกุล">
                   <Input type="text" />
                 </Form.Item>
-                <Form.Item label="เบอร์ติดต่อ">
+                <Form.Item name="phone" label="เบอร์ติดต่อ">
                   <Input type="tel" />
                 </Form.Item>
-                <Form.Item label="อีเมล">
+                <Form.Item name="email" label="อีเมล">
                   <Input type="email" />
                 </Form.Item>
                 <Form.Item
+                  name="experience"
                   label="แนบใบสมัครและประสบการณ์"
-                  valuePropName="fileList"
+                  className="relative"
                 >
-                  <Upload
-                    type="drag"
-                    listType="picture"
+                  <Input
+                    type="file"
                     accept="image/jpg, application/pdf"
-                    className="border border-black"
-                  >
-                    (รูปแบบไฟล์ที่ต้องการ เป็น .pdf หรือ.jpg เท่านั้น)
-                  </Upload>
+                    className="absolute inset-0 opacity-0 z-1 cursor-pointer"
+                    onChange={(e) => handleChangeUpload(e)}
+                  />
+                  <div className="text-xs text-center text-gray-500 border border-gray-500 border-dashed py-4 bg-white rounded-sm">
+                    {fileName
+                      ? fileName
+                      : '(รูปแบบไฟล์ที่ต้องการ เป็น .pdf หรือ.jpg เท่านั้น)'}
+                  </div>
                 </Form.Item>
-                <Form.Item label="9 + 5 =">
+                <Form.Item name="confirm" label="9 + 5 =">
                   <Input type="text" />
                   <p className="text-xs font-light text-right pt-1">
                     (กรุณากรอกตัวเลขผลลัพธ์จากด้านบน)
                   </p>
                 </Form.Item>
-                <Form.Item className="text-right">
+                <div className="text-right">
                   <Button
+                    onClick={() => handleSubmit}
                     type="primary"
                     htmlType="submit"
                     className="px-15 bg-black hover:bg-primary text-primary hover:text-black border border-black"
                   >
                     ส่ง
                   </Button>
-                </Form.Item>
+                </div>
               </Form>
             </div>
             <div className="w-2/4">

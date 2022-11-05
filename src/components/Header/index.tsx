@@ -62,16 +62,7 @@ const Header: FC = () => {
     menuContactStore()
 
   const selectActiveMenu = (href: string) => {
-    const { asPath, pathname } = router
-    // if (pathname === `${href}/[productId]`) {
-    //   return true
-    // } else if (pathname === `${href}/[newsId]`) {
-    //   return true
-    // } else if (asPath === href) {
-    //   return true
-    // } else if (!isActiveSectionContact) {
-    //   return href === '/#section-contact'
-    // }
+    const { pathname } = router
     if (pathname === `${href}/[productId]`) {
       return true
     } else if (pathname === `${href}/[newsId]`) {
@@ -118,10 +109,10 @@ const Header: FC = () => {
                   setRotate={setRotate}
                 />
                 <LoginModal
-                  className={`absolute top-[42px] rounded bg-white w-70 z-102 p-4 transition duration-200 ${
+                  className={`absolute top-[42px] rounded bg-white w-70 z-102 p-4 transition duration-200 transform ${
                     isOpenModal
-                      ? 'transform scale-100'
-                      : 'transform scale-0 -translate-y-45 -translate-x-20'
+                      ? 'scale-100'
+                      : 'scale-0 -translate-y-45 -translate-x-20'
                   }`}
                   onClick={handleClickLogin}
                 />
