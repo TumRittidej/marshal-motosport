@@ -93,7 +93,7 @@ const Header: FC = () => {
         onClick={() => setIsOpenModel(false)}
       />
       <div className="bg-primary">
-        <Container paddingClassName="xl:px-0">
+        <Container paddingClassName="xl:px-0 px-0">
           <div className="flex items-center justify-between h-14">
             <div className="flex gap-5">
               <div className="relative">
@@ -164,7 +164,7 @@ const Header: FC = () => {
         </Container>
       </div>
       <div className="bg-black xl:py-4">
-        <Container paddingClassName="xl:px-0">
+        <Container paddingClassName="xl:px-0 px-0">
           <div className="flex justify-between items-center h-22">
             <Link href="/">
               <a className="xl:w-1/5 w-1/6">

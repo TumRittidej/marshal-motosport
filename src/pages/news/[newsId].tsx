@@ -12,9 +12,9 @@ const NewsDetail: FC = () => {
 
   return (
     <section className="bg-black xl:pt-44 pt-36">
-      <div className="bg-2--position-y-5 pt-20 pb-30">
+      <div className="bg-2--position-y-5 xl:pt-20 pt-15 xl:pb-30 pb-25">
         <Container>
-          <h1 className="pb-15 text-4xl font-semibold text-white text-center">
+          <h1 className="pb-15 xl:text-4xl text-3xl font-semibold text-white text-center">
             ข่าวสาร<span className="text-primary">และกิจกรรม</span>
           </h1>
           <div className="flex gap-8">
@@ -27,7 +27,7 @@ const NewsDetail: FC = () => {
               />
             </div>
             <div className="w-3/5 pl-20">
-              <h2 className="text-primary text-xl">
+              <h2 className="text-primary xl:text-xl text-lg">
                 10
                 เหตุผลที่ทำไมมอเตอร์ไซค์ดีกว่ารถยนต์แน่นอนหละครับว่าในส่วนของรถยนต์นั้นดีตรงสะดวกสบาย
                 คุ้มแดดคุ้มฝน ตอนอากาศร้อนก็มีแอร์เย็นสบาย
@@ -36,7 +36,7 @@ const NewsDetail: FC = () => {
                 Monday, October 12, 2020
               </p>
               <div className="border border-white mt-4 mb-6" />
-              <p className="text-white">
+              <p className="text-white xl:text-base text-sm">
                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
                 diam nonummy nibh euismod tincidunt ut laoreet dolore magna
                 aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
@@ -53,17 +53,17 @@ const NewsDetail: FC = () => {
           <div className="flex justify-between pt-8">
             <Button
               type="link"
-              className="text-white hover:text-primary text-xl gap-2 flex items-center"
+              className="text-white hover:text-primary xl:text-xl text-lg gap-2 flex items-center"
             >
-              <i className="icon-caret-left text-2xl" />
+              <i className="icon-caret-left xl:text-2xl text-xl" />
               <div>ก่อนหน้า</div>
             </Button>
             <Button
               type="link"
-              className="text-white hover:text-primary text-xl gap-2 flex items-center"
+              className="text-white hover:text-primary xl:text-xl text-lg gap-2 flex items-center"
             >
               <div>ถัดไป</div>
-              <i className="icon-caret-right text-2xl" />
+              <i className="icon-caret-right xl:text-2xl text-xl" />
             </Button>
           </div>
         </Container>

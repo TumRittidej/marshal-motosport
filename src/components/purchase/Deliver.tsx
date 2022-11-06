@@ -127,7 +127,7 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
 
   return (
     <>
-      <h3 className="text-xl text-primary font-medium pt-8">
+      <h3 className="xl:text-xl text-lg text-primary font-medium pt-8">
         ข้อมูลผู้สั่งซื้อ
       </h3>
       <Row gutter={32} className="mt-4">
@@ -235,7 +235,9 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
           </Form.Item>
         </Col>
       </Row>
-      <h3 className="text-xl text-primary font-medium pt-8 pb-4">การจัดส่ง</h3>
+      <h3 className="xl:text-xl text-lg text-primary font-medium pt-8 pb-4">
+        การจัดส่ง
+      </h3>
       <Form.Item name="deliverType">
         {deliveryTypes.map((delivery, index) => {
           return (

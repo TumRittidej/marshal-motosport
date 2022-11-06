@@ -31,7 +31,9 @@ const Payment: FC<IPaymentProps> = ({ setStep, form }) => {
   }
   return (
     <>
-      <h3 className="text-xl text-primary font-medium pt-8">วิธีการชำระเงิน</h3>
+      <h3 className="xl:text-xl text-lg text-primary font-medium pt-8">
+        วิธีการชำระเงิน
+      </h3>
       <div
         className={`border border-white rounded text-white transition-full duration-300 my-4 overflow-hidden ${
           PaymentType.CREDIT === payment
@@ -110,34 +112,38 @@ const Payment: FC<IPaymentProps> = ({ setStep, form }) => {
           โอนเงินผ่านธนาคาร
         </div>
         <div className="px-8 py-4 flex">
-          <div className="flex flex-col justify-between gap-6">
-            <div className="flex items-center gap-6">
-              <Image
-                src={KasikornBankImage}
-                width={50}
-                height={50}
-                alt="Kasikorn Bank"
-              />
-              <p className="text-white text-base">ธนาคารกสิกร</p>
+          <div className="flex flex-col justify-between xl:gap-6 gap-4">
+            <div className="flex items-center xl:gap-6 gap-4">
+              <div className="w-[50px]">
+                <Image
+                  src={KasikornBankImage}
+                  alt="Kasikorn Bank"
+                  layout="responsive"
+                  loading="lazy"
+                />
+              </div>
+              <p className="text-white xl:text-base text-sm">ธนาคารกสิกร</p>
             </div>
-            <div className="flex items-center gap-6">
-              <Image
-                src={BangkokBankImage}
-                width={50}
-                height={50}
-                alt="Bangkok Bank"
-              />
-              <p className="text-white text-base">ธนาคารกรุงเทพ</p>
+            <div className="flex items-center xl:gap-6 gap-4">
+              <div className="w-[50px]">
+                <Image
+                  src={BangkokBankImage}
+                  alt="Bangkok Bank"
+                  layout="responsive"
+                  loading="lazy"
+                />
+              </div>
+              <p className="text-white xl:text-base text-sm">ธนาคารกรุงเทพ</p>
             </div>
           </div>
-          <div className="border border-primary w-[1px] mx-6 h-fit" />
-          <div className="flex flex-col justify-between">
+          <div className="border border-primary mx-6 h-fit" />
+          <div className="flex flex-col justify-between xl:text-base text-sm">
             <div>
               <div className="flex gap-4">
                 <p className="text-white">เลขที่บัญชี</p>
                 <div className="text-primary">062-3-75623-8</div>
               </div>
-              <div className="flex gap-7">
+              <div className="flex gap-7 pt-2">
                 <p className="text-white">ชื่อบัญชี</p>
                 <div className="text-primary">บจก. มาร์แชล โมโตสปอร์ท</div>
               </div>
@@ -147,7 +153,7 @@ const Payment: FC<IPaymentProps> = ({ setStep, form }) => {
                 <p className="text-white">เลขที่บัญชี</p>
                 <div className="text-primary">191-4-48128-6</div>
               </div>
-              <div className="flex gap-7">
+              <div className="flex gap-7 pt-2">
                 <p className="text-white">ชื่อบัญชี</p>
                 <div className="text-primary">บจก. มาร์แชล โมโตสปอร์ท</div>
               </div>

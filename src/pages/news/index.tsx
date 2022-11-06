@@ -95,12 +95,12 @@ const News: FC = () => {
   ]
   return (
     <section className="bg-black xl:pt-44 pt-36">
-      <div className="bg-2--cover pt-20 pb-30">
+      <div className="bg-2--cover xl:pt-20 pt-15 xl:pb-30 pb-25">
         <Container>
-          <h1 className="pb-15 text-4xl font-semibold text-white text-center">
+          <h1 className="pb-15 xl:text-4xl text-3xl font-semibold text-white text-center">
             ข่าวสาร<span className="text-primary">และกิจกรรม</span>
           </h1>
-          <div className="grid grid-cols-4 gap-10">
+          <div className="grid grid-cols-4 xl:gap-10 gap-8">
             {newsImage.map((item, index) => {
               return (
                 <Link href={`${MS_NEWS}/${item.id}`} key={index}>
@@ -115,7 +115,7 @@ const News: FC = () => {
                         loading="lazy"
                       />
                     </div>
-                    <p className="pt-2 text-lg text-primary text-center">
+                    <p className="pt-2 xl:text-lg text-base text-primary text-center">
                       {item.paragraph}
                     </p>
                   </a>

@@ -35,9 +35,9 @@ const Account: FC = () => {
 
   return (
     <section className="xl:pt-44 pt-36 bg-black">
-      <div className="bg-2--position-y-5 py-20">
+      <div className="bg-2--position-y-5 xl:pt-20 pt-15 xl:pb-30 pb-25">
         <Container>
-          <h1 className="text-4xl text-primary font-semibold mb-8">
+          <h1 className="xl:text-4xl text-3xl text-primary font-semibold mb-8">
             บัญชีผู้ใช้
           </h1>
           <div className="flex gap-12">
@@ -49,14 +49,13 @@ const Account: FC = () => {
                     <li key={index} className="mb-4 last:mb-4">
                       <Link href={menu.href}>
                         <a
-                          className={`text-base flex items-center gap-2 hover:text-primary ${
+                          className={`text-base hover:text-primary ${
                             router.asPath === menu.href
                               ? 'text-primary'
                               : 'text-white'
                           }`}
                         >
-                          <MinusOutlined style={{ fontSize: '10px' }} />
-                          {menu.text}
+                          - {menu.text}
                         </a>
                       </Link>
                     </li>

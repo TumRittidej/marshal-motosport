@@ -5,7 +5,7 @@ import { Button, Col, DatePicker, Form, Input, Row } from 'antd'
 const User: FC = () => {
   return (
     <>
-      <h2 className="text-primary text-xl">ข้อมูลส่วนตัว</h2>
+      <h2 className="text-primary xl:text-xl text-lg">ข้อมูลส่วนตัว</h2>
       <Form layout="vertical" className="pt-6">
         <Row gutter={32}>
           <Col span={12}>
@@ -42,7 +42,9 @@ const User: FC = () => {
             </Form.Item>
           </Col>
         </Row>
-        <h2 className="text-primary text-xl pt-6 pb-4">เปลี่ยนรหัสผ่าน</h2>
+        <h2 className="text-primary xl:text-xl text-lg pt-6 pb-4">
+          เปลี่ยนรหัสผ่าน
+        </h2>
         <Row gutter={32}>
           <Col span={12}>
             <Form.Item label="รหัสผ่านเดิม" className="form-label--white">

@@ -28,11 +28,11 @@ const Address: FC = () => {
   return (
     <>
       <div className="flex justify-between">
-        <h2 className="text-primary text-xl">ที่อยู่การจัดส่ง</h2>
+        <h2 className="text-primary xl:text-xl text-lg">ที่อยู่การจัดส่ง</h2>
         <Button
           onClick={() => setIsAddMoreAddress(!isAddMoreAddress)}
           type="link"
-          className="text-primary text-lg flex items-center"
+          className="text-primary xl:text-lg text-base flex items-center"
           icon={!isAddMoreAddress && <PlusOutlined />}
         >
           {isAddMoreAddress ? (
@@ -50,41 +50,41 @@ const Address: FC = () => {
         className={`w-full pt-6 ${!isAddMoreAddress ? 'block' : 'hidden'}`}
       >
         <div className="border border-primary rounded-md p-5 mb-4">
-          <div className="flex justify-between ">
-            <p className="text-white text-base font-light">
+          <div className="flex justify-between xl:text-base text-sm">
+            <p className="text-white font-light">
               รุ่งเรือง เกียงไกรไพศาล <br />
               35 ซอยรัชดาภิเษก 46 ถนนรัชดาภิเษก ลาดยาว จตุจักร กรุงเทพฯ 10900{' '}
               <br />
               0629162498
             </p>
             <div>
-              <Button type="link" className="text-white text-base p-0">
+              <Button type="link" className="text-white p-0">
                 <div className="underline">แก้ไข</div>
               </Button>
             </div>
           </div>
-          <Radio value={1} className="text-base text-white mt-4 p-0">
+          <Radio value={1} className="text-white mt-4 p-0">
             ตั้งเป็นค่าเริ่มต้นสำหรับที่อยู่การจัดส่ง
           </Radio>
         </div>
         <div className="border border-primary rounded-md p-5">
-          <div className="flex justify-between ">
-            <p className="text-white text-base font-light">
+          <div className="flex justify-between xl:text-base text-sm">
+            <p className="text-white font-light">
               รุ่งเรือง เกียงไกรไพศาล <br />
               35 ซอยรัชดาภิเษก 46 ถนนรัชดาภิเษก ลาดยาว จตุจักร กรุงเทพฯ 10900{' '}
               <br />
               0629162498
             </p>
             <div>
-              <Button type="link" className="text-white text-base p-0">
+              <Button type="link" className="text-white p-0">
                 <div className="underline">แก้ไข</div>
               </Button>
-              <Button type="link" className="text-white text-base py-0 pr-0">
+              <Button type="link" className="text-white py-0 pr-0">
                 <div className="underline">ลบ</div>
               </Button>
             </div>
           </div>
-          <Radio value={2} className="text-base text-white mt-4">
+          <Radio value={2} className="text-white mt-4">
             ตั้งเป็นค่าเริ่มต้นสำหรับที่อยู่การจัดส่ง
           </Radio>
         </div>
@@ -93,6 +93,7 @@ const Address: FC = () => {
       <Form
         layout="vertical"
         className={`pt-6 ${isAddMoreAddress ? 'block' : 'hidden'}`}
+        autoComplete="off"
       >
         <Row gutter={32}>
           <Col span={12}>
@@ -190,7 +191,7 @@ const Address: FC = () => {
         </Row>
         <Checkbox
           onChange={handleChangeSetAddress}
-          className="text-white text-base mt-2 !hover:clear-none"
+          className="text-white xl:text-base text-sm mt-2 !hover:clear-none"
         >
           ตั้งเป็นค่าเริ่มต้นสำหรับที่อยู่การจัดส่ง
         </Checkbox>

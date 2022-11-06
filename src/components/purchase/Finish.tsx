@@ -45,14 +45,16 @@ const Finish: FC<IFinishProps> = ({ setStep }) => {
           />
         </div>
         <div className="text-center">
-          <h3 className="text-xl text-primary pt-1">รายการสั่งซื้อสำเร็จ</h3>
-          <p className="text-white pt-1">
+          <h3 className="xl:text-xl text-lg text-primary pt-1">
+            รายการสั่งซื้อสำเร็จ
+          </h3>
+          <p className="text-white pt-1 xl:text-base text-sm">
             กรุณาชำระเงินภายในวันที่{' '}
             <span className="font-bold text-primary underline">01/10/2022</span>{' '}
             เวลา <span className="font-bold text-primary underline">09:39</span>{' '}
             น.
           </p>
-          <p className="text-sm italic text-white pt-2">
+          <p className="xl:text-xs text-[10px] italic text-white pt-2">
             **กรุณาชำระเงินภายใน 48 ชั่วโมง หากเกินเวลาที่กำหนด
             ระบบจะทำการยกเลิกรายการคำสั่งซื้อของคุณอัตโนมัติ**
           </p>
@@ -67,9 +69,9 @@ const Finish: FC<IFinishProps> = ({ setStep }) => {
           </Space>
         </Button>
       </div>
-      <div className="border border-white rounded mt-8 text-white text-base py-4">
+      <div className="border border-white rounded mt-8 text-white xl:text-base text-sm py-4">
         <div className="px-5">
-          <Row className="" gutter={[0, 4]}>
+          <Row gutter={[0, 4]}>
             <Col span={12}>
               <span className="font-semibold">หมายเลขสั่งซื้อ : </span>
               <span className="text-primary pl-2">MSD00001</span>
@@ -88,7 +90,7 @@ const Finish: FC<IFinishProps> = ({ setStep }) => {
           </Row>
           <div className="border border-white opacity-20 my-6" />
           <h2 className="font-semibold text-white">ที่อยู่การจัดส่ง</h2>
-          <p className="font-light pb-8">
+          <p className="font-light pb-8 pt-2">
             รุ่งเรือง เกียงไกรไพศาล <br />
             35 ซอยรัชดาภิเษก 46 ถนนรัชดาภิเษก ลาดยาว จตุจักร กรุงเทพฯ 10900
             <br />

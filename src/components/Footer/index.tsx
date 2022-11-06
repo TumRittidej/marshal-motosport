@@ -47,7 +47,7 @@ const Footer: FC = () => {
   ]
   return (
     <div className="bg-black pt-4">
-      <Container paddingClassName="xl:px-0">
+      <Container paddingClassName="xl:px-0 px-0">
         <div className="flex items-center justify-between border-b pb-4">
           <div className="xl:w-1/5 w-1/6">
             <Image

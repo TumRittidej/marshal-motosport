@@ -13,8 +13,8 @@ const Register: FC = () => {
 
   return (
     <section className="xl:pt-44 pt-36 bg-black">
-      <div className="bg-2--position-y-5 py-20">
-        <h1 className="pb-10 text-4xl text-white text-center font-semibold text-white">
+      <div className="bg-2--position-y-5 xl:pt-20 pt-15 xl:pb-30 pb-25">
+        <h1 className="xl:pb-10 pb-6 xl:text-4xl text-3xl text-white text-center font-semibold text-white">
           สมัคร
           <span className="text-primary">สมาชิก</span>
         </h1>

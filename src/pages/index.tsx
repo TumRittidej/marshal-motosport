@@ -1,7 +1,7 @@
 import Container from '@/components/container'
 import type { NextPage } from 'next'
 import Image from 'next/image'
-import { Button, Carousel, Form, Input, Upload } from 'antd'
+import { Button, Carousel, Form, Input } from 'antd'
 
 import HomeBanner1 from '@/assets/img/home/home-banner-1.jpg'
 import HomeBanner2 from '@/assets/img/home/home-banner-2.jpg'
@@ -399,6 +399,7 @@ const Home: NextPage = () => {
                 className="pt-6 max-w-150"
                 onFinish={handleSubmit}
                 form={form}
+                autoComplete="off"
               >
                 <Form.Item name="position" label="ตำแหน่งที่ต้องการ">
                   <Input type="text" />

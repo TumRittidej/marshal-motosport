@@ -280,11 +280,11 @@ const Product: FC = () => {
 
   return (
     <section className="xl:pt-44 pt-36 bg-black">
-      <div className="bg-2--cover pt-20 pb-30">
+      <div className="bg-2--cover xl:pt-20 pt-15 xl:pb-30 pb-25">
         <Container>
           <div className="flex gap-12">
             <div className="w-1/4">
-              <h3 className="text-lg text-primary font-medium">
+              <h3 className="xl:text-lg text-base text-primary font-medium">
                 สินค้าทั้งหมด
               </h3>
               <div className="border border-white opacity-20 mt-2 mb-4" />
@@ -312,7 +312,7 @@ const Product: FC = () => {
                 return (
                   <div
                     key={index}
-                    className={`text-base overflow-hidden transition-all duration-300 mb-4 last:mb-0 ${
+                    className={`xl:text-base text-sm overflow-hidden transition-all duration-300 mb-4 last:mb-0 ${
                       activeIndexCategory.includes(index)
                         ? 'max-h-[999px] '
                         : 'max-h-[22px]'
@@ -356,23 +356,25 @@ const Product: FC = () => {
               {/* </div> */}
             </div>
             <div className="w-3/4">
-              <h1 className="pb-15 text-4xl font-semibold text-primary text-center">
+              <h1 className="xl:pb-15 pb-10 xl:text-4xl text-3xl font-semibold text-primary text-center">
                 สินค้า
               </h1>
               <div className="flex justify-between items-center">
-                <h3 className="text-white text-lg">สินค้าทั้งหมด</h3>
+                <h3 className="text-white xl:text-lg text-base">
+                  สินค้าทั้งหมด
+                </h3>
                 <Dropdown
                   overlay={menu}
                   trigger={['click']}
-                  className="border border-white px-3 py-2 rounded"
+                  className="border border-white xl:px-3 xl:py-2 px-2 py-1 rounded"
                   onOpenChange={(open) => setRotateArrow(open)}
                 >
                   <a
                     onClick={() => setRotateArrow(!rotateArrow)}
                     className="text-white text-base"
                   >
-                    <Space className="gap-8">
-                      <p className="text-base">เรียงลำดับจาก</p>
+                    <Space className="xl:gap-8 gap-6">
+                      <p className="xl:text-base text-sm">เรียงลำดับจาก</p>
                       <DownOutlined
                         className={`text-xs transform transition duration-300 ${
                           rotateArrow ? 'rotate-180 -translate-y-1' : 'rotate-0'
@@ -398,12 +400,16 @@ const Product: FC = () => {
                             />
                           </div>
                           <div className="text-primary text-center">
-                            <p className="pt-4 text-lg">{product.paragraph}</p>
-                            <span className="block py-2 text-xl font-bold">
+                            <p className="pt-4 xl:text-lg text-base">
+                              {product.paragraph}
+                            </p>
+                            <span className="block py-2 xl:text-xl text-lg font-bold">
                               {product.price}
                             </span>
                             <Button
-                              icon={<i className="icon-cart text-xl" />}
+                              icon={
+                                <i className="icon-cart xl:text-xl text-lg" />
+                              }
                               className="text-black group-hover:text-primary bg-primary group-hover:bg-transparent duration-200 border border-primary min-w-45 inline-flex items-center justify-center gap-2"
                             >
                               <div>สั่งซื้อสินค้า</div>

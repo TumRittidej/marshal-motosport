@@ -19,13 +19,13 @@ const DropdownHeader: FC<DropdownHeaderProps> = ({
 }) => {
   const menu = (
     <Menu
-      className="pt-2 px-2 w-50 rounded dropdown--header dropdown--list"
+      className="pt-2 px-2 xl:w-50 w-42 rounded dropdown--header dropdown--list"
       items={[
         {
           label: (
             <div onClick={() => setRotate(false)}>
               <Link href={MS_ACCOUNT_USER}>
-                <a className="block text-base text-black hover:text-primary">
+                <a className="block xl:text-base text-sm text-black hover:text-primary">
                   ข้อมูลส่วนตัว
                 </a>
               </Link>
@@ -37,7 +37,7 @@ const DropdownHeader: FC<DropdownHeaderProps> = ({
           label: (
             <div onClick={() => setRotate(false)}>
               <Link href={MS_ACCOUNT_ORDER}>
-                <a className="block text-base text-black hover:text-primary">
+                <a className="block xl:text-base text-sm text-black hover:text-primary">
                   รายการสั่งซื้อ
                 </a>
               </Link>
@@ -54,8 +54,8 @@ const DropdownHeader: FC<DropdownHeaderProps> = ({
               className="flex items-center gap-2 text-black hover:text-primary transition duration-300"
               onClick={handleClickLogout}
             >
-              <i className="icon-logout text-xl" />
-              <p className="text-base">ออกจากระบบ</p>
+              <i className="icon-logout xl:text-xl text-lg" />
+              <p className="xl:text-base text-sm">ออกจากระบบ</p>
             </div>
           ),
           key: '3',

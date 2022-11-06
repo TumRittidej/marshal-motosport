@@ -18,7 +18,12 @@ const LoginModal: FC<ILoginModalProps> = ({
   return (
     <div className={className}>
       <h2 className="text-lg text-center">เข้าสู่ระบบ</h2>
-      <Form layout="vertical" form={form} onFinish={handleSubmit}>
+      <Form
+        layout="vertical"
+        form={form}
+        onFinish={handleSubmit}
+        autoComplete="off"
+      >
         <Form.Item label="อีเมล" name="email">
           <Input type="email" />
         </Form.Item>

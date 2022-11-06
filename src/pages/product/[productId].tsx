@@ -54,8 +54,8 @@ const ProductDetail: FC = () => {
 
   return (
     <section className="bg-black xl:pt-44 pt-36">
-      <div className="bg-2--position-y-5 pb-40">
-        <h1 className="pt-20 pb-10 text-4xl font-semibold text-primary text-center">
+      <div className="bg-2--position-y-5 xl:pt-20 pt-15 xl:pb-30 pb-25">
+        <h1 className="xl:pb-15 pb-10 xl:text-4xl text-3xl font-semibold text-primary text-center">
           สินค้า
         </h1>
         <Container>
@@ -94,14 +94,18 @@ const ProductDetail: FC = () => {
               </div>
             </div>
             <div className="w-2/4">
-              <h2 className="text-primary text-2xl">
+              <h2 className="text-primary xl:text-2xl text-xl">
                 หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)
               </h2>
-              <div className="flex gap-4 pt-2">
-                <p className="text-primary font-light text-lg">ราคา</p>
-                <span className="text-primary font-bold text-xl">฿ 40,000</span>
+              <div className="flex items-center gap-4 pt-2">
+                <p className="text-primary font-light xl:text-lg text-base">
+                  ราคา
+                </p>
+                <span className="text-primary font-bold xl:text-xl text-lg">
+                  ฿ 40,000
+                </span>
               </div>
-              <p className="text-white pt-4">
+              <p className="text-white pt-4 xl:text-base text-sm">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
                 odio animi voluptates nihil quae. Repellendus quisquam optio
                 natus excepturi deleniti quibusdam eum quia rem voluptatibus
@@ -113,18 +117,32 @@ const ProductDetail: FC = () => {
               </p>
               <div className="flex justify-between pt-15">
                 <div className="flex items-center gap-8">
-                  <span className="text-white font-light text-lg">จำนวน</span>
-                  <div className="flex items-center gap-x-4 bg-white rounded">
+                  <span className="text-white font-light xl:text-lg text-base">
+                    จำนวน
+                  </span>
+                  <div className="flex items-center xl:gap-x-4 gap-x-2 bg-white rounded">
                     <Button
-                      className="border-none"
+                      className="border-none xl:h-8 xl:w-8 h-7"
                       onClick={plusProduct}
-                      icon={<PlusOutlined className="text-black" />}
+                      icon={
+                        <PlusOutlined
+                          className="text-black"
+                          style={{ fontSize: '12px' }}
+                        />
+                      }
                     />
-                    <span className="text-xl text-center w-12">{amount}</span>
+                    <span className="text-base text-center xl:w-6 w-4">
+                      {amount}
+                    </span>
                     <Button
                       onClick={minusProduct}
-                      className="border-none"
-                      icon={<MinusOutlined className="text-black" />}
+                      className="border-none xl:h-8 xl:w-8 h-7"
+                      icon={
+                        <MinusOutlined
+                          className="text-black"
+                          style={{ fontSize: '12px' }}
+                        />
+                      }
                     />
                   </div>
                 </div>

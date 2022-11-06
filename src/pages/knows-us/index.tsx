@@ -101,7 +101,7 @@ const KnowsUs: FC = () => {
   ]
   return (
     <section className="bg-black xl:pt-44 pt-36">
-      <h1 className="pt-20 pb-15 text-4xl font-semibold text-primary text-center">
+      <h1 className="xl:pt-20 pt-15 pb-15 xl:text-4xl text-3xl font-semibold text-primary text-center">
         รู้จักเรา
       </h1>
       <div className="bg-1">
@@ -115,13 +115,13 @@ const KnowsUs: FC = () => {
               />
             </div>
             <div className="w-2/4">
-              <h3 className="pb-4 text-[26px]">
+              <h3 className="pb-4 xl:text-2xl text-xl">
                 <span className="text-primary font-medium">
                   Marshal Motosport
                 </span>
                 <span className="text-white"> shop</span>
               </h3>
-              <p className="text-white text-xl font-light">
+              <p className="text-white xl:text-xl text-base font-light">
                 <span className="text-primary">Marshal Motosport Shop</span>{' '}
                 เป็นร้านค้าจำหน่ายสินค้าอะไหล่แต่งจักรยานยนต์
                 ที่ครอบคลุมอุปกรณ์ต่างๆบนรถ อุปกรณ์เอนกประสงค์ กล่องบรรทุก
@@ -156,7 +156,7 @@ const KnowsUs: FC = () => {
         <Container>
           <div className="pt-15 flex gap-12">
             <div className="w-2/4">
-              <p className="text-white text-xl font-light">
+              <p className="text-white xl:text-xl text-base font-light">
                 <span className="text-primary">คุณชัย </span>
                 เจ้าของร้านมีความชื่นชอบและรักในการขับขี่
                 มีประสบการณ์ทำงานในบริษัทที่ผลิตชิ้นส่วนยานยนต์มานานกว่า 20 ปี
@@ -206,11 +206,11 @@ const KnowsUs: FC = () => {
               />
             </div>
             <div className="w-2/4">
-              <h3 className="pb-4 text-[26px]">
+              <h3 className="pb-4 xl:text-2xl text-xl">
                 <span className="text-primary font-medium">Environmental</span>
                 <span className="text-white"> policy</span>
               </h3>
-              <p className="text-white text-xl font-light">
+              <p className="text-white xl:text-xl text-base font-light">
                 เรามุ่งมั่นที่จะสร้างสังคมที่เป็นมิตรกับสิ่งแวดล้อม
                 ผ่านการดำเนินงานและกิจกรรมของ มาร์แชลโมโตสปอร์ท บนหลักการ 3R
                 (Reduce Reuse Recycle) ด้วยการลดการใช้ การนำกลับมาใช้ซ้ำ
@@ -231,10 +231,10 @@ const KnowsUs: FC = () => {
               </p>
             </div>
           </div>
-          <h1 className="pb-15 text-4xl font-semibold text-primary text-center">
+          <h1 className="xl:pb-15 pb-10 xl:text-4xl text-3xl font-semibold text-primary text-center">
             Partners
           </h1>
-          <div className="pb-30 grid grid-cols-6 gap-x-16 gap-y-10 items-center">
+          <div className="xl:pb-30 pb-25 grid grid-cols-6 gap-x-16 gap-y-10 items-center">
             {partnerImage.map((item, index) => {
               return (
                 <div key={index}>

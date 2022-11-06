@@ -29,7 +29,7 @@ const Order: FC = () => {
             <Button
               type="link"
               onClick={() => setRotateArrowDropDown(false)}
-              className="text-black hover:text-primary w-full text-left p-0"
+              className="text-black hover:text-primary w-full xl:text-base text-sm text-left p-0"
             >
               ล่าสุด
             </Button>
@@ -41,7 +41,7 @@ const Order: FC = () => {
             <Button
               type="link"
               onClick={() => setRotateArrowDropDown(false)}
-              className="text-black hover:text-primary w-full text-left p-0"
+              className="text-black hover:text-primary w-full xl:text-base text-sm text-left p-0"
             >
               เก่าสุด
             </Button>
@@ -84,20 +84,20 @@ const Order: FC = () => {
   }
   return (
     <>
-      <h2 className="text-primary text-xl">รายการสั่งซื้อ</h2>
+      <h2 className="text-primary xl:text-xl text-lg">รายการสั่งซื้อ</h2>
       <div className="text-right">
         <Dropdown
           overlay={menu}
           trigger={['click']}
-          className="border border-white px-3 py-2 rounded"
+          className="border border-white xl:px-3 xl:py-2 px-2 py-1 rounded"
           onOpenChange={(open) => setRotateArrowDropDown(open)}
         >
           <a
             onClick={() => setRotateArrowDropDown(!rotateArrowDropDown)}
-            className="text-white text-base"
+            className="text-white"
           >
             <Space className="gap-8">
-              <p className="text-base">เรียงลำดับจาก</p>
+              <p className="xl:text-base text-sm">เรียงลำดับจาก</p>
               <DownOutlined
                 className={`text-xs transform transition duration-300 ${
                   rotateArrowDropDown ? 'rotate-180 -translate-y-1' : 'rotate-0'
@@ -114,7 +114,7 @@ const Order: FC = () => {
           }`}
         >
           <div className="flex justify-between">
-            <div className="text-white">
+            <div className="text-white xl:text-base text-sm">
               <p className="font-semibold">
                 หมายเลขสั่งซื้อ :<span className="text-primary"> MSD00001</span>{' '}
                 <br />
@@ -122,10 +122,10 @@ const Order: FC = () => {
               <p>29/09/2022, 09:39</p>
             </div>
             <div className="text-white">
-              <span className="text-primary text-xl font-medium block text-right">
+              <span className="text-primary xl:text-xl text-lg font-medium block text-right">
                 ฿ 79,600
               </span>
-              <p className="text-base">
+              <p className="xl:text-base text-sm">
                 สถานะการชำระเงิน{' '}
                 <span className="text-primary">ยังไม่ชำระ</span>
               </p>
@@ -255,13 +255,13 @@ const Order: FC = () => {
             </div>
           </div>
           <div
-            className={`w-full pt-4 transition-all duration-200 ${
+            className={`w-full pt-4 transition-all duration-200 xl:text-base text-sm ${
               rotateArrowMoreBtn ? 'visible' : 'invisible'
             } `}
           >
             <div className="border border-white opacity-20 mb-4" />
             <h2 className="font-semibold text-white">ที่อยู่การจัดส่ง</h2>
-            <p className="font-light pb-4 text-white">
+            <p className="font-light pb-4 pt-2 text-white">
               รุ่งเรือง เกียงไกรไพศาล <br />
               35 ซอยรัชดาภิเษก 46 ถนนรัชดาภิเษก ลาดยาว จตุจักร กรุงเทพฯ 10900
               <br />
@@ -300,17 +300,17 @@ const Order: FC = () => {
         >
           <div className="flex justify-between">
             <div className="text-white">
-              <p className="font-semibold">
+              <p className="font-semibold xl:text-base text-sm">
                 หมายเลขสั่งซื้อ :<span className="text-primary"> MSD00002</span>{' '}
                 <br />
               </p>
               <p>29/09/2022, 09:39</p>
             </div>
             <div className="text-white">
-              <span className="text-primary text-xl font-medium block text-right">
+              <span className="text-primary xl:text-xl text-lg font-medium block text-right">
                 ฿ 79,600
               </span>
-              <p className="text-base">
+              <p className="xl:text-base text-sm">
                 สถานะการชำระเงิน <span className="font-semibold">ชำระแล้ว</span>
                 <span className="px-2">|</span>
                 <span className="text-primary">รอจัดส่ง</span>
@@ -373,13 +373,13 @@ const Order: FC = () => {
             </div>
           </div>
           <div
-            className={`w-full pt-4 transition-all duration-200 ${
+            className={`w-full pt-4 transition-all duration-200 xl:text-base text-sm ${
               rotateArrowMoreBtn1 ? 'visible' : 'invisible'
             } `}
           >
             <div className="border border-white opacity-20 mb-4" />
             <h2 className="font-semibold text-white">ที่อยู่การจัดส่ง</h2>
-            <p className="font-light pb-4 text-white">
+            <p className="font-light pb-4 pt-2 text-white">
               รุ่งเรือง เกียงไกรไพศาล <br />
               35 ซอยรัชดาภิเษก 46 ถนนรัชดาภิเษก ลาดยาว จตุจักร กรุงเทพฯ 10900
               <br />
@@ -414,7 +414,6 @@ const Order: FC = () => {
       </div>
       <PurchaseModal
         isOpenModal={isOpenModal}
-        setIsOpenModal={setIsOpenModal}
         handleSubmit={handleSubmit}
         handleCancel={handleCancel}
       />
