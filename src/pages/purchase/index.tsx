@@ -64,7 +64,7 @@ const Purchase: FC = () => {
     console.log(value)
   }
   return (
-    <section className="bg-black xl:pt-44 pt-36">
+    <section className="bg-black xl:pt-44 lg:pt-36 pt-15">
       <div className="bg-2--position-y-5 xl:pt-20 pt-15 xl:pb-30 pb-25">
         <Container>
           <div className="flex gap-6">

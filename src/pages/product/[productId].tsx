@@ -53,7 +53,7 @@ const ProductDetail: FC = () => {
   }
 
   return (
-    <section className="bg-black xl:pt-44 pt-36">
+    <section className="bg-black xl:pt-44 lg:pt-36 pt-15">
       <div className="bg-2--position-y-5 xl:pt-20 pt-15 xl:pb-30 pb-25">
         <h1 className="xl:pb-15 pb-10 xl:text-4xl text-3xl font-semibold text-primary text-center">
           สินค้า

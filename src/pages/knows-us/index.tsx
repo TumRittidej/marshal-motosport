@@ -100,7 +100,7 @@ const KnowsUs: FC = () => {
     },
   ]
   return (
-    <section className="bg-black xl:pt-44 pt-36">
+    <section className="bg-black xl:pt-44 lg:pt-36 pt-15">
       <h1 className="xl:pt-20 pt-15 pb-15 xl:text-4xl text-3xl font-semibold text-primary text-center">
         รู้จักเรา
       </h1>

@@ -243,7 +243,7 @@ const Header: FC = () => {
       </div>
       <div className="block md:hidden fixed bg-primary inset-x-0 z-120">
         <Container>
-          <div className="flex items-center justify-between h-[60px] relative">
+          <div className="flex items-center justify-between h-15 relative">
             <div className="flex gap-2">
               <button className="flex items-center" onClick={handleOpenDrawer}>
                 <MenuOutlined style={{ fontSize: '26px' }} />
@@ -265,10 +265,6 @@ const Header: FC = () => {
                 </Link>
               </div>
             </div>
-
-            <div
-              className={`/absolute /left-1/2 /transform /-translate-x-1/2 flex`}
-            ></div>
             <div className="flex items-center gap-2">
               <div className="flex items-center gap-2">
                 <SearchOutlined

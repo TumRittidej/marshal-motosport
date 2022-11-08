@@ -207,7 +207,7 @@ const Home: NextPage = () => {
     setFileName(files[0].name)
   }
   return (
-    <section className="xl:pt-44 pt-36 bg-black">
+    <section className="xl:pt-44 lg:pt-36 pt-15 bg-black">
       <div className="relative">
         <div className="absolute z-1 left-[55%] top-2/4 transform -translate-y-2/4 max-w-140">
           <p className="text-white xl:text-2xl text-xl font-medium">
