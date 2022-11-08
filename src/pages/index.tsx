@@ -382,7 +382,7 @@ const Home: NextPage = () => {
         </Container>
       </div>
       <h1
-        className="xl:pt-45 pt-35 pb-10 xl:text-4xl lg:text-3xl font-semibold text-white text-center"
+        className="xl:pt-45 pt-35 pb-10 xl:text-4xl text-3xl font-semibold text-white text-center"
         id="section-contact"
         ref={sectionContactRef}
       >
@@ -459,9 +459,8 @@ const Home: NextPage = () => {
                 การเดินทางมาร้าน สาขาเอกชัยบางบอน
               </p>
               <iframe
+                className="xl:h-[450px] xl:w-[600px] lg:w-[550px] h-[350px] w-[450px]"
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7753.7622296868285!2d100.4058066!3d13.6649922!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2bd13dffb4b29%3A0x40f4be41b1908c13!2s3242%20Bang%20Bon%20Nuea%2C%20Khet%20Bang%20Bon%2C%20Krung%20Thep%20Maha%20Nakhon%2010150!5e0!3m2!1sen!2sth!4v1667141732320!5m2!1sen!2sth"
-                width="600"
-                height="450"
                 loading="lazy"
               ></iframe>
               <ul className="pt-6">

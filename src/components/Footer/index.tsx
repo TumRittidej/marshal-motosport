@@ -56,7 +56,7 @@ const Footer: FC = () => {
               alt="Marshal Motosport"
             />
           </div>
-          <ul className="flex xl:gap-16 gap-12 xl:text-lg text-base font-semibold">
+          <ul className="flex xl:gap-16 lg:gap-12 gap-8 xl:text-lg lg:text-base text-sm font-semibold">
             {menusFooter.map((menu, index) => {
               return (
                 <li key={index}>

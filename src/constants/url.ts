@@ -12,3 +12,6 @@ export const MS_ACCOUNT = '/account'
 export const MS_ACCOUNT_USER = `${MS_ACCOUNT}/user`
 export const MS_ACCOUNT_ADDRESS = `${MS_ACCOUNT}/address`
 export const MS_ACCOUNT_ORDER = `${MS_ACCOUNT}/order`
+
+// social
+export const MS_FACRBOOK = 'https://www.facebook.com/Marshal.chai'

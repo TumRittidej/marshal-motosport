@@ -15,6 +15,9 @@
 .form-label--white label {
   color: #fff !important;
 }
+.form-label--black label {
+  color: #000 !important;
+}
 
 /* header */
 .search-input--text .ant-input {
