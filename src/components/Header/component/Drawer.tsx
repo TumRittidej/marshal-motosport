@@ -2,7 +2,6 @@ import Image from 'next/image'
 import React, {
   Dispatch,
   FC,
-  MouseEvent,
   ReactNode,
   SetStateAction,
   useEffect,
@@ -43,11 +42,9 @@ enum Position {
 }
 
 const Drawer: FC<IDrawerProps> = ({
-  children,
   position = 'left',
   isOpenDrawer,
   setIsOpenDrawer,
-  title,
   onOpenModal,
   loginPass,
   handleClickLogout,

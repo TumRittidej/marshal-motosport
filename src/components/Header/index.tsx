@@ -161,7 +161,6 @@ const Header: FC = () => {
                 <Link href={MS_CART}>
                   <a className="flex items-center gap-2 pr-4">
                     <Badge count={0} showZero>
-                      {/* <i className="icon-cart text-xl text-black" /> */}
                       <ShoppingCartOutlined style={{ fontSize: '24px' }} />
                     </Badge>
                     <h3 className="text-sm font-semibold">ตระกร้าสินค้า</h3>
@@ -297,7 +296,6 @@ const Header: FC = () => {
         </Container>
       </div>
       <Drawer
-        // onClose={handleCloseDrawer}
         setIsOpenDrawer={setIsOpenDrawer}
         isOpenDrawer={isOpenDrawer}
         title="test"
