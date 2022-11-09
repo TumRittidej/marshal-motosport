@@ -100,7 +100,7 @@ const News: FC = () => {
           <h1 className="pb-15 xl:text-4xl text-3xl font-semibold text-white text-center">
             ข่าวสาร<span className="text-primary">และกิจกรรม</span>
           </h1>
-          <div className="grid grid-cols-4 xl:gap-10 gap-8">
+          <div className="grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-4 sm:gap-6 lg:gap-x-10">
             {newsImage.map((item, index) => {
               return (
                 <Link href={`${MS_NEWS}/${item.id}`} key={index}>

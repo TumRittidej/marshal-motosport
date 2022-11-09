@@ -274,7 +274,7 @@ const Home: NextPage = () => {
             Marshal
             <span className="text-primary"> shop</span>
           </h1>
-          <div className="pt-8 md:pt-15 grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-x-4 sm:gap-x-6 md:gap-x-10 gap-y-4 sm:gap-y-6">
+          <div className="pt-8 md:pt-15 grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-4 sm:gap-6 lg:gap-x-10">
             {productItems.map((product, index) => {
               return (
                 <div key={index} className="group cursor-pointer">
