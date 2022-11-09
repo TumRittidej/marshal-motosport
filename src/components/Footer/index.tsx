@@ -48,18 +48,18 @@ const Footer: FC = () => {
   return (
     <div className="bg-black pt-4">
       <Container paddingClassName="xl:px-0 px-0">
-        <div className="flex items-center justify-between border-b pb-4">
-          <div className="xl:w-1/5 w-1/6">
+        <div className="md:flex flex-cols text-center md:text-left items-center justify-between border-b pb-4">
+          <div className="xl:w-1/5 md:w-1/6 w-1/4 mx-auto md:mx-0 pb-4 md:pb-0">
             <Image
               src={LogoImage}
               layout="responsive"
               alt="Marshal Motosport"
             />
           </div>
-          <ul className="flex xl:gap-16 lg:gap-12 gap-8 xl:text-lg lg:text-base text-sm font-semibold">
+          <ul className="md:flex flex-cols xl:gap-16 lg:gap-12 gap-8 xl:text-lg lg:text-base text-sm md:font-semibold font-regular">
             {menusFooter.map((menu, index) => {
               return (
-                <li key={index}>
+                <li key={index} className="pb-4 md:pb-0">
                   <Link href={menu.href}>
                     <a className="text-white hover:text-primary">{menu.text}</a>
                   </Link>
@@ -68,9 +68,9 @@ const Footer: FC = () => {
             })}
           </ul>
         </div>
-        <div className="flex items-center">
-          <ul className="text-white w-3/4">
-            <li className="pb-6 flex gap-5">
+        <div className="flex-cols md:flex items-center pt-6 md:pt-0">
+          <ul className="text-white md:w-3/4 text-center md:text-left w-full">
+            <li className="pb-6 flex-cols md:flex gap-5">
               <i className="icon-mark xl:text-3xl text-2xl" />
               <div>
                 <p className="xl:text-xl text-lg font-medium">
@@ -82,19 +82,23 @@ const Footer: FC = () => {
                 </p>
               </div>
             </li>
-            <li className="pb-6 flex items-center gap-4">
+            <li className="pb-6 flex-cols md:flex items-center gap-4">
               <i className="icon-telephone xl:text-2xl text-xl" />
               <p className="xl:text-xl text-lg">098 568 9828</p>
             </li>
-            <li className="flex items-center gap-4">
+            <li className="flex-cols md:flex items-center gap-4">
               <i className="icon-envelope xl:text-2xl text-xl" />
               <p className="xl:text-xl text-lg">chai@marshal-motosport.page</p>
             </li>
           </ul>
-          <div className="w-1/4 py-12 pl-12">
+          <div className="md:w-1/4 md:py-12 md:pl-12 mx-auto w-52 p-6">
             <Image src={QrCodeImage} alt="Qr Code" layout="responsive" />
           </div>
         </div>
+        <p className="text-xs text-white font-light text-center pb-4">
+          Copyright © 2022 | MARSHAL MOTOSPORT CO., LTD. All rights reserved.
+          Designed by Belong-to
+        </p>
       </Container>
     </div>
   )

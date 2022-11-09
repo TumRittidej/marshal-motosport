@@ -97,6 +97,16 @@
   text-overflow: ellipsis;
 }
 
+.line-clamp-2-h-16 {
+  display: -webkit-box;
+  max-width: 100%;
+  height: 64px;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* step */
 .ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-icon {
   background: #fbd424 !important;
