@@ -97,7 +97,7 @@ const News: FC = () => {
     <section className="bg-black xl:pt-44 md:pt-36 pt-15">
       <div className="bg-2--cover xl:pt-20 pt-15 xl:pb-30 pb-25">
         <Container>
-          <h1 className="pb-15 xl:text-4xl text-3xl font-semibold text-white text-center">
+          <h1 className="md:pb-15 pb-10 xl:text-4xl md:text-3xl text-2xl font-semibold text-white text-center">
             ข่าวสาร<span className="text-primary">และกิจกรรม</span>
           </h1>
           <div className="grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-4 sm:gap-6 lg:gap-x-10">

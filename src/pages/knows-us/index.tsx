@@ -101,20 +101,20 @@ const KnowsUs: FC = () => {
   ]
   return (
     <section className="bg-black xl:pt-44 md:pt-36 pt-15">
-      <h1 className="xl:pt-20 pt-15 pb-15 xl:text-4xl text-3xl font-semibold text-primary text-center">
+      <h1 className="xl:pt-20 pt-15 md:pb-15 mb-10 xl:text-4xl md:text-3xl text-2xl font-semibold text-primary text-center">
         รู้จักเรา
       </h1>
       <div className="bg-1">
         <Container>
-          <div className="flex gap-12">
-            <div className="w-2/4">
+          <div className="flex flex-col md:flex-row gap-6 md:gap-12">
+            <div className="w-full sm:w-3/4 md:w-2/4 mx-auto md:mx-0">
               <Image
                 src={KnowsUsImage1}
                 layout="responsive"
                 alt="Marshal Motosport Contact"
               />
             </div>
-            <div className="w-2/4">
+            <div className="w-full md:w-2/4 text-center md:text-left">
               <h3 className="pb-4 xl:text-2xl text-xl">
                 <span className="text-primary font-medium">
                   Marshal Motosport
@@ -154,8 +154,8 @@ const KnowsUs: FC = () => {
       </div>
       <div className="bg-2--position-y-20">
         <Container>
-          <div className="pt-15 flex gap-12">
-            <div className="w-2/4">
+          <div className="pt-15 flex flex-col-reverse md:flex-row gap-6 md:gap-12">
+            <div className="w-full md:w-2/4 text-center md:text-left">
               <p className="text-white xl:text-xl text-base font-light">
                 <span className="text-primary">คุณชัย </span>
                 เจ้าของร้านมีความชื่นชอบและรักในการขับขี่
@@ -189,7 +189,7 @@ const KnowsUs: FC = () => {
                 ไว้บริการลูกค้า
               </p>
             </div>
-            <div className="w-2/4">
+            <div className="w-full sm:w-3/4 md:w-2/4 mx-auto md:mx-0">
               <Image
                 src={KnowsUsImage2}
                 layout="responsive"
@@ -197,15 +197,15 @@ const KnowsUs: FC = () => {
               />
             </div>
           </div>
-          <div className="pt-15 pb-25 flex gap-12">
-            <div className="w-2/4">
+          <div className="pt-15 md:pb-25 pb-15 flex flex-col md:flex-row gap-6 md:gap-12">
+            <div className="w-full sm:w-3/4 md:w-2/4 mx-auto md:mx-0">
               <Image
                 src={KnowsUsImage3}
                 layout="responsive"
                 alt="Marshal Motosport Contact"
               />
             </div>
-            <div className="w-2/4">
+            <div className="w-full md:w-2/4 text-center md:text-left">
               <h3 className="pb-4 xl:text-2xl text-xl">
                 <span className="text-primary font-medium">Environmental</span>
                 <span className="text-white"> policy</span>
@@ -231,13 +231,13 @@ const KnowsUs: FC = () => {
               </p>
             </div>
           </div>
-          <h1 className="xl:pb-15 pb-10 xl:text-4xl text-3xl font-semibold text-primary text-center">
+          <h1 className="xl:pb-15 pb-10 xl:text-4xl md:text-3xl text-2xl font-semibold text-primary text-center">
             Partners
           </h1>
-          <div className="xl:pb-30 pb-25 grid grid-cols-6 gap-x-16 gap-y-10 items-center">
+          <div className="xl:pb-30 pb-25 flex flex-wrap justify-center lg:gap-x-16 lg:gap-y-10 gap-x-8 gap-y-6 items-center">
             {partnerImage.map((item, index) => {
               return (
-                <div key={index}>
+                <div key={index} className="md:w-1/9 sm:w-1/8 w-1/5">
                   <Image
                     src={item.image}
                     alt={item.alternative}

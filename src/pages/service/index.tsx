@@ -137,10 +137,7 @@ const Service: FC = () => {
           <div className="flex flex-wrap justify-center xl:gap-14 gap-12">
             {ourServiceItems.map((service, index) => {
               return (
-                <div
-                  key={index}
-                  className="xl:max-w-[270px] max-w-[250px] text-center group"
-                >
+                <div key={index} className="w-[250px] text-center group">
                   <div className="h-[75px] w-1/4 m-auto relative">
                     <div className="group-hover:opacity-0 transition duration-300">
                       <Image

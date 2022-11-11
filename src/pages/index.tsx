@@ -232,7 +232,7 @@ const Home: NextPage = () => {
       </div>
       <div className="bg-1">
         <Container>
-          <div className="pt-15 xl:pb-30 md:pb-25 pb-15 gap-12 md:flex md:text-left items-center flex-cols text-center">
+          <div className="pt-15 xl:pb-30 md:pb-25 pb-15 gap-12 flex flex-col md:flex-row md:text-left items-center text-center">
             <h1 className="text-2xl font-semibold text-white block pb-6 md:hidden">
               รู้จัก <br />
               <span className="text-primary"> Marshal Motosport shop</span>
@@ -318,17 +318,14 @@ const Home: NextPage = () => {
               ดูเพิ่มเติม
             </Button>
           </div>
-          <h1 className="xl:pt-30 pt-20 xl:text-4xl md:text-3xl text-2xl font-semibold text-white text-center">
+          <h1 className="xl:pt-30 md:pt-20 pt-15 xl:text-4xl md:text-3xl text-2xl font-semibold text-white text-center">
             Our
             <span className="text-primary"> Service</span>
           </h1>
           <div className="flex flex-wrap justify-center pt-15 xl:gap-14 gap-12">
             {ourServiceItems.map((service, index) => {
               return (
-                <div
-                  key={index}
-                  className="xl:max-w-[270px] max-w-[250px] text-center group"
-                >
+                <div key={index} className="w-[250px] text-center group">
                   <div className="h-[75px] w-1/4 m-auto relative">
                     <div className="group-hover:opacity-0 transition duration-300">
                       <Image
@@ -368,7 +365,7 @@ const Home: NextPage = () => {
       </h1>
       <div className="bg-primary pt-6 md:pt-10 pb-20">
         <Container>
-          <div className="md:flex gap-12 flex-cols">
+          <div className="flex flex-col md:flex-row gap-12">
             <div className="md:w-2/4 sm:w-3/4 w-full mx-auto text-center md:text-left">
               <h3 className="xl:text-2xl md:text-xl text-lg font-medium">
                 ร่วมงานกับเรา
