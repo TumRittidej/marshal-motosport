@@ -294,7 +294,6 @@ const Header: FC = () => {
       <Drawer
         setIsOpenDrawer={setIsOpenDrawer}
         isOpenDrawer={isOpenDrawer}
-        title="test"
         onOpenModal={onOpenModal}
         loginPass={loginPass}
         handleClickLogout={() => setLoginPass(false)}
