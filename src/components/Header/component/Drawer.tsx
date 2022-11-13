@@ -26,9 +26,6 @@ interface IDrawerProps {
   isOpenDrawer: boolean
   setIsOpenDrawer: Dispatch<SetStateAction<boolean>>
   position?: `${Position}`
-  width?: string
-  height?: string
-  title?: string
   onOpenModal?: () => void
   loginPass?: boolean
   handleClickLogout?: () => void
@@ -121,7 +118,7 @@ const Drawer: FC<IDrawerProps> = ({
       />
       <div
         ref={drawerRef}
-        className={`fixed bg-black z-10000 transition-all duration-300 ${renderDrawer()} rounded-r p-8`}
+        className={`fixed bg-black z-10000 transition-all duration-300 ${renderDrawer()} p-8`}
       >
         <div className="flex items-center justify-between gap-2">
           <div className="w-1/2">

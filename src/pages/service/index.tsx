@@ -129,8 +129,8 @@ const Service: FC = () => {
   ]
   return (
     <section className="xl:pt-44 md:pt-36 pt-15 bg-black">
-      <div className="bg-2--position-y-20 xl:pt-20 pt-15 xl:pb-30 pb-25">
-        <h1 className="pb-15 xl:text-4xl text-3xl text-primary text-center font-semibold">
+      <div className="bg-2--position-y-20 xl:pt-20 pt-15 xl:pb-30 md:pb-25 pb-15">
+        <h1 className="md:pb-15 pb-10 xl:text-4xl text-3xl text-primary text-center font-semibold">
           บริการ
         </h1>
         <Container>
@@ -138,7 +138,7 @@ const Service: FC = () => {
             {ourServiceItems.map((service, index) => {
               return (
                 <div key={index} className="w-[250px] text-center group">
-                  <div className="h-[75px] w-1/4 m-auto relative">
+                  <div className="md:h-[75px] h-[60px] md:w-1/4 w-1/5 m-auto relative">
                     <div className="group-hover:opacity-0 transition duration-300">
                       <Image
                         src={service.image}
@@ -156,10 +156,10 @@ const Service: FC = () => {
                       />
                     </div>
                   </div>
-                  <h3 className="text-white group-hover:text-primary xl:text-2xl text-xl xl:pt-6 pt-4 transition duration-300">
+                  <h3 className="text-white group-hover:text-primary xl:text-2xl md:text-xl text-lg xl:pt-6 pt-4 transition duration-300">
                     {service.title}
                   </h3>
-                  <p className="text-white xl:text-lg text-base pt-2">
+                  <p className="text-white xl:text-lg md:text-base text-sm pt-2">
                     {service.decsription}
                   </p>
                 </div>
@@ -167,22 +167,20 @@ const Service: FC = () => {
             })}
           </div>
         </Container>
-        <h1 className="pt-20 xl:text-4xl text-3xl font-semibold text-white text-center">
+        <h1 className="md:pt-20 pt-10 xl:text-4xl text-3xl font-semibold text-white text-center">
           Our
           <span className="text-primary"> Work</span>
         </h1>
-        <div className="py-15 bg-3">
+        <div className="md:py-15 py-10 bg-3">
           <iframe
-            className="mx-auto"
-            width="600"
-            height="345"
+            className="sm:mx-auto mx-0 sm:w-[600px] w-full sm:h-[345px] h-[250px]"
             src="https://www.youtube.com/embed/w-RzNzsaZvs"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           />
         </div>
         <Container>
-          <div className="m-auto columns-4 pt-5">
+          <div className="m-auto md:columns-4 sm:columns-3 columns-1 pt-5">
             {ourWorkItems.map((item, index) => {
               return (
                 <div
