@@ -232,7 +232,7 @@ const Home: NextPage = () => {
       </div>
       <div className="bg-1">
         <Container>
-          <div className="pt-15 xl:pb-30 md:pb-25 pb-15 gap-12 flex flex-col md:flex-row md:text-left items-center text-center">
+          <div className="pt-15 xl:pb-30 md:pb-25 pb-15 md:gap-12 gap-6 flex flex-col md:flex-row md:text-left items-center text-center">
             <h1 className="text-2xl font-semibold text-white block pb-6 md:hidden">
               รู้จัก <br />
               <span className="text-primary"> Marshal Motosport shop</span>
@@ -322,11 +322,11 @@ const Home: NextPage = () => {
             Our
             <span className="text-primary"> Service</span>
           </h1>
-          <div className="flex flex-wrap justify-center pt-15 xl:gap-14 gap-12">
+          <div className="flex flex-wrap justify-center md:pt-15 pt-10 xl:gap-14 gap-12">
             {ourServiceItems.map((service, index) => {
               return (
                 <div key={index} className="w-[250px] text-center group">
-                  <div className="h-[75px] w-1/4 m-auto relative">
+                  <div className="md:h-[75px] h-[60px] md:w-1/4 w-1/5 m-auto relative">
                     <div className="group-hover:opacity-0 transition duration-300">
                       <Image
                         src={service.image}
@@ -367,9 +367,7 @@ const Home: NextPage = () => {
         <Container>
           <div className="flex flex-col md:flex-row gap-12">
             <div className="md:w-2/4 sm:w-3/4 w-full mx-auto text-center md:text-left">
-              <h3 className="xl:text-2xl md:text-xl text-lg font-medium">
-                ร่วมงานกับเรา
-              </h3>
+              <h3 className="xl:text-2xl text-xl font-medium">ร่วมงานกับเรา</h3>
               <Form
                 layout="vertical"
                 className="pt-2 md:pt-6 max-w-150"
@@ -379,46 +377,38 @@ const Home: NextPage = () => {
               >
                 <Form.Item
                   name="position"
-                  label={
-                    <label className="text-xs md:text-sm">
-                      ตำแหน่งที่ต้องการ
-                    </label>
-                  }
+                  label={<label className="text-sm">ตำแหน่งที่ต้องการ</label>}
                 >
                   <Input type="text" />
                 </Form.Item>
                 <Form.Item
                   name="firstName"
-                  label={<label className="text-xs md:text-sm">ชื่อ</label>}
+                  label={<label className="text-sm">ชื่อ</label>}
                 >
                   <Input type="text" />
                 </Form.Item>
                 <Form.Item
                   name="lastName"
-                  label={<label className="text-xs md:text-sm">นามสกุล</label>}
+                  label={<label className="text-sm">นามสกุล</label>}
                 >
                   <Input type="text" />
                 </Form.Item>
                 <Form.Item
                   name="phone"
-                  label={
-                    <label className="text-xs md:text-sm">เบอร์ติดต่อ</label>
-                  }
+                  label={<label className="text-sm">เบอร์ติดต่อ</label>}
                 >
                   <Input type="tel" />
                 </Form.Item>
                 <Form.Item
                   name="email"
-                  label={<label className="text-xs md:text-sm">อีเมล</label>}
+                  label={<label className="text-sm">อีเมล</label>}
                 >
                   <Input type="email" />
                 </Form.Item>
                 <Form.Item
                   name="experience"
                   label={
-                    <label className="text-xs md:text-sm">
-                      แนบใบสมัครและประสบการณ์
-                    </label>
+                    <label className="text-sm">แนบใบสมัครและประสบการณ์</label>
                   }
                   className="relative"
                 >
@@ -436,10 +426,10 @@ const Home: NextPage = () => {
                 </Form.Item>
                 <Form.Item
                   name="confirm"
-                  label={<label className="text-xs md:text-sm">9 + 5 =</label>}
+                  label={<label className="text-sm">9 + 5 =</label>}
                 >
                   <Input type="text" />
-                  <p className="md:text-xs text-[10px]  font-light text-right pt-1">
+                  <p className="md:text-xs text-[10px] font-light text-right pt-1">
                     (กรุณากรอกตัวเลขผลลัพธ์จากด้านบน)
                   </p>
                 </Form.Item>
@@ -456,10 +446,10 @@ const Home: NextPage = () => {
               </Form>
             </div>
             <div className="md:w-2/4 pt-8 md:pt-0 w-full text-center">
-              <h3 className="xl:text-2xl md:text-xl text-lg font-medium pb-4 md:text-left text-center">
+              <h3 className="xl:text-2xl text-xl font-medium pb-4 md:text-left text-center">
                 ที่ตั้ง Marshal Motosport shop
               </h3>
-              <p className="xl:text-lg md:text-base text-sm font-semibold pb-4 md:text-left text-center">
+              <p className="xl:text-lg text-base font-semibold pb-4 md:text-left text-center">
                 การเดินทางมาร้าน สาขาเอกชัยบางบอน
               </p>
               <iframe
@@ -470,7 +460,7 @@ const Home: NextPage = () => {
               <ul className="pt-6">
                 <li className="flex items-center gap-4 pb-3">
                   <i className="icon-location-mark xl:text-3xl md:text-2xl text-xl" />
-                  <p className="xl:text-base md:text-sm text-xs">
+                  <p className="xl:text-base text-sm">
                     เส้นทางที่ 1 ถนนกาญจนาภิเษก-พระรามสอง วิ่งจากถนนกาญจนาฯ
                     มุ่งหน้า พระราม2 เข้าสู่ถนนเอกชัย-บางบอน ริมถนน
                     ร้านติดกับทางเข้าซอยเอกชัย 82
@@ -478,7 +468,7 @@ const Home: NextPage = () => {
                 </li>
                 <li className="flex items-center gap-4 pb-3">
                   <i className="icon-location-mark xl:text-3xl md:text-2xl text-xl" />
-                  <p className="xl:text-base md:text-sm text-xs">
+                  <p className="xl:text-base text-sm">
                     เส้นทางที่ 2 จากถนนจอมทอง-บางบอน/จากถนนกัลปพฤกษ์ เลี้ยวขวา
                     มุ่งหน้าเข้าแยก บางบอ (จัสโก้บางบอน)
                     เลี้ยวซ้ายเข้าถนนเอกชัยมุ่งหน้า รพ.บางประกอก 8
@@ -488,7 +478,7 @@ const Home: NextPage = () => {
                 </li>
                 <li className="flex items-center gap-4">
                   <i className="icon-location-mark xl:text-3xl md:text-2xl text-xl" />
-                  <p className="xl:text-base md:text-sm text-xs">
+                  <p className="xl:text-base text-sm">
                     เส้นทางที่ 3 จากพระราม 2 ข้ามสะพานจากถนนเทียนทะเล
                     ผ่านทางรถไฟ มุ่งหน้าเข้าแยก บางบอน (จัสโก้บางบอน)
                     เลี้ยวซ้ายเข้าถนนเอกชัยมุ่งหน้า รพ.บางประกอก8

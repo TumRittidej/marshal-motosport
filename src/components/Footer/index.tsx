@@ -56,7 +56,7 @@ const Footer: FC = () => {
               alt="Marshal Motosport"
             />
           </div>
-          <ul className="md:flex flex-cols xl:gap-16 lg:gap-12 gap-8 xl:text-lg lg:text-base text-sm md:font-semibold font-regular">
+          <ul className="md:flex flex-cols xl:gap-16 lg:gap-12 gap-8 xl:text-lg text-base md:font-semibold font-regular">
             {menusFooter.map((menu, index) => {
               return (
                 <li key={index} className="pb-4 md:pb-0">
@@ -73,10 +73,10 @@ const Footer: FC = () => {
             <li className="pb-6 flex-cols md:flex gap-5">
               <i className="icon-mark xl:text-3xl text-2xl" />
               <div>
-                <p className="xl:text-xl text-lg font-medium">
+                <p className="xl:text-xl md:text-lg text-base font-medium">
                   MARSHAL MOTOSPORT CO., LTD.
                 </p>
-                <p className="xl:text-lg text-base pt-1">
+                <p className="xl:text-lg md:text-base text-sm pt-1">
                   ที่อยู่: เลขที่ 65/3-4 ริมถนน ระหว่าง ซอยเอกชัย 82 และ 80/2
                   ถนนเอกชัย-บางบอน กรุงเทพฯ 10150
                 </p>
@@ -84,18 +84,20 @@ const Footer: FC = () => {
             </li>
             <li className="pb-6 flex-cols md:flex items-center gap-4">
               <i className="icon-telephone xl:text-2xl text-xl" />
-              <p className="xl:text-xl text-lg">098 568 9828</p>
+              <p className="xl:text-xl md:text-lg text-base ">098 568 9828</p>
             </li>
             <li className="flex-cols md:flex items-center gap-4">
               <i className="icon-envelope xl:text-2xl text-xl" />
-              <p className="xl:text-xl text-lg">chai@marshal-motosport.page</p>
+              <p className="xl:text-xl md:text-lg text-base ">
+                chai@marshal-motosport.page
+              </p>
             </li>
           </ul>
           <div className="md:w-1/4 md:py-12 md:pl-12 mx-auto w-52 p-6">
             <Image src={QrCodeImage} alt="Qr Code" layout="responsive" />
           </div>
         </div>
-        <p className="text-xs text-white font-light text-center pb-4">
+        <p className="md:text-xs text-[10px] text-white font-light text-center pb-4">
           Copyright © 2022 | MARSHAL MOTOSPORT CO., LTD. All rights reserved.
           Designed by Belong-to
         </p>

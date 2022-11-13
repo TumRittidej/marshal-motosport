@@ -8,35 +8,36 @@ import { useRouter } from 'next/router'
 const NewsDetail: FC = () => {
   const router = useRouter()
   const { newsId } = router.query
-  console.log(newsId)
+  // console.log(newsId)
 
   return (
     <section className="bg-black xl:pt-44 md:pt-36 pt-15">
       <div className="bg-2--position-y-5 xl:pt-20 pt-15 xl:pb-30 pb-25">
         <Container>
-          <h1 className="pb-15 xl:text-4xl text-3xl font-semibold text-white text-center">
+          <h1 className="md:pb-15 pb-10 xl:text-4xl md:text-3xl text-2xl font-semibold text-white text-center">
             ข่าวสาร<span className="text-primary">และกิจกรรม</span>
           </h1>
-          <div className="flex gap-8">
-            <div className="w-2/5">
+          <div className="flex flex-col md:flex-row gap-8">
+            <div className="sm:w-2/5 w-full mx-auto md:mx-0">
               <Image
                 src={NewsImage}
                 alt="News"
                 layout="responsive"
                 objectFit="cover"
+                loading="lazy"
               />
             </div>
-            <div className="w-3/5 pl-20">
-              <h2 className="text-primary xl:text-xl text-lg">
+            <div className="md:w-3/5 max-w-150 md:pl-20 text-left self-center">
+              <h2 className="text-primary xl:text-xl md:text-lg text-base">
                 10
                 เหตุผลที่ทำไมมอเตอร์ไซค์ดีกว่ารถยนต์แน่นอนหละครับว่าในส่วนของรถยนต์นั้นดีตรงสะดวกสบาย
                 คุ้มแดดคุ้มฝน ตอนอากาศร้อนก็มีแอร์เย็นสบาย
               </h2>
-              <p className="text-white text-sm font-light pt-8">
+              <p className="text-white md:text-sm text-xs font-light pt-8">
                 Monday, October 12, 2020
               </p>
               <div className="border border-white mt-4 mb-6" />
-              <p className="text-white xl:text-base text-sm">
+              <p className="text-white md:text-base text-sm font-light md:font-regular">
                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
                 diam nonummy nibh euismod tincidunt ut laoreet dolore magna
                 aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
@@ -52,18 +53,20 @@ const NewsDetail: FC = () => {
 
           <div className="flex justify-between pt-8">
             <Button
+              // onClick={() => previousNews()}
               type="link"
-              className="text-white hover:text-primary xl:text-xl text-lg gap-2 flex items-center"
+              className="text-white hover:text-primary xl:text-xl md:text-lg text-base gap-2 flex items-center"
             >
-              <i className="icon-caret-left xl:text-2xl text-xl" />
-              <div>ก่อนหน้า</div>
+              <i className="icon-caret-left xl:text-2xl md:text-xl text-lg" />
+              ก่อนหน้า
             </Button>
             <Button
+              // onClick={() => nextNews()}
               type="link"
-              className="text-white hover:text-primary xl:text-xl text-lg gap-2 flex items-center"
+              className="text-white hover:text-primary xl:text-xl md:text-lg text-base gap-2 flex items-center"
             >
-              <div>ถัดไป</div>
-              <i className="icon-caret-right xl:text-2xl text-xl" />
+              ถัดไป
+              <i className="icon-caret-right xl:text-2xl md:text-xl text-lg" />
             </Button>
           </div>
         </Container>
