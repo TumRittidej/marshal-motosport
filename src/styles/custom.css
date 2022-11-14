@@ -143,9 +143,9 @@
   > .ant-steps-item-tail::after {
   background-color: #fbd424 !important;
 }
-.ant-steps-item-tail::after {
+/* .ant-steps-item-tail::after {
   height: 2px !important;
-}
+} */
 .ant-steps-item-process
   > .ant-steps-item-container
   > .ant-steps-item-tail::after {

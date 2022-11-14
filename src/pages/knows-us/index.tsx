@@ -112,6 +112,7 @@ const KnowsUs: FC = () => {
                 src={KnowsUsImage1}
                 layout="responsive"
                 alt="Marshal Motosport Contact"
+                loading="lazy"
               />
             </div>
             <div className="w-full md:w-2/4 text-center md:text-left">
@@ -194,6 +195,7 @@ const KnowsUs: FC = () => {
                 src={KnowsUsImage2}
                 layout="responsive"
                 alt="Marshal Motosport Contact"
+                loading="lazy"
               />
             </div>
           </div>
@@ -203,6 +205,7 @@ const KnowsUs: FC = () => {
                 src={KnowsUsImage3}
                 layout="responsive"
                 alt="Marshal Motosport Contact"
+                loading="lazy"
               />
             </div>
             <div className="w-full md:w-2/4 text-center md:text-left">

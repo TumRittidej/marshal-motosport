@@ -154,6 +154,7 @@ const Drawer: FC<IDrawerProps> = ({
             <Link href={MS_ACCOUNT_USER}>
               <a>
                 <div
+                  onClick={() => setIsOpenDrawer(false)}
                   className={`inline-flex items-center gap-4 group cursor-pointer group`}
                 >
                   <i className="icon-user text-2xl text-white group-hover:text-primary transition duration-300" />

@@ -32,7 +32,7 @@ import OurServiceHoverImage7 from '@/assets/img/home/our-service-hover-7.png'
 import Link from 'next/link'
 import { ChangeEvent, useState } from 'react'
 import { MS_KNOWS_US, MS_PRODUCT } from '@/constants/url'
-import { IWorkTogetherRequest } from ':@/home'
+import { IWorkTogetherRequest } from '@/interface/home'
 
 const Home: NextPage = () => {
   const productItems = [

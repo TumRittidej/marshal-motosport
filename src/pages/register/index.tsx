@@ -1,6 +1,6 @@
 import { Button, Form, Input, Radio } from 'antd'
 import { FC, useState } from 'react'
-import { IRegisterRequest } from ':@/register'
+import { IRegisterRequest } from '@/interface/register'
 import { RegisterType } from '@/constants/register'
 
 const Register: FC = () => {

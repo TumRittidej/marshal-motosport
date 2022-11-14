@@ -22,7 +22,7 @@ import {
   MS_SERVICE,
 } from '@/constants/url'
 
-import { ILoginRequest } from ':@/login'
+import { ILoginRequest } from '@/interface/login'
 import Drawer from './component/Drawer'
 import {
   MenuOutlined,

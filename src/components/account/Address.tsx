@@ -49,7 +49,7 @@ const Address: FC = () => {
         value={value}
         className={`w-full pt-6 ${!isAddMoreAddress ? 'block' : 'hidden'}`}
       >
-        <div className="border border-primary rounded-md p-5 mb-4">
+        <div className="border-b sm:border sm:border-primary sm:rounded-md py-6 sm:p-5 sm:mb-4">
           <div className="flex justify-between xl:text-base text-sm">
             <p className="text-white font-light">
               รุ่งเรือง เกียงไกรไพศาล <br />
@@ -67,7 +67,7 @@ const Address: FC = () => {
             ตั้งเป็นค่าเริ่มต้นสำหรับที่อยู่การจัดส่ง
           </Radio>
         </div>
-        <div className="border border-primary rounded-md p-5">
+        <div className="border-b sm:border sm:border-primary sm:rounded-md py-6 sm:p-5 sm:mb-4">
           <div className="flex justify-between xl:text-base text-sm">
             <p className="text-white font-light">
               รุ่งเรือง เกียงไกรไพศาล <br />
@@ -96,7 +96,7 @@ const Address: FC = () => {
         autoComplete="off"
       >
         <Row gutter={32}>
-          <Col span={12}>
+          <Col sm={12} xs={24}>
             <Form.Item
               label="ชื่อ-นามสกุล ผู้รับสินค้า"
               className="form-label--white"
@@ -104,7 +104,7 @@ const Address: FC = () => {
               <Input type="text" />
             </Form.Item>
           </Col>
-          <Col span={12}>
+          <Col sm={12} xs={24}>
             <Form.Item label="เบอร์ติดต่อ" className="form-label--white">
               <Input type="tel" />
             </Form.Item>
@@ -117,7 +117,7 @@ const Address: FC = () => {
           />
         </Form.Item>
         <Row gutter={32}>
-          <Col span={12}>
+          <Col sm={12} xs={24}>
             <Form.Item label="ตำบล / แขวง" className="form-label--white">
               <Select
                 bordered={false}
@@ -139,7 +139,7 @@ const Address: FC = () => {
               </Select>
             </Form.Item>
           </Col>
-          <Col span={12}>
+          <Col sm={12} xs={24}>
             <Form.Item label="อำเภอ / เขต" className="form-label--white">
               <Select
                 bordered={false}
@@ -161,7 +161,7 @@ const Address: FC = () => {
               </Select>
             </Form.Item>
           </Col>
-          <Col span={12}>
+          <Col sm={12} xs={24}>
             <Form.Item label="จังหวัด" className="form-label--white">
               <Select
                 bordered={false}
@@ -183,7 +183,7 @@ const Address: FC = () => {
               </Select>
             </Form.Item>
           </Col>
-          <Col span={12}>
+          <Col sm={12} xs={24}>
             <Form.Item label="รหัสไปรษณีย์" className="form-label--white">
               <Input type="number" />
             </Form.Item>

@@ -1,4 +1,4 @@
-import { ILoginRequest } from ':@/login'
+import { ILoginRequest } from '@/interface/login'
 import { MS_REGISTER } from '@/constants/url'
 import { Button, Form, Input } from 'antd'
 import Image from 'next/image'
