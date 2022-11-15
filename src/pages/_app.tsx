@@ -11,6 +11,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
+import ScreenProvider from '@/contexts/ScreenProvider'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
@@ -27,11 +28,13 @@ function MyApp({ Component, pageProps }: AppProps) {
     },
   })
   return (
-    <ConfigProvider>
-      <Header />
-      <Component {...pageProps} />
-      <Footer />
-    </ConfigProvider>
+    <ScreenProvider>
+      <ConfigProvider>
+        <Header />
+        <Component {...pageProps} />
+        <Footer />
+      </ConfigProvider>
+    </ScreenProvider>
   )
 }
 

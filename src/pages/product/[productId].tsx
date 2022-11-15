@@ -55,12 +55,12 @@ const ProductDetail: FC = () => {
   return (
     <section className="bg-black xl:pt-44 md:pt-36 pt-15">
       <div className="bg-2--position-y-5 xl:pt-20 pt-15 xl:pb-30 pb-25">
-        <h1 className="xl:pb-15 pb-10 xl:text-4xl text-3xl font-semibold text-primary text-center">
+        <h1 className="xl:pb-15 pb-10 xl:text-4xl md:text-3xl text-2xl font-semibold text-primary text-center">
           สินค้า
         </h1>
         <Container>
-          <div className="flex gap-10">
-            <div className="w-2/4">
+          <div className="flex flex-col md:flex-row gap-10">
+            <div className="md:w-2/4 sm:w-3/5 w-full mx-auto md:mx-0">
               <div className="border-2 border-transparent">
                 <Image
                   src={image}
@@ -76,11 +76,10 @@ const ProductDetail: FC = () => {
                   return (
                     <div
                       key={index}
-                      className={`w-1/4 cursor-pointer border-2 hover:border-2 hover:border-primary ${
-                        selectImageIdx === index
-                          ? 'border-primary'
-                          : 'border-transparent'
-                      }`}
+                      className={`w-1/4 cursor-pointer border-2 hover:border-2 hover:border-primary ${selectImageIdx === index
+                        ? 'border-primary'
+                        : 'border-transparent'
+                        }`}
                       onClick={() => handleClickImage(image.image, index)}
                     >
                       <Image
@@ -93,7 +92,7 @@ const ProductDetail: FC = () => {
                 })}
               </div>
             </div>
-            <div className="w-2/4">
+            <div className="md:w-2/4 sm:w-3/5 w-full mx-auto md:mx-0">
               <h2 className="text-primary xl:text-2xl text-xl">
                 หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)
               </h2>
@@ -115,7 +114,7 @@ const ProductDetail: FC = () => {
                 quibusdam eum quia rem voluptatibus nihil laborum vitae,
                 accusantium saepe.
               </p>
-              <div className="flex justify-between pt-15">
+              <div className="flex flex-col md:flex-row justify-between pt-15">
                 <div className="flex items-center gap-8">
                   <span className="text-white font-light xl:text-lg text-base">
                     จำนวน
@@ -146,11 +145,11 @@ const ProductDetail: FC = () => {
                     />
                   </div>
                 </div>
-                <div>
+                <div className='pt-4'>
                   <div className="mb-4">
                     <Button
                       icon={<PlusOutlined />}
-                      className="text-primary hover:text-black bg-transparent hover:bg-primary duration-200 border border-primary min-w-45"
+                      className="text-primary hover:text-black bg-transparent hover:bg-primary duration-200 border border-primary md:min-w-45 w-full"
                     >
                       เพิ่มลงตระกร้า
                     </Button>

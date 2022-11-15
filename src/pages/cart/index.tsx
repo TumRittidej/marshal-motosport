@@ -1,6 +1,6 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import {
   ArrowRightOutlined,
   MinusOutlined,
@@ -12,60 +12,113 @@ import ProductImage from '@/assets/img/home/product-1.png'
 import { MS_PRODUCT, MS_PURCHASE } from '@/constants/url'
 
 const Cart: FC = () => {
-  const productInCart = [
+  // const productInCart = [
+  //   {
+  //     image: ProductImage,
+  //     name: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet) (AGV Helmet) AGV (AGV Helmet) (AGV Helmet) AGV (AGV Helmet)',
+  //     price: '฿ 15,900',
+  //     amount: 1,
+  //   },
+  //   {
+  //     image: ProductImage,
+  //     name: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
+  //     price: '฿ 15,900',
+  //     amount: 5,
+  //   },
+  //   {
+  //     image: ProductImage,
+  //     name: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
+  //     price: '฿ 15,900',
+  //     amount: 7,
+  //   },
+  //   {
+  //     image: ProductImage,
+  //     name: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
+  //     price: '฿ 15,900',
+  //     amount: 2,
+  //   },
+  //   {
+  //     image: ProductImage,
+  //     name: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
+  //     price: '฿ 15,900',
+  //     amount: 16,
+  //   },
+  // ]
+
+  interface IProductCart {
+    id: number
+    image: StaticImageData
+    name: string
+    price: string
+    amount: number
+  }
+
+  const [productInCart, setProductInCart] = useState<IProductCart[]>([
     {
+      id: 1,
       image: ProductImage,
       name: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet) (AGV Helmet) AGV (AGV Helmet) (AGV Helmet) AGV (AGV Helmet)',
       price: '฿ 15,900',
       amount: 1,
     },
     {
+      id: 2,
       image: ProductImage,
       name: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
       price: '฿ 15,900',
       amount: 5,
     },
     {
+      id: 3,
       image: ProductImage,
       name: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
       price: '฿ 15,900',
       amount: 7,
     },
     {
+      id: 4,
       image: ProductImage,
       name: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
       price: '฿ 15,900',
       amount: 2,
     },
     {
+      id: 5,
       image: ProductImage,
       name: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
       price: '฿ 15,900',
       amount: 16,
     },
-  ]
-  // const minusProduct = (index: number) => {
+  ])
 
-  // }
-
-  // const plusProduct = (index: number) => {
-
-  // }
+  const addProduct = (product: IProductCart, type: string) => {
+    const test = productInCart.map((p) => {
+      if (p.id === product.id) {
+        if (type === 'plus') {
+          return { ...p, amount: product.amount + 1 }
+        } else {
+          return { ...p, amount: product.amount <= 0 ? 0 : product.amount - 1 }
+        }
+      }
+      return p
+    })
+    setProductInCart(test);
+  }
 
   return (
     <section className="bg-black xl:pt-44 md:pt-36 pt-15">
       <div className="bg-2--position-y-5 xl:pt-20 pt-15 xl:pb-30 pb-25">
         <Container>
-          <div className="flex gap-6">
-            <div className="w-1/2">
-              <h1 className="pb-10 xl:text-4xl text-3xl font-semibold text-primary">
+          <div className="flex flex-col md:flex-row gap-6">
+            <div className="w-full md:w-1/2">
+              <h1 className="pb-10 xl:text-4xl md:text-3xl text-2xl font-semibold text-primary">
                 ตระกร้าสินค้า
               </h1>
               {productInCart.map((product, index) => {
                 return (
                   <div key={index}>
                     <div className="flex gap-6">
-                      <div className="w-1/4">
+                      <div className="sm:w-1/4 w-1/3">
                         <Image
                           src={product.image}
                           alt="Helmet"
@@ -76,7 +129,7 @@ const Cart: FC = () => {
                       </div>
                       <div className="w-3/4">
                         <div className="flex flex-col h-full justify-between">
-                          <h2 className="text-white xl:text-lg text-base line-clamp-2">
+                          <h2 className="text-white xl:text-lg sm:text-base text-sm line-clamp-2">
                             {product.name}
                           </h2>
                           <div className="flex justify-between">
@@ -86,7 +139,7 @@ const Cart: FC = () => {
                             <div className="flex items-center gap-x-4 bg-white rounded">
                               <Button
                                 className="border-none xl:h-8 xl:w-8 h-7"
-                                // onClick={plusProduct}
+                                onClick={() => addProduct(product, 'plus')}
                                 icon={
                                   <PlusOutlined
                                     className="text-black"
@@ -98,7 +151,7 @@ const Cart: FC = () => {
                                 {product.amount}
                               </span>
                               <Button
-                                // onClick={minusProduct}
+                                onClick={() => addProduct(product, 'minus')}
                                 className="border-none xl:h-8 xl:w-8 h-7"
                                 icon={
                                   <MinusOutlined
@@ -117,9 +170,9 @@ const Cart: FC = () => {
                 )
               })}
             </div>
-            <div className="w-1/2">
-              <div className="max-w-125 ml-auto bg-primary xl:p-10 p-8 rounded">
-                <h3 className="font-semibold xl:text-2xl text-xl">
+            <div className="w-full md:w-1/2">
+              <div className="w-full md:max-w-125 ml-auto bg-primary xl:p-10 p-8 rounded">
+                <h3 className="font-semibold xl:text-2xl md:text-xl text-lg">
                   สินค้าทั้งหมด
                 </h3>
                 <div className="border border-black opacity-20 my-4" />
@@ -127,7 +180,7 @@ const Cart: FC = () => {
                   <p>จำนวน</p>
                   <span>5</span>
                 </div>
-                <div className="pb-5 xl:text-xl text-lg font-medium flex justify-between">
+                <div className="pb-5 xl:text-xl sm:text-lg text-base font-medium flex justify-between">
                   <p>จำนวนเงินทั้งหมด</p>
                   <span>฿ 79,500</span>
                 </div>

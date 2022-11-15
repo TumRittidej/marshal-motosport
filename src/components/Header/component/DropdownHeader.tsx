@@ -75,9 +75,7 @@ const DropdownHeader: FC<DropdownHeaderProps> = ({
           <i className="icon-user text-xl" />
           Developer
           <CaretDownOutlined
-            className={`transform transition duration-300 ${
-              rotate ? 'rotate-180' : 'rotate-0'
-            }`}
+            className={`transform transition duration-300 ${rotate ? 'rotate-180' : 'rotate-0'}`}
           />
         </Space>
       </a>

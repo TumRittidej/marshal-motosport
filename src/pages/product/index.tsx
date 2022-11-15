@@ -9,12 +9,7 @@ import ProductImage3 from '@/assets/img/home/product-3.png'
 import Link from 'next/link'
 import Image from 'next/image'
 import { MS_PRODUCT } from '@/constants/url'
-const { Panel } = Collapse
-
-import { RightOutlined, CaretRightOutlined } from '@ant-design/icons'
-import { Tree } from 'antd'
-import type { DataNode, DirectoryTreeProps } from 'antd/es/tree'
-const { DirectoryTree } = Tree
+import { CaretRightOutlined } from '@ant-design/icons'
 
 const Product: FC = () => {
   const [rotateArrow, setRotateArrow] = useState(false)
@@ -156,127 +151,76 @@ const Product: FC = () => {
     },
   ]
 
-  const collapseProducts = [
-    {
-      header: 'ชุดแต่งมอเตอร์ไซต์ (16)',
-      products: ['ยาง', 'น้ำมันเครื่อง', 'โช้ค อัพ', 'หมวกกันน๊อค'],
-    },
-    {
-      header: 'สินค้าใหม่ (19)',
-      products: ['ใหม่', 'ใหม่'],
-    },
-  ]
-
-  const treeData: DataNode[] = [
-    {
-      title: 'parent 0',
-      key: '0-0',
-      children: [
-        { title: 'leaf 0-0', key: '0-0-0', isLeaf: true },
-        { title: 'leaf 0-1', key: '0-0-1', isLeaf: true },
-      ],
-    },
-    {
-      title: 'parent 1',
-      key: '0-1',
-      children: [
-        { title: 'leaf 1-0', key: '0-1-0', isLeaf: true },
-        { title: 'leaf 1-1', key: '0-1-1', isLeaf: true },
-      ],
-    },
-  ]
-
-  const onExpand: DirectoryTreeProps['onExpand'] = (keys, info) => {
-    console.log('Trigger Expand', keys, info)
-  }
-  const onSelect: DirectoryTreeProps['onSelect'] = (keys, info) => {
-    console.log('Trigger Select', keys, info)
-  }
   interface IProduct {
-    categorys: number[]
-    lists: {
+    category: string
+    lists?: {
       name: string
     }[]
   }
-  const initialValue: IProduct[] = [
-    {
-      categorys: [],
-      lists: [
-        {
-          name: '',
-        },
-      ],
-    },
-  ]
-  const [activeIndexCategory, setActiveIndexCategory] = useState<number[]>([])
-  // const [activeIndexProduct, setActiveIndexProduct] = useState<number[]>([])
 
-  // const handleFilterProduct = (index: number) => {
-  //   if (activeIndexProduct.includes(index)) {
-  //     const filter = activeIndexProduct.filter((active) => active !== index)
-  //     setActiveIndexProduct(filter)
-  //   } else {
-  //     setActiveIndexProduct(activeIndexProduct.concat(index))
-  //   }
-  // }
+  useEffect(() => {
+    const products = [
+      {
+        category: 'ชุดแต่งมอเตอร์ไซต์ (199)',
+        lists: [
+          {
+            name: 'ยาง',
+          },
+          {
+            name: 'น้ำมันเครื่อง',
+          },
+          {
+            name: 'โช้ค อัพ',
+          },
+        ],
+      },
+      {
+        category: 'สินค้าขายดี (99)',
+        lists: [
+          {
+            name: 'กระจก',
+          },
+          {
+            name: 'ท่อ',
+          },
+          {
+            name: 'ล้อ',
+          },
+        ],
+      },
+      {
+        category: 'สินค้าโปรโมชั่น (12)',
+        lists: [
+          {
+            name: 'ถุงมือ',
+          },
+          {
+            name: 'หมวกกันน็อค',
+          },
+          {
+            name: 'กรอบทะเบียน',
+          },
+        ],
+      },
+      {
+        category: 'สินค้าขายดี',
+      },
+    ]
+    setProducts(products)
+  }, [])
 
-  const handleExpandCategory = (index: number) => {
-    if (activeIndexCategory.includes(index)) {
-      const filter = activeIndexCategory.filter((active) => active !== index)
-      setActiveIndexCategory(filter)
-      // setActiveIndexProduct([])
+  const [products, setProducts] = useState<IProduct[]>([])
+  const [selectCategory, setSelectCategory] = useState<string[]>([])
+  // const [selectProduct, setSelectProduct] = useState<any>([])
+
+  const handleExpandCategory = (category: string) => {
+    if (selectCategory.includes(category)) {
+      const filter = selectCategory.filter((selectCategory) => selectCategory !== category)
+      setSelectCategory(filter)
     } else {
-      setActiveIndexCategory(activeIndexCategory.concat(index))
+      setSelectCategory(selectCategory.concat(category))
     }
   }
-
-  const products = [
-    {
-      category: 'ชุดแต่งมอเตอร์ไซต์ (199)',
-      lists: [
-        {
-          name: 'ยาง',
-        },
-        {
-          name: 'น้ำมันเครื่อง',
-        },
-        {
-          name: 'โช้ค อัพ',
-        },
-      ],
-    },
-    {
-      category: 'สินค้าขายดี (99)',
-      lists: [
-        {
-          name: 'กระจก',
-        },
-        {
-          name: 'ท่อ',
-        },
-        {
-          name: 'ล้อ',
-        },
-      ],
-    },
-    {
-      category: 'สินค้าโปรโมชั่น (12)',
-      lists: [
-        {
-          name: 'ถุงมือ',
-        },
-        {
-          name: 'หมวกกันน็อค',
-        },
-        {
-          name: 'กรอบทะเบียน',
-        },
-      ],
-    },
-    {
-      category: 'สินค้าขายดี',
-    },
-  ]
 
   return (
     <section className="xl:pt-44 md:pt-36 pt-15 bg-black">
@@ -288,50 +232,34 @@ const Product: FC = () => {
                 สินค้าทั้งหมด
               </h3>
               <div className="border border-white opacity-20 mt-2 mb-4" />
-              {/* <Collapse ghost className="text--header-collapse">
-                {collapseProducts.map(({ header, products }, index) => {
-                  return (
-                    <Panel key={index} header={header}>
-                      {products.map((product, index) => {
-                        return (
-                          <div
-                            key={index}
-                            className="text-white pb-1 flex items-center gap-2 hover:text-primary transition duration-300 cursor-pointer"
-                          >
-                            <RightOutlined style={{ fontSize: '8px' }} />
-                            <p>{product}</p>
-                          </div>
-                        )
-                      })}
-                    </Panel>
-                  )
-                })}
-              </Collapse> */}
-              {/* <div className="text-white"> */}
               {products.map((product, index) => {
                 return (
                   <div
                     key={index}
-                    className={`xl:text-base text-sm overflow-hidden transition-all duration-300 mb-4 last:mb-0 ${
-                      activeIndexCategory.includes(index)
-                        ? 'max-h-[999px] '
+                    className={`xl:text-base text-sm overflow-hidden transition-all duration-300 mb-4 last:mb-0
+                    ${selectCategory.includes(product.category)
+                        ? 'max-h-[999px]'
                         : 'max-h-[22px]'
-                    }`}
+                      }
+                    `}
                   >
                     <button
-                      onClick={() => handleExpandCategory(index)}
-                      className={`group ${
-                        activeIndexCategory.includes(index)
+                      onClick={() => handleExpandCategory(product.category)}
+                      className={`group
+                      ${selectCategory.includes(product.category)
                           ? 'text-primary'
                           : 'text-white'
-                      }`}
+                        }
+                      `}
                     >
                       <CaretRightOutlined
-                        className={`transform group-hover:text-primary transition-all duration-300 ${
-                          activeIndexCategory.includes(index) && product.lists
+                        className={`transform group-hover:text-primary transition-all duration-300
+                        ${selectCategory.includes(product.category) &&
+                            product.lists
                             ? 'rotate-90'
                             : 'rotate-0'
-                        }`}
+                          }
+                        `}
                       />
                       <span className="pl-2 group-hover:text-primary transition-all duration-300">
                         {product.category}
@@ -343,7 +271,7 @@ const Product: FC = () => {
                           <li
                             key={index}
                             className={`pb-2  hover:text-primary transition-all duration-300 cursor-pointer text-white`}
-                            // onClick={() => handleFilterProduct(index)}
+                          // onClick={() => handleFilterProduct()}
                           >
                             <CaretRightOutlined /> {list.name}
                           </li>
@@ -353,7 +281,6 @@ const Product: FC = () => {
                   </div>
                 )
               })}
-              {/* </div> */}
             </div>
             <div className="w-3/4">
               <h1 className="xl:pb-15 pb-10 xl:text-4xl text-3xl font-semibold text-primary text-center">
@@ -376,9 +303,8 @@ const Product: FC = () => {
                     <Space className="xl:gap-8 gap-6">
                       <p className="xl:text-base text-sm">เรียงลำดับจาก</p>
                       <DownOutlined
-                        className={`text-xs transform transition duration-300 ${
-                          rotateArrow ? 'rotate-180 -translate-y-1' : 'rotate-0'
-                        }`}
+                        className={`text-xs transform transition duration-300 ${rotateArrow ? 'rotate-180 -translate-y-1' : 'rotate-0'
+                          }`}
                       />
                     </Space>
                   </a>
