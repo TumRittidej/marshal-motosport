@@ -16,8 +16,6 @@ const PurchaseModal: FC<IPurchaseModal> = ({
   handleCancel,
   handleSubmit,
 }) => {
-  const format = 'HH:mm'
-
   const [base64Image, setBase64Image] = useState('')
   const handleChangeUploadImage = (e: ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files
@@ -100,8 +98,7 @@ const PurchaseModal: FC<IPurchaseModal> = ({
             <TimePicker
               className="w-full"
               popupClassName="timepick--ok-btn timepick--now-btn"
-              defaultValue={moment('12:08', format)}
-              format={format}
+              format={'HH:mm'}
             />
           </Form.Item>
           <Form.Item

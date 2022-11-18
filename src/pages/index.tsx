@@ -290,7 +290,7 @@ const Home: NextPage = () => {
                         />
                       </div>
                       <div className="text-primary text-center">
-                        <p className="pt-4 xl:text-lg text-base line-clamp-2-h-16">
+                        <p className="pt-4 xl:text-lg text-base text-ellipsis overflow-hidden line-clamp-2">
                           {product.paragraph}
                         </p>
                         <span className="block py-2 xl:text-xl text-lg font-bold">

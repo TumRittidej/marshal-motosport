@@ -6,13 +6,11 @@ import { RightOutlined, CheckOutlined, LeftOutlined } from '@ant-design/icons'
 import KasikornBankImage from '@/assets/img/purchase/kasikorn-bank.png'
 import BangkokBankImage from '@/assets/img/purchase/bangkok-bank.png'
 import Image from 'next/image'
+import { IPurchase } from '@/interface/purchase'
 
 interface IPaymentProps {
   setStep: Dispatch<SetStateAction<number>>
-  form: FormInstance<{
-    firstName: string
-    deliverType: string
-  }>
+  form: FormInstance<IPurchase>
 }
 
 const Payment: FC<IPaymentProps> = ({ setStep, form }) => {
@@ -24,7 +22,7 @@ const Payment: FC<IPaymentProps> = ({ setStep, form }) => {
       setStep(2)
     }
     const body = form.getFieldsValue()
-    console.log(body)
+    // console.log(body)
   }
   const handleSelectPaymentType = (payment: PaymentType) => {
     setPayment(payment)

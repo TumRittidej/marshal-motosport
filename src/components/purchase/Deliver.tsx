@@ -15,44 +15,35 @@ import { Option } from 'antd/lib/mentions'
 import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import { RightOutlined, CheckOutlined } from '@ant-design/icons'
 import { DeliveryType, DeliveryValue } from '@/constants/purchase'
+import { IPurchase } from '@/interface/purchase'
 
 interface IDeliverProps {
   setStep: Dispatch<SetStateAction<number>>
-  form: FormInstance<{
-    firstName: string
-    deliverType: string
-  }>
+  form: FormInstance<IPurchase>
 }
 
 const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
-  const format = 'HH:mm'
   const [deliveryType, setDeliveryType] = useState<DeliveryType>(
     DeliveryType.DOMESTIC
   )
   const [deliveryValue, setDeliveryValue] = useState<DeliveryValue>()
 
   const onChange = (value: string) => {
-    console.log(`selected ${value}`)
+    // console.log(`selected ${value}`)
   }
 
   const onSearch = (value: string) => {
-    console.log('search:', value)
+    // console.log('search:', value)
   }
 
   const handleSelectDeliverType = (selectDeliveryType: DeliveryType) => {
-    // form.setFieldValue('deliverType', index)
     setDeliveryType(selectDeliveryType)
+    form.setFieldValue('deliveryType', selectDeliveryType)
   }
 
   const handleSelectDeliveryValue = (selectDeliveryValue: DeliveryValue) => {
     setDeliveryValue(selectDeliveryValue)
-  }
-
-  const onSubmit = (value: any) => {
-    const body = form.getFieldsValue()
-    console.log('body', body)
-
-    console.log(value)
+    form.setFieldValue('deliveryValue', selectDeliveryValue)
   }
 
   const deliveryTypes = [
@@ -133,7 +124,7 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
       <Row gutter={32} className="mt-4">
         <Col span={12}>
           <Form.Item
-            label="ชื่อ"
+            label={<label className="text-sm">ชื่อ</label>}
             className="form-label--white"
             name="firstName"
           >
@@ -141,22 +132,38 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
           </Form.Item>
         </Col>
         <Col span={12}>
-          <Form.Item label="นามสกุล" className="form-label--white">
+          <Form.Item
+            name="lastName"
+            label={<label className="text-sm">นามสกุล</label>}
+            className="form-label--white"
+          >
             <Input type="text" />
           </Form.Item>
         </Col>
         <Col span={12}>
-          <Form.Item label="อีเมล" className="form-label--white">
+          <Form.Item
+            name="email"
+            label={<label className="text-sm">อีเมล</label>}
+            className="form-label--white"
+          >
             <Input type="email" />
           </Form.Item>
         </Col>
         <Col span={12}>
-          <Form.Item label="เบอร์ติดต่อ" className="form-label--white">
+          <Form.Item
+            name="phone"
+            label={<label className="text-sm">เบอร์ติดต่อ</label>}
+            className="form-label--white"
+          >
             <Input type="tel" />
           </Form.Item>
         </Col>
       </Row>
-      <Form.Item label="ที่อยู่การจัดส่ง" className="form-label--white">
+      <Form.Item
+        name="address"
+        label={<label className="text-sm">ที่อยู่การจัดส่ง</label>}
+        className="form-label--white"
+      >
         <Input
           type="text"
           placeholder="ชื่อที่อยู่ หมู่บ้าน, บ้านเลขที่, ตึก, อาคาร"
@@ -164,12 +171,15 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
       </Form.Item>
       <Row gutter={32}>
         <Col span={12}>
-          <Form.Item label="ตำบล / แขวง" className="form-label--white">
+          <Form.Item
+            name="subDistrict"
+            label={<label className="text-sm">ตำบล / แขวง</label>}
+            className="form-label--white"
+          >
             <Select
               bordered={false}
               autoFocus={false}
               showSearch
-              placeholder="Select a person"
               optionFilterProp="children"
               onChange={onChange}
               onSearch={onSearch}
@@ -186,12 +196,15 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
           </Form.Item>
         </Col>
         <Col span={12}>
-          <Form.Item label="อำเภอ / เขต" className="form-label--white">
+          <Form.Item
+            name="district"
+            label={<label className="text-sm">อำเภอ / เขต</label>}
+            className="form-label--white"
+          >
             <Select
               bordered={false}
               autoFocus={false}
               showSearch
-              placeholder="Select a person"
               optionFilterProp="children"
               onChange={onChange}
               onSearch={onSearch}
@@ -208,12 +221,15 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
           </Form.Item>
         </Col>
         <Col span={12}>
-          <Form.Item label="จังหวัด" className="form-label--white">
+          <Form.Item
+            name="province"
+            label={<label className="text-sm">จังหวัด</label>}
+            className="form-label--white"
+          >
             <Select
               bordered={false}
               autoFocus={false}
               showSearch
-              placeholder="Select a person"
               optionFilterProp="children"
               onChange={onChange}
               onSearch={onSearch}
@@ -230,7 +246,11 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
           </Form.Item>
         </Col>
         <Col span={12}>
-          <Form.Item label="รหัสไปรษณีย์" className="form-label--white">
+          <Form.Item
+            name="postCode"
+            label="รหัสไปรษณีย์"
+            className="form-label--white"
+          >
             <Input type="number" />
           </Form.Item>
         </Col>
@@ -238,7 +258,7 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
       <h3 className="xl:text-xl text-lg text-primary font-medium pt-8 pb-4">
         การจัดส่ง
       </h3>
-      <Form.Item name="deliverType">
+      <Form.Item name="deliveryType">
         {deliveryTypes.map((delivery, index) => {
           return (
             <div
@@ -275,7 +295,10 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
                 </div>
                 {delivery.text}
               </div>
-              <div className={`px-8 py-4 transition-all duration-200`}>
+              <Form.Item
+                name="deliveryValue"
+                className={`px-8 py-4 transition-all duration-200`}
+              >
                 {delivery.deliveryType !== DeliveryType.AT_STORE ? (
                   <>
                     {delivery.deliveryValue?.map((delivery, index) => {
@@ -318,6 +341,7 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
                   <>
                     <div className="flex gap-8">
                       <Form.Item
+                        name="dateReceiveAtStore"
                         label="โปรดเลือกวัน"
                         className="form-label--white w-3/5"
                       >
@@ -328,20 +352,20 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
                         />
                       </Form.Item>
                       <Form.Item
+                        name="timeReceiveAtStore"
                         label="เวลา"
                         className="form-label--white w-2/5"
                       >
                         <TimePicker
                           className="w-full"
                           popupClassName="timepick--ok-btn timepick--now-btn"
-                          defaultValue={moment('12:08', format)}
-                          format={format}
+                          format={'HH:mm'}
                         />
                       </Form.Item>
                     </div>
                   </>
                 )}
-              </div>
+              </Form.Item>
             </div>
           )
         })}

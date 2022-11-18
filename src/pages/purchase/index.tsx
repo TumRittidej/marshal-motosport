@@ -7,61 +7,75 @@ import ProductImage from '@/assets/img/home/product-1.png'
 import Deliver from '@/components/purchase/Deliver'
 import Payment from '@/components/purchase/Payment'
 import Finish from '@/components/purchase/Finish'
-const { Step } = Steps
+import { IPurchase } from '@/interface/purchase'
+import { DeliveryType } from '@/constants/purchase'
+import { CartType, IProductCart } from '@/interface/cart'
 
 const Purchase: FC = () => {
   const [step, setStep] = useState(0)
-  const [form] = Form.useForm<{ firstName: string; deliverType: string }>()
-  const productInCart = [
+  const [form] = Form.useForm<IPurchase>()
+
+  const [productInCart, setProductInCart] = useState<IProductCart[]>([
     {
+      id: 1,
       image: ProductImage,
-      name: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet) sdad sad sad asd sad asd adsddasd sadasdsa sadsa d asd as d asd asdada sd adas d asd a s',
+      name: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet) (AGV Helmet) AGV (AGV Helmet) (AGV Helmet) AGV (AGV Helmet)',
       price: '฿ 15,900',
       amount: 1,
     },
     {
+      id: 2,
       image: ProductImage,
       name: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
       price: '฿ 15,900',
       amount: 5,
     },
     {
+      id: 3,
       image: ProductImage,
       name: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
       price: '฿ 15,900',
       amount: 7,
     },
     {
+      id: 4,
       image: ProductImage,
       name: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
       price: '฿ 15,900',
       amount: 2,
     },
     {
+      id: 5,
       image: ProductImage,
       name: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
       price: '฿ 15,900',
       amount: 16,
     },
-    {
-      image: ProductImage,
-      name: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
-      price: '฿ 15,900',
-      amount: 16,
-    },
-  ]
-  // const minusProduct = (index: number) => {
+  ])
 
-  // }
+  const addProduct = (product: IProductCart, type: string) => {
+    const productByAmount = productInCart.map((p) => {
+      if (p.id === product.id) {
+        if (type === 'plus') {
+          return { ...p, amount: product.amount + 1 }
+        } else {
+          return { ...p, amount: product.amount <= 0 ? 0 : product.amount - 1 }
+        }
+      }
+      return p
+    })
+    setProductInCart(productByAmount)
+  }
 
-  // const plusProduct = (index: number) => {
+  const handleRemove = (product: IProductCart) => {
+    const filterProduct = productInCart.filter((p) => p.id !== product.id)
+    setProductInCart(filterProduct)
+  }
 
-  // }
-  const onSubmit = (value: any) => {
+  const onSubmit = (value: IPurchase) => {
     const body = form.getFieldsValue()
     console.log('body', body)
-
-    console.log(value)
+    console.log('value', value)
   }
   return (
     <section className="bg-black xl:pt-44 md:pt-36 pt-15">
@@ -69,17 +83,21 @@ const Purchase: FC = () => {
         <Container>
           <div className="flex gap-6">
             <div className="w-1/2">
-              <Steps current={step} labelPlacement="vertical">
-                <Step title="การจัดส่ง" />
-                <Step title="การชำระเงิน" />
-                <Step title="สำเร็จ" />
-              </Steps>
+              <Steps
+                current={step}
+                items={[
+                  { title: 'การจัดส่ง' },
+                  { title: 'การชำระเงิน' },
+                  { title: 'สำเร็จ' },
+                ]}
+                labelPlacement="vertical"
+              />
               <div className="border border-white opacity-20 mt-6" />
               <Form
                 layout="vertical"
+                initialValues={{ deliveryType: DeliveryType.DOMESTIC }}
                 className="pt-2"
                 form={form}
-                initialValues={{ firstName: 'tum', deliverType: 1 }}
                 onFinish={onSubmit}
                 autoComplete="off"
               >
@@ -89,8 +107,10 @@ const Purchase: FC = () => {
                 <div className={`${step === 1 ? 'block' : 'hidden'}`}>
                   <Payment setStep={setStep} form={form} />
                 </div>
+                <div className={`${step === 2 ? 'block' : 'hidden'}`}>
+                  <Finish setStep={setStep} />
+                </div>
               </Form>
-              {step === 2 && <Finish setStep={setStep} />}
             </div>
             <div className="w-1/2">
               <div className="max-w-125 ml-auto bg-primary p-10 rounded">
@@ -115,10 +135,15 @@ const Purchase: FC = () => {
                           <div className="w-3/4">
                             <div className="flex flex-col h-full justify-between xl:text-base text-sm">
                               <div className="flex gap-2 justify-between">
-                                <h2 className="line-clamp-2">{product.name}</h2>
-                                <Button type="link" className="p-0 !h-[10px]">
+                                <h2 className="text-ellipsis overflow-hidden line-clamp-2">
+                                  {product.name}
+                                </h2>
+                                <button
+                                  className="p-0 self-start"
+                                  onClick={() => handleRemove(product)}
+                                >
                                   <i className="icon-cross xl:text-xs text-[10px] text-black" />
-                                </Button>
+                                </button>
                               </div>
                               <div className="flex justify-between">
                                 <span className="self-end">
@@ -127,7 +152,9 @@ const Purchase: FC = () => {
                                 <div className="flex items-center xl:gap-x-4 gap-x-2 bg-white rounded">
                                   <Button
                                     className="border-none xl:h-8 xl:w-8 h-7"
-                                    // onClick={() => plusProduct(index)}
+                                    onClick={() =>
+                                      addProduct(product, CartType.PLUS)
+                                    }
                                     icon={
                                       <PlusOutlined
                                         className="text-black"
@@ -139,7 +166,9 @@ const Purchase: FC = () => {
                                     {product.amount}
                                   </span>
                                   <Button
-                                    // onClick={() => minusProduct(index)}
+                                    onClick={() =>
+                                      addProduct(product, CartType.MINUS)
+                                    }
                                     className="border-none xl:h-8 xl:w-8 h-7"
                                     icon={
                                       <MinusOutlined

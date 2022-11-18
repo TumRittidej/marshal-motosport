@@ -215,7 +215,9 @@ const Product: FC = () => {
 
   const handleExpandCategory = (category: string) => {
     if (selectCategory.includes(category)) {
-      const filter = selectCategory.filter((selectCategory) => selectCategory !== category)
+      const filter = selectCategory.filter(
+        (selectCategory) => selectCategory !== category
+      )
       setSelectCategory(filter)
     } else {
       setSelectCategory(selectCategory.concat(category))
@@ -237,28 +239,31 @@ const Product: FC = () => {
                   <div
                     key={index}
                     className={`xl:text-base text-sm overflow-hidden transition-all duration-300 mb-4 last:mb-0
-                    ${selectCategory.includes(product.category)
+                    ${
+                      selectCategory.includes(product.category)
                         ? 'max-h-[999px]'
                         : 'max-h-[22px]'
-                      }
+                    }
                     `}
                   >
                     <button
                       onClick={() => handleExpandCategory(product.category)}
                       className={`group
-                      ${selectCategory.includes(product.category)
+                      ${
+                        selectCategory.includes(product.category)
                           ? 'text-primary'
                           : 'text-white'
-                        }
+                      }
                       `}
                     >
                       <CaretRightOutlined
                         className={`transform group-hover:text-primary transition-all duration-300
-                        ${selectCategory.includes(product.category) &&
-                            product.lists
+                        ${
+                          selectCategory.includes(product.category) &&
+                          product.lists
                             ? 'rotate-90'
                             : 'rotate-0'
-                          }
+                        }
                         `}
                       />
                       <span className="pl-2 group-hover:text-primary transition-all duration-300">
@@ -270,8 +275,8 @@ const Product: FC = () => {
                         return (
                           <li
                             key={index}
-                            className={`pb-2  hover:text-primary transition-all duration-300 cursor-pointer text-white`}
-                          // onClick={() => handleFilterProduct()}
+                            className={`pb-2 hover:text-primary transition-all duration-300 cursor-pointer text-white`}
+                            // onClick={() => handleFilterProduct()}
                           >
                             <CaretRightOutlined /> {list.name}
                           </li>
@@ -303,14 +308,15 @@ const Product: FC = () => {
                     <Space className="xl:gap-8 gap-6">
                       <p className="xl:text-base text-sm">เรียงลำดับจาก</p>
                       <DownOutlined
-                        className={`text-xs transform transition duration-300 ${rotateArrow ? 'rotate-180 -translate-y-1' : 'rotate-0'
-                          }`}
+                        className={`text-xs transform transition duration-300 ${
+                          rotateArrow ? 'rotate-180 -translate-y-1' : 'rotate-0'
+                        }`}
                       />
                     </Space>
                   </a>
                 </Dropdown>
               </div>
-              <div className="pt-8 grid grid-cols-3 gap-x-8 gap-y-6">
+              <div className="pt-8 grid md:grid-cols-3 grid-cols-2 md:gap-x-8 md:gap-y-6 gap-4">
                 {productItems.map((product, index) => {
                   return (
                     <div key={index} className="group cursor-pointer">
@@ -326,7 +332,7 @@ const Product: FC = () => {
                             />
                           </div>
                           <div className="text-primary text-center">
-                            <p className="pt-4 xl:text-lg text-base">
+                            <p className="pt-4 xl:text-lg text-base text-ellipsis overflow-hidden line-clamp-2">
                               {product.paragraph}
                             </p>
                             <span className="block py-2 xl:text-xl text-lg font-bold">
@@ -336,7 +342,7 @@ const Product: FC = () => {
                               icon={
                                 <i className="icon-cart xl:text-xl text-lg" />
                               }
-                              className="text-black group-hover:text-primary bg-primary group-hover:bg-transparent duration-200 border border-primary min-w-45 inline-flex items-center justify-center gap-2"
+                              className="text-black group-hover:text-primary bg-primary group-hover:bg-transparent duration-200 border border-primary md:min-w-45 min-w-35 inline-flex items-center justify-center gap-2"
                             >
                               <div>สั่งซื้อสินค้า</div>
                             </Button>

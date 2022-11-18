@@ -20,4 +20,5 @@ export default defineConfig({
     },
   },
   important: true,
+  plugins: [require('windicss/plugin/line-clamp')],
 })

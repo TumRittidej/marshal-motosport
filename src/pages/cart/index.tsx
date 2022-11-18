@@ -10,49 +10,9 @@ import { Button } from 'antd'
 import Container from '@/components/container'
 import ProductImage from '@/assets/img/home/product-1.png'
 import { MS_PRODUCT, MS_PURCHASE } from '@/constants/url'
+import { CartType, IProductCart } from '@/interface/cart'
 
 const Cart: FC = () => {
-  // const productInCart = [
-  //   {
-  //     image: ProductImage,
-  //     name: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet) (AGV Helmet) AGV (AGV Helmet) (AGV Helmet) AGV (AGV Helmet)',
-  //     price: '฿ 15,900',
-  //     amount: 1,
-  //   },
-  //   {
-  //     image: ProductImage,
-  //     name: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
-  //     price: '฿ 15,900',
-  //     amount: 5,
-  //   },
-  //   {
-  //     image: ProductImage,
-  //     name: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
-  //     price: '฿ 15,900',
-  //     amount: 7,
-  //   },
-  //   {
-  //     image: ProductImage,
-  //     name: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
-  //     price: '฿ 15,900',
-  //     amount: 2,
-  //   },
-  //   {
-  //     image: ProductImage,
-  //     name: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
-  //     price: '฿ 15,900',
-  //     amount: 16,
-  //   },
-  // ]
-
-  interface IProductCart {
-    id: number
-    image: StaticImageData
-    name: string
-    price: string
-    amount: number
-  }
-
   const [productInCart, setProductInCart] = useState<IProductCart[]>([
     {
       id: 1,
@@ -92,7 +52,7 @@ const Cart: FC = () => {
   ])
 
   const addProduct = (product: IProductCart, type: string) => {
-    const test = productInCart.map((p) => {
+    const productByAmount = productInCart.map((p) => {
       if (p.id === product.id) {
         if (type === 'plus') {
           return { ...p, amount: product.amount + 1 }
@@ -102,7 +62,14 @@ const Cart: FC = () => {
       }
       return p
     })
-    setProductInCart(test);
+    setProductInCart(productByAmount)
+  }
+
+  const handleRemove = (product: IProductCart) => {
+    console.log('1', product)
+
+    const filterProduct = productInCart.filter((p) => p.id !== product.id)
+    setProductInCart(filterProduct)
   }
 
   return (
@@ -129,37 +96,49 @@ const Cart: FC = () => {
                       </div>
                       <div className="w-3/4">
                         <div className="flex flex-col h-full justify-between">
-                          <h2 className="text-white xl:text-lg sm:text-base text-sm line-clamp-2">
+                          <h2 className="text-white xl:text-lg sm:text-base text-sm text-ellipsis overflow-hidden line-clamp-2">
                             {product.name}
                           </h2>
                           <div className="flex justify-between">
                             <span className="self-end text-white xl:text-lg text-base font-bold">
                               {product.price}
                             </span>
-                            <div className="flex items-center gap-x-4 bg-white rounded">
-                              <Button
-                                className="border-none xl:h-8 xl:w-8 h-7"
-                                onClick={() => addProduct(product, 'plus')}
-                                icon={
-                                  <PlusOutlined
-                                    className="text-black"
-                                    style={{ fontSize: '12px' }}
-                                  />
-                                }
-                              />
-                              <span className="text-base text-center xl:w-6 w-4">
-                                {product.amount}
-                              </span>
-                              <Button
-                                onClick={() => addProduct(product, 'minus')}
-                                className="border-none xl:h-8 xl:w-8 h-7"
-                                icon={
-                                  <MinusOutlined
-                                    className="text-black"
-                                    style={{ fontSize: '12px' }}
-                                  />
-                                }
-                              />
+                            <div className="flex gap-4">
+                              <div className="flex items-center gap-x-4 bg-white">
+                                <Button
+                                  className="border-none xl:h-8 xl:w-8 h-7"
+                                  onClick={() =>
+                                    addProduct(product, CartType.PLUS)
+                                  }
+                                  icon={
+                                    <PlusOutlined
+                                      className="text-black"
+                                      style={{ fontSize: '12px' }}
+                                    />
+                                  }
+                                />
+                                <span className="text-base text-center xl:w-6 w-4">
+                                  {product.amount}
+                                </span>
+                                <Button
+                                  onClick={() =>
+                                    addProduct(product, CartType.MINUS)
+                                  }
+                                  className="border-none xl:h-8 xl:w-8 h-7"
+                                  icon={
+                                    <MinusOutlined
+                                      className="text-black"
+                                      style={{ fontSize: '12px' }}
+                                    />
+                                  }
+                                />
+                              </div>
+                              <button
+                                className="bg-primary h-8 w-8 flex items-center justify-center"
+                                onClick={() => handleRemove(product)}
+                              >
+                                <i className="icon-cross" />
+                              </button>
                             </div>
                           </div>
                         </div>
