@@ -202,6 +202,7 @@ const Home: NextPage = () => {
               alt="Marshal Motosport"
               layout="fill"
               objectFit="cover"
+              loading="lazy"
             />
           </div>
           <div className="min-h-[625px]">
@@ -210,6 +211,7 @@ const Home: NextPage = () => {
               alt="Marshal Motosport"
               layout="fill"
               objectFit="cover"
+              loading="lazy"
             />
           </div>
           <div className="min-h-[625px]">
@@ -218,6 +220,7 @@ const Home: NextPage = () => {
               alt="Marshal Motosport"
               layout="fill"
               objectFit="cover"
+              loading="lazy"
             />
           </div>
           <div className="min-h-[625px]">
@@ -226,6 +229,7 @@ const Home: NextPage = () => {
               alt="Marshal Motosport"
               layout="fill"
               objectFit="cover"
+              loading="lazy"
             />
           </div>
         </Carousel>

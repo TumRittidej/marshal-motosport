@@ -194,6 +194,7 @@ const Header: FC = () => {
                     src={LogoImage}
                     alt="Marshal motosport"
                     layout="responsive"
+                    loading="lazy"
                   />
                 </a>
               </Link>

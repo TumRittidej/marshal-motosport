@@ -33,7 +33,7 @@ const LoginModal: FC<ILoginModalProps> = ({
         <i className="icon-cross text-white" />
       </button>
       <div className="md:hidden sm:w-1/3 w-1/2 mx-auto">
-        <Image src={LogoImage} alt="Marshal Motosport" />
+        <Image src={LogoImage} alt="Marshal Motosport" loading="lazy" />
       </div>
       <h2 className="text-lg text-center md:text-black text-white">
         เข้าสู่ระบบ

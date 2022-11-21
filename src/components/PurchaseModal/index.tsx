@@ -37,7 +37,14 @@ const PurchaseModal: FC<IPurchaseModal> = ({
   }
 
   useEffect(() => {
+    const bodyEl = document.getElementsByTagName('body')[0]
     if (!isOpenModal) setBase64Image('')
+
+    if (isOpenModal) {
+      bodyEl.style.overflow = 'hidden'
+    } else {
+      bodyEl.style.overflow = 'auto'
+    }
   }, [isOpenModal])
 
   return (
@@ -49,13 +56,17 @@ const PurchaseModal: FC<IPurchaseModal> = ({
       cancelText="ยกเลิก"
       className="submit--btn cancel--btn modal--header"
       centered
+      keyboard
       maskClosable={false}
       title="ชำระเงิน"
       closeIcon={<i className="icon-cross text-black" />}
       width={450}
     >
       <Form layout="vertical">
-        <Form.Item label="ชำระจากธนาคาร">
+        <Form.Item
+          label={<label className="text-sm">ชำระจากธนาคาร</label>}
+          name="fromBank"
+        >
           <Select
             optionFilterProp="children"
             className="w-full"
@@ -74,7 +85,10 @@ const PurchaseModal: FC<IPurchaseModal> = ({
             <Option value="tom">Tom</Option>
           </Select>
         </Form.Item>
-        <Form.Item label="ชำระเข้าธนาคาร">
+        <Form.Item
+          label={<label className="text-sm">ชำระเข้าธนาคาร</label>}
+          name="toBank"
+        >
           <Select
             optionFilterProp="children"
             className="w-full"
@@ -93,8 +107,12 @@ const PurchaseModal: FC<IPurchaseModal> = ({
             <Option value="tom">Tom</Option>
           </Select>
         </Form.Item>
-        <div className="flex justify-between gap-8">
-          <Form.Item label="เวลาชำระเงิน" className="w-full">
+        <div className="flex flex-col sm:flex-row justify-between sm:gap-8 gap-2">
+          <Form.Item
+            name="time"
+            label={<label className="text-sm">เวลาชำระเงิน</label>}
+            className="w-full"
+          >
             <TimePicker
               className="w-full"
               popupClassName="timepick--ok-btn timepick--now-btn"
@@ -102,7 +120,10 @@ const PurchaseModal: FC<IPurchaseModal> = ({
             />
           </Form.Item>
           <Form.Item
-            label="อัพโหลดรูปภาพใบเสร็จรับเงิน"
+            name="uploadImage"
+            label={
+              <label className="text-sm">อัพโหลดรูปภาพใบเสร็จรับเงิน</label>
+            }
             className="w-full relative"
           >
             <input
@@ -119,9 +140,10 @@ const PurchaseModal: FC<IPurchaseModal> = ({
               <Image
                 src={base64Image ? base64Image : imageUploadSimple}
                 alt="upload"
-                width={base64Image ? 500 : 50}
-                height={base64Image ? 500 : 50}
+                width={base64Image ? 200 : 50}
+                height={base64Image ? 200 : 50}
                 objectFit="cover"
+                loading="lazy"
               />
               <p
                 className={`text-xs pt-2 text-gray-500 ${

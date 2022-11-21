@@ -122,7 +122,7 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
         ข้อมูลผู้สั่งซื้อ
       </h3>
       <Row gutter={32} className="mt-4">
-        <Col span={12}>
+        <Col sm={12} xs={24}>
           <Form.Item
             label={<label className="text-sm">ชื่อ</label>}
             className="form-label--white"
@@ -131,7 +131,7 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
             <Input type="text" />
           </Form.Item>
         </Col>
-        <Col span={12}>
+        <Col sm={12} xs={24}>
           <Form.Item
             name="lastName"
             label={<label className="text-sm">นามสกุล</label>}
@@ -140,7 +140,7 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
             <Input type="text" />
           </Form.Item>
         </Col>
-        <Col span={12}>
+        <Col sm={12} xs={24}>
           <Form.Item
             name="email"
             label={<label className="text-sm">อีเมล</label>}
@@ -149,7 +149,7 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
             <Input type="email" />
           </Form.Item>
         </Col>
-        <Col span={12}>
+        <Col sm={12} xs={24}>
           <Form.Item
             name="phone"
             label={<label className="text-sm">เบอร์ติดต่อ</label>}
@@ -170,7 +170,7 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
         />
       </Form.Item>
       <Row gutter={32}>
-        <Col span={12}>
+        <Col sm={12} xs={24}>
           <Form.Item
             name="subDistrict"
             label={<label className="text-sm">ตำบล / แขวง</label>}
@@ -195,7 +195,7 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
             </Select>
           </Form.Item>
         </Col>
-        <Col span={12}>
+        <Col sm={12} xs={24}>
           <Form.Item
             name="district"
             label={<label className="text-sm">อำเภอ / เขต</label>}
@@ -220,7 +220,7 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
             </Select>
           </Form.Item>
         </Col>
-        <Col span={12}>
+        <Col sm={12} xs={24}>
           <Form.Item
             name="province"
             label={<label className="text-sm">จังหวัด</label>}
@@ -245,7 +245,7 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
             </Select>
           </Form.Item>
         </Col>
-        <Col span={12}>
+        <Col sm={12} xs={24}>
           <Form.Item
             name="postCode"
             label="รหัสไปรษณีย์"
@@ -373,7 +373,7 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
       <Form.Item className="text-right pt-4">
         <Button
           onClick={() => setStep(1)}
-          className="text-black hover:text-primary bg-primary hover:bg-transparent duration-200 border border-primary min-w-25"
+          className="text-black hover:text-primary bg-primary hover:bg-transparent duration-200 border border-primary min-w-35"
         >
           ถัดไป <RightOutlined />
         </Button>

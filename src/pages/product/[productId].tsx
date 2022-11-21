@@ -76,16 +76,18 @@ const ProductDetail: FC = () => {
                   return (
                     <div
                       key={index}
-                      className={`w-1/4 cursor-pointer border-2 hover:border-2 hover:border-primary ${selectImageIdx === index
-                        ? 'border-primary'
-                        : 'border-transparent'
-                        }`}
+                      className={`w-1/4 cursor-pointer border-2 hover:border-2 hover:border-primary ${
+                        selectImageIdx === index
+                          ? 'border-primary'
+                          : 'border-transparent'
+                      }`}
                       onClick={() => handleClickImage(image.image, index)}
                     >
                       <Image
                         src={image.image}
                         alt={image.alternative}
                         layout="responsive"
+                        loading="lazy"
                       />
                     </div>
                   )
@@ -145,7 +147,7 @@ const ProductDetail: FC = () => {
                     />
                   </div>
                 </div>
-                <div className='pt-4'>
+                <div className="pt-4">
                   <div className="mb-4">
                     <Button
                       icon={<PlusOutlined />}

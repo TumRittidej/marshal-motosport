@@ -1,7 +1,14 @@
-import React, { Dispatch, FC, SetStateAction, useState } from 'react'
+import React, {
+  Dispatch,
+  FC,
+  SetStateAction,
+  useContext,
+  useState,
+} from 'react'
 import { CheckOutlined, CheckCircleOutlined } from '@ant-design/icons'
 import { Button, Col, Row, Space, Steps } from 'antd'
 import PurchaseModal from '../PurchaseModal'
+import { ScreenCtx } from '@/contexts/ScreenProvider'
 const { Step } = Steps
 
 interface IFinishProps {
@@ -9,6 +16,7 @@ interface IFinishProps {
 }
 
 const Finish: FC<IFinishProps> = ({ setStep }) => {
+  const { windowWidth } = useContext(ScreenCtx)!
   const [stepStatus, setStepStatus] = useState(0)
   const [isOpenModal, setIsOpenModal] = useState(false)
   const steps = [
@@ -45,10 +53,10 @@ const Finish: FC<IFinishProps> = ({ setStep }) => {
           />
         </div>
         <div className="text-center">
-          <h3 className="xl:text-xl text-lg text-primary pt-1">
+          <h3 className="xl:text-xl sm:text-lg text-base text-primary pt-1">
             รายการสั่งซื้อสำเร็จ
           </h3>
-          <p className="text-white pt-1 xl:text-base text-sm">
+          <p className="text-white pt-1 xl:text-base sm:text-sm text-xs">
             กรุณาชำระเงินภายในวันที่{' '}
             <span className="font-bold text-primary underline">01/10/2022</span>{' '}
             เวลา <span className="font-bold text-primary underline">09:39</span>{' '}
@@ -70,20 +78,23 @@ const Finish: FC<IFinishProps> = ({ setStep }) => {
         </Button>
       </div>
       <div className="border border-white rounded mt-8 text-white xl:text-base text-sm py-4">
-        <div className="px-5">
+        <div className="xl:px-5 px-4">
           <Row gutter={[0, 4]}>
-            <Col span={12}>
+            <Col sm={12} xs={24}>
               <span className="font-semibold">หมายเลขสั่งซื้อ : </span>
               <span className="text-primary pl-2">MSD00001</span>
             </Col>
-            <Col span={12}>
+            <Col sm={12} xs={24} className="block sm:hidden">
+              <span>29/09/2022, 09:39 </span>
+            </Col>
+            <Col sm={12} xs={24}>
               <span className="font-semibold">สถานะการชำระเงิน : </span>
               <span className="text-primary pl-2">ยังไม่ชำระ</span>
             </Col>
-            <Col span={12}>
+            <Col span={12} className="hidden sm:block">
               <span>29/09/2022, 09:39 </span>
             </Col>
-            <Col span={12}>
+            <Col sm={12} xs={24}>
               <span className="font-semibold">วิธีการชำระเงิน : </span>
               <span className="text-primary pl-2">โอนเงินผ่านธนาคาร</span>
             </Col>
@@ -98,31 +109,32 @@ const Finish: FC<IFinishProps> = ({ setStep }) => {
           </p>
           <h2 className="font-semibold text-white">สถานะรายการสั่งซื้อ</h2>
         </div>
-        <div className="w-full pt-4">
-          <Steps
-            current={stepStatus}
-            labelPlacement="vertical"
-            size="small"
-            className="step--order-complete pt-4"
-          >
-            {steps.map((step, index) => {
-              return (
-                <Step
-                  key={index}
-                  title={step.title}
-                  className="w-1/5"
-                  icon={
-                    <CheckCircleOutlined
-                      className={`${
-                        stepStatus >= index ? 'text-primary' : 'text-white'
-                      }`}
-                    />
-                  }
-                />
-              )
-            })}
-          </Steps>
-        </div>
+
+        <Steps
+          responsive={false}
+          current={stepStatus}
+          direction={`${windowWidth <= 600 ? 'vertical' : 'horizontal'}`}
+          labelPlacement="vertical"
+          size="small"
+          className="step--order-complete pt-4 px-4 sm:px-0"
+        >
+          {steps.map((step, index) => {
+            return (
+              <Step
+                key={index}
+                title={step.title}
+                className="md:w-1/5 w-fit"
+                icon={
+                  <CheckCircleOutlined
+                    className={`${
+                      stepStatus >= index ? 'text-primary' : 'text-white'
+                    }`}
+                  />
+                }
+              />
+            )
+          })}
+        </Steps>
       </div>
       <PurchaseModal
         isOpenModal={isOpenModal}

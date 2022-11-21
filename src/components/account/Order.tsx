@@ -14,7 +14,6 @@ const Order: FC = () => {
   const { windowWidth } = useContext(ScreenCtx)!
   const [rotateArrowDropDown, setRotateArrowDropDown] = useState(false)
   const [rotateArrowMoreBtn, setRotateArrowMoreBtn] = useState(false)
-  // const [stepStatus, setStepStatus] = useState(0)
 
   const [isOpenModal, setIsOpenModal] = useState(false)
 

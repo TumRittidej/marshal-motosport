@@ -54,6 +54,7 @@ const Footer: FC = () => {
               src={LogoImage}
               layout="responsive"
               alt="Marshal Motosport"
+              loading="lazy"
             />
           </div>
           <ul className="md:flex flex-cols xl:gap-16 lg:gap-12 gap-8 xl:text-lg text-base md:font-semibold font-regular">
@@ -94,7 +95,12 @@ const Footer: FC = () => {
             </li>
           </ul>
           <div className="md:w-1/4 md:py-12 md:pl-12 mx-auto w-52 p-6">
-            <Image src={QrCodeImage} alt="Qr Code" layout="responsive" />
+            <Image
+              src={QrCodeImage}
+              alt="Qr Code"
+              layout="responsive"
+              loading="lazy"
+            />
           </div>
         </div>
         <p className="md:text-xs text-[10px] text-white font-light text-center pb-4">

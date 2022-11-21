@@ -1,7 +1,7 @@
-import { FC, useState } from 'react'
+import { FC, useContext, useState } from 'react'
 import Image from 'next/image'
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons'
-import { Button, Form, Steps } from 'antd'
+import { Button, Col, Form, Row, Space, Steps } from 'antd'
 import Container from '@/components/container'
 import ProductImage from '@/assets/img/home/product-1.png'
 import Deliver from '@/components/purchase/Deliver'
@@ -10,8 +10,10 @@ import Finish from '@/components/purchase/Finish'
 import { IPurchase } from '@/interface/purchase'
 import { DeliveryType } from '@/constants/purchase'
 import { CartType, IProductCart } from '@/interface/cart'
+import { ScreenCtx } from '@/contexts/ScreenProvider'
 
 const Purchase: FC = () => {
+  const { breakpoint } = useContext(ScreenCtx)!
   const [step, setStep] = useState(0)
   const [form] = Form.useForm<IPurchase>()
 
@@ -81,17 +83,21 @@ const Purchase: FC = () => {
     <section className="bg-black xl:pt-44 md:pt-36 pt-15">
       <div className="bg-2--position-y-5 xl:pt-20 pt-15 xl:pb-30 pb-25">
         <Container>
-          <div className="flex gap-6">
-            <div className="w-1/2">
-              <Steps
-                current={step}
-                items={[
-                  { title: 'การจัดส่ง' },
-                  { title: 'การชำระเงิน' },
-                  { title: 'สำเร็จ' },
-                ]}
-                labelPlacement="vertical"
-              />
+          <div className="flex flex-col md:flex-row gap-6">
+            <div className="md:w-1/2">
+              <div>
+                <Steps
+                  responsive={false}
+                  direction="horizontal"
+                  current={step}
+                  items={[
+                    { title: 'การจัดส่ง' },
+                    { title: 'การชำระเงิน' },
+                    { title: 'สำเร็จ' },
+                  ]}
+                  labelPlacement="vertical"
+                />
+              </div>
               <div className="border border-white opacity-20 mt-6" />
               <Form
                 layout="vertical"
@@ -112,18 +118,18 @@ const Purchase: FC = () => {
                 </div>
               </Form>
             </div>
-            <div className="w-1/2">
-              <div className="max-w-125 ml-auto bg-primary p-10 rounded">
+            <div className="w-full md:w-1/2">
+              <div className="mx-auto max-w-125 md:ml-auto bg-primary md:p-10 p-6 rounded">
                 <h3 className="font-semibold xl:text-2xl text-xl">
                   สรุปคำสั่งซื้อ
                 </h3>
                 <div className="border border-black opacity-20 my-4" />
-                <div className="h-[600px] pr-2 overflow-auto">
+                <div className="sm:h-150 h-120 pr-2 overflow-auto">
                   {productInCart.map((product, index) => {
                     return (
                       <div key={index} className="pb-4 last:pb-0">
                         <div className="flex gap-4">
-                          <div className="w-1/4">
+                          <div className="w-1/3 md:w-1/4">
                             <Image
                               src={product.image}
                               alt="Helmet"
@@ -149,9 +155,9 @@ const Purchase: FC = () => {
                                 <span className="self-end">
                                   {product.price}
                                 </span>
-                                <div className="flex items-center xl:gap-x-4 gap-x-2 bg-white rounded">
+                                <div className="flex items-center xl:gap-x-4 gap-x-2 bg-white rounded h-6 md:h-7">
                                   <Button
-                                    className="border-none xl:h-8 xl:w-8 h-7"
+                                    className="border-none h-6 md:h-7"
                                     onClick={() =>
                                       addProduct(product, CartType.PLUS)
                                     }
@@ -162,14 +168,14 @@ const Purchase: FC = () => {
                                       />
                                     }
                                   />
-                                  <span className="xl:text-base text-sm text-center xl:w-6 w-4">
+                                  <span className="xl:text-base text-sm text-center">
                                     {product.amount}
                                   </span>
                                   <Button
                                     onClick={() =>
                                       addProduct(product, CartType.MINUS)
                                     }
-                                    className="border-none xl:h-8 xl:w-8 h-7"
+                                    className="border-none h-6 md:h-7"
                                     icon={
                                       <MinusOutlined
                                         className="text-black"

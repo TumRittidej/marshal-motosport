@@ -1,6 +1,6 @@
 import { FC, useState } from 'react'
 import Link from 'next/link'
-import Image, { StaticImageData } from 'next/image'
+import Image from 'next/image'
 import {
   ArrowRightOutlined,
   MinusOutlined,
@@ -103,10 +103,10 @@ const Cart: FC = () => {
                             <span className="self-end text-white xl:text-lg text-base font-bold">
                               {product.price}
                             </span>
-                            <div className="flex gap-4">
-                              <div className="flex items-center gap-x-4 bg-white">
+                            <div className="flex md:gap-4 gap-2">
+                              <div className="flex items-center md:gap-x-4 gap-x-2 bg-white sm:h-8 h-6">
                                 <Button
-                                  className="border-none xl:h-8 xl:w-8 h-7"
+                                  className="border-none sm:h-8 h-6"
                                   onClick={() =>
                                     addProduct(product, CartType.PLUS)
                                   }
@@ -117,14 +117,14 @@ const Cart: FC = () => {
                                     />
                                   }
                                 />
-                                <span className="text-base text-center xl:w-6 w-4">
+                                <span className="text-base text-center">
                                   {product.amount}
                                 </span>
                                 <Button
                                   onClick={() =>
                                     addProduct(product, CartType.MINUS)
                                   }
-                                  className="border-none xl:h-8 xl:w-8 h-7"
+                                  className="border-none sm:h-8 h-6"
                                   icon={
                                     <MinusOutlined
                                       className="text-black"
@@ -134,10 +134,10 @@ const Cart: FC = () => {
                                 />
                               </div>
                               <button
-                                className="bg-primary h-8 w-8 flex items-center justify-center"
+                                className="bg-primary sm:h-8 sm:w-8 h-6 w-6 flex items-center justify-center"
                                 onClick={() => handleRemove(product)}
                               >
-                                <i className="icon-cross" />
+                                <i className="icon-cross md:text-base sm:text-sm text-[10px]" />
                               </button>
                             </div>
                           </div>
