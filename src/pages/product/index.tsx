@@ -1,7 +1,6 @@
 import Container from '@/components/container'
-import { Button, Collapse, Dropdown, Menu, Pagination, Space } from 'antd'
-import React, { FC, useEffect, useState } from 'react'
-import { DownOutlined } from '@ant-design/icons'
+import { Button, Dropdown, Menu, Pagination, Space } from 'antd'
+import React, { FC, useContext, useState } from 'react'
 
 import ProductImage1 from '@/assets/img/home/product-1.png'
 import ProductImage2 from '@/assets/img/home/product-2.png'
@@ -9,10 +8,21 @@ import ProductImage3 from '@/assets/img/home/product-3.png'
 import Link from 'next/link'
 import Image from 'next/image'
 import { MS_PRODUCT } from '@/constants/url'
-import { CaretRightOutlined } from '@ant-design/icons'
+import {
+  CaretRightOutlined,
+  LeftOutlined,
+  CaretLeftOutlined,
+  DownOutlined,
+} from '@ant-design/icons'
+import { ScreenCtx } from '@/contexts/ScreenProvider'
+import Drawer from '@/components/Drawer'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const Product: FC = () => {
+  const { breakpoint } = useContext(ScreenCtx)!
   const [rotateArrow, setRotateArrow] = useState(false)
+  const [isOpenDrawer, setIsOpenDrawer] = useState(false)
   const menu = (
     <Menu
       items={[
@@ -151,77 +161,75 @@ const Product: FC = () => {
     },
   ]
 
-  interface IProduct {
-    category: string
-    lists?: {
-      name: string
-    }[]
-  }
+  const products = [
+    {
+      category: 'ชุดแต่งมอเตอร์ไซต์ (199)',
+      lists: [
+        {
+          id: 1,
+          name: 'ยาง',
+        },
+        {
+          id: 2,
+          name: 'น้ำมันเครื่อง',
+        },
+        {
+          id: 3,
+          name: 'โช้ค อัพ',
+        },
+        {
+          id: 4,
+          name: 'หมวกกันน็อค',
+        },
+        {
+          id: 5,
+          name: 'หัวเทียน',
+        },
+        {
+          id: 6,
+          name: 'ของตกแต่ง',
+        },
+        {
+          id: 7,
+          name: 'เครื่องแต่งกาย',
+        },
+        {
+          id: 8,
+          name: 'สินค้าอื่นๆ',
+        },
+      ],
+    },
+    {
+      category: 'สินค้าขายดี (99)',
+    },
+    {
+      category: 'สินค้าโปรโมชั่น (12)',
+    },
+    {
+      category: 'สินค้าขายดี',
+    },
+  ]
 
-  useEffect(() => {
-    const products = [
-      {
-        category: 'ชุดแต่งมอเตอร์ไซต์ (199)',
-        lists: [
-          {
-            name: 'ยาง',
-          },
-          {
-            name: 'น้ำมันเครื่อง',
-          },
-          {
-            name: 'โช้ค อัพ',
-          },
-        ],
-      },
-      {
-        category: 'สินค้าขายดี (99)',
-        lists: [
-          {
-            name: 'กระจก',
-          },
-          {
-            name: 'ท่อ',
-          },
-          {
-            name: 'ล้อ',
-          },
-        ],
-      },
-      {
-        category: 'สินค้าโปรโมชั่น (12)',
-        lists: [
-          {
-            name: 'ถุงมือ',
-          },
-          {
-            name: 'หมวกกันน็อค',
-          },
-          {
-            name: 'กรอบทะเบียน',
-          },
-        ],
-      },
-      {
-        category: 'สินค้าขายดี',
-      },
-    ]
-    setProducts(products)
-  }, [])
-
-  const [products, setProducts] = useState<IProduct[]>([])
-  const [selectCategory, setSelectCategory] = useState<string[]>([])
-  // const [selectProduct, setSelectProduct] = useState<any>([])
+  // const [product, setProduct] = useState(products)
+  const [selectCategory, setSelectCategory] = useState<string>('')
+  const [selectProduct, setSelectProduct] = useState<number>(-1)
 
   const handleExpandCategory = (category: string) => {
-    if (selectCategory.includes(category)) {
-      const filter = selectCategory.filter(
-        (selectCategory) => selectCategory !== category
-      )
-      setSelectCategory(filter)
-    } else {
-      setSelectCategory(selectCategory.concat(category))
-    }
+    setSelectCategory(category)
+    if (selectCategory === category) setSelectCategory('')
+    setSelectProduct(-1)
+  }
+
+  const handleFilterProduct = (id: number) => {
+    // if (selectProduct.includes(id)) {
+    //   const filter = selectProduct.filter(
+    //     (selectProduct) => selectProduct !== id
+    //   )
+    //   setSelectProduct(filter)
+    // } else {
+    //   setSelectProduct(selectProduct.concat(id))
+    // }
+    setSelectProduct(id)
   }
 
   return (
@@ -229,7 +237,7 @@ const Product: FC = () => {
       <div className="bg-2--cover xl:pt-20 pt-15 xl:pb-30 pb-25">
         <Container>
           <div className="flex gap-12">
-            <div className="w-1/4">
+            <div className="w-1/4 md:block hidden">
               <h3 className="xl:text-lg text-base text-primary font-medium">
                 สินค้าทั้งหมด
               </h3>
@@ -240,7 +248,7 @@ const Product: FC = () => {
                     key={index}
                     className={`xl:text-base text-sm overflow-hidden transition-all duration-300 mb-4 last:mb-0
                     ${
-                      selectCategory.includes(product.category)
+                      selectCategory === product.category
                         ? 'max-h-[999px]'
                         : 'max-h-[22px]'
                     }
@@ -250,51 +258,79 @@ const Product: FC = () => {
                       onClick={() => handleExpandCategory(product.category)}
                       className={`group
                       ${
-                        selectCategory.includes(product.category)
+                        selectCategory === product.category
                           ? 'text-primary'
                           : 'text-white'
                       }
                       `}
                     >
-                      <CaretRightOutlined
-                        className={`transform group-hover:text-primary transition-all duration-300
+                      <span className="pl-2 group-hover:text-primary transition-all duration-300">
+                        - {product.category}
+                      </span>
+                      {product.lists && product.lists?.length > 0 && (
+                        <DownOutlined
+                          className={`transform ml-2 text-xs group-hover:text-primary transition-all duration-300
                         ${
-                          selectCategory.includes(product.category) &&
-                          product.lists
-                            ? 'rotate-90'
+                          selectCategory === product.category && product.lists
+                            ? 'rotate-180 -translate-y-1'
                             : 'rotate-0'
                         }
                         `}
-                      />
-                      <span className="pl-2 group-hover:text-primary transition-all duration-300">
-                        {product.category}
-                      </span>
+                        />
+                      )}
                     </button>
-                    <ul className="pl-4 pt-2">
-                      {product.lists?.map((list, index) => {
-                        return (
-                          <li
-                            key={index}
-                            className={`pb-2 hover:text-primary transition-all duration-300 cursor-pointer text-white`}
-                            // onClick={() => handleFilterProduct()}
-                          >
-                            <CaretRightOutlined /> {list.name}
-                          </li>
-                        )
-                      })}
-                    </ul>
+                    {product.lists && product.lists.length > 0 && (
+                      <ul className="pl-4">
+                        {product.lists?.map((list, index) => {
+                          return (
+                            <li
+                              key={index}
+                              className={`pb-2 first:pt-2 hover:text-primary transition-all duration-300 cursor-pointer text-white ${
+                                selectProduct === list.id
+                                  ? 'text-primary'
+                                  : 'text-white'
+                              }`}
+                              onClick={() => handleFilterProduct(list.id)}
+                            >
+                              <CaretRightOutlined className="mr-2" />
+                              {list.name}
+                            </li>
+                          )
+                        })}
+                      </ul>
+                    )}
                   </div>
                 )
               })}
             </div>
-            <div className="w-3/4">
+            <div className="md:w-3/4 w-full">
               <h1 className="xl:pb-15 pb-10 xl:text-4xl text-3xl font-semibold text-primary text-center">
                 สินค้า
               </h1>
               <div className="flex justify-between items-center">
-                <h3 className="text-white xl:text-lg text-base">
-                  สินค้าทั้งหมด
-                </h3>
+                {breakpoint === 'xl' ||
+                breakpoint === 'lg' ||
+                breakpoint === 'md' ? (
+                  <h3 className="text-white xl:text-lg text-base">
+                    สินค้าทั้งหมด
+                  </h3>
+                ) : (
+                  <button
+                    className="border border-white rounded px-3 py-[6px]"
+                    onClick={(e) => {
+                      setIsOpenDrawer(true), e.stopPropagation()
+                    }}
+                  >
+                    <h3 className="text-white xl:text-lg md:text-base text-sm">
+                      <LeftOutlined
+                        style={{ fontSize: '12px' }}
+                        className="pr-2"
+                      />
+                      สินค้าทั้งหมด
+                    </h3>
+                  </button>
+                )}
+
                 <Dropdown
                   overlay={menu}
                   trigger={['click']}
@@ -316,7 +352,7 @@ const Product: FC = () => {
                   </a>
                 </Dropdown>
               </div>
-              <div className="pt-8 grid md:grid-cols-3 grid-cols-2 md:gap-x-8 md:gap-y-6 gap-4">
+              <div className="pt-8 grid sm:grid-cols-3 grid-cols-2 md:gap-x-8 md:gap-y-6 gap-4">
                 {productItems.map((product, index) => {
                   return (
                     <div key={index} className="group cursor-pointer">
@@ -360,14 +396,90 @@ const Product: FC = () => {
                 pageSize={15}
                 current={1}
                 className="text-center mt-8"
-                onChange={(e) => console.log(e)}
+                // onChange={(e) => console.log(e)}
               />
             </div>
           </div>
         </Container>
       </div>
+      <div className="md:hidden block">
+        <Drawer isOpenDrawer={isOpenDrawer} setIsOpenDrawer={setIsOpenDrawer}>
+          <div className="pt-8">
+            <h3 className="text-white xl:text-lg text-base">สินค้าทั้งหมด</h3>
+            <div className="border border-white opacity-20 mt-2 mb-4" />
+            {products.map((product, index) => {
+              return (
+                <div
+                  key={index}
+                  className={`xl:text-base text-sm overflow-hidden transition-all duration-300 mb-4 last:mb-0
+                    ${
+                      selectCategory === product.category
+                        ? 'max-h-[999px]'
+                        : 'max-h-[22px]'
+                    }
+                    `}
+                >
+                  <button
+                    onClick={() => handleExpandCategory(product.category)}
+                    className={`group
+                      ${
+                        selectCategory === product.category
+                          ? 'text-primary'
+                          : 'text-white'
+                      }
+                      `}
+                  >
+                    <span className="pl-2 group-hover:text-primary transition-all duration-300">
+                      - {product.category}
+                    </span>
+                    {product.lists && product.lists?.length > 0 && (
+                      <DownOutlined
+                        className={`transform ml-2 text-xs group-hover:text-primary transition-all duration-300
+                        ${
+                          selectCategory === product.category && product.lists
+                            ? 'rotate-180 -translate-y-1'
+                            : 'rotate-0'
+                        }
+                        `}
+                      />
+                    )}
+                  </button>
+                  {product.lists && product.lists.length > 0 && (
+                    <ul className="pl-4">
+                      {product.lists?.map((list, index) => {
+                        return (
+                          <li
+                            key={index}
+                            className={`pb-2 first:pt-2 hover:text-primary transition-all duration-300 cursor-pointer text-white ${
+                              selectProduct === list.id
+                                ? 'text-primary'
+                                : 'text-white'
+                            }`}
+                            onClick={() => handleFilterProduct(list.id)}
+                          >
+                            <CaretRightOutlined className="mr-2" />
+                            {list.name}
+                          </li>
+                        )
+                      })}
+                    </ul>
+                  )}
+                </div>
+              )
+            })}
+          </div>
+        </Drawer>
+      </div>
     </section>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale!, ['product', 'common'])),
+    },
+  }
 }
 
 export default Product

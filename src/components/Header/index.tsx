@@ -2,6 +2,7 @@ import { FC, useEffect, useRef, useState } from 'react'
 import { Badge, Button, Form } from 'antd'
 import Search from 'antd/lib/input/Search'
 
+import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -11,57 +12,63 @@ import Container from '../container'
 import LoginModal from './component/LoginModal'
 import DropdownHeader from './component/DropdownHeader'
 import {
+  MS_ACCOUNT_USER,
   MS_CART,
   MS_CONTACT,
   MS_FACRBOOK,
+  MS_INSTAGRAM,
   MS_KNOWS_US,
   MS_NEWS,
   MS_PRODUCT,
   MS_PURCHASE,
   MS_REGISTER,
   MS_SERVICE,
+  MS_YOUTUBE,
 } from '@/constants/url'
 
 import { ILoginRequest } from '@/interface/login'
-import Drawer from './component/Drawer'
+import Drawer from '@/components/Drawer'
 import {
   MenuOutlined,
   ShoppingCartOutlined,
   SearchOutlined,
 } from '@ant-design/icons'
+import { Language } from '@/constants/language'
 
 const Header: FC = () => {
+  const { t } = useTranslation('common')
   const menusHeader = [
     {
       href: '/',
-      text: 'หน้าแรก',
+      text: t('HOME'),
     },
     {
       href: MS_PRODUCT,
-      text: 'สินค้า',
+      text: t('PRODUCT'),
     },
     {
       href: MS_PURCHASE,
-      text: 'สั่งซื้อและชำระเงิน',
+      text: t('PURCHASE'),
     },
     {
       href: MS_SERVICE,
-      text: 'บริการ',
+      text: t('SERIVCE'),
     },
     {
       href: MS_NEWS,
-      text: 'ข่าวสารและกิจกรรม',
+      text: t('NEWS'),
     },
     {
       href: MS_KNOWS_US,
-      text: 'รู้จักเรา',
+      text: t('KNOWN_US'),
     },
     {
       href: MS_CONTACT,
-      text: 'ติดต่อ',
+      text: t('CONTACT'),
     },
   ]
-  const router = useRouter()
+  const { pathname, locale, asPath } = useRouter()
+
   const [isOpenModal, setIsOpenModel] = useState(false)
   const [rotate, setRotate] = useState(false)
   const [loginPass, setLoginPass] = useState(false)
@@ -73,7 +80,6 @@ const Header: FC = () => {
   const [form] = Form.useForm<ILoginRequest>()
 
   const selectActiveMenu = (href: string) => {
-    const { pathname } = router
     if (pathname === `${href}/[productId]`) {
       return true
     } else if (pathname === `${href}/[newsId]`) {
@@ -93,10 +99,6 @@ const Header: FC = () => {
     setLoginPass(true)
     setIsOpenModel(false)
     // console.log(value)
-  }
-
-  const handleOpenDrawer = () => {
-    setIsOpenDrawer(true)
   }
 
   const handleShowSearch = () => {
@@ -131,7 +133,7 @@ const Header: FC = () => {
                   >
                     <i className="icon-user text-xl" />
                     <h3 className="text-sm font-semibold group-hover:underline">
-                      เข้าสู่ระบบ
+                      {t('LOGIN')}
                     </h3>
                   </div>
                   <DropdownHeader
@@ -151,7 +153,7 @@ const Header: FC = () => {
                     <a className="flex items-center gap-2 group">
                       <i className="icon-register text-black text-xl" />
                       <h3 className="text-sm font-semibold group-hover:underline">
-                        สมัครสมาชิก
+                        {t('REGISTER')}
                       </h3>
                     </a>
                   </Link>
@@ -163,7 +165,7 @@ const Header: FC = () => {
                     <Badge count={0} showZero>
                       <ShoppingCartOutlined style={{ fontSize: '24px' }} />
                     </Badge>
-                    <h3 className="text-sm font-semibold">ตระกร้าสินค้า</h3>
+                    <h3 className="text-sm font-semibold">{t('CART')}</h3>
                   </a>
                 </Link>
                 <Link href={MS_FACRBOOK}>
@@ -171,12 +173,12 @@ const Header: FC = () => {
                     <i className="icon-facebook text-2xl text-black" />
                   </a>
                 </Link>
-                <Link href="#">
+                <Link href={MS_INSTAGRAM}>
                   <a target="_blank" rel="noreferrer">
                     <i className="icon-instagram text-2xl text-black" />
                   </a>
                 </Link>
-                <Link href="#">
+                <Link href={MS_YOUTUBE}>
                   <a target="_blank" rel="noreferrer">
                     <i className="icon-youtube text-2xl text-black" />
                   </a>
@@ -224,19 +226,25 @@ const Header: FC = () => {
                   bordered={false}
                   className="xl:max-w-46 max-w-40 ml-1 h-[34px] search-input--text !border !border-solid !border-primary !bg-black !rounded"
                 />
-                <Button
-                  type="text"
-                  className="text-white hover:text-primary !p-0"
-                >
-                  TH
-                </Button>
+                <Link locale="th" href={asPath}>
+                  <a
+                    className={`hover:text-primary my-auto ${
+                      locale === Language.TH ? 'text-primary' : 'text-white'
+                    }`}
+                  >
+                    TH
+                  </a>
+                </Link>
                 <div className="text-white flex items-center">|</div>
-                <Button
-                  type="text"
-                  className="text-white hover:text-primary !p-0"
-                >
-                  EN
-                </Button>
+                <Link locale="en" href={asPath}>
+                  <a
+                    className={`hover:text-primary my-auto ${
+                      locale === Language.EN ? 'text-primary' : 'text-white'
+                    }`}
+                  >
+                    EN
+                  </a>
+                </Link>
               </div>
             </div>
           </Container>
@@ -246,7 +254,12 @@ const Header: FC = () => {
         <Container>
           <div className="flex items-center justify-between h-15 relative">
             <div className="flex gap-2">
-              <button className="flex items-center" onClick={handleOpenDrawer}>
+              <button
+                className="flex items-center"
+                onClick={(e) => {
+                  setIsOpenDrawer(true), e.stopPropagation()
+                }}
+              >
                 <MenuOutlined style={{ fontSize: '26px' }} />
               </button>
               <div
@@ -292,13 +305,112 @@ const Header: FC = () => {
           </div>
         </Container>
       </div>
-      <Drawer
-        setIsOpenDrawer={setIsOpenDrawer}
-        isOpenDrawer={isOpenDrawer}
-        onOpenModal={onOpenModal}
-        loginPass={loginPass}
-        handleClickLogout={() => setLoginPass(false)}
-      />
+      <Drawer setIsOpenDrawer={setIsOpenDrawer} isOpenDrawer={isOpenDrawer}>
+        <ul className="flex flex-col gap-4 pt-10">
+          {menusHeader.map((menu, index) => {
+            return (
+              <li key={index} onClick={() => setIsOpenDrawer(false)}>
+                <Link href={menu.href}>
+                  <a
+                    className={`text-semibold text-lg hover:text-primary ${
+                      selectActiveMenu(menu.href)
+                        ? 'text-primary'
+                        : 'text-white'
+                    }`}
+                  >
+                    {menu.text}
+                  </a>
+                </Link>
+              </li>
+            )
+          })}
+        </ul>
+        <div className="border border-gray-500 opacity-80 my-6" />
+        {loginPass ? (
+          <>
+            <Link href={MS_ACCOUNT_USER}>
+              <a>
+                <div
+                  onClick={() => setIsOpenDrawer(false)}
+                  className={`inline-flex items-center gap-4 group cursor-pointer group`}
+                >
+                  <i className="icon-user text-2xl text-white group-hover:text-primary transition duration-300" />
+                  <h3 className="text-base font-semibold text-white group-hover:text-primary group-hover:underline transition duration-300">
+                    Developer
+                  </h3>
+                </div>
+              </a>
+            </Link>
+            <div className={`pt-2`} onClick={() => setLoginPass(false)}>
+              <a className="inline-flex items-center gap-4 group">
+                <i className="icon-logout text-white group-hover:text-primary text-2xl transition duration-300" />
+                <h3 className="text-base font-semibold text-white group-hover:text-primary group-hover:underline transition duration-300">
+                  ออกจากระบบ
+                </h3>
+              </a>
+            </div>
+          </>
+        ) : (
+          <>
+            <div
+              className={`inline-flex items-center gap-4 group cursor-pointer group`}
+              onClick={onOpenModal}
+            >
+              <i className="icon-user text-2xl text-white group-hover:text-primary transition duration-300" />
+              <h3 className="text-base font-semibold text-white group-hover:text-primary group-hover:underline transition duration-300">
+                {t('LOGIN')}
+              </h3>
+            </div>
+            <div className={`pt-2`} onClick={() => setIsOpenDrawer(false)}>
+              <Link href={MS_REGISTER}>
+                <a className="inline-flex items-center gap-4 group">
+                  <i className="icon-register text-white group-hover:text-primary text-2xl transition duration-300" />
+                  <h3 className="text-base font-semibold text-white group-hover:text-primary group-hover:underline transition duration-300">
+                    {t('REGISTER')}
+                  </h3>
+                </a>
+              </Link>
+            </div>
+          </>
+        )}
+        <div className="text-white text-base flex gap-4 pt-4">
+          <Link locale="th" href={asPath}>
+            <a
+              className={`text-white hover:text-primary transition duration-300 ${
+                locale === Language.TH ? 'text-primary' : 'text-white'
+              }`}
+            >
+              TH
+            </a>
+          </Link>
+          |
+          <Link locale="en" href={asPath}>
+            <a
+              className={`text-white hover:text-primary transition duration-300 ${
+                locale === Language.EN ? 'text-primary' : 'text-white'
+              }`}
+            >
+              EN
+            </a>
+          </Link>
+        </div>
+        <div className="border border-gray-500 opacity-80 my-6" />
+        <Link href={MS_FACRBOOK}>
+          <a target="_blank">
+            <i className="icon-facebook text-white text-3xl" />
+          </a>
+        </Link>
+        <Link href={MS_INSTAGRAM}>
+          <a target="_blank" className="pl-4">
+            <i className="icon-instagram text-white text-3xl" />
+          </a>
+        </Link>
+        <Link href={MS_YOUTUBE}>
+          <a target="_blank" className="pl-4">
+            <i className="icon-youtube text-white text-3xl" />
+          </a>
+        </Link>
+      </Drawer>
       <LoginModal
         className={`md:hidden fixed w-screen h-screen bg-black z-200 sm:p-15 p-8 ${
           isOpenModal ? 'block' : 'hidden'

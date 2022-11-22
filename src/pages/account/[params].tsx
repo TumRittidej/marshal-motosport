@@ -11,6 +11,8 @@ import {
   MS_ACCOUNT_ORDER,
   MS_ACCOUNT_USER,
 } from '@/constants/url'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { GetServerSideProps } from 'next'
 
 const Account: FC = () => {
   const router = useRouter()
@@ -75,6 +77,14 @@ const Account: FC = () => {
       </div>
     </section>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale!, ['account', 'common'])),
+    },
+  }
 }
 
 export default Account

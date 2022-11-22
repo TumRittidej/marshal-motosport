@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { useTranslation } from 'next-i18next'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -15,34 +16,35 @@ import {
 } from '@/constants/url'
 
 const Footer: FC = () => {
+  const { t } = useTranslation('common')
   const menusFooter = [
     {
       href: '/',
-      text: 'หน้าแรก',
+      text: t('HOME'),
     },
     {
       href: MS_PRODUCT,
-      text: 'สินค้า',
+      text: t('PRODUCT'),
     },
     {
       href: MS_PURCHASE,
-      text: 'สั่งซื้อและชำระเงิน',
+      text: t('PURCHASE'),
     },
     {
       href: MS_SERVICE,
-      text: 'บริการ',
+      text: t('SERIVCE'),
     },
     {
       href: MS_NEWS,
-      text: 'ข่าวสารและกิจกรรม',
+      text: t('NEWS'),
     },
     {
       href: MS_KNOWS_US,
-      text: 'รู้จักเรา',
+      text: t('KNOWS_US'),
     },
     {
       href: MS_CONTACT,
-      text: 'ติดต่อ',
+      text: t('CONTACT'),
     },
   ]
   return (

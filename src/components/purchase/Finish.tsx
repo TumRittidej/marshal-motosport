@@ -16,7 +16,7 @@ interface IFinishProps {
 }
 
 const Finish: FC<IFinishProps> = ({ setStep }) => {
-  const { windowWidth } = useContext(ScreenCtx)!
+  const { breakpoint } = useContext(ScreenCtx)!
   const [stepStatus, setStepStatus] = useState(0)
   const [isOpenModal, setIsOpenModal] = useState(false)
   const steps = [
@@ -113,10 +113,14 @@ const Finish: FC<IFinishProps> = ({ setStep }) => {
         <Steps
           responsive={false}
           current={stepStatus}
-          direction={`${windowWidth <= 600 ? 'vertical' : 'horizontal'}`}
+          direction={`${
+            breakpoint === 'xs' || breakpoint === 'sm'
+              ? 'vertical'
+              : 'horizontal'
+          }`}
           labelPlacement="vertical"
           size="small"
-          className="step--order-complete pt-4 px-4 sm:px-0"
+          className="step--order-complete pt-4 px-4 md:px-0"
         >
           {steps.map((step, index) => {
             return (

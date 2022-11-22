@@ -8,6 +8,8 @@ import Container from '@/components/container'
 import { Button } from 'antd'
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons'
 import { MS_PURCHASE } from '@/constants/url'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const ProductDetail: FC = () => {
   const [amount, setAmount] = useState(1)
@@ -173,6 +175,14 @@ const ProductDetail: FC = () => {
       </div>
     </section>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale!, ['product', 'common'])),
+    },
+  }
 }
 
 export default ProductDetail

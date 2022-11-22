@@ -1,7 +1,7 @@
-import { FC, useContext, useState } from 'react'
+import { FC, useState } from 'react'
 import Image from 'next/image'
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons'
-import { Button, Col, Form, Row, Space, Steps } from 'antd'
+import { Button, Form, Steps } from 'antd'
 import Container from '@/components/container'
 import ProductImage from '@/assets/img/home/product-1.png'
 import Deliver from '@/components/purchase/Deliver'
@@ -10,10 +10,10 @@ import Finish from '@/components/purchase/Finish'
 import { IPurchase } from '@/interface/purchase'
 import { DeliveryType } from '@/constants/purchase'
 import { CartType, IProductCart } from '@/interface/cart'
-import { ScreenCtx } from '@/contexts/ScreenProvider'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const Purchase: FC = () => {
-  const { breakpoint } = useContext(ScreenCtx)!
   const [step, setStep] = useState(0)
   const [form] = Form.useForm<IPurchase>()
 
@@ -75,8 +75,8 @@ const Purchase: FC = () => {
   }
 
   const onSubmit = (value: IPurchase) => {
-    const body = form.getFieldsValue()
-    console.log('body', body)
+    // const body = form.getFieldsValue()
+    // console.log('body', body)
     console.log('value', value)
   }
   return (
@@ -221,6 +221,14 @@ const Purchase: FC = () => {
       </div>
     </section>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale!, ['purchase', 'common'])),
+    },
+  }
 }
 
 export default Purchase

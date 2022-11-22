@@ -15,3 +15,6 @@ export const MS_ACCOUNT_ORDER = `${MS_ACCOUNT}/order`
 
 // social
 export const MS_FACRBOOK = 'https://www.facebook.com/Marshal.chai'
+export const MS_YOUTUBE =
+  'https://www.youtube.com/channel/UC0g1igWxaDxCgcl3t9MsrTg'
+export const MS_INSTAGRAM = 'instagram.com/marshal.motosport'

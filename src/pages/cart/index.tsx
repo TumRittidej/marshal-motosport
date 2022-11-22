@@ -11,6 +11,8 @@ import Container from '@/components/container'
 import ProductImage from '@/assets/img/home/product-1.png'
 import { MS_PRODUCT, MS_PURCHASE } from '@/constants/url'
 import { CartType, IProductCart } from '@/interface/cart'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const Cart: FC = () => {
   const [productInCart, setProductInCart] = useState<IProductCart[]>([
@@ -66,7 +68,7 @@ const Cart: FC = () => {
   }
 
   const handleRemove = (product: IProductCart) => {
-    console.log('1', product)
+    // console.log('1', product)
 
     const filterProduct = productInCart.filter((p) => p.id !== product.id)
     setProductInCart(filterProduct)
@@ -189,6 +191,14 @@ const Cart: FC = () => {
       </div>
     </section>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale!, ['cart', 'common'])),
+    },
+  }
 }
 
 export default Cart

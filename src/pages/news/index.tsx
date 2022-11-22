@@ -5,6 +5,8 @@ import NewsImage from '@/assets/img/news/news-1.png'
 import Container from '@/components/container'
 import { Button } from 'antd'
 import { MS_NEWS } from '@/constants/url'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const News: FC = () => {
   const newsImage = [
@@ -132,6 +134,14 @@ const News: FC = () => {
       </div>
     </section>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale!, ['news', 'common'])),
+    },
+  }
 }
 
 export default News

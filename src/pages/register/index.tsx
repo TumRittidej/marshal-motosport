@@ -3,6 +3,8 @@ import { FC, useState } from 'react'
 import { IRegisterRequest } from '@/interface/register'
 import { RegisterType } from '@/constants/register'
 import Container from '@/components/container'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const Register: FC = () => {
   const [showStoreInput, setShowStoreInput] = useState(false)
@@ -50,8 +52,9 @@ const Register: FC = () => {
             <Form.Item
               name="storeName"
               label="ชื่อร้านค้า"
-              className={`form-label--white ${showStoreInput ? 'block' : 'hidden'
-                }`}
+              className={`form-label--white ${
+                showStoreInput ? 'block' : 'hidden'
+              }`}
             >
               <Input type="text" />
             </Form.Item>
@@ -100,6 +103,14 @@ const Register: FC = () => {
       </div>
     </section>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale!, ['register', 'common'])),
+    },
+  }
 }
 
 export default Register

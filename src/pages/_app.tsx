@@ -12,6 +12,7 @@ import Footer from '@/components/Footer'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import ScreenProvider from '@/contexts/ScreenProvider'
+import { appWithTranslation } from 'next-i18next'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
@@ -38,4 +39,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   )
 }
 
-export default MyApp
+export default appWithTranslation(MyApp)

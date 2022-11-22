@@ -1,4 +1,4 @@
-import { DeliveryType, DeliveryValue } from '@/constants/purchase'
+import { DeliveryType, DeliveryValue, PaymentType } from '@/constants/purchase'
 
 export interface IPurchase {
   firstName: string
@@ -14,4 +14,10 @@ export interface IPurchase {
   deliveryValue: DeliveryValue
   dateReceiveAtStore?: string
   timeReceiveAtStore?: string
+
+  paymentType: PaymentType
+  cardHolderName?: string
+  cardNumber?: number
+  expirationDate?: string
+  cvv?: number
 }

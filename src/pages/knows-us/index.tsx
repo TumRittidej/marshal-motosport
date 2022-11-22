@@ -23,6 +23,8 @@ import Partner15 from '@/assets/img/knows-us/partner-15.png'
 import Partner16 from '@/assets/img/knows-us/partner-16.png'
 import Partner17 from '@/assets/img/knows-us/partner-17.png'
 import Partner18 from '@/assets/img/knows-us/partner-18.png'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const KnowsUs: FC = () => {
   const partnerImage = [
@@ -255,6 +257,14 @@ const KnowsUs: FC = () => {
       </div>
     </section>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale!, ['knows-us', 'common'])),
+    },
+  }
 }
 
 export default KnowsUs
