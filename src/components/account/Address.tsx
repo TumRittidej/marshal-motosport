@@ -12,7 +12,7 @@ const Address: FC = () => {
   const [isAddMoreAddress, setIsAddMoreAddress] = useState(false)
 
   const handleSubmit = (value: IAddress) => {
-    console.log(value)
+    // console.log(value)
   }
 
   const handleChangeSetAddress = (e: CheckboxChangeEvent) => {

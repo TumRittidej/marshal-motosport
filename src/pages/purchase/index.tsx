@@ -77,7 +77,7 @@ const Purchase: FC = () => {
   const onSubmit = (value: IPurchase) => {
     // const body = form.getFieldsValue()
     // console.log('body', body)
-    console.log('value', value)
+    // console.log('value', value)
   }
   return (
     <section className="bg-black xl:pt-44 md:pt-36 pt-15">

@@ -1,5 +1,5 @@
 import { FC, useEffect, useRef, useState } from 'react'
-import { Badge, Button, Form } from 'antd'
+import { Badge, Form } from 'antd'
 import Search from 'antd/lib/input/Search'
 
 import { useTranslation } from 'next-i18next'
@@ -261,7 +261,7 @@ const Header: FC = () => {
                   bordered={false}
                   className="xl:max-w-46 max-w-40 ml-1 h-[34px] search-input--text !border !border-solid !border-primary !bg-black !rounded"
                 />
-                <Link locale={locales ? locales[0] : 'en'} href={asPath}>
+                <Link locale="th" href={asPath}>
                   <a
                     className={`hover:text-primary my-auto ${
                       locale === Language.TH ? 'text-primary' : 'text-white'
@@ -271,7 +271,7 @@ const Header: FC = () => {
                   </a>
                 </Link>
                 <div className="text-white flex items-center">|</div>
-                <Link locale={locales ? locales[1] : 'en'} href={asPath}>
+                <Link locale="en" href={asPath}>
                   <a
                     className={`hover:text-primary my-auto ${
                       locale === Language.EN ? 'text-primary' : 'text-white'

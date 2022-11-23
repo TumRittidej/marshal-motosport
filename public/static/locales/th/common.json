@@ -1,0 +1,25 @@
+{
+  "LOGIN": "เข้าสู้ระบบ",
+  "REGISTER": "สมัครสมาชิก",
+  "CART": "ตระกร้าสินค้า",
+  "HOME": "หน้าแรก",
+  "PRODUCT": "สินค้า",
+  "PURCHASE": "สั่งซื้อและชำระเงิน",
+  "SERIVCE": "บริการ",
+  "NEWS": "ข่าวสารและกิจกรรม",
+  "KNOWN_US": "รู้จักเรา",
+  "CONTACT": "ติดต่อ",
+  "COMPANY_NAME": "MARSHAL MOTOSPORT CO., LTD.",
+  "COMPANY_ADDRESS": "ที่อยู่: เลขที่ 65/3-4 ริมถนน ระหว่าง ซอยเอกชัย 82 และ 80/2 ถนนเอกชัย-บางบอน กรุงเทพฯ 10150",
+
+  "ORDER_BTN": "สั่งซื้อสินค้า",
+  "SEE_MORE_BTN": "ดูเพิ่มเติม",
+  "SEND_BTN": "ส่ง",
+  "PURCHASE_BTN": "ชำระเงิน",
+  "ADD_CART_BTN": "เพิ่มลงตระกร้า",
+  "SAVE_BTN": "บันทึก",
+  "CANCEL_BTN": "ยกเลิก",
+  "CREATE_ACCOUNT_BTN": "สร้างบัญชี",
+  "NEXT_BTN": "ถัดไป",
+  "BACK_BTN": "ย้อนกลับ"
+}
