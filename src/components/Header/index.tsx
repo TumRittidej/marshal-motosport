@@ -97,7 +97,7 @@ const Header: FC = () => {
   //     text: 'ติดต่อ',
   //   },
   // ]
-  const { pathname, locale, asPath } = useRouter()
+  const { pathname, locale } = useRouter()
 
   const [isOpenModal, setIsOpenModel] = useState(false)
   const [rotate, setRotate] = useState(false)
@@ -261,7 +261,7 @@ const Header: FC = () => {
                   bordered={false}
                   className="xl:max-w-46 max-w-40 ml-1 h-[34px] search-input--text !border !border-solid !border-primary !bg-black !rounded"
                 />
-                <Link locale="th" href={asPath}>
+                <Link locale="th" href={pathname}>
                   <a
                     className={`hover:text-primary my-auto ${
                       locale === Language.TH ? 'text-primary' : 'text-white'
@@ -271,7 +271,7 @@ const Header: FC = () => {
                   </a>
                 </Link>
                 <div className="text-white flex items-center">|</div>
-                <Link locale="en" href={asPath}>
+                <Link locale="en" href={pathname}>
                   <a
                     className={`hover:text-primary my-auto ${
                       locale === Language.EN ? 'text-primary' : 'text-white'
@@ -411,7 +411,7 @@ const Header: FC = () => {
           </>
         )}
         <div className="text-white text-base flex gap-4 pt-4">
-          <Link locale="th" href={asPath}>
+          <Link locale="th" href={pathname}>
             <a
               className={`text-white hover:text-primary transition duration-300 ${
                 locale === Language.TH ? 'text-primary' : 'text-white'
@@ -421,7 +421,7 @@ const Header: FC = () => {
             </a>
           </Link>
           |
-          <Link locale="en" href={asPath}>
+          <Link locale="en" href={pathname}>
             <a
               className={`text-white hover:text-primary transition duration-300 ${
                 locale === Language.EN ? 'text-primary' : 'text-white'

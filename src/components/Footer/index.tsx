@@ -115,15 +115,25 @@ const Footer: FC = () => {
                 </p>
               </div>
             </li>
-            <li className="pb-6 flex-cols md:flex items-center gap-4">
-              <i className="icon-telephone xl:text-2xl text-xl" />
-              <p className="xl:text-xl md:text-lg text-base ">098 568 9828</p>
+            <li>
+              <Link href="tel:0985689828">
+                <a className="pb-6 flex-cols md:inline-flex items-center gap-4">
+                  <i className="icon-telephone xl:text-2xl text-xl" />
+                  <p className="text-white xl:text-xl md:text-lg text-base">
+                    098 568 9828
+                  </p>
+                </a>
+              </Link>
             </li>
-            <li className="flex-cols md:flex items-center gap-4">
-              <i className="icon-envelope xl:text-2xl text-xl" />
-              <p className="xl:text-xl md:text-lg text-base ">
-                chai@marshal-motosport.page
-              </p>
+            <li>
+              <Link href="mailto:chai@marshal-motosport.page">
+                <a className="flex-cols md:inline-flex items-center gap-4">
+                  <i className="icon-envelope xl:text-2xl text-xl" />
+                  <p className="text-white xl:text-xl md:text-lg text-base ">
+                    chai@marshal-motosport.page
+                  </p>
+                </a>
+              </Link>
             </li>
           </ul>
           <div className="md:w-1/4 md:py-12 md:pl-12 mx-auto w-52 p-6">
@@ -137,7 +147,12 @@ const Footer: FC = () => {
         </div>
         <p className="md:text-xs text-[10px] text-white font-light text-center pb-4">
           Copyright © 2022 | MARSHAL MOTOSPORT CO., LTD. All rights reserved.
-          Designed by Belong-to
+          Designed by{' '}
+          <Link href="http://www.belongto.com">
+            <a target="_blank" className="text-white">
+              www.belongto.com
+            </a>
+          </Link>
         </p>
       </Container>
     </div>
