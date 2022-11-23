@@ -184,7 +184,7 @@ const Home: NextPage = () => {
   return (
     <section className="xl:pt-44 md:pt-36 pt-15 bg-black">
       <div className="relative">
-        <div className="absolute z-1 lg:left-[50%] md:left-[45%] left-1/2 top-2/4 transform -translate-y-2/4 -translate-x-2/4 text-center md:text-left md:translate-x-0 lg:max-w-150 md:max-w-130 w-full">
+        <div className="absolute z-1 left-1/2 top-2/4 transform -translate-y-2/4 -translate-x-2/4 text-center lg:w-160 md:w-130 w-80">
           <p className="text-white xl:text-2xl md:text-xl text-lg font-medium">
             WELCOME TO
           </p>

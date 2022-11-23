@@ -149,10 +149,12 @@
   text-shadow: none;
   box-shadow: none;
 }
-.submit--btn .ant-btn-primary:hover {
-  color: #fbd424;
-  border-color: #fbd424;
-  background-color: transparent;
+
+.submit--btn .ant-btn-primary:hover,
+.ant-btn-primary:focus {
+  color: #fbd424 !important;
+  border-color: #fbd424 !important;
+  background-color: transparent !important;
 }
 
 .cancel--btn .ant-btn-default {
