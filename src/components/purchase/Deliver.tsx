@@ -176,23 +176,7 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
             label={<label className="text-sm">ตำบล / แขวง</label>}
             className="form-label--white"
           >
-            <Select
-              bordered={false}
-              autoFocus={false}
-              showSearch
-              optionFilterProp="children"
-              onChange={onChange}
-              onSearch={onSearch}
-              filterOption={(input, option) =>
-                (option!.children as unknown as string)
-                  .toLowerCase()
-                  .includes(input.toLowerCase())
-              }
-            >
-              <Option value="jack">Jack</Option>
-              <Option value="lucy">Lucy</Option>
-              <Option value="tom">Tom</Option>
-            </Select>
+            <Input type="text" />
           </Form.Item>
         </Col>
         <Col sm={12} xs={24}>
@@ -201,23 +185,7 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
             label={<label className="text-sm">อำเภอ / เขต</label>}
             className="form-label--white"
           >
-            <Select
-              bordered={false}
-              autoFocus={false}
-              showSearch
-              optionFilterProp="children"
-              onChange={onChange}
-              onSearch={onSearch}
-              filterOption={(input, option) =>
-                (option!.children as unknown as string)
-                  .toLowerCase()
-                  .includes(input.toLowerCase())
-              }
-            >
-              <Option value="jack">Jack</Option>
-              <Option value="lucy">Lucy</Option>
-              <Option value="tom">Tom</Option>
-            </Select>
+            <Input type="text" />
           </Form.Item>
         </Col>
         <Col sm={12} xs={24}>
@@ -226,23 +194,7 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
             label={<label className="text-sm">จังหวัด</label>}
             className="form-label--white"
           >
-            <Select
-              bordered={false}
-              autoFocus={false}
-              showSearch
-              optionFilterProp="children"
-              onChange={onChange}
-              onSearch={onSearch}
-              filterOption={(input, option) =>
-                (option!.children as unknown as string)
-                  .toLowerCase()
-                  .includes(input.toLowerCase())
-              }
-            >
-              <Option value="jack">Jack</Option>
-              <Option value="lucy">Lucy</Option>
-              <Option value="tom">Tom</Option>
-            </Select>
+            <Input type="text" />
           </Form.Item>
         </Col>
         <Col sm={12} xs={24}>

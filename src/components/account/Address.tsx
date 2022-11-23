@@ -119,68 +119,17 @@ const Address: FC = () => {
         <Row gutter={32}>
           <Col sm={12} xs={24}>
             <Form.Item label="ตำบล / แขวง" className="form-label--white">
-              <Select
-                bordered={false}
-                autoFocus={false}
-                showSearch
-                placeholder="Select a person"
-                optionFilterProp="children"
-                onChange={onChange}
-                onSearch={onSearch}
-                filterOption={(input, option) =>
-                  (option!.children as unknown as string)
-                    .toLowerCase()
-                    .includes(input.toLowerCase())
-                }
-              >
-                <Option value="jack">Jack</Option>
-                <Option value="lucy">Lucy</Option>
-                <Option value="tom">Tom</Option>
-              </Select>
+              <Input type="text" />
             </Form.Item>
           </Col>
           <Col sm={12} xs={24}>
             <Form.Item label="อำเภอ / เขต" className="form-label--white">
-              <Select
-                bordered={false}
-                autoFocus={false}
-                showSearch
-                placeholder="Select a person"
-                optionFilterProp="children"
-                onChange={onChange}
-                onSearch={onSearch}
-                filterOption={(input, option) =>
-                  (option!.children as unknown as string)
-                    .toLowerCase()
-                    .includes(input.toLowerCase())
-                }
-              >
-                <Option value="jack">Jack</Option>
-                <Option value="lucy">Lucy</Option>
-                <Option value="tom">Tom</Option>
-              </Select>
+              <Input type="text" />
             </Form.Item>
           </Col>
           <Col sm={12} xs={24}>
             <Form.Item label="จังหวัด" className="form-label--white">
-              <Select
-                bordered={false}
-                autoFocus={false}
-                showSearch
-                placeholder="Select a person"
-                optionFilterProp="children"
-                onChange={onChange}
-                onSearch={onSearch}
-                filterOption={(input, option) =>
-                  (option!.children as unknown as string)
-                    .toLowerCase()
-                    .includes(input.toLowerCase())
-                }
-              >
-                <Option value="jack">Jack</Option>
-                <Option value="lucy">Lucy</Option>
-                <Option value="tom">Tom</Option>
-              </Select>
+              <Input type="text" />
             </Form.Item>
           </Col>
           <Col sm={12} xs={24}>
