@@ -466,16 +466,16 @@ const Home: NextPage = () => {
                 <li className="flex items-center gap-4 pb-3">
                   <i className="icon-location-mark xl:text-3xl md:text-2xl text-xl" />
                   <p className="xl:text-base text-sm">
-                    เส้นทางที่ 1 ถนนกาญจนาภิเษก-พระรามสอง วิ่งจากถนนกาญจนาฯ
-                    มุ่งหน้า พระราม2 เข้าสู่ถนนเอกชัย-บางบอน ริมถนน
-                    ร้านติดกับทางเข้าซอยเอกชัย 82
+                    <b>เส้นทางที่ 1</b> ถนนกาญจนาภิเษก-พระรามสอง
+                    วิ่งจากถนนกาญจนาฯ มุ่งหน้า พระราม2 เข้าสู่ถนนเอกชัย-บางบอน
+                    ริมถนน ร้านติดกับทางเข้าซอยเอกชัย 82
                   </p>
                 </li>
                 <li className="flex items-center gap-4 pb-3">
                   <i className="icon-location-mark xl:text-3xl md:text-2xl text-xl" />
                   <p className="xl:text-base text-sm">
-                    เส้นทางที่ 2 จากถนนจอมทอง-บางบอน/จากถนนกัลปพฤกษ์ เลี้ยวขวา
-                    มุ่งหน้าเข้าแยก บางบอ (จัสโก้บางบอน)
+                    <b>เส้นทางที่ 2</b> จากถนนจอมทอง-บางบอน/จากถนนกัลปพฤกษ์
+                    เลี้ยวขวา มุ่งหน้าเข้าแยก บางบอ (จัสโก้บางบอน)
                     เลี้ยวซ้ายเข้าถนนเอกชัยมุ่งหน้า รพ.บางประกอก 8
                     กลับรถใต้สะพานหน้า รพ. เข้าสู่ถนนเอกชัย-บางบอน ริมถนน
                     ร้านติดกับทางเข้าซอยเอกชัย 82
@@ -484,7 +484,7 @@ const Home: NextPage = () => {
                 <li className="flex items-center gap-4">
                   <i className="icon-location-mark xl:text-3xl md:text-2xl text-xl" />
                   <p className="xl:text-base text-sm">
-                    เส้นทางที่ 3 จากพระราม 2 ข้ามสะพานจากถนนเทียนทะเล
+                    <b>เส้นทางที่ 3</b> จากพระราม 2 ข้ามสะพานจากถนนเทียนทะเล
                     ผ่านทางรถไฟ มุ่งหน้าเข้าแยก บางบอน (จัสโก้บางบอน)
                     เลี้ยวซ้ายเข้าถนนเอกชัยมุ่งหน้า รพ.บางประกอก8
                     กลับรถใต้สะพานหน้า รพ. เข้าสู่ถนนเอกชัย-บางบอน ริมถนน
@@ -507,5 +507,4 @@ export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
     },
   }
 }
-
 export default Home

@@ -18,6 +18,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
 
   useEffect(() => {
+    console.log(router)
+
     if (router.pathname === '/_error') {
       router.push('/')
     }

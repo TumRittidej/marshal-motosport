@@ -28,14 +28,6 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
   )
   const [deliveryValue, setDeliveryValue] = useState<DeliveryValue>()
 
-  const onChange = (value: string) => {
-    // console.log(`selected ${value}`)
-  }
-
-  const onSearch = (value: string) => {
-    // console.log('search:', value)
-  }
-
   const handleSelectDeliverType = (selectDeliveryType: DeliveryType) => {
     setDeliveryType(selectDeliveryType)
     form.setFieldValue('deliveryType', selectDeliveryType)

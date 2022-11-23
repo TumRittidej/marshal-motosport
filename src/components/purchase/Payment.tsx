@@ -27,7 +27,7 @@ const Payment: FC<IPaymentProps> = ({ setStep, form }) => {
     if (payment === PaymentType.BANK) {
       setStep(2)
     }
-    const body = form.getFieldsValue()
+    // const body = form.getFieldsValue()
     // console.log(body)
   }
   const handleSelectPaymentType = (paymentValue: PaymentType) => {

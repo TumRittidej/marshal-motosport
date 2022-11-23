@@ -7,6 +7,7 @@ const nextConfig = {
   i18n: {
     defaultLocale: 'th',
     locales: ['th', 'en'],
+    localeDetection: false,
   },
   webpack(config) {
     config.plugins.push(new WindiCSSWebpackPlugin())

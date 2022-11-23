@@ -37,66 +37,66 @@ import { Language } from '@/constants/language'
 
 const Header: FC = () => {
   const { t } = useTranslation('common')
-  // const menusHeader = [
-  //   {
-  //     href: '/',
-  //     text: t('HOME'),
-  //   },
-  //   {
-  //     href: MS_PRODUCT,
-  //     text: t('PRODUCT'),
-  //   },
-  //   {
-  //     href: MS_PURCHASE,
-  //     text: t('PURCHASE'),
-  //   },
-  //   {
-  //     href: MS_SERVICE,
-  //     text: t('SERIVCE'),
-  //   },
-  //   {
-  //     href: MS_NEWS,
-  //     text: t('NEWS'),
-  //   },
-  //   {
-  //     href: MS_KNOWS_US,
-  //     text: t('KNOWN_US'),
-  //   },
-  //   {
-  //     href: MS_CONTACT,
-  //     text: t('CONTACT'),
-  //   },
-  // ]
   const menusHeader = [
     {
       href: '/',
-      text: 'หน้าแรก',
+      text: t('HOME'),
     },
     {
       href: MS_PRODUCT,
-      text: 'สินค้า',
+      text: t('PRODUCT'),
     },
     {
       href: MS_PURCHASE,
-      text: 'สั่งซื้อและชำระเงิน',
+      text: t('PURCHASE'),
     },
     {
       href: MS_SERVICE,
-      text: 'บริการ',
+      text: t('SERIVCE'),
     },
     {
       href: MS_NEWS,
-      text: 'ข่าวสารและกิจกรรม',
+      text: t('NEWS'),
     },
     {
       href: MS_KNOWS_US,
-      text: 'รู้จักเรา',
+      text: t('KNOWN_US'),
     },
     {
       href: MS_CONTACT,
-      text: 'ติดต่อ',
+      text: t('CONTACT'),
     },
   ]
+  // const menusHeader = [
+  //   {
+  //     href: '/',
+  //     text: 'หน้าแรก',
+  //   },
+  //   {
+  //     href: MS_PRODUCT,
+  //     text: 'สินค้า',
+  //   },
+  //   {
+  //     href: MS_PURCHASE,
+  //     text: 'สั่งซื้อและชำระเงิน',
+  //   },
+  //   {
+  //     href: MS_SERVICE,
+  //     text: 'บริการ',
+  //   },
+  //   {
+  //     href: MS_NEWS,
+  //     text: 'ข่าวสารและกิจกรรม',
+  //   },
+  //   {
+  //     href: MS_KNOWS_US,
+  //     text: 'รู้จักเรา',
+  //   },
+  //   {
+  //     href: MS_CONTACT,
+  //     text: 'ติดต่อ',
+  //   },
+  // ]
   const { pathname, locale, asPath } = useRouter()
 
   const [isOpenModal, setIsOpenModel] = useState(false)
@@ -163,8 +163,8 @@ const Header: FC = () => {
                   >
                     <i className="icon-user text-xl" />
                     <h3 className="text-sm font-semibold group-hover:underline">
-                      {/* {t('LOGIN')} */}
-                      เข้าสู่ระบบ
+                      {t('LOGIN')}
+                      {/* เข้าสู่ระบบ */}
                     </h3>
                   </div>
                   <DropdownHeader
@@ -184,8 +184,8 @@ const Header: FC = () => {
                     <a className="flex items-center gap-2 group">
                       <i className="icon-register text-black text-xl" />
                       <h3 className="text-sm font-semibold group-hover:underline">
-                        {/* {t('REGISTER')} */}
-                        สมัครสมาชิก
+                        {t('REGISTER')}
+                        {/* สมัครสมาชิก */}
                       </h3>
                     </a>
                   </Link>
@@ -198,8 +198,8 @@ const Header: FC = () => {
                       <ShoppingCartOutlined style={{ fontSize: '24px' }} />
                     </Badge>
                     <h3 className="text-sm font-semibold">
-                      {/* {t('CART')} */}
-                      ตระกร้าสินค้า
+                      {t('CART')}
+                      {/* ตระกร้าสินค้า */}
                     </h3>
                   </a>
                 </Link>
@@ -393,8 +393,8 @@ const Header: FC = () => {
             >
               <i className="icon-user text-2xl text-white group-hover:text-primary transition duration-300" />
               <h3 className="text-base font-semibold text-white group-hover:text-primary group-hover:underline transition duration-300">
-                {/* {t('LOGIN')} */}
-                เข้าสู่ระบบ
+                {t('LOGIN')}
+                {/* เข้าสู่ระบบ */}
               </h3>
             </div>
             <div className={`pt-2`} onClick={() => setIsOpenDrawer(false)}>
@@ -402,8 +402,8 @@ const Header: FC = () => {
                 <a className="inline-flex items-center gap-4 group">
                   <i className="icon-register text-white group-hover:text-primary text-2xl transition duration-300" />
                   <h3 className="text-base font-semibold text-white group-hover:text-primary group-hover:underline transition duration-300">
-                    {/* {t('REGISTER')} */}
-                    สมัครสมาชิก
+                    {t('REGISTER')}
+                    {/* สมัครสมาชิก */}
                   </h3>
                 </a>
               </Link>
