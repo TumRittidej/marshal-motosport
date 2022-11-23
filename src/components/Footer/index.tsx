@@ -20,33 +20,63 @@ const Footer: FC = () => {
   const menusFooter = [
     {
       href: '/',
-      text: t('HOME'),
+      text: 'หน้าแรก',
     },
     {
       href: MS_PRODUCT,
-      text: t('PRODUCT'),
+      text: 'สินค้า',
     },
     {
       href: MS_PURCHASE,
-      text: t('PURCHASE'),
+      text: 'สั่งซื้อและชำระเงิน',
     },
     {
       href: MS_SERVICE,
-      text: t('SERIVCE'),
+      text: 'บริการ',
     },
     {
       href: MS_NEWS,
-      text: t('NEWS'),
+      text: 'ข่าวสารและกิจกรรม',
     },
     {
       href: MS_KNOWS_US,
-      text: t('KNOWS_US'),
+      text: 'รู้จักเรา',
     },
     {
       href: MS_CONTACT,
-      text: t('CONTACT'),
+      text: 'ติดต่อ',
     },
   ]
+  // const menusFooter = [
+  //   {
+  //     href: '/',
+  //     text: t('HOME'),
+  //   },
+  //   {
+  //     href: MS_PRODUCT,
+  //     text: t('PRODUCT'),
+  //   },
+  //   {
+  //     href: MS_PURCHASE,
+  //     text: t('PURCHASE'),
+  //   },
+  //   {
+  //     href: MS_SERVICE,
+  //     text: t('SERIVCE'),
+  //   },
+  //   {
+  //     href: MS_NEWS,
+  //     text: t('NEWS'),
+  //   },
+  //   {
+  //     href: MS_KNOWS_US,
+  //     text: t('KNOWS_US'),
+  //   },
+  //   {
+  //     href: MS_CONTACT,
+  //     text: t('CONTACT'),
+  //   },
+  // ]
   return (
     <div className="bg-black pt-4">
       <Container paddingClassName="xl:px-0 px-0">

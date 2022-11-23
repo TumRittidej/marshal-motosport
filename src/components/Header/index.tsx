@@ -37,34 +37,64 @@ import { Language } from '@/constants/language'
 
 const Header: FC = () => {
   const { t } = useTranslation('common')
+  // const menusHeader = [
+  //   {
+  //     href: '/',
+  //     text: t('HOME'),
+  //   },
+  //   {
+  //     href: MS_PRODUCT,
+  //     text: t('PRODUCT'),
+  //   },
+  //   {
+  //     href: MS_PURCHASE,
+  //     text: t('PURCHASE'),
+  //   },
+  //   {
+  //     href: MS_SERVICE,
+  //     text: t('SERIVCE'),
+  //   },
+  //   {
+  //     href: MS_NEWS,
+  //     text: t('NEWS'),
+  //   },
+  //   {
+  //     href: MS_KNOWS_US,
+  //     text: t('KNOWN_US'),
+  //   },
+  //   {
+  //     href: MS_CONTACT,
+  //     text: t('CONTACT'),
+  //   },
+  // ]
   const menusHeader = [
     {
       href: '/',
-      text: t('HOME'),
+      text: 'หน้าแรก',
     },
     {
       href: MS_PRODUCT,
-      text: t('PRODUCT'),
+      text: 'สินค้า',
     },
     {
       href: MS_PURCHASE,
-      text: t('PURCHASE'),
+      text: 'สั่งซื้อและชำระเงิน',
     },
     {
       href: MS_SERVICE,
-      text: t('SERIVCE'),
+      text: 'บริการ',
     },
     {
       href: MS_NEWS,
-      text: t('NEWS'),
+      text: 'ข่าวสารและกิจกรรม',
     },
     {
       href: MS_KNOWS_US,
-      text: t('KNOWN_US'),
+      text: 'รู้จักเรา',
     },
     {
       href: MS_CONTACT,
-      text: t('CONTACT'),
+      text: 'ติดต่อ',
     },
   ]
   const { pathname, locale, asPath } = useRouter()
@@ -133,7 +163,8 @@ const Header: FC = () => {
                   >
                     <i className="icon-user text-xl" />
                     <h3 className="text-sm font-semibold group-hover:underline">
-                      {t('LOGIN')}
+                      {/* {t('LOGIN')} */}
+                      เข้าสู่ระบบ
                     </h3>
                   </div>
                   <DropdownHeader
@@ -153,7 +184,8 @@ const Header: FC = () => {
                     <a className="flex items-center gap-2 group">
                       <i className="icon-register text-black text-xl" />
                       <h3 className="text-sm font-semibold group-hover:underline">
-                        {t('REGISTER')}
+                        {/* {t('REGISTER')} */}
+                        สมัครสมาชิก
                       </h3>
                     </a>
                   </Link>
@@ -165,7 +197,10 @@ const Header: FC = () => {
                     <Badge count={0} showZero>
                       <ShoppingCartOutlined style={{ fontSize: '24px' }} />
                     </Badge>
-                    <h3 className="text-sm font-semibold">{t('CART')}</h3>
+                    <h3 className="text-sm font-semibold">
+                      {/* {t('CART')} */}
+                      ตระกร้าสินค้า
+                    </h3>
                   </a>
                 </Link>
                 <Link href={MS_FACRBOOK}>
@@ -312,7 +347,7 @@ const Header: FC = () => {
               <li key={index} onClick={() => setIsOpenDrawer(false)}>
                 <Link href={menu.href}>
                   <a
-                    className={`text-semibold text-lg hover:text-primary ${
+                    className={`text-semibold text-lg hover:text-primary block ${
                       selectActiveMenu(menu.href)
                         ? 'text-primary'
                         : 'text-white'
@@ -358,7 +393,8 @@ const Header: FC = () => {
             >
               <i className="icon-user text-2xl text-white group-hover:text-primary transition duration-300" />
               <h3 className="text-base font-semibold text-white group-hover:text-primary group-hover:underline transition duration-300">
-                {t('LOGIN')}
+                {/* {t('LOGIN')} */}
+                เข้าสู่ระบบ
               </h3>
             </div>
             <div className={`pt-2`} onClick={() => setIsOpenDrawer(false)}>
@@ -366,7 +402,8 @@ const Header: FC = () => {
                 <a className="inline-flex items-center gap-4 group">
                   <i className="icon-register text-white group-hover:text-primary text-2xl transition duration-300" />
                   <h3 className="text-base font-semibold text-white group-hover:text-primary group-hover:underline transition duration-300">
-                    {t('REGISTER')}
+                    {/* {t('REGISTER')} */}
+                    สมัครสมาชิก
                   </h3>
                 </a>
               </Link>
