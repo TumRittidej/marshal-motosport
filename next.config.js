@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const WindiCSSWebpackPlugin = require('windicss-webpack-plugin')
+const i18n = require('./next-i18next.config')
 
 const nextConfig = {
   reactStrictMode: true,
