@@ -29,6 +29,9 @@ import OurWork9 from '@/assets/img/service/our-work-9.png'
 import OurWork10 from '@/assets/img/service/our-work-10.png'
 import OurWork11 from '@/assets/img/service/our-work-11.png'
 import OurWork12 from '@/assets/img/service/our-work-12.png'
+import nextI18NextConfig from '../../../next-i18next.config.js'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations.js'
 
 const Service: FC = () => {
   const ourServiceItems = [
@@ -203,6 +206,14 @@ const Service: FC = () => {
       </div>
     </section>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale!, ['service', 'common'])),
+    },
+  }
 }
 
 export default Service
