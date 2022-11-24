@@ -13,7 +13,6 @@ import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import ScreenProvider from '@/contexts/ScreenProvider'
 import { appWithTranslation } from 'next-i18next'
-import nextI18NextConfig from '../../next-i18next.config.js'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()

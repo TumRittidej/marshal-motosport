@@ -10,7 +10,7 @@ import Finish from '@/components/purchase/Finish'
 import { IPurchase } from '@/interface/purchase'
 import { DeliveryType } from '@/constants/purchase'
 import { CartType, IProductCart } from '@/interface/cart'
-import { GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const Purchase: FC = () => {
@@ -223,7 +223,7 @@ const Purchase: FC = () => {
   )
 }
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
   return {
     props: {
       ...(await serverSideTranslations(locale!, ['purchase', 'common'])),

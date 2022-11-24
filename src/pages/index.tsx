@@ -1,5 +1,5 @@
 import Container from '@/components/container'
-import type { GetServerSideProps, GetStaticProps, NextPage } from 'next'
+import type { GetServerSideProps, NextPage } from 'next'
 import Image from 'next/image'
 import { Button, Carousel, Form, Input } from 'antd'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
@@ -500,7 +500,7 @@ const Home: NextPage = () => {
   )
 }
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
   return {
     props: {
       ...(await serverSideTranslations(locale!, ['home', 'common'])),

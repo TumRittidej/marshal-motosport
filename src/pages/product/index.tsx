@@ -15,7 +15,7 @@ import {
 } from '@ant-design/icons'
 import { ScreenCtx } from '@/contexts/ScreenProvider'
 import Drawer from '@/components/Drawer'
-import { GetStaticProps } from 'next'
+import { GetServerSideProps, GetStaticProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const Product: FC = () => {
@@ -473,7 +473,7 @@ const Product: FC = () => {
   )
 }
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
   return {
     props: {
       ...(await serverSideTranslations(locale!, ['product', 'common'])),

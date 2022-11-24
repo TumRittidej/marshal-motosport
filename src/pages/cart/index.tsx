@@ -11,7 +11,7 @@ import Container from '@/components/container'
 import ProductImage from '@/assets/img/home/product-1.png'
 import { MS_PRODUCT, MS_PURCHASE } from '@/constants/url'
 import { CartType, IProductCart } from '@/interface/cart'
-import { GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const Cart: FC = () => {
@@ -193,7 +193,7 @@ const Cart: FC = () => {
   )
 }
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
   return {
     props: {
       ...(await serverSideTranslations(locale!, ['cart', 'common'])),

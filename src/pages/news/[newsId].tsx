@@ -4,7 +4,7 @@ import NewsImage from '@/assets/img/news/news-1.png'
 import Image from 'next/image'
 import { Button } from 'antd'
 import { useRouter } from 'next/router'
-import { GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const NewsDetail: FC = () => {
@@ -77,7 +77,7 @@ const NewsDetail: FC = () => {
   )
 }
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
   return {
     props: {
       ...(await serverSideTranslations(locale!, ['news', 'common'])),

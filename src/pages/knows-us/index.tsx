@@ -23,7 +23,7 @@ import Partner15 from '@/assets/img/knows-us/partner-15.png'
 import Partner16 from '@/assets/img/knows-us/partner-16.png'
 import Partner17 from '@/assets/img/knows-us/partner-17.png'
 import Partner18 from '@/assets/img/knows-us/partner-18.png'
-import { GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const KnowsUs: FC = () => {
@@ -259,7 +259,7 @@ const KnowsUs: FC = () => {
   )
 }
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
   return {
     props: {
       ...(await serverSideTranslations(locale!, ['knows-us', 'common'])),

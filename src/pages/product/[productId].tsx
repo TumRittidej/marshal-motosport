@@ -8,7 +8,7 @@ import Container from '@/components/container'
 import { Button } from 'antd'
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons'
 import { MS_PURCHASE } from '@/constants/url'
-import { GetStaticProps } from 'next'
+import { GetServerSideProps, GetStaticProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useRouter } from 'next/router'
 
@@ -180,7 +180,7 @@ const ProductDetail: FC = () => {
   )
 }
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
   return {
     props: {
       ...(await serverSideTranslations(locale!, ['product', 'common'])),
