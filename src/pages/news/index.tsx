@@ -5,7 +5,7 @@ import NewsImage from '@/assets/img/news/news-1.png'
 import Container from '@/components/container'
 import { Button } from 'antd'
 import { MS_NEWS } from '@/constants/url'
-import { GetServerSideProps } from 'next'
+import { GetStaticProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const News: FC = () => {
@@ -136,7 +136,7 @@ const News: FC = () => {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
       ...(await serverSideTranslations(locale!, ['news', 'common'])),

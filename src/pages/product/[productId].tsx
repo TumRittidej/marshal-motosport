@@ -8,11 +8,14 @@ import Container from '@/components/container'
 import { Button } from 'antd'
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons'
 import { MS_PURCHASE } from '@/constants/url'
-import { GetServerSideProps } from 'next'
+import { GetStaticProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useRouter } from 'next/router'
 
 const ProductDetail: FC = () => {
   const [amount, setAmount] = useState(1)
+  const { query } = useRouter()
+  console.log(query)
 
   const minusProduct = () => {
     if (amount <= 0) return
@@ -177,7 +180,7 @@ const ProductDetail: FC = () => {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
       ...(await serverSideTranslations(locale!, ['product', 'common'])),

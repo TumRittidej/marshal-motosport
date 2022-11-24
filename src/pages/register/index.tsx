@@ -3,7 +3,7 @@ import { FC, useState } from 'react'
 import { IRegisterRequest } from '@/interface/register'
 import { RegisterType } from '@/constants/register'
 import Container from '@/components/container'
-import { GetServerSideProps } from 'next'
+import { GetStaticProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const Register: FC = () => {
@@ -105,7 +105,7 @@ const Register: FC = () => {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
       ...(await serverSideTranslations(locale!, ['register', 'common'])),
