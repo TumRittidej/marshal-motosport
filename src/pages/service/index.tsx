@@ -173,49 +173,43 @@ const Service: FC = () => {
             บริการ
           </h1>
 
-          <ul className="md:text-base text-sm text-white flex flex-wrap md:pt-8 pt-4">
-            <div className="md:w-1/3 w-full">
-              <li className="pb-2">
-                <i className="icon-check-service text-primary pr-2 text-2xl" />
-                เซตโช็คหน้า น้ำมันโช็ค ปรับนุ่ม
-              </li>
-              <li className="pb-2">
-                <i className="icon-check-service text-primary pr-2 text-2xl" />
-                กล่องท้าย แคชบาร์ จัดทรงทัวริ่ง
-              </li>
-              <li className="pb-2">
-                <i className="icon-check-service text-primary pr-2 text-2xl" />
-                รับจัดสภาพ เดินสายเบรก อัพเกรดปั้มเบรก
-              </li>
-            </div>
-            <div className="md:w-1/3 w-full">
-              <li className="pb-2">
-                <i className="icon-check-service text-primary pr-2 text-2xl" />
-                ล้างชุดข้างเฟื่องท้าย รถออโตเมติก
-              </li>
-              <li className="pb-2">
-                <i className="icon-check-service text-primary pr-2 text-2xl" />
-                เปลี่ยนยาง ถอด ถ่วง จุ๊บยาง สเต็มเย็น
-              </li>
-              <li className="pb-2">
-                <i className="icon-check-service text-primary pr-2 text-2xl" />
-                เปลี่ยนถ่ายน้ำมันเครื่อง บำรุงรักษา ฯลฯ
-              </li>
-            </div>
-            <div className="md:w-1/3 w-full">
-              <li className="pb-2">
-                <i className="icon-check-service text-primary pr-2 text-2xl" />
-                ตรวจเช็ค เปลี่ยน แบตเตอรี่รถจักรยานยนต์
-              </li>
-              <li className="pb-2">
-                <i className="icon-check-service text-primary pr-2 text-2xl" />
-                สลับล้อ ล้อสีโครมเมียม สีพาวเดอร์โค้ด 2K
-              </li>
-              <li className="pb-2">
-                <i className="icon-check-service text-primary pr-2 text-2xl" />
-                เปลี่ยน ผ้าเบรก - ถ่ายน้ำมันเบรก
-              </li>
-            </div>
+          <ul className="md:text-base text-sm text-white grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:pt-8 pt-4">
+            <li className="pb-2">
+              <i className="icon-check-service text-primary pr-2 text-2xl" />
+              เซตโช็คหน้า น้ำมันโช็ค ปรับนุ่ม
+            </li>
+            <li className="pb-2">
+              <i className="icon-check-service text-primary pr-2 text-2xl" />
+              กล่องท้าย แคชบาร์ จัดทรงทัวริ่ง
+            </li>
+            <li className="pb-2">
+              <i className="icon-check-service text-primary pr-2 text-2xl" />
+              รับจัดสภาพ เดินสายเบรก อัพเกรดปั้มเบรก
+            </li>
+            <li className="pb-2">
+              <i className="icon-check-service text-primary pr-2 text-2xl" />
+              ล้างชุดข้างเฟื่องท้าย รถออโตเมติก
+            </li>
+            <li className="pb-2">
+              <i className="icon-check-service text-primary pr-2 text-2xl" />
+              เปลี่ยนยาง ถอด ถ่วง จุ๊บยาง สเต็มเย็น
+            </li>
+            <li className="pb-2">
+              <i className="icon-check-service text-primary pr-2 text-2xl" />
+              เปลี่ยนถ่ายน้ำมันเครื่อง บำรุงรักษา ฯลฯ
+            </li>
+            <li className="pb-2">
+              <i className="icon-check-service text-primary pr-2 text-2xl" />
+              ตรวจเช็ค เปลี่ยน แบตเตอรี่รถจักรยานยนต์
+            </li>
+            <li className="pb-2">
+              <i className="icon-check-service text-primary pr-2 text-2xl" />
+              สลับล้อ ล้อสีโครมเมียม สีพาวเดอร์โค้ด 2K
+            </li>
+            <li className="pb-2">
+              <i className="icon-check-service text-primary pr-2 text-2xl" />
+              เปลี่ยน ผ้าเบรก - ถ่ายน้ำมันเบรก
+            </li>
           </ul>
 
           <div className="m-auto md:columns-4 sm:columns-3 columns-1 xl:pt-20 pt-15">

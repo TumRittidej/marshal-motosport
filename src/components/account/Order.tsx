@@ -1,7 +1,7 @@
 import { FC, MouseEvent, ReactNode, useContext, useState } from 'react'
 import Image from 'next/image'
 
-import { Button, Col, Dropdown, Menu, Space, Steps } from 'antd'
+import { Button, Col, Dropdown, Form, Menu, Space, Steps } from 'antd'
 import { DownOutlined } from '@ant-design/icons'
 const { Step } = Steps
 
@@ -9,13 +9,14 @@ import ProductImage from '@/assets/img/home/product-1.png'
 import { CheckCircleOutlined } from '@ant-design/icons'
 import PurchaseModal from '../PurchaseModal'
 import { ScreenCtx } from '@/contexts/ScreenProvider'
+import { IPaymentBankRequest } from '@/interface/purchase'
 
 const Order: FC = () => {
   const { windowWidth } = useContext(ScreenCtx)!
   const [rotateArrowDropDown, setRotateArrowDropDown] = useState(false)
   const [rotateArrowMoreBtn, setRotateArrowMoreBtn] = useState(false)
-
   const [isOpenModal, setIsOpenModal] = useState(false)
+  const [form] = Form.useForm<IPaymentBankRequest>()
 
   const menu = (
     <Menu
@@ -331,6 +332,7 @@ const Order: FC = () => {
         isOpenModal={isOpenModal}
         handleSubmit={handleSubmit}
         handleCancel={handleCancel}
+        form={form}
       />
     </>
   )
