@@ -1,6 +1,6 @@
 import { DeliveryType, DeliveryValue, PaymentType } from '@/constants/purchase'
 
-export interface IPurchase {
+export interface IPurchaseRequest {
   firstName: string
   lastName: string
   email: string
@@ -20,4 +20,11 @@ export interface IPurchase {
   cardNumber?: number
   expirationDate?: string
   cvv?: number
+}
+
+export interface IPaymentBankRequest {
+  fromBank: string
+  toBank: string
+  time: string
+  uploadImage: string
 }

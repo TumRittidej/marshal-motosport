@@ -75,7 +75,7 @@ const Service: FC = () => {
       image: OurServiceImage5,
       imageHover: OurServiceHoverImage5,
       title: 'Dealer',
-      decsription: 'รับสมัครตัวแทนจำหน่ายทั่วประเทศ',
+      decsription: 'มีตัวแทนจำหน่ายทั่วประเทศ',
     },
   ]
 
@@ -173,44 +173,46 @@ const Service: FC = () => {
             บริการ
           </h1>
 
-          <ul className="md:text-base text-sm text-white flex flex-col md:flex-row md:pt-8 pt-4 text-center md:text-left">
-            <div className="md:w-1/2 w-full">
+          <ul className="md:text-base text-sm text-white flex flex-wrap md:pt-8 pt-4">
+            <div className="md:w-1/3 w-full">
               <li className="pb-2">
-                <i className="icon-check-service text-primary pr-4 text-2xl" />
+                <i className="icon-check-service text-primary pr-2 text-2xl" />
                 เซตโช็คหน้า น้ำมันโช็ค ปรับนุ่ม
               </li>
               <li className="pb-2">
-                <i className="icon-check-service text-primary pr-4 text-2xl" />
+                <i className="icon-check-service text-primary pr-2 text-2xl" />
                 กล่องท้าย แคชบาร์ จัดทรงทัวริ่ง
               </li>
               <li className="pb-2">
-                <i className="icon-check-service text-primary pr-4 text-2xl" />
+                <i className="icon-check-service text-primary pr-2 text-2xl" />
                 รับจัดสภาพ เดินสายเบรก อัพเกรดปั้มเบรก
               </li>
+            </div>
+            <div className="md:w-1/3 w-full">
               <li className="pb-2">
-                <i className="icon-check-service text-primary pr-4 text-2xl" />
+                <i className="icon-check-service text-primary pr-2 text-2xl" />
                 ล้างชุดข้างเฟื่องท้าย รถออโตเมติก
               </li>
               <li className="pb-2">
-                <i className="icon-check-service text-primary pr-4 text-2xl" />
+                <i className="icon-check-service text-primary pr-2 text-2xl" />
                 เปลี่ยนยาง ถอด ถ่วง จุ๊บยาง สเต็มเย็น
               </li>
-            </div>
-            <div className="md:w-1/2 w-full">
               <li className="pb-2">
-                <i className="icon-check-service text-primary pr-4 text-2xl" />
+                <i className="icon-check-service text-primary pr-2 text-2xl" />
                 เปลี่ยนถ่ายน้ำมันเครื่อง บำรุงรักษา ฯลฯ
               </li>
+            </div>
+            <div className="md:w-1/3 w-full">
               <li className="pb-2">
-                <i className="icon-check-service text-primary pr-4 text-2xl" />
+                <i className="icon-check-service text-primary pr-2 text-2xl" />
                 ตรวจเช็ค เปลี่ยน แบตเตอรี่รถจักรยานยนต์
               </li>
               <li className="pb-2">
-                <i className="icon-check-service text-primary pr-4 text-2xl" />
+                <i className="icon-check-service text-primary pr-2 text-2xl" />
                 สลับล้อ ล้อสีโครมเมียม สีพาวเดอร์โค้ด 2K
               </li>
               <li className="pb-2">
-                <i className="icon-check-service text-primary pr-4 text-2xl" />
+                <i className="icon-check-service text-primary pr-2 text-2xl" />
                 เปลี่ยน ผ้าเบรก - ถ่ายน้ำมันเบรก
               </li>
             </div>

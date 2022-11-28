@@ -7,7 +7,7 @@ import ProductImage from '@/assets/img/home/product-1.png'
 import Deliver from '@/components/purchase/Deliver'
 import Payment from '@/components/purchase/Payment'
 import Finish from '@/components/purchase/Finish'
-import { IPurchase } from '@/interface/purchase'
+import { IPurchaseRequest } from '@/interface/purchase'
 import { DeliveryType, PaymentType } from '@/constants/purchase'
 import { CartType, IProductCart } from '@/interface/cart'
 import { GetServerSideProps } from 'next'
@@ -15,7 +15,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const Purchase: FC = () => {
   const [step, setStep] = useState(0)
-  const [form] = Form.useForm<IPurchase>()
+  const [form] = Form.useForm<IPurchaseRequest>()
 
   const [productInCart, setProductInCart] = useState<IProductCart[]>([
     {
@@ -74,7 +74,7 @@ const Purchase: FC = () => {
     setProductInCart(filterProduct)
   }
 
-  const onSubmit = (value: IPurchase) => {
+  const onSubmit = (value: IPurchaseRequest) => {
     if (value.deliveryType !== DeliveryType.AT_STORE) {
       delete value.timeReceiveAtStore
       delete value.dateReceiveAtStore

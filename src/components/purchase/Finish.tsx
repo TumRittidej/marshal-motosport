@@ -1,14 +1,16 @@
 import React, {
   Dispatch,
   FC,
+  MouseEvent,
   SetStateAction,
   useContext,
   useState,
 } from 'react'
 import { CheckOutlined, CheckCircleOutlined } from '@ant-design/icons'
-import { Button, Col, Row, Space, Steps } from 'antd'
+import { Button, Col, Form, Row, Space, Steps } from 'antd'
 import PurchaseModal from '../PurchaseModal'
 import { ScreenCtx } from '@/contexts/ScreenProvider'
+import { IPaymentBankRequest } from '@/interface/purchase'
 const { Step } = Steps
 
 interface IFinishProps {
@@ -19,6 +21,7 @@ const Finish: FC<IFinishProps> = ({ setStep }) => {
   const { breakpoint } = useContext(ScreenCtx)!
   const [stepStatus, setStepStatus] = useState(0)
   const [isOpenModal, setIsOpenModal] = useState(false)
+  const [form] = Form.useForm<IPaymentBankRequest>()
   const steps = [
     {
       title: 'ทำรายการ',
@@ -42,7 +45,9 @@ const Finish: FC<IFinishProps> = ({ setStep }) => {
   const handleCancel = () => {
     setIsOpenModal(false)
   }
-  const handleSubmit = () => {}
+  const handleSubmit = () => {
+    // console.log(form.getFieldsValue())
+  }
   return (
     <>
       <div className="pt-6 text-center">
@@ -144,6 +149,7 @@ const Finish: FC<IFinishProps> = ({ setStep }) => {
         isOpenModal={isOpenModal}
         handleCancel={handleCancel}
         handleSubmit={handleSubmit}
+        form={form}
       />
     </>
   )

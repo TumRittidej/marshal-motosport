@@ -1,20 +1,22 @@
-import { Form, Modal, Select, TimePicker } from 'antd'
+import { Form, FormInstance, Modal, Select, TimePicker } from 'antd'
 import Image from 'next/image'
 import { Option } from 'antd/lib/mentions'
 import React, { ChangeEvent, FC, MouseEvent, useEffect, useState } from 'react'
-import moment from 'moment'
 import imageUploadSimple from '@/assets/image-upload.png'
+import { IPaymentBankRequest } from '@/interface/purchase'
 
 interface IPurchaseModal {
   isOpenModal: boolean
   handleSubmit: (e: MouseEvent<HTMLElement, globalThis.MouseEvent>) => void
   handleCancel: (e: MouseEvent<HTMLElement, globalThis.MouseEvent>) => void
+  form: FormInstance<IPaymentBankRequest>
 }
 
 const PurchaseModal: FC<IPurchaseModal> = ({
   isOpenModal,
   handleCancel,
   handleSubmit,
+  form,
 }) => {
   const [base64Image, setBase64Image] = useState('')
   const handleChangeUploadImage = (e: ChangeEvent<HTMLInputElement>) => {
@@ -31,6 +33,7 @@ const PurchaseModal: FC<IPurchaseModal> = ({
     const onLoad = (fileString: string) => {
       if (fileString) {
         setBase64Image(fileString as string)
+        form.setFieldValue('uploadImage', fileString)
         e.target.value = ''
       }
     }
@@ -62,7 +65,7 @@ const PurchaseModal: FC<IPurchaseModal> = ({
       closeIcon={<i className="icon-cross text-black" />}
       width={450}
     >
-      <Form layout="vertical">
+      <Form layout="vertical" form={form}>
         <Form.Item
           label={<label className="text-sm">ชำระจากธนาคาร</label>}
           name="fromBank"

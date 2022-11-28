@@ -5,21 +5,17 @@ import {
   Form,
   FormInstance,
   Input,
-  Modal,
   Row,
-  Select,
   TimePicker,
 } from 'antd'
-import moment from 'moment'
-import { Option } from 'antd/lib/mentions'
-import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
+import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import { RightOutlined, CheckOutlined } from '@ant-design/icons'
 import { DeliveryType, DeliveryValue } from '@/constants/purchase'
-import { IPurchase } from '@/interface/purchase'
+import { IPurchaseRequest } from '@/interface/purchase'
 
 interface IDeliverProps {
   setStep: Dispatch<SetStateAction<number>>
-  form: FormInstance<IPurchase>
+  form: FormInstance<IPurchaseRequest>
 }
 
 const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {

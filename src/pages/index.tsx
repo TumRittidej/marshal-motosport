@@ -166,7 +166,7 @@ const Home: NextPage = () => {
       image: OurServiceImage5,
       imageHover: OurServiceHoverImage5,
       title: 'Dealer',
-      decsription: 'รับสมัครตัวแทนจำหน่ายทั่วประเทศ',
+      decsription: 'มีตัวแทนจำหน่ายทั่วประเทศ',
     },
   ]
 

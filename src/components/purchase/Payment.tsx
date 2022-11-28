@@ -11,12 +11,12 @@ import { CheckOutlined, LeftOutlined } from '@ant-design/icons'
 import KasikornBankImage from '@/assets/img/purchase/kasikorn-bank.png'
 import BangkokBankImage from '@/assets/img/purchase/bangkok-bank.png'
 import Image from 'next/image'
-import { IPurchase } from '@/interface/purchase'
+import { IPurchaseRequest } from '@/interface/purchase'
 import { ScreenCtx } from '@/contexts/ScreenProvider'
 
 interface IPaymentProps {
   setStep: Dispatch<SetStateAction<number>>
-  form: FormInstance<IPurchase>
+  form: FormInstance<IPurchaseRequest>
 }
 
 const Payment: FC<IPaymentProps> = ({ setStep, form }) => {
