@@ -29,16 +29,35 @@ import OurWork9 from '@/assets/img/service/our-work-9.png'
 import OurWork10 from '@/assets/img/service/our-work-10.png'
 import OurWork11 from '@/assets/img/service/our-work-11.png'
 import OurWork12 from '@/assets/img/service/our-work-12.png'
-import { GetServerSideProps, GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations.js'
 
 const Service: FC = () => {
   const ourServiceItems = [
     {
+      image: OurServiceImage4,
+      imageHover: OurServiceHoverImage4,
+      title: 'Finest Quality',
+      decsription:
+        'ไม่ต้องห่วงเรื่องสินค้าว่าจะดีไหมเพราะเรานำเข้าแบรนด์ที่ได้รับการยอมรับแล้วว่าได้คุณภาพที่ดี',
+    },
+    {
       image: OurServiceImage1,
       imageHover: OurServiceHoverImage1,
       title: 'Standards',
       decsription: 'สินค้ามีคุณภาพและปลอดภัยสูงนำเข้าภายในประเทศและต่างประเทศ',
+    },
+    {
+      image: OurServiceImage6,
+      imageHover: OurServiceHoverImage6,
+      title: 'Time Saving',
+      decsription: 'ประหยัดเวลาคุณได้ด้วยการสั่งซื้อจากตัวแทนจำหน่ายของเรา',
+    },
+    {
+      image: OurServiceImage7,
+      imageHover: OurServiceHoverImage7,
+      title: 'Best Support',
+      decsription: 'หลังจากซื้อขายแล้วเรายังช่วยบริการหลังการขาย',
     },
     {
       image: OurServiceImage2,
@@ -53,29 +72,10 @@ const Service: FC = () => {
       decsription: 'สินค้าของเรามีมากมายหลายยี่ห้อ',
     },
     {
-      image: OurServiceImage4,
-      imageHover: OurServiceHoverImage4,
-      title: 'Finest Quality',
-      decsription:
-        'ไม่ต้องห่วงเรื่องสินค้าว่าจะดีไหมเพราะเรานำเข้าแบรนด์ที่ได้รับการยอมรับแล้วว่าได้คุณภาพที่ดี',
-    },
-    {
       image: OurServiceImage5,
       imageHover: OurServiceHoverImage5,
       title: 'Dealer',
       decsription: 'รับสมัครตัวแทนจำหน่ายทั่วประเทศ',
-    },
-    {
-      image: OurServiceImage6,
-      imageHover: OurServiceHoverImage6,
-      title: 'Time Saving',
-      decsription: 'ประหยัดเวลาคุณได้ด้วยการสั่งซื้อจากตัวแทนจำหน่ายของเรา',
-    },
-    {
-      image: OurServiceImage7,
-      imageHover: OurServiceHoverImage7,
-      title: 'Best Support',
-      decsription: 'หลังจากซื้อขายแล้วเรายังช่วยบริการหลังการขาย',
     },
   ]
 
@@ -133,7 +133,7 @@ const Service: FC = () => {
     <section className="xl:pt-44 md:pt-36 pt-15 bg-black">
       <div className="bg-2--position-y-20 xl:pt-20 pt-15 xl:pb-30 md:pb-25 pb-15">
         <h1 className="md:pb-15 pb-10 xl:text-4xl text-3xl text-primary text-center font-semibold">
-          บริการ
+          นโยบายการให้บริการของเรา
         </h1>
         <Container>
           <div className="flex flex-wrap justify-center xl:gap-14 gap-12">
@@ -168,21 +168,55 @@ const Service: FC = () => {
               )
             })}
           </div>
-        </Container>
-        <h1 className="md:pt-20 pt-10 xl:text-4xl text-3xl font-semibold text-white text-center">
-          Our
-          <span className="text-primary"> Work</span>
-        </h1>
-        <div className="md:py-15 py-10 bg-3">
-          <iframe
-            className="sm:mx-auto mx-0 sm:w-[600px] w-full sm:h-[345px] h-[250px]"
-            src="https://www.youtube.com/embed/w-RzNzsaZvs"
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          />
-        </div>
-        <Container>
-          <div className="m-auto md:columns-4 sm:columns-3 columns-1 pt-5">
+
+          <h1 className="md:pt-15 pt-10 xl:text-4xl text-3xl text-primary text-center font-semibold">
+            บริการ
+          </h1>
+
+          <ul className="md:text-base text-sm text-white flex flex-col md:flex-row md:pt-8 pt-4 text-center md:text-left">
+            <div className="md:w-1/2 w-full">
+              <li className="pb-2">
+                <i className="icon-check-service text-primary pr-4 text-2xl" />
+                เซตโช็คหน้า น้ำมันโช็ค ปรับนุ่ม
+              </li>
+              <li className="pb-2">
+                <i className="icon-check-service text-primary pr-4 text-2xl" />
+                กล่องท้าย แคชบาร์ จัดทรงทัวริ่ง
+              </li>
+              <li className="pb-2">
+                <i className="icon-check-service text-primary pr-4 text-2xl" />
+                รับจัดสภาพ เดินสายเบรก อัพเกรดปั้มเบรก
+              </li>
+              <li className="pb-2">
+                <i className="icon-check-service text-primary pr-4 text-2xl" />
+                ล้างชุดข้างเฟื่องท้าย รถออโตเมติก
+              </li>
+              <li className="pb-2">
+                <i className="icon-check-service text-primary pr-4 text-2xl" />
+                เปลี่ยนยาง ถอด ถ่วง จุ๊บยาง สเต็มเย็น
+              </li>
+            </div>
+            <div className="md:w-1/2 w-full">
+              <li className="pb-2">
+                <i className="icon-check-service text-primary pr-4 text-2xl" />
+                เปลี่ยนถ่ายน้ำมันเครื่อง บำรุงรักษา ฯลฯ
+              </li>
+              <li className="pb-2">
+                <i className="icon-check-service text-primary pr-4 text-2xl" />
+                ตรวจเช็ค เปลี่ยน แบตเตอรี่รถจักรยานยนต์
+              </li>
+              <li className="pb-2">
+                <i className="icon-check-service text-primary pr-4 text-2xl" />
+                สลับล้อ ล้อสีโครมเมียม สีพาวเดอร์โค้ด 2K
+              </li>
+              <li className="pb-2">
+                <i className="icon-check-service text-primary pr-4 text-2xl" />
+                เปลี่ยน ผ้าเบรก - ถ่ายน้ำมันเบรก
+              </li>
+            </div>
+          </ul>
+
+          <div className="m-auto md:columns-4 sm:columns-3 columns-1 xl:pt-20 pt-15">
             {ourWorkItems.map((item, index) => {
               return (
                 <div

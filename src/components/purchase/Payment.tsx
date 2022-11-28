@@ -24,9 +24,23 @@ const Payment: FC<IPaymentProps> = ({ setStep, form }) => {
   const [payment, setPayment] = useState<PaymentType>()
 
   const handlePayment = () => {
-    if (payment === PaymentType.BANK) {
-      setStep(2)
-    }
+    if (payment === PaymentType.CREDIT) {
+      if (
+        form.getFieldsValue().cardHolderName &&
+        form.getFieldsValue().cardNumber &&
+        form.getFieldsValue().cvv &&
+        form.getFieldsValue().expirationDate
+      ) {
+        setStep(2)
+      } else {
+        form.validateFields([
+          'cardHolderName',
+          'cardNumber',
+          'cvv',
+          'expirationDate',
+        ])
+      }
+    } else setStep(2)
     // const body = form.getFieldsValue()
     // console.log(body)
   }
@@ -74,6 +88,8 @@ const Payment: FC<IPaymentProps> = ({ setStep, form }) => {
               name="cardHolderName"
               label={<label className="text-sm">ชื่อผู้ถือบัตร</label>}
               className="form-label--white"
+              rules={[{ required: true, message: 'Required' }]}
+              requiredMark="optional"
             >
               <Input type="text" />
             </Form.Item>
@@ -81,6 +97,8 @@ const Payment: FC<IPaymentProps> = ({ setStep, form }) => {
               name="cardNumber"
               label={<label className="text-sm">หมายเลขบัตร</label>}
               className="form-label--white"
+              rules={[{ required: true, message: 'Required' }]}
+              requiredMark="optional"
             >
               <Input type="number" />
             </Form.Item>
@@ -90,6 +108,8 @@ const Payment: FC<IPaymentProps> = ({ setStep, form }) => {
                   name="expirationDate"
                   label={<label className="text-sm">วันหมดอายุ</label>}
                   className="form-label--white"
+                  rules={[{ required: true, message: 'Required' }]}
+                  requiredMark="optional"
                 >
                   <Input type="text" placeholder="ดด/ปป" />
                 </Form.Item>
@@ -99,6 +119,8 @@ const Payment: FC<IPaymentProps> = ({ setStep, form }) => {
                   name="cvv"
                   label={<label className="text-sm">CVV</label>}
                   className="form-label--white"
+                  rules={[{ required: true, message: 'Required' }]}
+                  requiredMark="optional"
                 >
                   <Input type="number" />
                 </Form.Item>

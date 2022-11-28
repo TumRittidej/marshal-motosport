@@ -19,7 +19,7 @@ const NewsDetail: FC = () => {
           <h1 className="md:pb-15 pb-10 xl:text-4xl md:text-3xl text-2xl font-semibold text-white text-center">
             ข่าวสาร<span className="text-primary">และกิจกรรม</span>
           </h1>
-          <div className="flex flex-col md:flex-row gap-8">
+          <div className="flex flex-col md:flex-row gap-8 pb-20 md:pb-15">
             <div className="sm:w-2/5 w-full mx-auto md:mx-0">
               <Image
                 src={NewsImage}
@@ -51,6 +51,15 @@ const NewsDetail: FC = () => {
                 delenit augue duis dolore te feugait nulla facilisi.
               </p>
             </div>
+          </div>
+
+          <div className="md:py-15 py-10 mb-5 ">
+            <iframe
+              className="sm:mx-auto mx-0 sm:w-[600px] w-full sm:h-[345px] h-[250px]"
+              src="https://www.youtube.com/embed/w-RzNzsaZvs"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            />
           </div>
 
           <div className="flex justify-between pt-8">

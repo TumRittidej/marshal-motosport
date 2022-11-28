@@ -201,7 +201,7 @@ const KnowsUs: FC = () => {
               />
             </div>
           </div>
-          <div className="pt-15 md:pb-25 pb-15 flex flex-col md:flex-row gap-6 md:gap-12">
+          <div className="pt-15 md:pb-20 pb-15 flex flex-col md:flex-row gap-6 md:gap-12">
             <div className="w-full sm:w-3/4 md:w-2/4 mx-auto md:mx-0">
               <Image
                 src={KnowsUsImage3}
@@ -235,6 +235,18 @@ const KnowsUs: FC = () => {
                 สร้างสังคมการขับขี่และมิตรภาพ
               </p>
             </div>
+          </div>
+          <h1 className="xl:text-4xl text-3xl font-semibold text-white text-center">
+            Our
+            <span className="text-primary"> Work</span>
+          </h1>
+          <div className="md:py-15 py-10 mb-5 bg-3">
+            <iframe
+              className="sm:mx-auto mx-0 sm:w-[600px] w-full sm:h-[345px] h-[250px]"
+              src="https://www.youtube.com/embed/w-RzNzsaZvs"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            />
           </div>
           <h1 className="xl:pb-15 pb-10 xl:text-4xl md:text-3xl text-2xl font-semibold text-primary text-center">
             Partners

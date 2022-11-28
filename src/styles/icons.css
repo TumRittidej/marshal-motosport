@@ -25,8 +25,18 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'marshal-sport-icon-3';
+  src: url(../assets/icon/icomoon3.eot) format('embedded-opentype'),
+    url(../assets/icon/icomoon3.ttf) format('truetype'),
+    url(../assets/icon/icomoon3.woff) format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 i {
-  font-family: marshal-sport-icon, caret-icon, marshal-sport-icon-2, sans-serif !important;
+  font-family: marshal-sport-icon, caret-icon, marshal-sport-icon-2,
+    marshal-sport-icon-3, sans-serif !important;
   font-style: normal;
   font-weight: normal !important;
   font-variant: normal;
@@ -37,76 +47,84 @@ i {
 }
 
 .icon-user:before {
-  content: "\e907";
+  content: '\e907';
 }
 
 .icon-register:before {
-  content: "\1f322";
+  content: '\1f322';
 }
 
 .icon-cart:before {
-  content: "\e900";
+  content: '\e900';
 }
 
 .icon-instagram:before {
-  content: "\e901";
+  content: '\e901';
 }
 
 .icon-facebook:before {
-  content: "\e902";
+  content: '\e902';
 }
 
 .icon-youtube:before {
-  content: "\e909";
+  content: '\e909';
 }
 
 .icon-location-mark:before {
-  content: "\e904";
+  content: '\e904';
 }
 
 .icon-mark:before {
-  content: "\e905";
+  content: '\e905';
   color: #fbd430;
 }
 
 .icon-envelope:before {
-  content: "\e903";
+  content: '\e903';
   color: #fbd430;
 }
 
 .icon-telephone:before {
-  content: "\e908";
+  content: '\e908';
   color: #fbd430;
 }
 
 .icon-caret-right:before {
-  content: "\e90b";
+  content: '\e90b';
 }
 
 .icon-caret-left:before {
-  content: "\e90a";
+  content: '\e90a';
 }
 
 .icon-clock:before {
-  content: "\e910";
+  content: '\e910';
 }
 
 .icon-cross:before {
-  content: "\e911";
+  content: '\e911';
 }
 
 .icon-calendar:before {
-  content: "\e912";
+  content: '\e912';
 }
 
 .icon-plus:before {
-  content: "\e913";
+  content: '\e913';
 }
 
 .icon-minus:before {
-  content: "\e914";
+  content: '\e914';
 }
 
 .icon-logout:before {
-  content: "\e915";
+  content: '\e915';
+}
+
+.icon-check-service:before {
+  content: '\e916';
+}
+
+.icon-line:before {
+  content: '\e917';
 }

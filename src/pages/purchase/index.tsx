@@ -8,7 +8,7 @@ import Deliver from '@/components/purchase/Deliver'
 import Payment from '@/components/purchase/Payment'
 import Finish from '@/components/purchase/Finish'
 import { IPurchase } from '@/interface/purchase'
-import { DeliveryType } from '@/constants/purchase'
+import { DeliveryType, PaymentType } from '@/constants/purchase'
 import { CartType, IProductCart } from '@/interface/cart'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
@@ -75,8 +75,19 @@ const Purchase: FC = () => {
   }
 
   const onSubmit = (value: IPurchase) => {
+    if (value.deliveryType !== DeliveryType.AT_STORE) {
+      delete value.timeReceiveAtStore
+      delete value.dateReceiveAtStore
+    } else if (value.deliveryType === DeliveryType.AT_STORE) {
+      delete value.deliveryValue
+    }
+    if (value.paymentType === PaymentType.BANK) {
+      delete value.cardHolderName
+      delete value.cardNumber
+      delete value.cvv
+      delete value.expirationDate
+    }
     // const body = form.getFieldsValue()
-    // console.log('body', body)
     // console.log('value', value)
   }
   return (
@@ -113,10 +124,10 @@ const Purchase: FC = () => {
                 <div className={`${step === 1 ? 'block' : 'hidden'}`}>
                   <Payment setStep={setStep} form={form} />
                 </div>
-                <div className={`${step === 2 ? 'block' : 'hidden'}`}>
-                  <Finish setStep={setStep} />
-                </div>
               </Form>
+              <div className={`${step === 2 ? 'block' : 'hidden'}`}>
+                <Finish setStep={setStep} />
+              </div>
             </div>
             <div className="w-full md:w-1/2">
               <div className="mx-auto max-w-125 md:ml-auto bg-primary md:p-10 p-6 rounded">

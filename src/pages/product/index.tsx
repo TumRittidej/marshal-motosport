@@ -15,7 +15,7 @@ import {
 } from '@ant-design/icons'
 import { ScreenCtx } from '@/contexts/ScreenProvider'
 import Drawer from '@/components/Drawer'
-import { GetServerSideProps, GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const Product: FC = () => {
@@ -32,7 +32,7 @@ const Product: FC = () => {
               onClick={() => setRotateArrow(false)}
               className="text-black hover:text-primary w-full text-left p-0"
             >
-              ล่าสุด
+              สินค้าขายดี
             </Button>
           ),
           key: '0',
@@ -44,10 +44,22 @@ const Product: FC = () => {
               onClick={() => setRotateArrow(false)}
               className="text-black hover:text-primary w-full text-left p-0"
             >
-              เก่าสุด
+              สินค้ามาใหม่
             </Button>
           ),
           key: '1',
+        },
+        {
+          label: (
+            <Button
+              type="link"
+              onClick={() => setRotateArrow(false)}
+              className="text-black hover:text-primary w-full text-left p-0"
+            >
+              โปรโมชั่น
+            </Button>
+          ),
+          key: '2',
         },
       ]}
     />

@@ -126,10 +126,29 @@ const Home: NextPage = () => {
 
   const ourServiceItems = [
     {
+      image: OurServiceImage4,
+      imageHover: OurServiceHoverImage4,
+      title: 'Finest Quality',
+      decsription:
+        'ไม่ต้องห่วงเรื่องสินค้าว่าจะดีไหมเพราะเรานำเข้าแบรนด์ที่ได้รับการยอมรับแล้วว่าได้คุณภาพที่ดี',
+    },
+    {
       image: OurServiceImage1,
       imageHover: OurServiceHoverImage1,
       title: 'Standards',
       decsription: 'สินค้ามีคุณภาพและปลอดภัยสูงนำเข้าภายในประเทศและต่างประเทศ',
+    },
+    {
+      image: OurServiceImage6,
+      imageHover: OurServiceHoverImage6,
+      title: 'Time Saving',
+      decsription: 'ประหยัดเวลาคุณได้ด้วยการสั่งซื้อจากตัวแทนจำหน่ายของเรา',
+    },
+    {
+      image: OurServiceImage7,
+      imageHover: OurServiceHoverImage7,
+      title: 'Best Support',
+      decsription: 'หลังจากซื้อขายแล้วเรายังช่วยบริการหลังการขาย',
     },
     {
       image: OurServiceImage2,
@@ -144,29 +163,10 @@ const Home: NextPage = () => {
       decsription: 'สินค้าของเรามีมากมายหลายยี่ห้อ',
     },
     {
-      image: OurServiceImage4,
-      imageHover: OurServiceHoverImage4,
-      title: 'Finest Quality',
-      decsription:
-        'ไม่ต้องห่วงเรื่องสินค้าว่าจะดีไหมเพราะเรานำเข้าแบรนด์ที่ได้รับการยอมรับแล้วว่าได้คุณภาพที่ดี',
-    },
-    {
       image: OurServiceImage5,
       imageHover: OurServiceHoverImage5,
       title: 'Dealer',
       decsription: 'รับสมัครตัวแทนจำหน่ายทั่วประเทศ',
-    },
-    {
-      image: OurServiceImage6,
-      imageHover: OurServiceHoverImage6,
-      title: 'Time Saving',
-      decsription: 'ประหยัดเวลาคุณได้ด้วยการสั่งซื้อจากตัวแทนจำหน่ายของเรา',
-    },
-    {
-      image: OurServiceImage7,
-      imageHover: OurServiceHoverImage7,
-      title: 'Best Support',
-      decsription: 'หลังจากซื้อขายแล้วเรายังช่วยบริการหลังการขาย',
     },
   ]
 
@@ -371,6 +371,49 @@ const Home: NextPage = () => {
       <div className="bg-primary pt-6 md:pt-10 pb-20">
         <Container>
           <div className="flex flex-col md:flex-row gap-12">
+            <div className="md:w-2/4 pt-8 md:pt-0 w-full text-center">
+              <h3 className="xl:text-2xl text-xl font-medium pb-4 md:text-left text-center">
+                ที่ตั้ง Marshal Motosport shop
+              </h3>
+              <p className="xl:text-lg text-base font-semibold pb-4 md:text-left text-center">
+                การเดินทางมาร้าน สาขาเอกชัยบางบอน
+              </p>
+              <iframe
+                className="xl:h-[450px] xl:w-[600px] lg:w-[500px] h-[350px] md:w-[450px] w-full"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.8715187772455!2d100.4100141!3d13.6655755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2bdfb103a855f%3A0xf8058e28f517a747!2zTUFSU0hBTCBNT1RPU1BPUlQgQ08uLExURC7guKrguLLguILguLLguYDguK3guIHguIrguLHguKLguJrguLLguIfguJrguK3guJk!5e0!3m2!1sth!2sth!4v1669437860418!5m2!1sth!2sth"
+                loading="lazy"
+              ></iframe>
+              <ul className="pt-6">
+                <li className="flex items-center gap-4 pb-3">
+                  <i className="icon-location-mark xl:text-3xl md:text-2xl text-xl" />
+                  <p className="xl:text-base text-sm">
+                    <b>เส้นทางที่ 1</b> ถนนกาญจนาภิเษก-พระรามสอง
+                    วิ่งจากถนนกาญจนาฯ มุ่งหน้า พระราม2 เข้าสู่ถนนเอกชัย-บางบอน
+                    ริมถนน ร้านติดกับทางเข้าซอยเอกชัย 82
+                  </p>
+                </li>
+                <li className="flex items-center gap-4 pb-3">
+                  <i className="icon-location-mark xl:text-3xl md:text-2xl text-xl" />
+                  <p className="xl:text-base text-sm">
+                    <b>เส้นทางที่ 2</b> จากถนนจอมทอง-บางบอน/จากถนนกัลปพฤกษ์
+                    เลี้ยวขวา มุ่งหน้าเข้าแยก บางบอ (จัสโก้บางบอน)
+                    เลี้ยวซ้ายเข้าถนนเอกชัยมุ่งหน้า รพ.บางประกอก 8
+                    กลับรถใต้สะพานหน้า รพ. เข้าสู่ถนนเอกชัย-บางบอน ริมถนน
+                    ร้านติดกับทางเข้าซอยเอกชัย 82
+                  </p>
+                </li>
+                <li className="flex items-center gap-4">
+                  <i className="icon-location-mark xl:text-3xl md:text-2xl text-xl" />
+                  <p className="xl:text-base text-sm">
+                    <b>เส้นทางที่ 3</b> จากพระราม 2 ข้ามสะพานจากถนนเทียนทะเล
+                    ผ่านทางรถไฟ มุ่งหน้าเข้าแยก บางบอน (จัสโก้บางบอน)
+                    เลี้ยวซ้ายเข้าถนนเอกชัยมุ่งหน้า รพ.บางประกอก8
+                    กลับรถใต้สะพานหน้า รพ. เข้าสู่ถนนเอกชัย-บางบอน ริมถนน
+                    ร้านติดกับทางเข้าซอยเอกชัย 82
+                  </p>
+                </li>
+              </ul>
+            </div>
             <div className="md:w-2/4 sm:w-3/4 w-full mx-auto text-center md:text-left">
               <h3 className="xl:text-2xl text-xl font-medium">ร่วมงานกับเรา</h3>
               <Form
@@ -449,49 +492,6 @@ const Home: NextPage = () => {
                   </Button>
                 </div>
               </Form>
-            </div>
-            <div className="md:w-2/4 pt-8 md:pt-0 w-full text-center">
-              <h3 className="xl:text-2xl text-xl font-medium pb-4 md:text-left text-center">
-                ที่ตั้ง Marshal Motosport shop
-              </h3>
-              <p className="xl:text-lg text-base font-semibold pb-4 md:text-left text-center">
-                การเดินทางมาร้าน สาขาเอกชัยบางบอน
-              </p>
-              <iframe
-                className="xl:h-[450px] xl:w-[600px] lg:w-[550px] h-[350px] md:w-[450px] w-full"
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7753.7622296868285!2d100.4058066!3d13.6649922!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2bd13dffb4b29%3A0x40f4be41b1908c13!2s3242%20Bang%20Bon%20Nuea%2C%20Khet%20Bang%20Bon%2C%20Krung%20Thep%20Maha%20Nakhon%2010150!5e0!3m2!1sen!2sth!4v1667141732320!5m2!1sen!2sth"
-                loading="lazy"
-              ></iframe>
-              <ul className="pt-6">
-                <li className="flex items-center gap-4 pb-3">
-                  <i className="icon-location-mark xl:text-3xl md:text-2xl text-xl" />
-                  <p className="xl:text-base text-sm">
-                    <b>เส้นทางที่ 1</b> ถนนกาญจนาภิเษก-พระรามสอง
-                    วิ่งจากถนนกาญจนาฯ มุ่งหน้า พระราม2 เข้าสู่ถนนเอกชัย-บางบอน
-                    ริมถนน ร้านติดกับทางเข้าซอยเอกชัย 82
-                  </p>
-                </li>
-                <li className="flex items-center gap-4 pb-3">
-                  <i className="icon-location-mark xl:text-3xl md:text-2xl text-xl" />
-                  <p className="xl:text-base text-sm">
-                    <b>เส้นทางที่ 2</b> จากถนนจอมทอง-บางบอน/จากถนนกัลปพฤกษ์
-                    เลี้ยวขวา มุ่งหน้าเข้าแยก บางบอ (จัสโก้บางบอน)
-                    เลี้ยวซ้ายเข้าถนนเอกชัยมุ่งหน้า รพ.บางประกอก 8
-                    กลับรถใต้สะพานหน้า รพ. เข้าสู่ถนนเอกชัย-บางบอน ริมถนน
-                    ร้านติดกับทางเข้าซอยเอกชัย 82
-                  </p>
-                </li>
-                <li className="flex items-center gap-4">
-                  <i className="icon-location-mark xl:text-3xl md:text-2xl text-xl" />
-                  <p className="xl:text-base text-sm">
-                    <b>เส้นทางที่ 3</b> จากพระราม 2 ข้ามสะพานจากถนนเทียนทะเล
-                    ผ่านทางรถไฟ มุ่งหน้าเข้าแยก บางบอน (จัสโก้บางบอน)
-                    เลี้ยวซ้ายเข้าถนนเอกชัยมุ่งหน้า รพ.บางประกอก8
-                    กลับรถใต้สะพานหน้า รพ. เข้าสู่ถนนเอกชัย-บางบอน ริมถนน
-                    ร้านติดกับทางเข้าซอยเอกชัย 82
-                  </p>
-                </li>
-              </ul>
             </div>
           </div>
         </Container>

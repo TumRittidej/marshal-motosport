@@ -8,9 +8,11 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 import LogoImage from '@/assets/logo.png'
-import Container from '../container'
-import LoginModal from './component/LoginModal'
-import DropdownHeader from './component/DropdownHeader'
+import Container from '@/components/container'
+import LoginModal from '@/components/Header/component/LoginModal'
+import DropdownHeader from '@/components/Header/component/DropdownHeader'
+import Drawer from '@/components/Drawer'
+
 import {
   MS_ACCOUNT_USER,
   MS_CART,
@@ -18,6 +20,7 @@ import {
   MS_FACRBOOK,
   MS_INSTAGRAM,
   MS_KNOWS_US,
+  MS_LINE,
   MS_NEWS,
   MS_PRODUCT,
   MS_PURCHASE,
@@ -27,7 +30,6 @@ import {
 } from '@/constants/url'
 
 import { ILoginRequest } from '@/interface/login'
-import Drawer from '@/components/Drawer'
 import {
   MenuOutlined,
   ShoppingCartOutlined,
@@ -37,67 +39,67 @@ import { Language } from '@/constants/language'
 
 const Header: FC = () => {
   const { t } = useTranslation('common')
-  const menusHeader = [
-    {
-      href: '/',
-      text: t('HOME'),
-    },
-    {
-      href: MS_PRODUCT,
-      text: t('PRODUCT'),
-    },
-    {
-      href: MS_PURCHASE,
-      text: t('PURCHASE'),
-    },
-    {
-      href: MS_SERVICE,
-      text: t('SERIVCE'),
-    },
-    {
-      href: MS_NEWS,
-      text: t('NEWS'),
-    },
-    {
-      href: MS_KNOWS_US,
-      text: t('KNOWN_US'),
-    },
-    {
-      href: MS_CONTACT,
-      text: t('CONTACT'),
-    },
-  ]
   // const menusHeader = [
   //   {
   //     href: '/',
-  //     text: 'หน้าแรก',
+  //     text: t('HOME'),
   //   },
   //   {
   //     href: MS_PRODUCT,
-  //     text: 'สินค้า',
+  //     text: t('PRODUCT'),
   //   },
   //   {
   //     href: MS_PURCHASE,
-  //     text: 'สั่งซื้อและชำระเงิน',
+  //     text: t('PURCHASE'),
   //   },
   //   {
   //     href: MS_SERVICE,
-  //     text: 'บริการ',
+  //     text: t('SERIVCE'),
   //   },
   //   {
   //     href: MS_NEWS,
-  //     text: 'ข่าวสารและกิจกรรม',
+  //     text: t('NEWS'),
   //   },
   //   {
   //     href: MS_KNOWS_US,
-  //     text: 'รู้จักเรา',
+  //     text: t('KNOWN_US'),
   //   },
   //   {
   //     href: MS_CONTACT,
-  //     text: 'ติดต่อ',
+  //     text: t('CONTACT'),
   //   },
   // ]
-  const { pathname, locale, asPath, locales } = useRouter()
+  const menusHeader = [
+    {
+      href: '/',
+      text: 'หน้าแรก',
+    },
+    {
+      href: MS_PRODUCT,
+      text: 'สินค้า',
+    },
+    {
+      href: MS_PURCHASE,
+      text: 'สั่งซื้อและชำระเงิน',
+    },
+    {
+      href: MS_SERVICE,
+      text: 'บริการ',
+    },
+    {
+      href: MS_NEWS,
+      text: 'ข่าวสารและกิจกรรม',
+    },
+    {
+      href: MS_KNOWS_US,
+      text: 'รู้จักเรา',
+    },
+    {
+      href: MS_CONTACT,
+      text: 'ติดต่อ',
+    },
+  ]
+  const { pathname, locale, asPath } = useRouter()
 
   const [isOpenModal, setIsOpenModel] = useState(false)
   const [rotate, setRotate] = useState(false)
@@ -163,8 +165,8 @@ const Header: FC = () => {
                   >
                     <i className="icon-user text-xl" />
                     <h3 className="text-sm font-semibold group-hover:underline">
-                      {t('LOGIN')}
-                      {/* เข้าสู่ระบบ */}
+                      {/* {t('LOGIN')} */}
+                      เข้าสู่ระบบ
                     </h3>
                   </div>
                   <DropdownHeader
@@ -184,8 +186,8 @@ const Header: FC = () => {
                     <a className="flex items-center gap-2 group">
                       <i className="icon-register text-black text-xl" />
                       <h3 className="text-sm font-semibold group-hover:underline">
-                        {t('REGISTER')}
-                        {/* สมัครสมาชิก */}
+                        {/* {t('REGISTER')} */}
+                        สมัครสมาชิก
                       </h3>
                     </a>
                   </Link>
@@ -198,8 +200,8 @@ const Header: FC = () => {
                       <ShoppingCartOutlined style={{ fontSize: '24px' }} />
                     </Badge>
                     <h3 className="text-sm font-semibold">
-                      {t('CART')}
-                      {/* ตระกร้าสินค้า */}
+                      {/* {t('CART')} */}
+                      ตระกร้าสินค้า
                     </h3>
                   </a>
                 </Link>
@@ -216,6 +218,11 @@ const Header: FC = () => {
                 <Link href={MS_YOUTUBE}>
                   <a target="_blank" rel="noreferrer">
                     <i className="icon-youtube text-2xl text-black" />
+                  </a>
+                </Link>
+                <Link href={MS_LINE}>
+                  <a target="_blank" rel="noreferrer">
+                    <i className="icon-line text-2xl text-black" />
                   </a>
                 </Link>
               </div>
@@ -393,8 +400,8 @@ const Header: FC = () => {
             >
               <i className="icon-user text-2xl text-white group-hover:text-primary transition duration-300" />
               <h3 className="text-base font-semibold text-white group-hover:text-primary group-hover:underline transition duration-300">
-                {t('LOGIN')}
-                {/* เข้าสู่ระบบ */}
+                {/* {t('LOGIN')} */}
+                เข้าสู่ระบบ
               </h3>
             </div>
             <div className={`pt-2`} onClick={() => setIsOpenDrawer(false)}>
@@ -402,8 +409,8 @@ const Header: FC = () => {
                 <a className="inline-flex items-center gap-4 group">
                   <i className="icon-register text-white group-hover:text-primary text-2xl transition duration-300" />
                   <h3 className="text-base font-semibold text-white group-hover:text-primary group-hover:underline transition duration-300">
-                    {t('REGISTER')}
-                    {/* สมัครสมาชิก */}
+                    {/* {t('REGISTER')} */}
+                    สมัครสมาชิก
                   </h3>
                 </a>
               </Link>
@@ -445,6 +452,11 @@ const Header: FC = () => {
         <Link href={MS_YOUTUBE}>
           <a target="_blank" className="pl-4">
             <i className="icon-youtube text-white text-3xl" />
+          </a>
+        </Link>
+        <Link href={MS_LINE}>
+          <a target="_blank" className="pl-4">
+            <i className="icon-line text-white text-3xl" />
           </a>
         </Link>
       </Drawer>

@@ -11,7 +11,7 @@ export interface IPurchase {
   province: string
   postCode: string
   deliveryType: DeliveryType
-  deliveryValue: DeliveryValue
+  deliveryValue?: DeliveryValue
   dateReceiveAtStore?: string
   timeReceiveAtStore?: string
 
