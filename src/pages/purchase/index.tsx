@@ -75,24 +75,7 @@ const Purchase: FC = () => {
   }
 
   const onSubmit = (value: IPurchaseRequest) => {
-    if (value.deliveryType !== DeliveryType.AT_STORE) {
-      delete value.timeReceiveAtStore
-      delete value.dateReceiveAtStore
-    } else if (value.deliveryType === DeliveryType.AT_STORE) {
-      delete value.deliveryValue
-    }
-    if (value.paymentType === PaymentType.BANK) {
-      delete value.cardHolderName
-      delete value.cardNumber
-      delete value.cvv
-      delete value.expirationDate
-    }
-    if (value.customerType === CustomerType.CUSTOMER_DOMESTIC) {
-      delete value.country
-    }
-    const body = form.getFieldsValue()
-    console.log('body', body)
-
+    // const body = form.getFieldsValue()
     // console.log('value', value)
   }
   return (

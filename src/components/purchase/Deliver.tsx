@@ -115,79 +115,7 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
   const [isCustomerInter, setIsCustomerInter] = useState(false)
 
   const handleNextStep = () => {
-    const {
-      firstName,
-      lastName,
-      email,
-      phone,
-      address,
-      district,
-      subDistrict,
-      province,
-      postCode,
-      dateReceiveAtStore,
-      timeReceiveAtStore,
-    } = form.getFieldsValue()
-    if (deliveryType !== DeliveryType.AT_STORE) {
-      if (
-        firstName &&
-        lastName &&
-        email &&
-        phone &&
-        address &&
-        district &&
-        subDistrict &&
-        province &&
-        postCode &&
-        deliveryType &&
-        deliveryValue
-      ) {
-        setStep(1)
-      } else {
-        form.validateFields([
-          'firstName',
-          'lastName',
-          'email',
-          'phone',
-          'address',
-          'district',
-          'subDistrict',
-          'province',
-          'postCode',
-        ])
-      }
-    } else {
-      if (
-        firstName &&
-        lastName &&
-        email &&
-        phone &&
-        address &&
-        district &&
-        subDistrict &&
-        province &&
-        postCode &&
-        deliveryType &&
-        dateReceiveAtStore &&
-        timeReceiveAtStore
-      ) {
-        setStep(1)
-      } else {
-        form.validateFields([
-          'firstName',
-          'lastName',
-          'email',
-          'phone',
-          'address',
-          'district',
-          'subDistrict',
-          'province',
-          'postCode',
-          'dateReceiveAtStore',
-          'timeReceiveAtStore',
-        ])
-      }
-    }
+    setStep(1)
   }
 
   const handleChangeCustomerType = (e: RadioChangeEvent) => {
@@ -228,8 +156,6 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
             label={<label className="text-sm">ชื่อ</label>}
             className="form-label--white"
             name="firstName"
-            requiredMark="optional"
-            rules={[{ required: true, message: 'Required' }]}
           >
             <Input type="text" />
           </Form.Item>
@@ -239,8 +165,6 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
             name="lastName"
             label={<label className="text-sm">นามสกุล</label>}
             className="form-label--white"
-            requiredMark="optional"
-            rules={[{ required: true, message: 'Required' }]}
           >
             <Input type="text" />
           </Form.Item>
@@ -250,14 +174,6 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
             name="email"
             label={<label className="text-sm">อีเมล</label>}
             className="form-label--white"
-            requiredMark="optional"
-            rules={[
-              {
-                required: true,
-                message: 'Required',
-                pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
-              },
-            ]}
           >
             <Input type="email" />
           </Form.Item>
@@ -267,13 +183,6 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
             name="phone"
             label={<label className="text-sm">เบอร์ติดต่อ</label>}
             className="form-label--white"
-            requiredMark="optional"
-            rules={[
-              {
-                required: true,
-                message: 'Required',
-              },
-            ]}
           >
             <Input type="number" />
           </Form.Item>
@@ -283,13 +192,6 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
         name="address"
         label={<label className="text-sm">ที่อยู่การจัดส่ง</label>}
         className="form-label--white"
-        requiredMark="optional"
-        rules={[
-          {
-            required: true,
-            message: 'Required',
-          },
-        ]}
       >
         <Input
           type="text"
@@ -302,13 +204,6 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
             name="subDistrict"
             label={<label className="text-sm">ตำบล / แขวง</label>}
             className="form-label--white"
-            requiredMark="optional"
-            rules={[
-              {
-                required: true,
-                message: 'Required',
-              },
-            ]}
           >
             <Input type="text" />
           </Form.Item>
@@ -318,13 +213,6 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
             name="district"
             label={<label className="text-sm">อำเภอ / เขต</label>}
             className="form-label--white"
-            requiredMark="optional"
-            rules={[
-              {
-                required: true,
-                message: 'Required',
-              },
-            ]}
           >
             <Input type="text" />
           </Form.Item>
@@ -334,13 +222,6 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
             name="province"
             label={<label className="text-sm">จังหวัด</label>}
             className="form-label--white"
-            requiredMark="optional"
-            rules={[
-              {
-                required: true,
-                message: 'Required',
-              },
-            ]}
           >
             <Input type="text" />
           </Form.Item>
@@ -350,13 +231,6 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
             name="postCode"
             label="รหัสไปรษณีย์"
             className="form-label--white"
-            requiredMark="optional"
-            rules={[
-              {
-                required: true,
-                message: 'Required',
-              },
-            ]}
           >
             <Input type="number" />
           </Form.Item>
@@ -367,13 +241,6 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
               name="country"
               label="ประเทศ"
               className="form-label--white"
-              requiredMark="optional"
-              rules={[
-                {
-                  required: true,
-                  message: 'Required',
-                },
-              ]}
             >
               <Input type="text" />
             </Form.Item>
@@ -469,13 +336,6 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
                         name="dateReceiveAtStore"
                         label="โปรดเลือกวัน"
                         className="form-label--white w-3/5"
-                        requiredMark="optional"
-                        rules={[
-                          {
-                            required: true,
-                            message: 'Required',
-                          },
-                        ]}
                       >
                         <DatePicker
                           placeholder="Select a day"
@@ -487,13 +347,6 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
                         name="timeReceiveAtStore"
                         label="เวลา"
                         className="form-label--white w-2/5"
-                        requiredMark="optional"
-                        rules={[
-                          {
-                            required: true,
-                            message: 'Required',
-                          },
-                        ]}
                       >
                         <TimePicker
                           className="w-full"
