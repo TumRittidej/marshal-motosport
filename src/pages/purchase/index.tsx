@@ -8,7 +8,7 @@ import Deliver from '@/components/purchase/Deliver'
 import Payment from '@/components/purchase/Payment'
 import Finish from '@/components/purchase/Finish'
 import { IPurchaseRequest } from '@/interface/purchase'
-import { DeliveryType, PaymentType } from '@/constants/purchase'
+import { CustomerType, DeliveryType, PaymentType } from '@/constants/purchase'
 import { CartType, IProductCart } from '@/interface/cart'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
@@ -87,7 +87,12 @@ const Purchase: FC = () => {
       delete value.cvv
       delete value.expirationDate
     }
-    // const body = form.getFieldsValue()
+    if (value.customerType === CustomerType.CUSTOMER_DOMESTIC) {
+      delete value.country
+    }
+    const body = form.getFieldsValue()
+    console.log('body', body)
+
     // console.log('value', value)
   }
   return (
@@ -112,7 +117,10 @@ const Purchase: FC = () => {
               <div className="border border-white opacity-20 mt-6" />
               <Form
                 layout="vertical"
-                initialValues={{ deliveryType: DeliveryType.DOMESTIC }}
+                initialValues={{
+                  deliveryType: DeliveryType.DOMESTIC,
+                  customerType: CustomerType.CUSTOMER_DOMESTIC,
+                }}
                 className="pt-2"
                 form={form}
                 onFinish={onSubmit}

@@ -1,6 +1,12 @@
-import { DeliveryType, DeliveryValue, PaymentType } from '@/constants/purchase'
+import {
+  CustomerType,
+  DeliveryType,
+  DeliveryValue,
+  PaymentType,
+} from '@/constants/purchase'
 
 export interface IPurchaseRequest {
+  customerType: CustomerType
   firstName: string
   lastName: string
   email: string
@@ -10,6 +16,7 @@ export interface IPurchaseRequest {
   district: string
   province: string
   postCode: string
+  country?: string
   deliveryType: DeliveryType
   deliveryValue?: DeliveryValue
   dateReceiveAtStore?: string

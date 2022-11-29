@@ -5,12 +5,14 @@ import {
   Form,
   FormInstance,
   Input,
+  Radio,
+  RadioChangeEvent,
   Row,
   TimePicker,
 } from 'antd'
 import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import { RightOutlined, CheckOutlined } from '@ant-design/icons'
-import { DeliveryType, DeliveryValue } from '@/constants/purchase'
+import { CustomerType, DeliveryType, DeliveryValue } from '@/constants/purchase'
 import { IPurchaseRequest } from '@/interface/purchase'
 
 interface IDeliverProps {
@@ -110,6 +112,8 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
     },
   ]
 
+  const [isCustomerInter, setIsCustomerInter] = useState(false)
+
   const handleNextStep = () => {
     const {
       firstName,
@@ -186,11 +190,38 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
     }
   }
 
+  const handleChangeCustomerType = (e: RadioChangeEvent) => {
+    if (e.target.value === CustomerType.CUSTOMER_INTERNATIONAL) {
+      setIsCustomerInter(true)
+    } else {
+      setIsCustomerInter(false)
+    }
+  }
+
   return (
     <>
       <h3 className="xl:text-xl text-lg text-primary font-medium pt-8">
         ข้อมูลผู้สั่งซื้อ
       </h3>
+      <Form.Item name="customerType">
+        <Radio.Group
+          className="text-white text-sm mt-2 !hover:clear-none block"
+          onChange={handleChangeCustomerType}
+        >
+          <Radio
+            value={CustomerType.CUSTOMER_DOMESTIC}
+            className="text-white text-sm mt-2 !hover:clear-none"
+          >
+            ข้อมูลผู้สั่งซื้อภายในประเทศ
+          </Radio>
+          <Radio
+            value={CustomerType.CUSTOMER_INTERNATIONAL}
+            className="text-white text-sm mt-2 !hover:clear-none"
+          >
+            ข้อมูลผู้สั่งซื้อต่างประเทศ
+          </Radio>
+        </Radio.Group>
+      </Form.Item>
       <Row gutter={32} className="mt-4">
         <Col sm={12} xs={24}>
           <Form.Item
@@ -330,6 +361,24 @@ const Deliver: FC<IDeliverProps> = ({ setStep, form }) => {
             <Input type="number" />
           </Form.Item>
         </Col>
+        {isCustomerInter && (
+          <Col sm={12} xs={24}>
+            <Form.Item
+              name="country"
+              label="ประเทศ"
+              className="form-label--white"
+              requiredMark="optional"
+              rules={[
+                {
+                  required: true,
+                  message: 'Required',
+                },
+              ]}
+            >
+              <Input type="text" />
+            </Form.Item>
+          </Col>
+        )}
       </Row>
       <h3 className="xl:text-xl text-lg text-primary font-medium pt-8 pb-4">
         การจัดส่ง

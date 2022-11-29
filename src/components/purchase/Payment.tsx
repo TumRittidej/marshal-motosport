@@ -31,6 +31,7 @@ const Payment: FC<IPaymentProps> = ({ setStep, form }) => {
         form.getFieldsValue().cvv &&
         form.getFieldsValue().expirationDate
       ) {
+        // console.log('setStep(2)1')
         setStep(2)
       } else {
         form.validateFields([
@@ -40,14 +41,24 @@ const Payment: FC<IPaymentProps> = ({ setStep, form }) => {
           'expirationDate',
         ])
       }
-    } else setStep(2)
-    // const body = form.getFieldsValue()
-    // console.log(body)
+    } else {
+      // console.log('setStep(2)2')
+      setStep(2)
+    }
   }
   const handleSelectPaymentType = (paymentValue: PaymentType) => {
+    if (payment === PaymentType.BANK) {
+      form.resetFields([
+        'cardHolderName',
+        'cardNumber',
+        'cvv',
+        'expirationDate',
+      ])
+    }
     setPayment(paymentValue)
     form.setFieldValue('paymentType', paymentValue)
   }
+
   return (
     <>
       <h3 className="xl:text-xl text-lg text-primary font-medium pt-8">

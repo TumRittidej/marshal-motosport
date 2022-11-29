@@ -23,3 +23,8 @@ export enum PaymentType {
   CREDIT = 'credit',
   BANK = 'bank',
 }
+
+export enum CustomerType {
+  CUSTOMER_DOMESTIC = 'customer-domestic',
+  CUSTOMER_INTERNATIONAL = 'customer-international',
+}
