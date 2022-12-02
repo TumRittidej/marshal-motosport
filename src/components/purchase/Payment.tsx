@@ -1,11 +1,5 @@
 import { Button, Col, Form, FormInstance, Input, Row, Space } from 'antd'
-import React, {
-  Dispatch,
-  FC,
-  SetStateAction,
-  useContext,
-  useState,
-} from 'react'
+import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import { PaymentType } from '@/constants/purchase'
 import { CheckOutlined, LeftOutlined } from '@ant-design/icons'
 import KasikornBankImage from '@/assets/img/purchase/kasikorn-bank.png'
@@ -14,7 +8,6 @@ import BangkokBankImage from '@/assets/img/purchase/bangkok-bank.png'
 import BangkokBankQrImage from '@/assets/img/purchase/bangkok-bank-qr.svg'
 import Image from 'next/image'
 import { IPurchaseRequest } from '@/interface/purchase'
-import { ScreenCtx } from '@/contexts/ScreenProvider'
 
 interface IPaymentProps {
   setStep: Dispatch<SetStateAction<number>>
@@ -22,7 +15,6 @@ interface IPaymentProps {
 }
 
 const Payment: FC<IPaymentProps> = ({ setStep, form }) => {
-  const { isMobile } = useContext(ScreenCtx)!
   const [payment, setPayment] = useState<PaymentType>()
 
   const handlePayment = () => {
@@ -137,7 +129,6 @@ const Payment: FC<IPaymentProps> = ({ setStep, form }) => {
             </div>
             โอนเงินผ่านธนาคาร
           </div>
-          {/* {!isMobile ? ( */}
           <div className="lg:px-8 px-4 py-4">
             <div className="flex flex-col gap-4 sm:flex-row justify-between items-center">
               <div className="w-[50px]">
@@ -185,53 +176,6 @@ const Payment: FC<IPaymentProps> = ({ setStep, form }) => {
               </p>
             </div>
           </div>
-          {/* ) : (
-            <div className="py-4 px-5">
-              <div className="flex items-center justify-center gap-4 pb-4">
-                <div className="w-[50px]">
-                  <Image
-                    src={KasikornBankImage}
-                    alt="Kasikorn Bank"
-                    layout="responsive"
-                    loading="lazy"
-                  />
-                </div>
-                <p className="text-white xl:text-base text-sm">ธนาคารกสิกร</p>
-              </div>
-              <div className="flex items-center justify-center gap-4">
-                <p className="text-white">เลขที่บัญชี</p>
-                <div className="text-primary">062-3-75623-8</div>
-              </div>
-              <div className="flex items-center justify-center gap-4 pt-2">
-                <p className="text-white">ชื่อบัญชี</p>
-                <div className="text-primary">บจก. มาร์แชล โมโตสปอร์ท</div>
-              </div>
-
-              <div className="border border-primary h-[1px] m-4" />
-
-              <div className="flex items-center justify-center gap-4 pb-4">
-                <div className="w-[50px]">
-                  <Image
-                    src={BangkokBankImage}
-                    alt="Bangkok Bank"
-                    layout="responsive"
-                    loading="lazy"
-                  />
-                </div>
-                <p className="text-white xl:text-base text-sm">ธนาคารกรุงเทพ</p>
-              </div>
-              <div>
-                <div className="flex items-center justify-center gap-4">
-                  <p className="text-white">เลขที่บัญชี</p>
-                  <div className="text-primary">191-4-48128-6</div>
-                </div>
-                <div className="flex items-center justify-center gap-4 pt-2">
-                  <p className="text-white">ชื่อบัญชี</p>
-                  <div className="text-primary">บจก. มาร์แชล โมโตสปอร์ท</div>
-                </div>
-              </div>
-            </div>
-          )} */}
         </div>
       </Form.Item>
       <div className="flex justify-between pt-4">
