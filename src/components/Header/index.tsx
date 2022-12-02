@@ -200,8 +200,8 @@ const Header: FC = () => {
                       <ShoppingCartOutlined style={{ fontSize: '24px' }} />
                     </Badge>
                     <h3 className="text-sm font-semibold">
-                      {/* {t('CART')} */}
-                      ตระกร้าสินค้า
+                      {t('CART')}
+                      {/* ตระกร้าสินค้า */}
                     </h3>
                   </a>
                 </Link>
