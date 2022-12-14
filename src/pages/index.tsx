@@ -242,7 +242,10 @@ const Home: NextPage = () => {
               รู้จัก <br />
               <span className="text-primary"> Marshal Motosport shop</span>
             </h1>
-            <div className="sm:w-2/4 w-full mx-auto sm:mx-0">
+            <div
+              className="sm:w-2/4 w-full mx-auto sm:mx-0"
+              data-aos="fade-right"
+            >
               <Image
                 src={HomeImage}
                 alt="Marshal Shop"
@@ -384,7 +387,7 @@ const Home: NextPage = () => {
                 loading="lazy"
               ></iframe>
               <ul className="pt-6">
-                <li className="flex items-center gap-4 pb-3">
+                <li className="flex text-left gap-4 pb-3">
                   <i className="icon-location-mark xl:text-3xl md:text-2xl text-xl" />
                   <p className="xl:text-base text-sm">
                     <b>เส้นทางที่ 1</b> ถนนกาญจนาภิเษก-พระรามสอง
@@ -392,7 +395,7 @@ const Home: NextPage = () => {
                     ริมถนน ร้านติดกับทางเข้าซอยเอกชัย 82
                   </p>
                 </li>
-                <li className="flex items-center gap-4 pb-3">
+                <li className="flex text-left gap-4 pb-3">
                   <i className="icon-location-mark xl:text-3xl md:text-2xl text-xl" />
                   <p className="xl:text-base text-sm">
                     <b>เส้นทางที่ 2</b> จากถนนจอมทอง-บางบอน/จากถนนกัลปพฤกษ์
@@ -402,7 +405,7 @@ const Home: NextPage = () => {
                     ร้านติดกับทางเข้าซอยเอกชัย 82
                   </p>
                 </li>
-                <li className="flex items-center gap-4">
+                <li className="flex text-left gap-4">
                   <i className="icon-location-mark xl:text-3xl md:text-2xl text-xl" />
                   <p className="xl:text-base text-sm">
                     <b>เส้นทางที่ 3</b> จากพระราม 2 ข้ามสะพานจากถนนเทียนทะเล

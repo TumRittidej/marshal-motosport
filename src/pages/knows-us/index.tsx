@@ -102,14 +102,17 @@ const KnowsUs: FC = () => {
     },
   ]
   return (
-    <section className="bg-black xl:pt-44 md:pt-36 pt-15">
+    <section className="bg-black xl:pt-44 md:pt-36 pt-15 overflow-hidden">
       <h1 className="xl:pt-20 pt-15 md:pb-15 pb-10 xl:text-4xl md:text-3xl text-2xl font-semibold text-primary text-center">
         รู้จักเรา
       </h1>
       <div className="bg-1">
         <Container>
           <div className="flex flex-col md:flex-row gap-6 md:gap-12">
-            <div className="w-full sm:w-3/4 md:w-2/4 mx-auto md:mx-0">
+            <div
+              className="w-full sm:w-3/4 md:w-2/4 mx-auto md:mx-0"
+              data-aos="fade-right"
+            >
               <Image
                 src={KnowsUsImage1}
                 layout="responsive"
@@ -124,7 +127,7 @@ const KnowsUs: FC = () => {
                 </span>
                 <span className="text-white"> shop</span>
               </h3>
-              <p className="text-white xl:text-xl text-base font-light">
+              <p className="text-white text-base font-light">
                 <span className="text-primary">Marshal Motosport Shop</span>{' '}
                 เป็นร้านค้าจำหน่ายสินค้าอะไหล่แต่งจักรยานยนต์
                 ที่ครอบคลุมอุปกรณ์ต่างๆบนรถ อุปกรณ์เอนกประสงค์ กล่องบรรทุก
@@ -159,7 +162,7 @@ const KnowsUs: FC = () => {
         <Container>
           <div className="pt-15 flex flex-col-reverse md:flex-row gap-6 md:gap-12">
             <div className="w-full md:w-2/4 text-center md:text-left">
-              <p className="text-white xl:text-xl text-base font-light">
+              <p className="text-white text-base font-light">
                 <span className="text-primary">คุณชัย </span>
                 เจ้าของร้านมีความชื่นชอบและรักในการขับขี่
                 มีประสบการณ์ทำงานในบริษัทที่ผลิตชิ้นส่วนยานยนต์มานานกว่า 20 ปี
@@ -192,7 +195,10 @@ const KnowsUs: FC = () => {
                 ไว้บริการลูกค้า
               </p>
             </div>
-            <div className="w-full sm:w-3/4 md:w-2/4 mx-auto md:mx-0">
+            <div
+              className="w-full sm:w-3/4 md:w-2/4 mx-auto md:mx-0"
+              data-aos="fade-left"
+            >
               <Image
                 src={KnowsUsImage2}
                 layout="responsive"
@@ -202,7 +208,10 @@ const KnowsUs: FC = () => {
             </div>
           </div>
           <div className="pt-15 md:pb-20 pb-15 flex flex-col md:flex-row gap-6 md:gap-12">
-            <div className="w-full sm:w-3/4 md:w-2/4 mx-auto md:mx-0">
+            <div
+              className="w-full sm:w-3/4 md:w-2/4 mx-auto md:mx-0"
+              data-aos="fade-right"
+            >
               <Image
                 src={KnowsUsImage3}
                 layout="responsive"
@@ -215,7 +224,7 @@ const KnowsUs: FC = () => {
                 <span className="text-primary font-medium">Environmental</span>
                 <span className="text-white"> policy</span>
               </h3>
-              <p className="text-white xl:text-xl text-base font-light">
+              <p className="text-white text-base font-light">
                 เรามุ่งมั่นที่จะสร้างสังคมที่เป็นมิตรกับสิ่งแวดล้อม
                 ผ่านการดำเนินงานและกิจกรรมของ มาร์แชลโมโตสปอร์ท บนหลักการ 3R
                 (Reduce Reuse Recycle) ด้วยการลดการใช้ การนำกลับมาใช้ซ้ำ

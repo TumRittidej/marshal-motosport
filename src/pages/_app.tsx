@@ -13,9 +13,18 @@ import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import ScreenProvider from '@/contexts/ScreenProvider'
 import { appWithTranslation } from 'next-i18next'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
+
+  useEffect(() => {
+    AOS.init({
+      easing: 'ease-in-out',
+      duration: 1000,
+    })
+  }, [])
 
   useEffect(() => {
     if (router.pathname === '/_error') {

@@ -1,0 +1,12 @@
+{
+  "TITLE": "สมัครสมาชิก",
+  "LABEL_CUSTOMER": "ลูกค้า",
+  "LABEL_SHOP": "ร้านค้า",
+  "LABEL_SHOP_NAME": "ชื่อร้านค้า",
+  "LABEL_NAME": "ชื่อ",
+  "LABEL_SURNAME": "นามสกุล",
+  "LABEL_EMAIL": "อีเมล",
+  "LABEL_PASSWORD": "รหัสผ่าน",
+  "LABEL_CONFIRM_PASSWORD": "ยืนยันรหัสผ่าน",
+  "LABEL_CREATE_ACCOUNT": "สร้างบัญชี"
+}

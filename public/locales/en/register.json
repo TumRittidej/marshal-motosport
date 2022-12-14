@@ -1,0 +1,12 @@
+{
+  "TITLE": "Sign up",
+  "LABEL_CUSTOMER": "Customer",
+  "LABEL_SHOP": "Shop",
+  "LABEL_SHOP_NAME": "Shop Name",
+  "LABEL_NAME": "Name",
+  "LABEL_SURNAME": "Surname",
+  "LABEL_EMAIL": "E-mail",
+  "LABEL_PASSWORD": "Password",
+  "LABEL_CONFIRM_PASSWORD": "Confirm Password",
+  "LABEL_CREATE_ACCOUNT": "Create Account"
+}
