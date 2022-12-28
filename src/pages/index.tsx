@@ -30,12 +30,20 @@ import OurServiceHoverImage5 from '@/assets/img/home/our-service-hover-5.png'
 import OurServiceHoverImage6 from '@/assets/img/home/our-service-hover-6.png'
 import OurServiceHoverImage7 from '@/assets/img/home/our-service-hover-7.png'
 
+import { translateAndParseHTML } from '@/helpers/i18n'
+
 import Link from 'next/link'
 import { ChangeEvent, useState } from 'react'
-import { MS_KNOWS_US, MS_PRODUCT } from '@/constants/url'
+import { MS_ABOUT, MS_PRODUCT } from '@/constants/url'
 import { IWorkTogetherRequest } from '@/interface/home'
+import { useTranslation } from 'next-i18next'
+import { I18NextNS } from '@/constants/i18next'
+
+const HOME_NS = I18NextNS.HOME
+const COMMON_NS = I18NextNS.COMMON
 
 const Home: NextPage = () => {
+  const { t } = useTranslation([HOME_NS, COMMON_NS])
   const productItems = [
     {
       id: 1,
@@ -128,45 +136,44 @@ const Home: NextPage = () => {
     {
       image: OurServiceImage4,
       imageHover: OurServiceHoverImage4,
-      title: 'Finest Quality',
-      decsription:
-        'ไม่ต้องห่วงเรื่องสินค้าว่าจะดีไหมเพราะเรานำเข้าแบรนด์ที่ได้รับการยอมรับแล้วว่าได้คุณภาพที่ดี',
+      title: t('TITLE_SERVICE_4'),
+      decsription: t('PARAGRAPH_SERVICE_4'),
     },
     {
       image: OurServiceImage1,
       imageHover: OurServiceHoverImage1,
-      title: 'Standards',
-      decsription: 'สินค้ามีคุณภาพและปลอดภัยสูงนำเข้าภายในประเทศและต่างประเทศ',
+      title: t('TITLE_SERVICE_1'),
+      decsription: t('PARAGRAPH_SERVICE_1'),
     },
     {
       image: OurServiceImage6,
       imageHover: OurServiceHoverImage6,
-      title: 'Time Saving',
-      decsription: 'ประหยัดเวลาคุณได้ด้วยการสั่งซื้อจากตัวแทนจำหน่ายของเรา',
+      title: t('TITLE_SERVICE_6'),
+      decsription: t('PARAGRAPH_SERVICE_6'),
     },
     {
       image: OurServiceImage7,
       imageHover: OurServiceHoverImage7,
-      title: 'Best Support',
-      decsription: 'หลังจากซื้อขายแล้วเรายังช่วยบริการหลังการขาย',
+      title: t('TITLE_SERVICE_7'),
+      decsription: t('PARAGRAPH_SERVICE_7'),
     },
     {
       image: OurServiceImage2,
       imageHover: OurServiceHoverImage2,
-      title: 'Great Design',
-      decsription: 'แต่ละแบรนด์ที่นำเข้ามีดีไซน์ทันสมัย',
+      title: t('TITLE_SERVICE_2'),
+      decsription: t('PARAGRAPH_SERVICE_2'),
     },
     {
       image: OurServiceImage3,
       imageHover: OurServiceHoverImage3,
-      title: 'Optimal Choice',
-      decsription: 'สินค้าของเรามีมากมายหลายยี่ห้อ',
+      title: t('TITLE_SERVICE_3'),
+      decsription: t('PARAGRAPH_SERVICE_3'),
     },
     {
       image: OurServiceImage5,
       imageHover: OurServiceHoverImage5,
-      title: 'Dealer',
-      decsription: 'มีตัวแทนจำหน่ายทั่วประเทศ',
+      title: t('TITLE_SERVICE_5'),
+      decsription: t('PARAGRAPH_SERVICE_5'),
     },
   ]
 
@@ -192,8 +199,7 @@ const Home: NextPage = () => {
             MARSHAL MOTORSPORT
           </h1>
           <p className="text-white xl:text-2xl md:text-xl text-lg">
-            จำหน่ายและติดตั้งอะไหล่แต่งรถจักรยานยนต์ออโตเมติก สกู๊ตเตอร์
-            มินิไบค์ บิ๊กไบค์ และให้บริการหลังการขายแบบครบวงจร
+            {t('DESCRIPTION')}
           </p>
         </div>
         <Carousel autoplay className="h-[625px]" effect="fade">
@@ -239,8 +245,7 @@ const Home: NextPage = () => {
         <Container>
           <div className="pt-15 xl:pb-30 md:pb-25 pb-15 md:gap-12 gap-6 flex flex-col md:flex-row md:text-left items-center text-center">
             <h1 className="text-2xl font-semibold text-white block pb-6 md:hidden">
-              รู้จัก <br />
-              <span className="text-primary"> Marshal Motosport shop</span>
+              {translateAndParseHTML(HOME_NS, 'HEADING_MARSHAL')}
             </h1>
             <div
               className="sm:w-2/4 w-full mx-auto sm:mx-0"
@@ -255,21 +260,18 @@ const Home: NextPage = () => {
             </div>
             <div className="md:w-2/4 sm:w-3/4 w-full mx-auto">
               <h1 className="xl:text-4xl md:text-3xl font-semibold text-white hidden md:block">
-                รู้จัก
-                <span className="text-primary"> Marshal Motosport shop</span>
+                {translateAndParseHTML(HOME_NS, 'HEADING_MARSHAL')}
               </h1>
               <p className="pt-4 md:pt-2 xl:text-lg text-base text-white">
-                เราเป็นร้านค้าจำหน่ายสินค้าอะไหล่แต่งจักรยานยนต์
-                ที่ครอบคลุมอุปกรณ์ต่างๆ บนรถ อุปกรณ์เอนกประสงค์ กล่องบรรทุก
-                รวมทั้งเครื่องแต่งกาย สำหรับขับขี่เพื่อความปลอดภัย
+                {t('PARAGRAPH_MARSHAL')}
               </p>
               <div className="pt-8">
                 <Button
-                  href={MS_KNOWS_US}
+                  href={MS_ABOUT}
                   type="link"
                   className="text-primary hover:text-black !bg-black !hover:bg-primary duration-200 border border-primary min-w-35"
                 >
-                  ดูเพิ่มเติม
+                  {t(`${COMMON_NS}:SEE_MORE_BTN`)}
                 </Button>
               </div>
             </div>
@@ -308,7 +310,7 @@ const Home: NextPage = () => {
                           icon={<i className="icon-cart text-xl" />}
                           className="text-black group-hover:text-primary bg-primary group-hover:bg-transparent duration-200 border border-primary md:w-45 w-34 inline-flex items-center justify-center gap-2"
                         >
-                          <div>สั่งซื้อสินค้า</div>
+                          <div>{t(`${COMMON_NS}:ORDER_BTN`)}</div>
                         </Button>
                       </div>
                     </a>
@@ -323,7 +325,7 @@ const Home: NextPage = () => {
               href={MS_PRODUCT}
               className="text-primary hover:text-black bg-transparent hover:bg-primary duration-200 border border-primary min-w-35"
             >
-              ดูเพิ่มเติม
+              {t(`${COMMON_NS}:SEE_MORE_BTN`)}
             </Button>
           </div>
           <h1 className="xl:pt-30 md:pt-20 pt-15 xl:text-4xl md:text-3xl text-2xl font-semibold text-white text-center">
@@ -368,18 +370,17 @@ const Home: NextPage = () => {
         className="xl:pt-45 md:pt-35 pt-20 md:pb-10 pb-6 xl:text-4xl md:text-3xl text-2xl font-semibold text-white text-center"
         id="section-contact"
       >
-        ติดต่อ
-        <span className="text-primary">เรา</span>
+        {translateAndParseHTML(HOME_NS, 'HEADING_CONTACT')}
       </h1>
       <div className="bg-primary pt-6 md:pt-10 pb-20">
         <Container>
           <div className="flex flex-col md:flex-row gap-12">
             <div className="md:w-2/4 pt-8 md:pt-0 w-full text-center">
               <h3 className="xl:text-2xl text-xl font-medium pb-4 md:text-left text-center">
-                ที่ตั้ง Marshal Motosport shop
+                {t('HEADING_ADDRESS_SHOP')}
               </h3>
               <p className="xl:text-lg text-base font-semibold pb-4 md:text-left text-center">
-                การเดินทางมาร้าน สาขาเอกชัยบางบอน
+                {t('TRAVEL')}
               </p>
               <iframe
                 className="xl:h-[450px] xl:w-[600px] lg:w-[500px] h-[350px] md:w-[450px] w-full"
@@ -390,35 +391,27 @@ const Home: NextPage = () => {
                 <li className="flex text-left gap-4 pb-3">
                   <i className="icon-location-mark xl:text-3xl md:text-2xl text-xl" />
                   <p className="xl:text-base text-sm">
-                    <b>เส้นทางที่ 1</b> ถนนกาญจนาภิเษก-พระรามสอง
-                    วิ่งจากถนนกาญจนาฯ มุ่งหน้า พระราม2 เข้าสู่ถนนเอกชัย-บางบอน
-                    ริมถนน ร้านติดกับทางเข้าซอยเอกชัย 82
+                    <b>{t('HEADING_TRAVEL_1')}</b> {t('PARAGRAPH_TRAVEL_1')}
                   </p>
                 </li>
                 <li className="flex text-left gap-4 pb-3">
                   <i className="icon-location-mark xl:text-3xl md:text-2xl text-xl" />
                   <p className="xl:text-base text-sm">
-                    <b>เส้นทางที่ 2</b> จากถนนจอมทอง-บางบอน/จากถนนกัลปพฤกษ์
-                    เลี้ยวขวา มุ่งหน้าเข้าแยก บางบอ (จัสโก้บางบอน)
-                    เลี้ยวซ้ายเข้าถนนเอกชัยมุ่งหน้า รพ.บางประกอก 8
-                    กลับรถใต้สะพานหน้า รพ. เข้าสู่ถนนเอกชัย-บางบอน ริมถนน
-                    ร้านติดกับทางเข้าซอยเอกชัย 82
+                    <b>{t('HEADING_TRAVEL_2')}</b> {t('PARAGRAPH_TRAVEL_2')}
                   </p>
                 </li>
                 <li className="flex text-left gap-4">
                   <i className="icon-location-mark xl:text-3xl md:text-2xl text-xl" />
                   <p className="xl:text-base text-sm">
-                    <b>เส้นทางที่ 3</b> จากพระราม 2 ข้ามสะพานจากถนนเทียนทะเล
-                    ผ่านทางรถไฟ มุ่งหน้าเข้าแยก บางบอน (จัสโก้บางบอน)
-                    เลี้ยวซ้ายเข้าถนนเอกชัยมุ่งหน้า รพ.บางประกอก8
-                    กลับรถใต้สะพานหน้า รพ. เข้าสู่ถนนเอกชัย-บางบอน ริมถนน
-                    ร้านติดกับทางเข้าซอยเอกชัย 82
+                    <b>{t('HEADING_TRAVEL_3')}</b> {t('PARAGRAPH_TRAVEL_3')}
                   </p>
                 </li>
               </ul>
             </div>
             <div className="md:w-2/4 sm:w-3/4 w-full mx-auto text-center md:text-left">
-              <h3 className="xl:text-2xl text-xl font-medium">ร่วมงานกับเรา</h3>
+              <h3 className="xl:text-2xl text-xl font-medium">
+                {t('SUBHEADING_CONTACT')}
+              </h3>
               <Form
                 layout="vertical"
                 className="pt-2 md:pt-6 max-w-150"
@@ -428,38 +421,44 @@ const Home: NextPage = () => {
               >
                 <Form.Item
                   name="position"
-                  label={<label className="text-sm">ตำแหน่งที่ต้องการ</label>}
+                  label={
+                    <label className="text-sm">{t('LABEL_POSITION')}</label>
+                  }
                 >
                   <Input type="text" />
                 </Form.Item>
                 <Form.Item
                   name="firstName"
-                  label={<label className="text-sm">ชื่อ</label>}
+                  label={
+                    <label className="text-sm">{t('LABEL_FIRSTNAME')}</label>
+                  }
                 >
                   <Input type="text" />
                 </Form.Item>
                 <Form.Item
                   name="lastName"
-                  label={<label className="text-sm">นามสกุล</label>}
+                  label={
+                    <label className="text-sm">{t('LABEL_LASTNAME')}</label>
+                  }
                 >
                   <Input type="text" />
                 </Form.Item>
                 <Form.Item
                   name="phone"
-                  label={<label className="text-sm">เบอร์ติดต่อ</label>}
+                  label={<label className="text-sm">{t('LABEL_PHONE')}</label>}
                 >
                   <Input type="tel" />
                 </Form.Item>
                 <Form.Item
                   name="email"
-                  label={<label className="text-sm">อีเมล</label>}
+                  label={<label className="text-sm">{t('LABEL_EMAIL')}</label>}
                 >
                   <Input type="email" />
                 </Form.Item>
                 <Form.Item
                   name="experience"
                   label={
-                    <label className="text-sm">แนบใบสมัครและประสบการณ์</label>
+                    <label className="text-sm">{t('LABEL_EXPERIENCE')}</label>
                   }
                   className="relative"
                 >
@@ -470,9 +469,7 @@ const Home: NextPage = () => {
                     onChange={(e) => handleChangeUpload(e)}
                   />
                   <div className="text-xs text-center text-gray-500 border border-gray-500 border-dashed py-4 bg-white rounded-sm">
-                    {fileName
-                      ? fileName
-                      : '(รูปแบบไฟล์ที่ต้องการ เป็น .pdf หรือ.jpg เท่านั้น)'}
+                    {fileName ? fileName : t('REMAKE_EXPERIENCE')}
                   </div>
                 </Form.Item>
                 <Form.Item
@@ -491,7 +488,7 @@ const Home: NextPage = () => {
                     htmlType="submit"
                     className="px-15 bg-black hover:bg-primary text-primary hover:text-black border border-black"
                   >
-                    ส่ง
+                    {t(`${COMMON_NS}:SEND_BTN`)}
                   </Button>
                 </div>
               </Form>
@@ -506,7 +503,7 @@ const Home: NextPage = () => {
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale!, ['home', 'common'])),
+      ...(await serverSideTranslations(locale!, [HOME_NS, COMMON_NS])),
     },
   }
 }

@@ -8,7 +8,7 @@ import LogoImage from '@/assets/logo.png'
 import QrCodeImage from '@/assets/QR-Code.png'
 import {
   MS_CONTACT,
-  MS_KNOWS_US,
+  MS_ABOUT,
   MS_NEWS,
   MS_PRODUCT,
   MS_PURCHASE,
@@ -20,63 +20,33 @@ const Footer: FC = () => {
   const menusFooter = [
     {
       href: '/',
-      text: 'หน้าแรก',
+      text: t('HOME'),
     },
     {
       href: MS_PRODUCT,
-      text: 'สินค้า',
+      text: t('PRODUCT'),
     },
     {
       href: MS_PURCHASE,
-      text: 'สั่งซื้อและชำระเงิน',
+      text: t('PURCHASE'),
     },
     {
       href: MS_SERVICE,
-      text: 'บริการ',
+      text: t('SERIVCE'),
     },
     {
       href: MS_NEWS,
-      text: 'ข่าวสารและกิจกรรม',
+      text: t('NEWS'),
     },
     {
-      href: MS_KNOWS_US,
-      text: 'รู้จักเรา',
+      href: MS_ABOUT,
+      text: t('ABOUT'),
     },
     {
       href: MS_CONTACT,
-      text: 'ติดต่อ',
+      text: t('CONTACT'),
     },
   ]
-  // const menusFooter = [
-  //   {
-  //     href: '/',
-  //     text: t('HOME'),
-  //   },
-  //   {
-  //     href: MS_PRODUCT,
-  //     text: t('PRODUCT'),
-  //   },
-  //   {
-  //     href: MS_PURCHASE,
-  //     text: t('PURCHASE'),
-  //   },
-  //   {
-  //     href: MS_SERVICE,
-  //     text: t('SERIVCE'),
-  //   },
-  //   {
-  //     href: MS_NEWS,
-  //     text: t('NEWS'),
-  //   },
-  //   {
-  //     href: MS_KNOWS_US,
-  //     text: t('KNOWS_US'),
-  //   },
-  //   {
-  //     href: MS_CONTACT,
-  //     text: t('CONTACT'),
-  //   },
-  // ]
   return (
     <div className="bg-black pt-4">
       <Container paddingClassName="xl:px-0 px-0">
@@ -110,8 +80,7 @@ const Footer: FC = () => {
                   MARSHAL MOTOSPORT CO., LTD.
                 </p>
                 <p className="xl:text-lg md:text-base text-sm pt-1">
-                  ที่อยู่: เลขที่ 65/3-4 ริมถนน ระหว่าง ซอยเอกชัย 82 และ 80/2
-                  ถนนเอกชัย-บางบอน กรุงเทพฯ 10150
+                  {t('COMPANY_ADDRESS')}
                 </p>
               </div>
             </li>

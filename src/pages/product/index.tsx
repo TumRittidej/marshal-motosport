@@ -17,8 +17,15 @@ import { ScreenCtx } from '@/contexts/ScreenProvider'
 import Drawer from '@/components/Drawer'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from 'next-i18next'
+import { I18NextNS } from '@/constants/i18next'
+import { translateAndParseHTML } from '@/helpers/i18n'
+
+const PRODUCT_NS = I18NextNS.PRODUCT
+const COMMON_NS = I18NextNS.COMMON
 
 const Product: FC = () => {
+  const { t } = useTranslation([PRODUCT_NS, COMMON_NS])
   const { breakpoint } = useContext(ScreenCtx)!
   const [rotateArrow, setRotateArrow] = useState(false)
   const [isOpenDrawer, setIsOpenDrawer] = useState(false)
@@ -32,7 +39,7 @@ const Product: FC = () => {
               onClick={() => setRotateArrow(false)}
               className="text-black hover:text-primary w-full text-left p-0"
             >
-              สินค้าขายดี
+              {t('POPULAR')}
             </Button>
           ),
           key: '0',
@@ -44,7 +51,7 @@ const Product: FC = () => {
               onClick={() => setRotateArrow(false)}
               className="text-black hover:text-primary w-full text-left p-0"
             >
-              สินค้ามาใหม่
+              {t('LATEST')}
             </Button>
           ),
           key: '1',
@@ -56,7 +63,7 @@ const Product: FC = () => {
               onClick={() => setRotateArrow(false)}
               className="text-black hover:text-primary w-full text-left p-0"
             >
-              โปรโมชั่น
+              {t('PROMOTION')}
             </Button>
           ),
           key: '2',
@@ -174,50 +181,50 @@ const Product: FC = () => {
 
   const products = [
     {
-      category: 'ชุดแต่งมอเตอร์ไซต์ (199)',
+      category: `${t('PRODUCT_ITEM_1')} (199)`,
       lists: [
         {
           id: 1,
-          name: 'ยาง',
+          name: t('PRODUCT_ITEM_1_LIST_1'),
         },
         {
           id: 2,
-          name: 'น้ำมันเครื่อง',
+          name: t('PRODUCT_ITEM_1_LIST_2'),
         },
         {
           id: 3,
-          name: 'โช้ค อัพ',
+          name: t('PRODUCT_ITEM_1_LIST_3'),
         },
         {
           id: 4,
-          name: 'หมวกกันน็อค',
+          name: t('PRODUCT_ITEM_1_LIST_4'),
         },
         {
           id: 5,
-          name: 'หัวเทียน',
+          name: t('PRODUCT_ITEM_1_LIST_5'),
         },
         {
           id: 6,
-          name: 'ของตกแต่ง',
+          name: t('PRODUCT_ITEM_1_LIST_6'),
         },
         {
           id: 7,
-          name: 'เครื่องแต่งกาย',
+          name: t('PRODUCT_ITEM_1_LIST_7'),
         },
         {
           id: 8,
-          name: 'สินค้าอื่นๆ',
+          name: t('PRODUCT_ITEM_1_LIST_8'),
         },
       ],
     },
     {
-      category: 'สินค้าขายดี (99)',
+      category: t('PRODUCT_ITEM_2'),
     },
     {
-      category: 'สินค้าโปรโมชั่น (12)',
+      category: t('PRODUCT_ITEM_3'),
     },
     {
-      category: 'สินค้าขายดี',
+      category: t('PRODUCT_ITEM_4'),
     },
   ]
 
@@ -250,7 +257,7 @@ const Product: FC = () => {
           <div className="flex gap-12">
             <div className="w-1/4 md:block hidden">
               <h3 className="xl:text-lg text-base text-primary font-medium">
-                สินค้าทั้งหมด
+                {translateAndParseHTML(PRODUCT_NS, 'ALL_PRODUCT_PRI')}
               </h3>
               <div className="border border-white opacity-20 mt-2 mb-4" />
               {products.map((product, index) => {
@@ -316,14 +323,14 @@ const Product: FC = () => {
             </div>
             <div className="md:w-3/4 w-full">
               <h1 className="xl:pb-15 pb-10 xl:text-4xl text-3xl font-semibold text-primary text-center">
-                สินค้า
+                {translateAndParseHTML(PRODUCT_NS, 'TITLE')}
               </h1>
               <div className="flex justify-between items-center">
                 {breakpoint === 'xl' ||
                 breakpoint === 'lg' ||
                 breakpoint === 'md' ? (
                   <h3 className="text-white xl:text-lg text-base">
-                    สินค้าทั้งหมด
+                    {t('ALL_PRODUCT')}
                   </h3>
                 ) : (
                   <button
@@ -337,7 +344,7 @@ const Product: FC = () => {
                         style={{ fontSize: '12px' }}
                         className="pr-2"
                       />
-                      สินค้าทั้งหมด
+                      {t('ALL_PRODUCT')}
                     </h3>
                   </button>
                 )}
@@ -353,7 +360,7 @@ const Product: FC = () => {
                     className="text-white text-base"
                   >
                     <Space className="xl:gap-8 gap-6">
-                      <p className="xl:text-base text-sm">เรียงลำดับจาก</p>
+                      <p className="xl:text-base text-sm">{t('SORT_BY')}</p>
                       <DownOutlined
                         className={`text-xs transform transition duration-300 ${
                           rotateArrow ? 'rotate-180 -translate-y-1' : 'rotate-0'
@@ -391,7 +398,7 @@ const Product: FC = () => {
                               }
                               className="text-black group-hover:text-primary bg-primary group-hover:bg-transparent duration-200 border border-primary md:min-w-45 min-w-35 inline-flex items-center justify-center gap-2"
                             >
-                              <div>สั่งซื้อสินค้า</div>
+                              <div>{t(`${COMMON_NS}:ORDER_BTN`)}</div>
                             </Button>
                           </div>
                         </a>
@@ -416,7 +423,9 @@ const Product: FC = () => {
       <div className="md:hidden block">
         <Drawer isOpenDrawer={isOpenDrawer} setIsOpenDrawer={setIsOpenDrawer}>
           <div className="pt-8">
-            <h3 className="text-white xl:text-lg text-base">สินค้าทั้งหมด</h3>
+            <h3 className="text-white xl:text-lg text-base">
+              {translateAndParseHTML(PRODUCT_NS, 'ALL_PRODUCT_PRI')}
+            </h3>
             <div className="border border-white opacity-20 mt-2 mb-4" />
             {products.map((product, index) => {
               return (
@@ -488,7 +497,7 @@ const Product: FC = () => {
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale!, ['product', 'common'])),
+      ...(await serverSideTranslations(locale!, [PRODUCT_NS, COMMON_NS])),
     },
   }
 }

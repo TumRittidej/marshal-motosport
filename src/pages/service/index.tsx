@@ -31,51 +31,53 @@ import OurWork11 from '@/assets/img/service/our-work-11.png'
 import OurWork12 from '@/assets/img/service/our-work-12.png'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations.js'
+import { useTranslation } from 'next-i18next'
+import { I18NextNS } from '@/constants/i18next'
 
 const Service: FC = () => {
+  const { t } = useTranslation(I18NextNS.SERVICE)
   const ourServiceItems = [
     {
       image: OurServiceImage4,
       imageHover: OurServiceHoverImage4,
-      title: 'Finest Quality',
-      decsription:
-        'ไม่ต้องห่วงเรื่องสินค้าว่าจะดีไหมเพราะเรานำเข้าแบรนด์ที่ได้รับการยอมรับแล้วว่าได้คุณภาพที่ดี',
+      title: t('TITLE_POLICY_4'),
+      decsription: t('PARAGRAPH_SERVICE_4'),
     },
     {
       image: OurServiceImage1,
       imageHover: OurServiceHoverImage1,
-      title: 'Standards',
-      decsription: 'สินค้ามีคุณภาพและปลอดภัยสูงนำเข้าภายในประเทศและต่างประเทศ',
+      title: t('TITLE_POLICY_1'),
+      decsription: t('PARAGRAPH_SERVICE_1'),
     },
     {
       image: OurServiceImage6,
       imageHover: OurServiceHoverImage6,
-      title: 'Time Saving',
-      decsription: 'ประหยัดเวลาคุณได้ด้วยการสั่งซื้อจากตัวแทนจำหน่ายของเรา',
+      title: t('TITLE_POLICY_6'),
+      decsription: t('PARAGRAPH_POLICY_6'),
     },
     {
       image: OurServiceImage7,
       imageHover: OurServiceHoverImage7,
-      title: 'Best Support',
-      decsription: 'หลังจากซื้อขายแล้วเรายังช่วยบริการหลังการขาย',
+      title: t('TITLE_POLICY_7'),
+      decsription: t('PARAGRAPH_POLICY_7'),
     },
     {
       image: OurServiceImage2,
       imageHover: OurServiceHoverImage2,
-      title: 'Great Design',
-      decsription: 'แต่ละแบรนด์ที่นำเข้ามีดีไซน์ทันสมัย',
+      title: t('TITLE_POLICY_2'),
+      decsription: t('PARAGRAPH_POLICY_2'),
     },
     {
       image: OurServiceImage3,
       imageHover: OurServiceHoverImage3,
-      title: 'Optimal Choice',
-      decsription: 'สินค้าของเรามีมากมายหลายยี่ห้อ',
+      title: t('TITLE_POLICY_3'),
+      decsription: t('PARAGRAPH_POLICY_3'),
     },
     {
       image: OurServiceImage5,
       imageHover: OurServiceHoverImage5,
-      title: 'Dealer',
-      decsription: 'มีตัวแทนจำหน่ายทั่วประเทศ',
+      title: t('TITLE_POLICY_5'),
+      decsription: t('PARAGRAPH_POLICY_5'),
     },
   ]
 
@@ -133,7 +135,7 @@ const Service: FC = () => {
     <section className="xl:pt-44 md:pt-36 pt-15 bg-black">
       <div className="bg-2--position-y-20 xl:pt-20 pt-15 xl:pb-30 md:pb-25 pb-15">
         <h1 className="md:pb-15 pb-10 xl:text-4xl text-3xl text-primary text-center font-semibold">
-          นโยบายการให้บริการของเรา
+          {t('TITLE')}
         </h1>
         <Container>
           <div className="flex flex-wrap justify-center xl:gap-14 gap-12">
@@ -170,45 +172,45 @@ const Service: FC = () => {
           </div>
 
           <h1 className="md:pt-15 pt-10 xl:text-4xl text-3xl text-primary text-center font-semibold">
-            บริการ
+            {t('HEADING_POLICY')}
           </h1>
 
-          <ul className="md:text-base text-sm text-white grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:pt-8 pt-4">
+          <ul className="md:text-base text-sm text-white grid md:grid-cols-2 grid-cols-1 md:pt-8 pt-4">
             <li className="pb-2">
               <i className="icon-check-service text-primary pr-2 text-2xl" />
-              เซตโช็คหน้า น้ำมันโช็ค ปรับนุ่ม
+              {t('PARAGRAPH_SERVICE_1')}
             </li>
             <li className="pb-2">
               <i className="icon-check-service text-primary pr-2 text-2xl" />
-              กล่องท้าย แคชบาร์ จัดทรงทัวริ่ง
+              {t('PARAGRAPH_SERVICE_2')}
             </li>
             <li className="pb-2">
               <i className="icon-check-service text-primary pr-2 text-2xl" />
-              รับจัดสภาพ เดินสายเบรก อัพเกรดปั้มเบรก
+              {t('PARAGRAPH_SERVICE_3')}
             </li>
             <li className="pb-2">
               <i className="icon-check-service text-primary pr-2 text-2xl" />
-              ล้างชุดข้างเฟื่องท้าย รถออโตเมติก
+              {t('PARAGRAPH_SERVICE_4')}
             </li>
             <li className="pb-2">
               <i className="icon-check-service text-primary pr-2 text-2xl" />
-              เปลี่ยนยาง ถอด ถ่วง จุ๊บยาง สเต็มเย็น
+              {t('PARAGRAPH_SERVICE_5')}
             </li>
             <li className="pb-2">
               <i className="icon-check-service text-primary pr-2 text-2xl" />
-              เปลี่ยนถ่ายน้ำมันเครื่อง บำรุงรักษา ฯลฯ
+              {t('PARAGRAPH_SERVICE_6')}
             </li>
             <li className="pb-2">
               <i className="icon-check-service text-primary pr-2 text-2xl" />
-              ตรวจเช็ค เปลี่ยน แบตเตอรี่รถจักรยานยนต์
+              {t('PARAGRAPH_SERVICE_7')}
             </li>
             <li className="pb-2">
               <i className="icon-check-service text-primary pr-2 text-2xl" />
-              สลับล้อ ล้อสีโครมเมียม สีพาวเดอร์โค้ด 2K
+              {t('PARAGRAPH_SERVICE_8')}
             </li>
             <li className="pb-2">
               <i className="icon-check-service text-primary pr-2 text-2xl" />
-              เปลี่ยน ผ้าเบรก - ถ่ายน้ำมันเบรก
+              {t('PARAGRAPH_SERVICE_9')}
             </li>
           </ul>
 

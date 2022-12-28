@@ -19,7 +19,7 @@ import {
   MS_CONTACT,
   MS_FACRBOOK,
   MS_INSTAGRAM,
-  MS_KNOWS_US,
+  MS_ABOUT,
   MS_LINE,
   MS_NEWS,
   MS_PRODUCT,
@@ -39,64 +39,34 @@ import { Language } from '@/constants/language'
 
 const Header: FC = () => {
   const { t } = useTranslation('common')
-  // const menusHeader = [
-  //   {
-  //     href: '/',
-  //     text: t('HOME'),
-  //   },
-  //   {
-  //     href: MS_PRODUCT,
-  //     text: t('PRODUCT'),
-  //   },
-  //   {
-  //     href: MS_PURCHASE,
-  //     text: t('PURCHASE'),
-  //   },
-  //   {
-  //     href: MS_SERVICE,
-  //     text: t('SERIVCE'),
-  //   },
-  //   {
-  //     href: MS_NEWS,
-  //     text: t('NEWS'),
-  //   },
-  //   {
-  //     href: MS_KNOWS_US,
-  //     text: t('KNOWN_US'),
-  //   },
-  //   {
-  //     href: MS_CONTACT,
-  //     text: t('CONTACT'),
-  //   },
-  // ]
   const menusHeader = [
     {
       href: '/',
-      text: 'หน้าแรก',
+      text: t('HOME'),
     },
     {
       href: MS_PRODUCT,
-      text: 'สินค้า',
+      text: t('PRODUCT'),
     },
     {
       href: MS_PURCHASE,
-      text: 'สั่งซื้อและชำระเงิน',
+      text: t('PURCHASE'),
     },
     {
       href: MS_SERVICE,
-      text: 'บริการ',
+      text: t('SERIVCE'),
     },
     {
       href: MS_NEWS,
-      text: 'ข่าวสารและกิจกรรม',
+      text: t('NEWS'),
     },
     {
-      href: MS_KNOWS_US,
-      text: 'รู้จักเรา',
+      href: MS_ABOUT,
+      text: t('ABOUT'),
     },
     {
       href: MS_CONTACT,
-      text: 'ติดต่อ',
+      text: t('CONTACT'),
     },
   ]
   const { pathname, locale, asPath } = useRouter()
@@ -165,8 +135,7 @@ const Header: FC = () => {
                   >
                     <i className="icon-user text-xl" />
                     <h3 className="text-sm font-semibold group-hover:underline">
-                      {/* {t('LOGIN')} */}
-                      เข้าสู่ระบบ
+                      {t('LOGIN')}
                     </h3>
                   </div>
                   <DropdownHeader
@@ -186,8 +155,7 @@ const Header: FC = () => {
                     <a className="flex items-center gap-2 group">
                       <i className="icon-register text-black text-xl" />
                       <h3 className="text-sm font-semibold group-hover:underline">
-                        {/* {t('REGISTER')} */}
-                        สมัครสมาชิก
+                        {t('REGISTER')}
                       </h3>
                     </a>
                   </Link>
@@ -199,10 +167,7 @@ const Header: FC = () => {
                     <Badge count={0} showZero>
                       <ShoppingCartOutlined style={{ fontSize: '24px' }} />
                     </Badge>
-                    <h3 className="text-sm font-semibold">
-                      {t('CART')}
-                      {/* ตระกร้าสินค้า */}
-                    </h3>
+                    <h3 className="text-sm font-semibold">{t('CART')}</h3>
                   </a>
                 </Link>
                 <Link href={MS_FACRBOOK}>
@@ -268,7 +233,7 @@ const Header: FC = () => {
                   bordered={false}
                   className="xl:max-w-46 max-w-40 ml-1 h-[34px] search-input--text !border !border-solid !border-primary !bg-black !rounded"
                 />
-                <Link locale="th" href={asPath}>
+                <Link locale="th" href={asPath} scroll={false}>
                   <a
                     className={`hover:text-primary my-auto ${
                       locale === Language.TH ? 'text-primary' : 'text-white'
@@ -278,7 +243,7 @@ const Header: FC = () => {
                   </a>
                 </Link>
                 <div className="text-white flex items-center">|</div>
-                <Link locale="en" href={asPath}>
+                <Link locale="en" href={asPath} scroll={false}>
                   <a
                     className={`hover:text-primary my-auto ${
                       locale === Language.EN ? 'text-primary' : 'text-white'
@@ -387,7 +352,7 @@ const Header: FC = () => {
               <a className="inline-flex items-center gap-4 group">
                 <i className="icon-logout text-white group-hover:text-primary text-2xl transition duration-300" />
                 <h3 className="text-base font-semibold text-white group-hover:text-primary group-hover:underline transition duration-300">
-                  ออกจากระบบ
+                  {t('LOGOUT')}
                 </h3>
               </a>
             </div>
@@ -400,8 +365,7 @@ const Header: FC = () => {
             >
               <i className="icon-user text-2xl text-white group-hover:text-primary transition duration-300" />
               <h3 className="text-base font-semibold text-white group-hover:text-primary group-hover:underline transition duration-300">
-                {/* {t('LOGIN')} */}
-                เข้าสู่ระบบ
+                {t('LOGIN')}
               </h3>
             </div>
             <div className={`pt-2`} onClick={() => setIsOpenDrawer(false)}>
@@ -409,8 +373,7 @@ const Header: FC = () => {
                 <a className="inline-flex items-center gap-4 group">
                   <i className="icon-register text-white group-hover:text-primary text-2xl transition duration-300" />
                   <h3 className="text-base font-semibold text-white group-hover:text-primary group-hover:underline transition duration-300">
-                    {/* {t('REGISTER')} */}
-                    สมัครสมาชิก
+                    {t('REGISTER')}
                   </h3>
                 </a>
               </Link>
@@ -418,7 +381,7 @@ const Header: FC = () => {
           </>
         )}
         <div className="text-white text-base flex gap-4 pt-4">
-          <Link locale="th" href={asPath}>
+          <Link locale="th" href={asPath} scroll={false}>
             <a
               className={`text-white hover:text-primary transition duration-300 ${
                 locale === Language.TH ? 'text-primary' : 'text-white'
@@ -428,7 +391,7 @@ const Header: FC = () => {
             </a>
           </Link>
           |
-          <Link locale="en" href={asPath}>
+          <Link locale="en" href={asPath} scroll={false}>
             <a
               className={`text-white hover:text-primary transition duration-300 ${
                 locale === Language.EN ? 'text-primary' : 'text-white'
