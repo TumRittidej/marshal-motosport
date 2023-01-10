@@ -1,7 +1,7 @@
-import { FC, MouseEvent, ReactNode, useContext, useState } from 'react'
+import React, { FC, MouseEvent, useContext, useState } from 'react'
 import Image from 'next/image'
 
-import { Button, Col, Dropdown, Form, Menu, Space, Steps } from 'antd'
+import { Button, Dropdown, Form, Menu, Space, Steps } from 'antd'
 import { DownOutlined } from '@ant-design/icons'
 const { Step } = Steps
 
@@ -14,7 +14,7 @@ import { IPaymentBankRequest } from '@/interface/purchase'
 const Order: FC = () => {
   const { windowWidth } = useContext(ScreenCtx)!
   const [rotateArrowDropDown, setRotateArrowDropDown] = useState(false)
-  const [rotateArrowMoreBtn, setRotateArrowMoreBtn] = useState(false)
+  const [rotateArrowMoreBtn, setRotateArrowMoreBtn] = useState('-1')
   const [isOpenModal, setIsOpenModal] = useState(false)
   const [form] = Form.useForm<IPaymentBankRequest>()
 
@@ -82,6 +82,7 @@ const Order: FC = () => {
 
   const orders = [
     {
+      id: '1',
       number: 'MSD00001',
       date: '29/09/2022, 09:39',
       totalPrice: '79,600',
@@ -90,30 +91,44 @@ const Order: FC = () => {
         {
           image: ProductImage,
           alternative: 'Helmet',
+          name: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
+          price: '฿ 40,000',
+          quantity: '1',
         },
         {
           image: ProductImage,
           alternative: 'Helmet',
+          name: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
+          price: '฿ 44,000',
+          quantity: '2',
         },
         {
           image: ProductImage,
           alternative: 'Helmet',
+          name: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
+          price: '฿ 44,900',
+          quantity: '19',
         },
         {
           image: ProductImage,
           alternative: 'Helmet',
+          name: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
+          price: '฿ 40,000',
+          quantity: '1',
         },
         {
           image: ProductImage,
           alternative: 'Helmet',
+          name: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
+          price: '฿ 44,000',
+          quantity: '2',
         },
         {
           image: ProductImage,
           alternative: 'Helmet',
-        },
-        {
-          image: ProductImage,
-          alternative: 'Helmet',
+          name: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
+          price: '฿ 44,900',
+          quantity: '19',
         },
       ],
       name: 'รุ่งเรือง เกียงไกรไพศาล',
@@ -124,6 +139,7 @@ const Order: FC = () => {
       stepStatus: 0,
     },
     {
+      id: '2',
       number: 'MSD00001',
       date: '29/09/2022, 09:39',
       totalPrice: '79,600',
@@ -132,30 +148,23 @@ const Order: FC = () => {
         {
           image: ProductImage,
           alternative: 'Helmet',
+          name: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
+          price: '฿ 40,000',
+          quantity: '1',
         },
         {
           image: ProductImage,
           alternative: 'Helmet',
+          name: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
+          price: '฿ 44,000',
+          quantity: '2',
         },
         {
           image: ProductImage,
           alternative: 'Helmet',
-        },
-        {
-          image: ProductImage,
-          alternative: 'Helmet',
-        },
-        {
-          image: ProductImage,
-          alternative: 'Helmet',
-        },
-        {
-          image: ProductImage,
-          alternative: 'Helmet',
-        },
-        {
-          image: ProductImage,
-          alternative: 'Helmet',
+          name: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
+          price: '฿ 44,900',
+          quantity: '19',
         },
       ],
       name: 'รุ่งเรือง เกียงไกรไพศาล',
@@ -166,6 +175,11 @@ const Order: FC = () => {
       stepStatus: 1,
     },
   ]
+
+  const handleSeeMoreDetail = (id: string) => {
+    setRotateArrowMoreBtn(id)
+    if (rotateArrowMoreBtn === id) setRotateArrowMoreBtn('')
+  }
 
   return (
     <>
@@ -200,8 +214,8 @@ const Order: FC = () => {
           return (
             <div
               key={index}
-              className={`border border-white p-4 mb-4 mt-6 rounded-md transition-all duration-300 ${
-                rotateArrowMoreBtn
+              className={`border border-white p-4 mb-4 mt-6 rounded-md transition-all duration-300 bg-black ${
+                rotateArrowMoreBtn === order.id
                   ? 'max-h-999'
                   : 'sm:max-h-[216px] max-h-[230px]'
               }`}
@@ -213,7 +227,7 @@ const Order: FC = () => {
                     <span className="text-primary font-light sm:font-normal">
                       {' '}
                       {order.number}
-                    </span>{' '}
+                    </span>
                     <br />
                   </p>
                   <p className="pt-4 sm:pt-0">{order.date}</p>
@@ -244,7 +258,6 @@ const Order: FC = () => {
                             alt={product.alternative}
                             layout="responsive"
                             objectFit="cover"
-                            loading="lazy"
                           />
                         </div>
                       )
@@ -261,13 +274,13 @@ const Order: FC = () => {
                     </Button>
                   )}
                   <Button
-                    onClick={() => setRotateArrowMoreBtn(!rotateArrowMoreBtn)}
+                    onClick={() => handleSeeMoreDetail(order.id)}
                     className="text-primary bg-transparent duration-200 border border-primary w-full"
                   >
-                    ดูเพิ่มเติม{' '}
+                    ดูเพิ่มเติม
                     <DownOutlined
                       className={`text-xs transform transition duration-300 ${
-                        rotateArrowMoreBtn
+                        rotateArrowMoreBtn === order.id
                           ? 'rotate-180 -translate-y-1'
                           : 'rotate-0'
                       }`}
@@ -277,13 +290,38 @@ const Order: FC = () => {
               </div>
               <div
                 className={`pt-4 transition-all duration-200 xl:text-base text-sm ${
-                  rotateArrowMoreBtn ? 'visible' : 'invisible'
+                  rotateArrowMoreBtn === order.id ? 'visible' : 'invisible'
                 } `}
               >
                 <div className="border border-white opacity-20 mb-4" />
+                <div>
+                  {order.products.map((product, index) => {
+                    return (
+                      <div key={index} className="flex pb-4 justify-between">
+                        <div className="flex gap-4">
+                          <div className="sm:min-w-[100px] min-w-[75px]">
+                            <Image
+                              src={product.image}
+                              alt={product.alternative}
+                              layout="responsive"
+                            />
+                          </div>
+                          <div className="text-white">
+                            <p>{product.name}</p>
+                            <span>X {product.quantity}</span>
+                          </div>
+                        </div>
+                        <div className="text-white whitespace-nowrap pl-2">
+                          {product.price}
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
                 <h2 className="font-semibold text-white">ที่อยู่การจัดส่ง</h2>
                 <p className="font-light pb-4 pt-2 text-white">
-                  {order.name} <br />
+                  {order.name}
+                  <br />
                   {order.address}
                   <br />
                   {order.phone}

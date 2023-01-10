@@ -13,6 +13,10 @@ import {
 } from '@/constants/url'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { GetServerSideProps } from 'next'
+import { I18NextNS } from '@/constants/i18next'
+
+const COMMON_NS = I18NextNS.COMMON
+const ACCOUNT_NS = I18NextNS.ACCOUNT
 
 const Account: FC = () => {
   const router = useRouter()
@@ -82,7 +86,7 @@ const Account: FC = () => {
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale!, ['account', 'common'])),
+      ...(await serverSideTranslations(locale!, [ACCOUNT_NS, COMMON_NS])),
     },
   }
 }

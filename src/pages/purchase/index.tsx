@@ -12,6 +12,10 @@ import { CustomerType, DeliveryType, PaymentType } from '@/constants/purchase'
 import { CartType, IProductCart } from '@/interface/cart'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { I18NextNS } from '@/constants/i18next'
+
+const PURCHASE_NS = I18NextNS.PURCHASE
+const COMMON_NS = I18NextNS.COMMON
 
 const Purchase: FC = () => {
   const [step, setStep] = useState(0)
@@ -228,7 +232,7 @@ const Purchase: FC = () => {
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale!, ['purchase', 'common'])),
+      ...(await serverSideTranslations(locale!, [PURCHASE_NS, COMMON_NS])),
     },
   }
 }

@@ -6,8 +6,16 @@ import { Button } from 'antd'
 import { useRouter } from 'next/router'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from 'next-i18next'
+import { I18NextNS } from '@/constants/i18next'
+import { translateAndParseHTML } from '@/helpers/i18n'
+
+const NEWS_NS = I18NextNS.NEWS
+const COMMON_NS = I18NextNS.COMMON
 
 const NewsDetail: FC = () => {
+  const { t } = useTranslation([NEWS_NS, COMMON_NS])
+
   const router = useRouter()
   const { newsId } = router.query
   // console.log(newsId)
@@ -17,7 +25,7 @@ const NewsDetail: FC = () => {
       <div className="bg-2--position-y-5 xl:pt-20 pt-15 xl:pb-30 pb-25">
         <Container>
           <h1 className="md:pb-15 pb-10 xl:text-4xl md:text-3xl text-2xl font-semibold text-white text-center">
-            ข่าวสาร<span className="text-primary">และกิจกรรม</span>
+            {translateAndParseHTML(NEWS_NS, 'TITLE')}
           </h1>
           <div className="flex flex-col md:flex-row gap-8 pb-20 md:pb-15">
             <div className="sm:w-2/5 w-full mx-auto md:mx-0">
@@ -69,14 +77,14 @@ const NewsDetail: FC = () => {
               className="text-white hover:text-primary xl:text-xl md:text-lg text-base gap-2 flex items-center"
             >
               <i className="icon-caret-left xl:text-2xl md:text-xl text-lg" />
-              ก่อนหน้า
+              {t(`${COMMON_NS}:NEXT_BTN`)}
             </Button>
             <Button
               // onClick={() => nextNews()}
               type="link"
               className="text-white hover:text-primary xl:text-xl md:text-lg text-base gap-2 flex items-center"
             >
-              ถัดไป
+              {t(`${COMMON_NS}:PREV_BTN`)}
               <i className="icon-caret-right xl:text-2xl md:text-xl text-lg" />
             </Button>
           </div>
@@ -89,7 +97,7 @@ const NewsDetail: FC = () => {
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale!, ['news', 'common'])),
+      ...(await serverSideTranslations(locale!, [NEWS_NS, COMMON_NS])),
     },
   }
 }

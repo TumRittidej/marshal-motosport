@@ -5,8 +5,15 @@ import { RegisterType } from '@/constants/register'
 import Container from '@/components/container'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from 'next-i18next'
+import { I18NextNS } from '@/constants/i18next'
+import { translateAndParseHTML } from '@/helpers/i18n'
+
+const COMMON_NS = I18NextNS.COMMON
+const REGISTER_NS = I18NextNS.REGISTER
 
 const Register: FC = () => {
+  const { t } = useTranslation([REGISTER_NS, COMMON_NS])
   const [showStoreInput, setShowStoreInput] = useState(false)
 
   const [form] = Form.useForm<IRegisterRequest>()
@@ -19,8 +26,7 @@ const Register: FC = () => {
       <div className="bg-2--position-y-5 xl:pt-20 pt-15 xl:pb-30 pb-25">
         <Container>
           <h1 className="xl:pb-10 pb-6 xl:text-4xl text-3xl text-white text-center font-semibold text-white">
-            สมัคร
-            <span className="text-primary">สมาชิก</span>
+            {translateAndParseHTML(REGISTER_NS, 'TITLE')}
           </h1>
           <Form
             layout="vertical"
@@ -37,21 +43,21 @@ const Register: FC = () => {
                   className="text-white text-base mt-2 !hover:clear-none"
                   onClick={() => setShowStoreInput(false)}
                 >
-                  ลูกค้า
+                  {t('LABEL_CUSTOMER')}
                 </Radio>
                 <Radio
                   value={RegisterType.STORE}
                   className="text-white text-base mt-2 !hover:clear-none"
                   onClick={() => setShowStoreInput(true)}
                 >
-                  ร้านค้า
+                  {t('LABEL_SHOP')}
                 </Radio>
               </Radio.Group>
             </Form.Item>
 
             <Form.Item
               name="storeName"
-              label="ชื่อร้านค้า"
+              label={t('LABEL_SHOP_NAME')}
               className={`form-label--white ${
                 showStoreInput ? 'block' : 'hidden'
               }`}
@@ -60,31 +66,35 @@ const Register: FC = () => {
             </Form.Item>
             <Form.Item
               name="firstName"
-              label="ชื่อ"
+              label={t('LABEL_NAME')}
               className="form-label--white"
             >
               <Input type="text" />
             </Form.Item>
             <Form.Item
               name="lastName"
-              label="นามสกุล"
+              label={t('LABEL_SURNAME')}
               className="form-label--white"
             >
               <Input type="text" />
             </Form.Item>
-            <Form.Item name="email" label="อีเมล" className="form-label--white">
+            <Form.Item
+              name="email"
+              label={t('LABEL_EMAIL')}
+              className="form-label--white"
+            >
               <Input type="email" />
             </Form.Item>
             <Form.Item
               name="password"
-              label="รหัสผ่าน"
+              label={t('LABEL_PASSWORD')}
               className="form-label--white"
             >
               <Input.Password type="password" />
             </Form.Item>
             <Form.Item
               name="confirmPassword"
-              label="ยืนยันรหัสผ่าน"
+              label={t('LABEL_CONFIRM_PASSWORD')}
               className="form-label--white"
             >
               <Input.Password type="password" />
@@ -95,7 +105,7 @@ const Register: FC = () => {
                 htmlType="submit"
                 className="text-black hover:text-primary bg-primary hover:bg-transparent duration-200 border border-primary min-w-45"
               >
-                สร้างบัญชี
+                {t('LABEL_CREATE_ACCOUNT')}
               </Button>
             </Form.Item>
           </Form>
@@ -108,7 +118,7 @@ const Register: FC = () => {
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale!, ['register', 'common'])),
+      ...(await serverSideTranslations(locale!, [REGISTER_NS, COMMON_NS])),
     },
   }
 }

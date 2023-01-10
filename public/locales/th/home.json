@@ -34,7 +34,7 @@
   "LABEL_FIRSTNAME": "ชื่อ",
   "LABEL_LASTNAME": "นามสกุล",
   "LABEL_PHONE": "เบอร์ติดต่อ",
-  "LABEL_EMAIL": "อีเมล",
+  "LABEL_EMAIL": "อีเมลล์",
   "LABEL_EXPERIENCE": "แนบใบสมัครและประสบการณ์",
   "REMAKE_EXPERIENCE": "(รูปแบบไฟล์ที่ต้องการ เป็น .pdf หรือ .jpg เท่านั้น)",
   "LABEL_CONFIRM": "9 + 5 =",

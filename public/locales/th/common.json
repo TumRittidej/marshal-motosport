@@ -22,5 +22,10 @@
   "SAVE_BTN": "บันทึก",
   "CANCEL_BTN": "ยกเลิก",
   "NEXT_BTN": "ถัดไป",
-  "BACK_BTN": "ย้อนกลับ"
+  "PREV_BTN": "ย้อนกลับ",
+
+  "EMAIL": "อีเมลล์",
+  "PASSWORD": "รหัสผ่าน",
+  "FORGOT_PASSWORD": "ลืมรหัสผ่าน",
+  "DO_HAVE_AN_ACCOUNT": "คุณไม่ได้เป็นสมาชิก?"
 }

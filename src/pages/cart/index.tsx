@@ -13,6 +13,10 @@ import { MS_PRODUCT, MS_PURCHASE } from '@/constants/url'
 import { CartType, IProductCart } from '@/interface/cart'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { I18NextNS } from '@/constants/i18next'
+
+const COMMON_NS = I18NextNS.COMMON
+const CART_NS = I18NextNS.CART
 
 const Cart: FC = () => {
   const [productInCart, setProductInCart] = useState<IProductCart[]>([
@@ -196,7 +200,7 @@ const Cart: FC = () => {
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale!, ['cart', 'common'])),
+      ...(await serverSideTranslations(locale!, [CART_NS, COMMON_NS])),
     },
   }
 }

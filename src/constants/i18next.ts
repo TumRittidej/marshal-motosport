@@ -5,4 +5,8 @@ export enum I18NextNS {
   ABOUT = 'about',
   PRODUCT = 'product',
   NEWS = 'news',
+  REGISTER = 'register',
+  PURCHASE = 'purchase',
+  CART = 'cart',
+  ACCOUNT = 'account',
 }

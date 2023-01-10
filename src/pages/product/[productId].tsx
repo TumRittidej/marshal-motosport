@@ -11,8 +11,15 @@ import { MS_PURCHASE } from '@/constants/url'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useRouter } from 'next/router'
+import { I18NextNS } from '@/constants/i18next'
+import { useTranslation } from 'next-i18next'
+import { translateAndParseHTML } from '@/helpers/i18n'
+
+const PRODUCT_NS = I18NextNS.PRODUCT
+const COMMON_NS = I18NextNS.COMMON
 
 const ProductDetail: FC = () => {
+  const { t } = useTranslation([PRODUCT_NS, COMMON_NS])
   const [amount, setAmount] = useState(1)
   const { query } = useRouter()
   console.log(query)
@@ -61,7 +68,7 @@ const ProductDetail: FC = () => {
     <section className="bg-black xl:pt-44 md:pt-36 pt-15">
       <div className="bg-2--position-y-5 xl:pt-20 pt-15 xl:pb-30 pb-25">
         <h1 className="xl:pb-15 pb-10 xl:text-4xl md:text-3xl text-2xl font-semibold text-primary text-center">
-          สินค้า
+          {translateAndParseHTML(PRODUCT_NS, 'TITLE')}
         </h1>
         <Container>
           <div className="flex flex-col md:flex-row gap-10">
@@ -183,7 +190,7 @@ const ProductDetail: FC = () => {
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale!, ['product', 'common'])),
+      ...(await serverSideTranslations(locale!, [PRODUCT_NS, COMMON_NS])),
     },
   }
 }

@@ -21,6 +21,11 @@
   "ADD_CART_BTN": "",
   "SAVE_BTN": "",
   "CANCEL_BTN": "",
-  "NEXT_BTN": "",
-  "BACK_BTN": ""
+  "NEXT_BTN": "Next",
+  "PREV_BTN": "Previous",
+
+  "EMAIL": "Email",
+  "PASSWORD": "Password",
+  "FORGOT_PASSWORD": "Forgot Password",
+  "DO_HAVE_AN_ACCOUNT": "You do not a member?"
 }

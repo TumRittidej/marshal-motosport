@@ -5,6 +5,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React, { FC } from 'react'
 import LogoImage from '@/assets/logo.png'
+import { useTranslation } from 'next-i18next'
+import { I18NextNS } from '@/constants/i18next'
 
 interface ILoginModalProps {
   className?: string
@@ -14,6 +16,8 @@ interface ILoginModalProps {
   handleCloseModal?: () => void
 }
 
+const COMMON_NS = I18NextNS.COMMON
+
 const LoginModal: FC<ILoginModalProps> = ({
   className = '',
   form,
@@ -21,6 +25,7 @@ const LoginModal: FC<ILoginModalProps> = ({
   isOpenModal,
   handleCloseModal,
 }) => {
+  const { t } = useTranslation(COMMON_NS)
   return (
     <div
       className={`${className} md:absolute md:top-10 md:rounded md:bg-white md:w-70 md:z-102 md:p-4 md:transition md:duration-200 md:transform ${
@@ -36,7 +41,7 @@ const LoginModal: FC<ILoginModalProps> = ({
         <Image src={LogoImage} alt="Marshal Motosport" loading="lazy" />
       </div>
       <h2 className="text-lg text-center md:text-black text-white">
-        เข้าสู่ระบบ
+        {t('LOGIN')}
       </h2>
       <Form
         layout="vertical"
@@ -46,20 +51,20 @@ const LoginModal: FC<ILoginModalProps> = ({
         className="md:w-auto max-w-100 m-auto"
       >
         <Form.Item
-          label={<p className="md:text-black text-white">อีเมล</p>}
+          label={<p className="md:text-black text-white">{t('EMAIL')}</p>}
           name="email"
         >
           <Input type="email" />
         </Form.Item>
         <Form.Item
-          label={<p className="md:text-black text-white">รหัสผ่าน</p>}
+          label={<p className="md:text-black text-white">{t('PASSWORD')}</p>}
           name="password"
         >
           <Input.Password type="password" />
         </Form.Item>
         <Link href="#">
           <a target="_blank" className="underline text-gray-500">
-            <div className="text-right text-xs">ลืมรหัสผ่าน?</div>
+            <div className="text-right text-xs">{t('FORGOT_PASSWORD')}</div>
           </a>
         </Link>
         <div className="text-center pt-4 pb-2">
@@ -68,10 +73,10 @@ const LoginModal: FC<ILoginModalProps> = ({
             htmlType="submit"
             className="text-black hover:text-primary bg-primary hover:bg-transparent duration-200 border border-primary w-full"
           >
-            เข้าสู่ระบบ
+            {t('LOGIN')}
           </Button>
         </div>
-        <div className="relative py-4">
+        {/* <div className="relative py-4">
           <div className="border" />
           <div className="text-gray-500 absolute top-0 left-2/4 bg-white transform -translate-x-2/4 border p-1 w-8 rounded-full">
             หรือ
@@ -92,12 +97,12 @@ const LoginModal: FC<ILoginModalProps> = ({
           >
             เข้าสู่ระบบด้วย Google
           </Button>
-        </div>
+        </div> */}
         <p className="text-xs text-gray-500 text-center pt-3">
           คุณไม่ได้เป็นสมาชิก?{' '}
           <Link href={MS_REGISTER}>
             <a target="_blank" className="underline text-gray-700">
-              สมัครสมาชิก
+              {t('REGISTER')}
             </a>
           </Link>
         </p>

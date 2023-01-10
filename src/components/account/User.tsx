@@ -43,7 +43,7 @@ const User: FC = () => {
           <Col xs={24} sm={12}>
             <Form.Item
               name="email"
-              label={<label className="text-sm">อีเมล</label>}
+              label={<label className="text-sm">อีเมลล์</label>}
               className="form-label--white"
             >
               <Input type="email" />

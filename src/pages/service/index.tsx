@@ -34,8 +34,11 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations.js'
 import { useTranslation } from 'next-i18next'
 import { I18NextNS } from '@/constants/i18next'
 
+const SERVICE_NS = I18NextNS.SERVICE
+const COMMON_NS = I18NextNS.COMMON
+
 const Service: FC = () => {
-  const { t } = useTranslation(I18NextNS.SERVICE)
+  const { t } = useTranslation(SERVICE_NS)
   const ourServiceItems = [
     {
       image: OurServiceImage4,
@@ -242,7 +245,7 @@ const Service: FC = () => {
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale!, ['service', 'common'])),
+      ...(await serverSideTranslations(locale!, [SERVICE_NS, COMMON_NS])),
     },
   }
 }
