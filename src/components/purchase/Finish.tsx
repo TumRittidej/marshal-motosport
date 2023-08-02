@@ -38,6 +38,9 @@ const Finish: FC<IFinishProps> = ({ setStep }) => {
     {
       title: 'สำเร็จ',
     },
+    {
+      title: 'สำเร็จ',
+    },
   ]
   const handlePurchaseModal = () => {
     setIsOpenModal(true)
@@ -116,23 +119,17 @@ const Finish: FC<IFinishProps> = ({ setStep }) => {
         </div>
 
         <Steps
-          responsive={false}
           current={stepStatus}
-          direction={`${
-            breakpoint === 'xs' || breakpoint === 'sm'
-              ? 'vertical'
-              : 'horizontal'
-          }`}
+          direction="vertical"
           labelPlacement="vertical"
           size="small"
-          className="step--order-complete pt-4 px-4 md:px-0"
+          className="step--order-complete pt-4 px-4"
         >
           {steps.map((step, index) => {
             return (
               <Step
                 key={index}
                 title={step.title}
-                className="md:w-1/5 w-fit"
                 icon={
                   <CheckCircleOutlined
                     className={`${

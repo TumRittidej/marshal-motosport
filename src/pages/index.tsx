@@ -1,193 +1,193 @@
-import Container from '@/components/container'
-import type { GetServerSideProps, NextPage } from 'next'
-import Image from 'next/image'
-import { Button, Carousel, Form, Input } from 'antd'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import Container from "@/components/container";
+import type { GetServerSideProps, NextPage } from "next";
+import Image from "next/image";
+import { Button, Carousel, Form, Input } from "antd";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-import HomeBanner1 from '@/assets/img/home/home-banner-1.jpg'
-import HomeBanner2 from '@/assets/img/home/home-banner-2.jpg'
-import HomeBanner3 from '@/assets/img/home/home-banner-3.jpg'
-import HomeBanner4 from '@/assets/img/home/home-banner-4.jpg'
+import HomeBanner1 from "@/assets/img/home/home-banner-1.jpg";
+import HomeBanner2 from "@/assets/img/home/home-banner-2.jpg";
+import HomeBanner3 from "@/assets/img/home/home-banner-3.jpg";
+import HomeBanner4 from "@/assets/img/home/home-banner-4.jpg";
 
-import HomeImage from '@/assets/img/home/home-1.png'
+import HomeImage from "@/assets/img/home/home-1.png";
 
-import ProductImage1 from '@/assets/img/home/product-1.png'
-import ProductImage2 from '@/assets/img/home/product-2.png'
-import ProductImage3 from '@/assets/img/home/product-3.png'
+import ProductImage1 from "@/assets/img/home/product-1.png";
+import ProductImage2 from "@/assets/img/home/product-2.png";
+import ProductImage3 from "@/assets/img/home/product-3.png";
 
-import OurServiceImage1 from '@/assets/img/home/our-service-1.png'
-import OurServiceImage2 from '@/assets/img/home/our-service-2.png'
-import OurServiceImage3 from '@/assets/img/home/our-service-3.png'
-import OurServiceImage4 from '@/assets/img/home/our-service-4.png'
-import OurServiceImage5 from '@/assets/img/home/our-service-5.png'
-import OurServiceImage6 from '@/assets/img/home/our-service-6.png'
-import OurServiceImage7 from '@/assets/img/home/our-service-7.png'
-import OurServiceHoverImage1 from '@/assets/img/home/our-service-hover-1.png'
-import OurServiceHoverImage2 from '@/assets/img/home/our-service-hover-2.png'
-import OurServiceHoverImage3 from '@/assets/img/home/our-service-hover-3.png'
-import OurServiceHoverImage4 from '@/assets/img/home/our-service-hover-4.png'
-import OurServiceHoverImage5 from '@/assets/img/home/our-service-hover-5.png'
-import OurServiceHoverImage6 from '@/assets/img/home/our-service-hover-6.png'
-import OurServiceHoverImage7 from '@/assets/img/home/our-service-hover-7.png'
+import OurServiceImage1 from "@/assets/img/home/our-service-1.png";
+import OurServiceImage2 from "@/assets/img/home/our-service-2.png";
+import OurServiceImage3 from "@/assets/img/home/our-service-3.png";
+import OurServiceImage4 from "@/assets/img/home/our-service-4.png";
+import OurServiceImage5 from "@/assets/img/home/our-service-5.png";
+import OurServiceImage6 from "@/assets/img/home/our-service-6.png";
+import OurServiceImage7 from "@/assets/img/home/our-service-7.png";
+import OurServiceHoverImage1 from "@/assets/img/home/our-service-hover-1.png";
+import OurServiceHoverImage2 from "@/assets/img/home/our-service-hover-2.png";
+import OurServiceHoverImage3 from "@/assets/img/home/our-service-hover-3.png";
+import OurServiceHoverImage4 from "@/assets/img/home/our-service-hover-4.png";
+import OurServiceHoverImage5 from "@/assets/img/home/our-service-hover-5.png";
+import OurServiceHoverImage6 from "@/assets/img/home/our-service-hover-6.png";
+import OurServiceHoverImage7 from "@/assets/img/home/our-service-hover-7.png";
 
-import { translateAndParseHTML } from '@/helpers/i18n'
+import { translateAndParseHTML } from "@/helpers/i18n";
 
-import Link from 'next/link'
-import { ChangeEvent, useState } from 'react'
-import { MS_ABOUT, MS_PRODUCT } from '@/constants/url'
-import { IWorkTogetherRequest } from '@/interface/home'
-import { useTranslation } from 'next-i18next'
-import { I18NextNS } from '@/constants/i18next'
+import Link from "next/link";
+import { ChangeEvent, useState } from "react";
+import { MS_ABOUT, MS_PRODUCT } from "@/constants/url";
+import { IWorkTogetherRequest } from "@/interface/home";
+import { useTranslation } from "next-i18next";
+import { I18NextNS } from "@/constants/i18next";
 
-const HOME_NS = I18NextNS.HOME
-const COMMON_NS = I18NextNS.COMMON
+const HOME_NS = I18NextNS.HOME;
+const COMMON_NS = I18NextNS.COMMON;
 
 const Home: NextPage = () => {
-  const { t } = useTranslation([HOME_NS, COMMON_NS])
+  const { t } = useTranslation([HOME_NS, COMMON_NS]);
   const productItems = [
     {
       id: 1,
       image: ProductImage1,
-      alternative: 'Helmet',
+      alternative: "Helmet",
       paragraph:
-        'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet) AGV (AGV Helmet) AGV (AGV Helmet)',
-      price: '฿ 40,000',
+        "หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet) AGV (AGV Helmet) AGV (AGV Helmet)",
+      price: "฿ 40,000",
     },
     {
       id: 2,
       image: ProductImage2,
-      alternative: 'Helmet',
-      paragraph: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
-      price: '฿ 40,000',
+      alternative: "Helmet",
+      paragraph: "หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)",
+      price: "฿ 40,000",
     },
     {
       id: 3,
       image: ProductImage3,
-      alternative: 'Helmet',
-      paragraph: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
-      price: '฿ 40,000',
+      alternative: "Helmet",
+      paragraph: "หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)",
+      price: "฿ 40,000",
     },
     {
       id: 4,
       image: ProductImage1,
-      alternative: 'Helmet',
-      paragraph: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
-      price: '฿ 40,000',
+      alternative: "Helmet",
+      paragraph: "หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)",
+      price: "฿ 40,000",
     },
     {
       id: 5,
       image: ProductImage1,
-      alternative: 'Helmet',
-      paragraph: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
-      price: '฿ 40,000',
+      alternative: "Helmet",
+      paragraph: "หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)",
+      price: "฿ 40,000",
     },
     {
       id: 6,
       image: ProductImage2,
-      alternative: 'Helmet',
-      paragraph: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
-      price: '฿ 40,000',
+      alternative: "Helmet",
+      paragraph: "หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)",
+      price: "฿ 40,000",
     },
     {
       id: 7,
       image: ProductImage3,
-      alternative: 'Helmet',
-      paragraph: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
-      price: '฿ 40,000',
+      alternative: "Helmet",
+      paragraph: "หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)",
+      price: "฿ 40,000",
     },
     {
       id: 8,
       image: ProductImage1,
-      alternative: 'Helmet',
-      paragraph: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
-      price: '฿ 40,000',
+      alternative: "Helmet",
+      paragraph: "หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)",
+      price: "฿ 40,000",
     },
     {
       id: 9,
       image: ProductImage1,
-      alternative: 'Helmet',
-      paragraph: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
-      price: '฿ 40,000',
+      alternative: "Helmet",
+      paragraph: "หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)",
+      price: "฿ 40,000",
     },
     {
       id: 10,
       image: ProductImage2,
-      alternative: 'Helmet',
-      paragraph: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
-      price: '฿ 40,000',
+      alternative: "Helmet",
+      paragraph: "หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)",
+      price: "฿ 40,000",
     },
     {
       id: 11,
       image: ProductImage3,
-      alternative: 'Helmet',
-      paragraph: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
-      price: '฿ 40,000',
+      alternative: "Helmet",
+      paragraph: "หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)",
+      price: "฿ 40,000",
     },
     {
       id: 12,
       image: ProductImage1,
-      alternative: 'Helmet',
-      paragraph: 'หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)',
-      price: '฿ 40,000',
+      alternative: "Helmet",
+      paragraph: "หมวกกันน็อค AGV (AGV Helmet) AGV (AGV Helmet)",
+      price: "฿ 40,000",
     },
-  ]
+  ];
 
   const ourServiceItems = [
     {
       image: OurServiceImage4,
       imageHover: OurServiceHoverImage4,
-      title: t('TITLE_SERVICE_4'),
-      decsription: t('PARAGRAPH_SERVICE_4'),
+      title: t("TITLE_SERVICE_4"),
+      decsription: t("PARAGRAPH_SERVICE_4"),
     },
     {
       image: OurServiceImage1,
       imageHover: OurServiceHoverImage1,
-      title: t('TITLE_SERVICE_1'),
-      decsription: t('PARAGRAPH_SERVICE_1'),
+      title: t("TITLE_SERVICE_1"),
+      decsription: t("PARAGRAPH_SERVICE_1"),
     },
     {
       image: OurServiceImage6,
       imageHover: OurServiceHoverImage6,
-      title: t('TITLE_SERVICE_6'),
-      decsription: t('PARAGRAPH_SERVICE_6'),
+      title: t("TITLE_SERVICE_6"),
+      decsription: t("PARAGRAPH_SERVICE_6"),
     },
     {
       image: OurServiceImage7,
       imageHover: OurServiceHoverImage7,
-      title: t('TITLE_SERVICE_7'),
-      decsription: t('PARAGRAPH_SERVICE_7'),
+      title: t("TITLE_SERVICE_7"),
+      decsription: t("PARAGRAPH_SERVICE_7"),
     },
     {
       image: OurServiceImage2,
       imageHover: OurServiceHoverImage2,
-      title: t('TITLE_SERVICE_2'),
-      decsription: t('PARAGRAPH_SERVICE_2'),
+      title: t("TITLE_SERVICE_2"),
+      decsription: t("PARAGRAPH_SERVICE_2"),
     },
     {
       image: OurServiceImage3,
       imageHover: OurServiceHoverImage3,
-      title: t('TITLE_SERVICE_3'),
-      decsription: t('PARAGRAPH_SERVICE_3'),
+      title: t("TITLE_SERVICE_3"),
+      decsription: t("PARAGRAPH_SERVICE_3"),
     },
     {
       image: OurServiceImage5,
       imageHover: OurServiceHoverImage5,
-      title: t('TITLE_SERVICE_5'),
-      decsription: t('PARAGRAPH_SERVICE_5'),
+      title: t("TITLE_SERVICE_5"),
+      decsription: t("PARAGRAPH_SERVICE_5"),
     },
-  ]
+  ];
 
-  const [form] = Form.useForm<IWorkTogetherRequest>()
-  const [fileName, setFileName] = useState('')
+  const [form] = Form.useForm<IWorkTogetherRequest>();
+  const [fileName, setFileName] = useState("");
 
   const handleSubmit = (value: IWorkTogetherRequest) => {
     // console.log(value)
-  }
+  };
   const handleChangeUpload = (e: ChangeEvent<HTMLInputElement>) => {
-    const files = e.target.files
-    if (!files?.length) return
-    setFileName(files[0].name)
-  }
+    const files = e.target.files;
+    if (!files?.length) return;
+    setFileName(files[0].name);
+  };
   return (
     <section className="xl:pt-44 md:pt-36 pt-15 bg-black">
       <div className="relative">
@@ -199,7 +199,7 @@ const Home: NextPage = () => {
             MARSHAL MOTORSPORT
           </h1>
           <p className="text-white xl:text-2xl md:text-xl text-lg">
-            {t('DESCRIPTION')}
+            {t("DESCRIPTION")}
           </p>
         </div>
         <Carousel autoplay className="h-[625px]" effect="fade">
@@ -245,7 +245,7 @@ const Home: NextPage = () => {
         <Container>
           <div className="pt-15 xl:pb-30 md:pb-25 pb-15 md:gap-12 gap-6 flex flex-col md:flex-row md:text-left items-center text-center">
             <h1 className="text-2xl font-semibold text-white block pb-6 md:hidden">
-              {translateAndParseHTML(HOME_NS, 'HEADING_MARSHAL')}
+              {translateAndParseHTML(HOME_NS, "HEADING_MARSHAL")}
             </h1>
             <div
               className="sm:w-2/4 w-full mx-auto sm:mx-0"
@@ -260,10 +260,10 @@ const Home: NextPage = () => {
             </div>
             <div className="md:w-2/4 sm:w-3/4 w-full mx-auto">
               <h1 className="xl:text-4xl md:text-3xl font-semibold text-white hidden md:block">
-                {translateAndParseHTML(HOME_NS, 'HEADING_MARSHAL')}
+                {translateAndParseHTML(HOME_NS, "HEADING_MARSHAL")}
               </h1>
               <p className="pt-4 md:pt-2 xl:text-lg text-base text-white">
-                {t('PARAGRAPH_MARSHAL')}
+                {t("PARAGRAPH_MARSHAL")}
               </p>
               <div className="pt-8">
                 <Button
@@ -290,13 +290,14 @@ const Home: NextPage = () => {
                 <div key={index} className="group cursor-pointer">
                   <Link href={`${MS_PRODUCT}/${product.id}`}>
                     <a>
-                      <div className="relative">
+                      <div className="relative aspect-w-1 aspect-h-1">
                         <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 z-1 transition duration-200" />
                         <Image
                           src={product.image}
                           alt={product.alternative}
                           layout="responsive"
                           loading="lazy"
+                          objectFit="cover"
                         />
                       </div>
                       <div className="text-primary text-center">
@@ -316,7 +317,7 @@ const Home: NextPage = () => {
                     </a>
                   </Link>
                 </div>
-              )
+              );
             })}
           </div>
           <div className="pt-15 text-center">
@@ -361,7 +362,7 @@ const Home: NextPage = () => {
                     {service.decsription}
                   </p>
                 </div>
-              )
+              );
             })}
           </div>
         </Container>
@@ -370,17 +371,17 @@ const Home: NextPage = () => {
         className="xl:pt-45 md:pt-35 pt-20 md:pb-10 pb-6 xl:text-4xl md:text-3xl text-2xl font-semibold text-white text-center"
         id="section-contact"
       >
-        {translateAndParseHTML(HOME_NS, 'HEADING_CONTACT')}
+        {translateAndParseHTML(HOME_NS, "HEADING_CONTACT")}
       </h1>
       <div className="bg-primary pt-6 md:pt-10 pb-20">
         <Container>
           <div className="flex flex-col md:flex-row gap-12">
             <div className="md:w-2/4 pt-8 md:pt-0 w-full text-center">
               <h3 className="xl:text-2xl text-xl font-medium pb-4 md:text-left text-center">
-                {t('HEADING_ADDRESS_SHOP')}
+                {t("HEADING_ADDRESS_SHOP")}
               </h3>
               <p className="xl:text-lg text-base font-semibold pb-4 md:text-left text-center">
-                {t('TRAVEL')}
+                {t("TRAVEL")}
               </p>
               <iframe
                 className="xl:h-[450px] xl:w-[600px] lg:w-[500px] h-[350px] md:w-[450px] w-full"
@@ -391,26 +392,26 @@ const Home: NextPage = () => {
                 <li className="flex text-left gap-4 pb-3">
                   <i className="icon-location-mark xl:text-3xl md:text-2xl text-xl" />
                   <p className="xl:text-base text-sm">
-                    <b>{t('HEADING_TRAVEL_1')}</b> {t('PARAGRAPH_TRAVEL_1')}
+                    <b>{t("HEADING_TRAVEL_1")}</b> {t("PARAGRAPH_TRAVEL_1")}
                   </p>
                 </li>
                 <li className="flex text-left gap-4 pb-3">
                   <i className="icon-location-mark xl:text-3xl md:text-2xl text-xl" />
                   <p className="xl:text-base text-sm">
-                    <b>{t('HEADING_TRAVEL_2')}</b> {t('PARAGRAPH_TRAVEL_2')}
+                    <b>{t("HEADING_TRAVEL_2")}</b> {t("PARAGRAPH_TRAVEL_2")}
                   </p>
                 </li>
                 <li className="flex text-left gap-4">
                   <i className="icon-location-mark xl:text-3xl md:text-2xl text-xl" />
                   <p className="xl:text-base text-sm">
-                    <b>{t('HEADING_TRAVEL_3')}</b> {t('PARAGRAPH_TRAVEL_3')}
+                    <b>{t("HEADING_TRAVEL_3")}</b> {t("PARAGRAPH_TRAVEL_3")}
                   </p>
                 </li>
               </ul>
             </div>
             <div className="md:w-2/4 sm:w-3/4 w-full mx-auto text-center md:text-left">
               <h3 className="xl:text-2xl text-xl font-medium">
-                {t('SUBHEADING_CONTACT')}
+                {t("SUBHEADING_CONTACT")}
               </h3>
               <Form
                 layout="vertical"
@@ -422,7 +423,7 @@ const Home: NextPage = () => {
                 <Form.Item
                   name="position"
                   label={
-                    <label className="text-sm">{t('LABEL_POSITION')}</label>
+                    <label className="text-sm">{t("LABEL_POSITION")}</label>
                   }
                 >
                   <Input type="text" />
@@ -430,7 +431,7 @@ const Home: NextPage = () => {
                 <Form.Item
                   name="firstName"
                   label={
-                    <label className="text-sm">{t('LABEL_FIRSTNAME')}</label>
+                    <label className="text-sm">{t("LABEL_FIRSTNAME")}</label>
                   }
                 >
                   <Input type="text" />
@@ -438,27 +439,27 @@ const Home: NextPage = () => {
                 <Form.Item
                   name="lastName"
                   label={
-                    <label className="text-sm">{t('LABEL_LASTNAME')}</label>
+                    <label className="text-sm">{t("LABEL_LASTNAME")}</label>
                   }
                 >
                   <Input type="text" />
                 </Form.Item>
                 <Form.Item
                   name="phone"
-                  label={<label className="text-sm">{t('LABEL_PHONE')}</label>}
+                  label={<label className="text-sm">{t("LABEL_PHONE")}</label>}
                 >
                   <Input type="tel" />
                 </Form.Item>
                 <Form.Item
                   name="email"
-                  label={<label className="text-sm">{t('LABEL_EMAIL')}</label>}
+                  label={<label className="text-sm">{t("LABEL_EMAIL")}</label>}
                 >
                   <Input type="email" />
                 </Form.Item>
                 <Form.Item
                   name="experience"
                   label={
-                    <label className="text-sm">{t('LABEL_EXPERIENCE')}</label>
+                    <label className="text-sm">{t("LABEL_EXPERIENCE")}</label>
                   }
                   className="relative"
                 >
@@ -469,7 +470,7 @@ const Home: NextPage = () => {
                     onChange={(e) => handleChangeUpload(e)}
                   />
                   <div className="text-xs text-center text-gray-500 border border-gray-500 border-dashed py-4 bg-white rounded-sm">
-                    {fileName ? fileName : t('REMAKE_EXPERIENCE')}
+                    {fileName ? fileName : t("REMAKE_EXPERIENCE")}
                   </div>
                 </Form.Item>
                 <Form.Item
@@ -497,14 +498,14 @@ const Home: NextPage = () => {
         </Container>
       </div>
     </section>
-  )
-}
+  );
+};
 
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
   return {
     props: {
       ...(await serverSideTranslations(locale!, [HOME_NS, COMMON_NS])),
     },
-  }
-}
-export default Home
+  };
+};
+export default Home;

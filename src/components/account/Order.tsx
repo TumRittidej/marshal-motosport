@@ -65,6 +65,9 @@ const Order: FC = () => {
     {
       title: 'สำเร็จ',
     },
+    {
+      title: 'สำเร็จ',
+    },
   ]
 
   const handleOpenModal = () => {
@@ -214,11 +217,7 @@ const Order: FC = () => {
           return (
             <div
               key={index}
-              className={`border border-white p-4 mb-4 mt-6 rounded-md transition-all duration-300 bg-black ${
-                rotateArrowMoreBtn === order.id
-                  ? 'max-h-999'
-                  : 'sm:max-h-[216px] max-h-[230px]'
-              }`}
+              className={`border border-white p-4 mb-4 mt-6 rounded-md transition-all duration-300 bg-black`}
             >
               <div className="flex justify-between">
                 <div className="text-white xl:text-base sm:text-sm text-[13px] font-light sm:font-normal">
@@ -290,7 +289,7 @@ const Order: FC = () => {
               </div>
               <div
                 className={`pt-4 transition-all duration-200 xl:text-base text-sm ${
-                  rotateArrowMoreBtn === order.id ? 'visible' : 'invisible'
+                  rotateArrowMoreBtn === order.id ? 'visible max-h-999' : 'invisible max-h-0'
                 } `}
               >
                 <div className="border border-white opacity-20 mb-4" />
@@ -331,9 +330,7 @@ const Order: FC = () => {
                 </h2>
                 <Steps
                   current={order.stepStatus}
-                  direction={`${
-                    windowWidth <= 600 ? 'vertical' : 'horizontal'
-                  }`}
+                  direction="vertical"
                   labelPlacement="vertical"
                   size="small"
                   className="step--order-complete pt-4"
@@ -341,7 +338,6 @@ const Order: FC = () => {
                   {steps.map((step, index) => {
                     return (
                       <Step
-                        className="sm:w-1/5 w-full"
                         key={index}
                         title={
                           <label className="font-light sm:font-normal">

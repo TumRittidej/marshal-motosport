@@ -130,7 +130,7 @@ const Purchase: FC = () => {
                   สรุปคำสั่งซื้อ
                 </h3>
                 <div className="border border-black opacity-20 my-4" />
-                <div className="sm:h-150 h-120 pr-2 overflow-auto">
+                <div className="md:h-150 h-120 pr-2 overflow-auto">
                   {productInCart.map((product, index) => {
                     return (
                       <div key={index} className="pb-4 last:pb-0">

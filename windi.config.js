@@ -1,6 +1,7 @@
 import { defineConfig } from 'windicss/helpers'
 import { colors } from './src/constants/colors'
 import { breakpointPixel } from './src/constants/breakpointPixel'
+import aspectRatio from 'windicss/plugin/aspect-ratio'
 
 export default defineConfig({
   attributify: true,
@@ -20,5 +21,5 @@ export default defineConfig({
     },
   },
   important: true,
-  plugins: [require('windicss/plugin/line-clamp')],
+  plugins: [require('windicss/plugin/line-clamp'), aspectRatio],
 })

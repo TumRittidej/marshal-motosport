@@ -226,6 +226,222 @@ const Product: FC = () => {
     {
       category: t('PRODUCT_ITEM_4'),
     },
+    {
+      category: t('PRODUCT_ITEM_2'),
+    },
+    {
+      category: t('PRODUCT_ITEM_3'),
+    },
+    {
+      category: t('PRODUCT_ITEM_4'),
+    },
+    {
+      category: t('PRODUCT_ITEM_2'),
+    },
+    {
+      category: t('PRODUCT_ITEM_3'),
+    },
+    {
+      category: t('PRODUCT_ITEM_4'),
+    },
+    {
+      category: t('PRODUCT_ITEM_2'),
+    },
+    {
+      category: t('PRODUCT_ITEM_3'),
+    },
+    {
+      category: t('PRODUCT_ITEM_4'),
+    },
+    {
+      category: t('PRODUCT_ITEM_2'),
+    },
+    {
+      category: t('PRODUCT_ITEM_3'),
+    },
+    {
+      category: t('PRODUCT_ITEM_4'),
+    },
+    {
+      category: t('PRODUCT_ITEM_2'),
+    },
+    {
+      category: t('PRODUCT_ITEM_3'),
+    },
+    {
+      category: t('PRODUCT_ITEM_4'),
+    },
+    {
+      category: t('PRODUCT_ITEM_2'),
+    },
+    {
+      category: t('PRODUCT_ITEM_3'),
+    },
+    {
+      category: t('PRODUCT_ITEM_4'),
+    },
+    {
+      category: t('PRODUCT_ITEM_2'),
+    },
+    {
+      category: t('PRODUCT_ITEM_3'),
+    },
+    {
+      category: t('PRODUCT_ITEM_4'),
+    },
+    {
+      category: t('PRODUCT_ITEM_2'),
+    },
+    {
+      category: t('PRODUCT_ITEM_3'),
+    },
+    {
+      category: t('PRODUCT_ITEM_4'),
+    },
+    {
+      category: t('PRODUCT_ITEM_2'),
+    },
+    {
+      category: t('PRODUCT_ITEM_3'),
+    },
+    {
+      category: t('PRODUCT_ITEM_4'),
+    },
+    {
+      category: t('PRODUCT_ITEM_2'),
+    },
+    {
+      category: t('PRODUCT_ITEM_3'),
+    },
+    {
+      category: t('PRODUCT_ITEM_4'),
+    },
+    {
+      category: t('PRODUCT_ITEM_2'),
+    },
+    {
+      category: t('PRODUCT_ITEM_3'),
+    },
+    {
+      category: t('PRODUCT_ITEM_4'),
+    },
+    {
+      category: t('PRODUCT_ITEM_2'),
+    },
+    {
+      category: t('PRODUCT_ITEM_3'),
+    },
+    {
+      category: t('PRODUCT_ITEM_4'),
+    },
+    {
+      category: t('PRODUCT_ITEM_2'),
+    },
+    {
+      category: t('PRODUCT_ITEM_3'),
+    },
+    {
+      category: t('PRODUCT_ITEM_4'),
+    },
+    {
+      category: t('PRODUCT_ITEM_2'),
+    },
+    {
+      category: t('PRODUCT_ITEM_3'),
+    },
+    {
+      category: t('PRODUCT_ITEM_4'),
+    },
+    {
+      category: t('PRODUCT_ITEM_2'),
+    },
+    {
+      category: t('PRODUCT_ITEM_3'),
+    },
+    {
+      category: t('PRODUCT_ITEM_4'),
+    },
+    {
+      category: t('PRODUCT_ITEM_2'),
+    },
+    {
+      category: t('PRODUCT_ITEM_3'),
+    },
+    {
+      category: t('PRODUCT_ITEM_4'),
+    },
+    {
+      category: t('PRODUCT_ITEM_2'),
+    },
+    {
+      category: t('PRODUCT_ITEM_3'),
+    },
+    {
+      category: t('PRODUCT_ITEM_4'),
+    },
+    {
+      category: t('PRODUCT_ITEM_2'),
+    },
+    {
+      category: t('PRODUCT_ITEM_3'),
+    },
+    {
+      category: t('PRODUCT_ITEM_4'),
+    },
+    {
+      category: t('PRODUCT_ITEM_2'),
+    },
+    {
+      category: t('PRODUCT_ITEM_3'),
+    },
+    {
+      category: t('PRODUCT_ITEM_4'),
+    },
+    {
+      category: t('PRODUCT_ITEM_2'),
+    },
+    {
+      category: t('PRODUCT_ITEM_3'),
+    },
+    {
+      category: t('PRODUCT_ITEM_4'),
+    },
+    {
+      category: t('PRODUCT_ITEM_2'),
+    },
+    {
+      category: t('PRODUCT_ITEM_3'),
+    },
+    {
+      category: t('PRODUCT_ITEM_4'),
+    },
+    {
+      category: t('PRODUCT_ITEM_2'),
+    },
+    {
+      category: t('PRODUCT_ITEM_3'),
+    },
+    {
+      category: t('PRODUCT_ITEM_4'),
+    },
+    {
+      category: t('PRODUCT_ITEM_2'),
+    },
+    {
+      category: t('PRODUCT_ITEM_3'),
+    },
+    {
+      category: t('PRODUCT_ITEM_4'),
+    },
+    {
+      category: t('PRODUCT_ITEM_2'),
+    },
+    {
+      category: t('PRODUCT_ITEM_3'),
+    },
+    {
+      category: t('PRODUCT_ITEM_4'),
+    },
   ]
 
   // const [product, setProduct] = useState(products)
@@ -260,66 +476,68 @@ const Product: FC = () => {
                 {translateAndParseHTML(PRODUCT_NS, 'ALL_PRODUCT_PRI')}
               </h3>
               <div className="border border-white opacity-20 mt-2 mb-4" />
-              {products.map((product, index) => {
-                return (
-                  <div
-                    key={index}
-                    className={`xl:text-base text-sm overflow-hidden transition-all duration-300 mb-4 last:mb-0
-                    ${
-                      selectCategory === product.category
-                        ? 'max-h-[999px]'
-                        : 'max-h-[22px]'
-                    }
-                    `}
-                  >
-                    <button
-                      onClick={() => handleExpandCategory(product.category)}
-                      className={`group
+              <div className='overflow-auto max-h-[70vh]'>
+                {products.map((product, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className={`xl:text-base text-sm overflow-hidden transition-all duration-300 mb-4 last:mb-0
                       ${
                         selectCategory === product.category
-                          ? 'text-primary'
-                          : 'text-white'
+                          ? 'max-h-[999px]'
+                          : 'max-h-[22px]'
                       }
                       `}
                     >
-                      <span className="pl-2 group-hover:text-primary transition-all duration-300">
-                        - {product.category}
-                      </span>
-                      {product.lists && product.lists?.length > 0 && (
-                        <DownOutlined
-                          className={`transform ml-2 text-xs group-hover:text-primary transition-all duration-300
+                      <button
+                        onClick={() => handleExpandCategory(product.category)}
+                        className={`group
                         ${
-                          selectCategory === product.category && product.lists
-                            ? 'rotate-180 -translate-y-1'
-                            : 'rotate-0'
+                          selectCategory === product.category
+                            ? 'text-primary'
+                            : 'text-white'
                         }
                         `}
-                        />
+                      >
+                        <span className="pl-2 group-hover:text-primary transition-all duration-300">
+                          - {product.category}
+                        </span>
+                        {product.lists && product.lists?.length > 0 && (
+                          <DownOutlined
+                            className={`transform ml-2 text-xs group-hover:text-primary transition-all duration-300
+                          ${
+                            selectCategory === product.category && product.lists
+                              ? 'rotate-180 -translate-y-1'
+                              : 'rotate-0'
+                          }
+                          `}
+                          />
+                        )}
+                      </button>
+                      {product.lists && product.lists.length > 0 && (
+                        <ul className="pl-4">
+                          {product.lists?.map((list, index) => {
+                            return (
+                              <li
+                                key={index}
+                                className={`pb-2 first:pt-2 hover:text-primary transition-all duration-300 cursor-pointer text-white ${
+                                  selectProduct === list.id
+                                    ? 'text-primary'
+                                    : 'text-white'
+                                }`}
+                                onClick={() => handleFilterProduct(list.id)}
+                              >
+                                <CaretRightOutlined className="mr-2" />
+                                {list.name}
+                              </li>
+                            )
+                          })}
+                        </ul>
                       )}
-                    </button>
-                    {product.lists && product.lists.length > 0 && (
-                      <ul className="pl-4">
-                        {product.lists?.map((list, index) => {
-                          return (
-                            <li
-                              key={index}
-                              className={`pb-2 first:pt-2 hover:text-primary transition-all duration-300 cursor-pointer text-white ${
-                                selectProduct === list.id
-                                  ? 'text-primary'
-                                  : 'text-white'
-                              }`}
-                              onClick={() => handleFilterProduct(list.id)}
-                            >
-                              <CaretRightOutlined className="mr-2" />
-                              {list.name}
-                            </li>
-                          )
-                        })}
-                      </ul>
-                    )}
-                  </div>
-                )
-              })}
+                    </div>
+                  )
+                })}
+              </div>
             </div>
             <div className="md:w-3/4 w-full">
               <h1 className="xl:pb-15 pb-10 xl:text-4xl text-3xl font-semibold text-primary text-center">
@@ -349,26 +567,48 @@ const Product: FC = () => {
                   </button>
                 )}
 
-                <Dropdown
-                  overlay={menu}
-                  trigger={['click']}
-                  className="border border-white xl:px-3 xl:py-2 px-2 py-1 rounded"
-                  onOpenChange={(open) => setRotateArrow(open)}
-                >
-                  <a
-                    onClick={() => setRotateArrow(!rotateArrow)}
-                    className="text-white text-base"
+                <div className='flex gap-4'>
+                  <Dropdown
+                    overlay={menu}
+                    trigger={['click']}
+                    className="border border-white xl:px-3 xl:py-2 px-2 py-1 rounded"
+                    onOpenChange={(open) => setRotateArrow(open)}
                   >
-                    <Space className="xl:gap-8 gap-6">
-                      <p className="xl:text-base text-sm">{t('SORT_BY')}</p>
-                      <DownOutlined
-                        className={`text-xs transform transition duration-300 ${
-                          rotateArrow ? 'rotate-180 -translate-y-1' : 'rotate-0'
-                        }`}
-                      />
-                    </Space>
-                  </a>
-                </Dropdown>
+                    <a
+                      onClick={() => setRotateArrow(!rotateArrow)}
+                      className="text-white text-base"
+                    >
+                      <Space className="xl:gap-8 gap-6">
+                        <p className="xl:text-base text-sm">{t('SORT_BY')}</p>
+                        <DownOutlined
+                          className={`text-xs transform transition duration-300 ${
+                            rotateArrow ? 'rotate-180 -translate-y-1' : 'rotate-0'
+                          }`}
+                        />
+                      </Space>
+                    </a>
+                  </Dropdown>
+                  <Dropdown
+                    overlay={menu}
+                    trigger={['click']}
+                    className="border border-white xl:px-3 xl:py-2 px-2 py-1 rounded"
+                    onOpenChange={(open) => setRotateArrow(open)}
+                  >
+                    <a
+                      onClick={() => setRotateArrow(!rotateArrow)}
+                      className="text-white text-base"
+                    >
+                      <Space className="xl:gap-8 gap-6">
+                        <p className="xl:text-base text-sm">{t('SORT_BY')}</p>
+                        <DownOutlined
+                          className={`text-xs transform transition duration-300 ${
+                            rotateArrow ? 'rotate-180 -translate-y-1' : 'rotate-0'
+                          }`}
+                        />
+                      </Space>
+                    </a>
+                  </Dropdown>
+                </div>
               </div>
               <div className="pt-8 grid sm:grid-cols-3 grid-cols-2 md:gap-x-8 md:gap-y-6 gap-4">
                 {productItems.map((product, index) => {
@@ -376,13 +616,14 @@ const Product: FC = () => {
                     <div key={index} className="group cursor-pointer">
                       <Link href={`${MS_PRODUCT}/${product.id}`}>
                         <a>
-                          <div className="relative">
+                          <div className="relative aspect-w-1 aspect-h-1">
                             <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 z-1 transition duration-200" />
                             <Image
                               src={product.image}
                               alt={product.alternative}
                               layout="responsive"
                               loading="lazy"
+                              objectFit='cover'
                             />
                           </div>
                           <div className="text-primary text-center">
@@ -422,11 +663,11 @@ const Product: FC = () => {
       </div>
       <div className="md:hidden block">
         <Drawer isOpenDrawer={isOpenDrawer} setIsOpenDrawer={setIsOpenDrawer}>
-          <div className="pt-8">
-            <h3 className="text-white xl:text-lg text-base">
-              {translateAndParseHTML(PRODUCT_NS, 'ALL_PRODUCT_PRI')}
-            </h3>
-            <div className="border border-white opacity-20 mt-2 mb-4" />
+          <h3 className="text-white xl:text-lg text-base pt-8">
+            {translateAndParseHTML(PRODUCT_NS, 'ALL_PRODUCT_PRI')}
+          </h3>
+          <div className="border border-white opacity-20 mt-2 mb-4" />
+          <div className='overflow-auto max-h-[60vh]'>
             {products.map((product, index) => {
               return (
                 <div
